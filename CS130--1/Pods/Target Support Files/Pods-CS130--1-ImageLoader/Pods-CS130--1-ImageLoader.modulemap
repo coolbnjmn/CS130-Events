@@ -1,0 +1,6 @@
+framework module ImageLoader {
+  umbrella header "Pods-CS130--1-ImageLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}

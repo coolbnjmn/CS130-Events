@@ -1,0 +1,10 @@
+PODS:
+  - ImageLoader (0.2.2)
+
+DEPENDENCIES:
+  - ImageLoader (~> 0.2.0)
+
+SPEC CHECKSUMS:
+  ImageLoader: 96a7dfb9844de2b034c351ebc4576cd3dd0dc657
+
+COCOAPODS: 0.36.1
