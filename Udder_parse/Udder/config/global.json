@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "Udder": {
+      "applicationId": "sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb",
+      "masterKey": "AYmDrRvnlsZBHVAtFe0CuHwje2Tp63pBFDk9xTbz"
+    },
+    "_default": {
+      "link": "Udder"
+    }
+  }
+}
