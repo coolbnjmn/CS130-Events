@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		B25560A21AE19A0900EBEE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25560A11AE19A0900EBEE8B /* ViewController.swift */; };
 		B25560A51AE19A0900EBEE8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25560A31AE19A0900EBEE8B /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 		B25F15AE1AE19DDD00BE181B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15AD1AE19DDD00BE181B /* Social.framework */; };
 		B25F15B01AE19DED00BE181B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15AF1AE19DED00BE181B /* AVFoundation.framework */; };
 		B25F15B21AE19F0800BE181B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */; };
+		B29CC9651AE1A6B40035213D /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */; };
+		B29CC9661AE1A6B40035213D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9641AE1A6B40035213D /* libstdc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,11 @@
 		B25F15AD1AE19DDD00BE181B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B25F15AF1AE19DED00BE181B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		B29CC9641AE1A6B40035213D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UdderBridgingHeader.h; sourceTree = "<group>"; };
+		B3B33F21B4DA105929A47308 /* libPods-Udder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B29CC9651AE1A6B40035213D /* libstdc++.6.0.9.dylib in Frameworks */,
+				B29CC9661AE1A6B40035213D /* libstdc++.dylib in Frameworks */,
 				B25F15B21AE19F0800BE181B /* SystemConfiguration.framework in Frameworks */,
 				B25F15B01AE19DED00BE181B /* AVFoundation.framework in Frameworks */,
 				B25F15AE1AE19DDD00BE181B /* Social.framework in Frameworks */,
@@ -91,6 +102,7 @@
 				B25F159C1AE19D4D00BE181B /* ParseCrashReporting.framework in Frameworks */,
 				B25F159D1AE19D4D00BE181B /* ParseFacebookUtils.framework in Frameworks */,
 				B25F159E1AE19D4D00BE181B /* ParseUI.framework in Frameworks */,
+				9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2076E36EEDF9568A3E9DF7E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */,
+				1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B25560911AE19A0900EBEE8B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +132,7 @@
 				B255609C1AE19A0900EBEE8B /* Udder */,
 				B25560B21AE19A0900EBEE8B /* UdderTests */,
 				B255609B1AE19A0900EBEE8B /* Products */,
+				2076E36EEDF9568A3E9DF7E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +148,7 @@
 		B255609C1AE19A0900EBEE8B /* Udder */ = {
 			isa = PBXGroup;
 			children = (
+				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
 				B25560A11AE19A0900EBEE8B /* ViewController.swift */,
 				B25560A31AE19A0900EBEE8B /* Main.storyboard */,
@@ -164,6 +187,8 @@
 		B25F15B31AE19F2E00BE181B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */,
+				B29CC9641AE1A6B40035213D /* libstdc++.dylib */,
 				B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */,
 				B25F15AF1AE19DED00BE181B /* AVFoundation.framework */,
 				B25F15AD1AE19DDD00BE181B /* Social.framework */,
@@ -180,6 +205,7 @@
 				B25F15961AE19D4D00BE181B /* ParseCrashReporting.framework */,
 				B25F15971AE19D4D00BE181B /* ParseFacebookUtils.framework */,
 				B25F15981AE19D4D00BE181B /* ParseUI.framework */,
+				B3B33F21B4DA105929A47308 /* libPods-Udder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B25560B91AE19A0900EBEE8B /* Build configuration list for PBXNativeTarget "Udder" */;
 			buildPhases = (
+				A94C10CB7DC47FF52A7AA841 /* Check Pods Manifest.lock */,
 				B25560961AE19A0900EBEE8B /* Sources */,
 				B25560971AE19A0900EBEE8B /* Frameworks */,
 				B25560981AE19A0900EBEE8B /* Resources */,
+				6ECDDE84E2844588B09E692D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +306,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6ECDDE84E2844588B09E692D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udder/Pods-Udder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A94C10CB7DC47FF52A7AA841 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B25560961AE19A0900EBEE8B /* Sources */ = {
@@ -410,31 +471,45 @@
 		};
 		B25560BA1AE19A0900EBEE8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/MFSideMenu\"",
+				);
 				INFOPLIST_FILE = Udder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Udder/UdderBridgingHeader.h";
 			};
 			name = Debug;
 		};
 		B25560BB1AE19A0900EBEE8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/MFSideMenu\"",
+				);
 				INFOPLIST_FILE = Udder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Udder/UdderBridgingHeader.h";
 			};
 			name = Release;
 		};

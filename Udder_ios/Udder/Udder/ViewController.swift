@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tapHereButton: UIButton!
+    
+    @IBAction func tapHereWasPressed(sender: AnyObject) {
+        println("here")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.tapHereButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
     }
 
     override func didReceiveMemoryWarning() {

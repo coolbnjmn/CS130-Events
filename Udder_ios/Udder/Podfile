@@ -3,6 +3,8 @@
 
 target 'Udder' do
 
+pod 'MFSideMenu'
+
 end
 
 target 'UdderTests' do
