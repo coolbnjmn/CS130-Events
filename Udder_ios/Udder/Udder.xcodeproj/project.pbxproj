@@ -10,7 +10,6 @@
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		B25560A21AE19A0900EBEE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25560A11AE19A0900EBEE8B /* ViewController.swift */; };
-		B25560A51AE19A0900EBEE8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25560A31AE19A0900EBEE8B /* Main.storyboard */; };
 		B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25560A61AE19A0900EBEE8B /* Images.xcassets */; };
 		B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */; };
 		B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25560B51AE19A0900EBEE8B /* UdderTests.swift */; };
@@ -32,6 +31,9 @@
 		B25F15B21AE19F0800BE181B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */; };
 		B29CC9651AE1A6B40035213D /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */; };
 		B29CC9661AE1A6B40035213D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9641AE1A6B40035213D /* libstdc++.dylib */; };
+		B29CC9691AE1C4650035213D /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC9671AE1C4650035213D /* SideMenuViewController.swift */; };
+		B29CC96A1AE1C4650035213D /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29CC9681AE1C4650035213D /* SideMenuViewController.xib */; };
+		B29CC96C1AE1C7270035213D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29CC96B1AE1C7270035213D /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,6 @@
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B25560A11AE19A0900EBEE8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B25560A41AE19A0900EBEE8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B25560A61AE19A0900EBEE8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B25560A91AE19A0900EBEE8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B25560AF1AE19A0900EBEE8B /* UdderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UdderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +75,9 @@
 		B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		B29CC9641AE1A6B40035213D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		B29CC9671AE1C4650035213D /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		B29CC9681AE1C4650035213D /* SideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
+		B29CC96B1AE1C7270035213D /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UdderBridgingHeader.h; sourceTree = "<group>"; };
 		B3B33F21B4DA105929A47308 /* libPods-Udder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,8 +154,10 @@
 			children = (
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
+				B29CC9671AE1C4650035213D /* SideMenuViewController.swift */,
+				B29CC9681AE1C4650035213D /* SideMenuViewController.xib */,
 				B25560A11AE19A0900EBEE8B /* ViewController.swift */,
-				B25560A31AE19A0900EBEE8B /* Main.storyboard */,
+				B29CC96B1AE1C7270035213D /* ViewController.xib */,
 				B25560A61AE19A0900EBEE8B /* Images.xcassets */,
 				B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */,
 				B255609D1AE19A0900EBEE8B /* Supporting Files */,
@@ -292,9 +298,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B25560A51AE19A0900EBEE8B /* Main.storyboard in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
+				B29CC96C1AE1C7270035213D /* ViewController.xib in Resources */,
+				B29CC96A1AE1C4650035213D /* SideMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25560A21AE19A0900EBEE8B /* ViewController.swift in Sources */,
+				B29CC9691AE1C4650035213D /* SideMenuViewController.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,14 +377,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B25560A31AE19A0900EBEE8B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B25560A41AE19A0900EBEE8B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -18,7 +18,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
+        /*
+self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
+SideMenuViewController *rightMenuViewController = [[SideMenuViewController alloc] init];
+MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+containerWithCenterViewController:[self navigationController]
+leftMenuViewController:leftMenuViewController
+rightMenuViewController:rightMenuViewController];
+self.window.rootViewController = container;
+[self.window makeKeyAndVisible];
+
+
+*/
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+        let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+        
+        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        
+        self.window!.rootViewController = container
+        self.window!.makeKeyAndVisible()
         return true
     }
 
