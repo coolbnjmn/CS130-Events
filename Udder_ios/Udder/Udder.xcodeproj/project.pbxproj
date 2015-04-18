@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7F7FCA91AE1D99700293A0B /* TempView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F7FCA81AE1D99700293A0B /* TempView.xib */; };
+		A7F7FCAB1AE1D9F800293A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7FCAA1AE1D9F800293A0B /* ViewController.swift */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
-		B25560A21AE19A0900EBEE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25560A11AE19A0900EBEE8B /* ViewController.swift */; };
 		B25560A51AE19A0900EBEE8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25560A31AE19A0900EBEE8B /* Main.storyboard */; };
 		B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25560A61AE19A0900EBEE8B /* Images.xcassets */; };
 		B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */; };
@@ -42,10 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7F7FCA81AE1D99700293A0B /* TempView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TempView.xib; path = Views/TempView.xib; sourceTree = "<group>"; };
+		A7F7FCAA1AE1D9F800293A0B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B25560A11AE19A0900EBEE8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B25560A41AE19A0900EBEE8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B25560A61AE19A0900EBEE8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B25560A91AE19A0900EBEE8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -104,6 +106,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7F7FCA61AE1D94500293A0B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7F7FCAA1AE1D9F800293A0B /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A7F7FCA71AE1D95500293A0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7F7FCA81AE1D99700293A0B /* TempView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B25560911AE19A0900EBEE8B = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
-				B25560A11AE19A0900EBEE8B /* ViewController.swift */,
+				A7F7FCA61AE1D94500293A0B /* ViewControllers */,
+				A7F7FCA71AE1D95500293A0B /* Views */,
 				B25560A31AE19A0900EBEE8B /* Main.storyboard */,
 				B25560A61AE19A0900EBEE8B /* Images.xcassets */,
 				B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */,
@@ -264,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F7FCA91AE1D99700293A0B /* TempView.xib in Resources */,
 				B25560A51AE19A0900EBEE8B /* Main.storyboard in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
@@ -284,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B25560A21AE19A0900EBEE8B /* ViewController.swift in Sources */,
+				A7F7FCAB1AE1D9F800293A0B /* ViewController.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +471,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = UdderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udder.app/Udder";
@@ -466,6 +487,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = UdderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udder.app/Udder";
