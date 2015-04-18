@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventViewTitleCell" customModule="Udder" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kEventViewTitleCell" rowHeight="180" id="tpD-Rf-G87" customClass="EventViewTitleCell" customModule="Udder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tpD-Rf-G87" id="bY4-U6-uIm">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beach.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5qh-hZ-BQv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="bbz-CW-W7j"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZo-Ir-b0S" userLabel="TitleBackground">
+                        <rect key="frame" x="0.0" y="68" width="320" height="112"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2:00 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-UX-nGv" userLabel="Time">
+                                <rect key="frame" x="8" y="48" width="139" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venice Beach" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-HQ-eul" userLabel="Location">
+                                <rect key="frame" x="172" y="48" width="140" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="PgN-9O-i7u"/>
+                                    <constraint firstAttribute="width" constant="140" id="SbO-LX-oOg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PgN-9O-i7u"/>
+                                        <exclude reference="SbO-LX-oOg"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="che-WZ-qge">
+                                <rect key="frame" x="8" y="73" width="304" height="29"/>
+                                <segments>
+                                    <segment title="Accept"/>
+                                    <segment title="Reject"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venice Beach Run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWm-Sr-dxt" userLabel="Title">
+                                <rect key="frame" x="8" y="27" width="304" height="28"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="che-WZ-qge" secondAttribute="bottom" constant="11" id="0it-pL-bX4"/>
+                            <constraint firstItem="IWm-Sr-dxt" firstAttribute="top" secondItem="GZo-Ir-b0S" secondAttribute="top" constant="27" id="4IY-J5-sjn"/>
+                            <constraint firstItem="JJM-UX-nGv" firstAttribute="leading" secondItem="GZo-Ir-b0S" secondAttribute="leading" constant="8" id="4JF-0I-wfK"/>
+                            <constraint firstItem="YI2-HQ-eul" firstAttribute="top" secondItem="GZo-Ir-b0S" secondAttribute="top" constant="48" id="Dly-Vt-UTC"/>
+                            <constraint firstItem="JJM-UX-nGv" firstAttribute="top" secondItem="GZo-Ir-b0S" secondAttribute="top" constant="48" id="ED5-Id-VuU"/>
+                            <constraint firstAttribute="trailing" secondItem="IWm-Sr-dxt" secondAttribute="trailing" constant="8" id="Jyr-X2-bKw"/>
+                            <constraint firstItem="che-WZ-qge" firstAttribute="leading" secondItem="GZo-Ir-b0S" secondAttribute="leading" constant="8" id="K2W-yq-MQf"/>
+                            <constraint firstItem="YI2-HQ-eul" firstAttribute="width" secondItem="JJM-UX-nGv" secondAttribute="width" id="OqM-UF-n0w"/>
+                            <constraint firstItem="YI2-HQ-eul" firstAttribute="leading" secondItem="JJM-UX-nGv" secondAttribute="trailing" constant="25" id="Ou6-a8-YzU"/>
+                            <constraint firstItem="YI2-HQ-eul" firstAttribute="height" secondItem="JJM-UX-nGv" secondAttribute="height" id="Uv0-e9-2F1"/>
+                            <constraint firstItem="che-WZ-qge" firstAttribute="top" secondItem="GZo-Ir-b0S" secondAttribute="top" constant="73" id="Wkz-dv-8nD"/>
+                            <constraint firstItem="IWm-Sr-dxt" firstAttribute="leading" secondItem="GZo-Ir-b0S" secondAttribute="leading" constant="8" id="X6m-dD-NKP"/>
+                            <constraint firstItem="che-WZ-qge" firstAttribute="top" secondItem="YI2-HQ-eul" secondAttribute="bottom" constant="4" id="hFm-3m-Ff7"/>
+                            <constraint firstAttribute="bottom" secondItem="IWm-Sr-dxt" secondAttribute="bottom" constant="57" id="hNE-8R-SgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="YI2-HQ-eul" secondAttribute="trailing" constant="8" id="mgx-fJ-v8h"/>
+                            <constraint firstAttribute="trailing" secondItem="che-WZ-qge" secondAttribute="trailing" constant="8" id="niV-r8-Qbf"/>
+                            <constraint firstItem="YI2-HQ-eul" firstAttribute="leading" secondItem="JJM-UX-nGv" secondAttribute="trailing" constant="25" id="rCp-fT-ImK"/>
+                            <constraint firstItem="che-WZ-qge" firstAttribute="top" secondItem="JJM-UX-nGv" secondAttribute="bottom" constant="4" id="sBH-UB-dyQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="GZo-Ir-b0S" secondAttribute="bottom" id="A1x-Fk-4lI"/>
+                    <constraint firstItem="5qh-hZ-BQv" firstAttribute="top" secondItem="bY4-U6-uIm" secondAttribute="top" id="B13-Yq-w0y"/>
+                    <constraint firstItem="5qh-hZ-BQv" firstAttribute="leading" secondItem="bY4-U6-uIm" secondAttribute="leading" id="F4N-29-FST"/>
+                    <constraint firstItem="GZo-Ir-b0S" firstAttribute="top" secondItem="bY4-U6-uIm" secondAttribute="top" constant="68" id="Huh-xR-d11"/>
+                    <constraint firstAttribute="trailing" secondItem="5qh-hZ-BQv" secondAttribute="trailing" id="UZj-7B-dt2"/>
+                    <constraint firstItem="GZo-Ir-b0S" firstAttribute="leading" secondItem="bY4-U6-uIm" secondAttribute="leading" id="aym-40-5IX"/>
+                    <constraint firstAttribute="trailing" secondItem="GZo-Ir-b0S" secondAttribute="trailing" id="cdG-e5-zWG"/>
+                    <constraint firstAttribute="bottom" secondItem="5qh-hZ-BQv" secondAttribute="bottom" id="zTa-pG-sQh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="377" y="-128"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Beach.jpg" width="787" height="359"/>
+    </resources>
+</document>

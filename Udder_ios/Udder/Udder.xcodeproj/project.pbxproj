@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
+		A780749A1AE1E42500BE6D78 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78074991AE1E42500BE6D78 /* EventViewController.swift */; };
+		A780749C1AE1E43B00BE6D78 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A780749B1AE1E43B00BE6D78 /* EventViewController.xib */; };
+		A78074A11AE211E700BE6D78 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78074A01AE211E700BE6D78 /* Beach.jpg */; };
+		A78074A61AE218E800BE6D78 /* EventViewTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78074A51AE218E800BE6D78 /* EventViewTitleCell.xib */; };
+		A78074AA1AE2194B00BE6D78 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78074A91AE2194B00BE6D78 /* Constants.swift */; };
+		A78074AD1AE21A2000BE6D78 /* EventViewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78074AC1AE21A2000BE6D78 /* EventViewTitleCell.swift */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25560A61AE19A0900EBEE8B /* Images.xcassets */; };
 		B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */; };
@@ -48,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		A78074991AE1E42500BE6D78 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = ViewControllers/EventViewController.swift; sourceTree = "<group>"; };
+		A780749B1AE1E43B00BE6D78 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventViewController.xib; path = Views/EventViewController.xib; sourceTree = "<group>"; };
+		A78074A01AE211E700BE6D78 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
+		A78074A51AE218E800BE6D78 /* EventViewTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventViewTitleCell.xib; path = Views/Cells/EventViewTitleCell.xib; sourceTree = "<group>"; };
+		A78074A91AE2194B00BE6D78 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A78074AC1AE21A2000BE6D78 /* EventViewTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewTitleCell.swift; path = Cells/EventViewTitleCell.swift; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +141,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A780749F1AE211D700BE6D78 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A78074A01AE211E700BE6D78 /* Beach.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		A78074A41AE218CC00BE6D78 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A78074A51AE218E800BE6D78 /* EventViewTitleCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		A78074AB1AE21A0700BE6D78 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A78074AC1AE21A2000BE6D78 /* EventViewTitleCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		B25560911AE19A0900EBEE8B = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +190,11 @@
 			children = (
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
+				A78074A91AE2194B00BE6D78 /* Constants.swift */,
+				A78074AB1AE21A0700BE6D78 /* Cells */,
 				B2D5BB8C1AE1DDC80063126E /* ViewControllers */,
 				B2D5BB8B1AE1DDC20063126E /* Views */,
+				A780749F1AE211D700BE6D78 /* Images */,
 				B25560A61AE19A0900EBEE8B /* Images.xcassets */,
 				B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */,
 				B255609D1AE19A0900EBEE8B /* Supporting Files */,
@@ -217,8 +256,10 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A78074A41AE218CC00BE6D78 /* Cells */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
 				B2D5BB921AE1DDE00063126E /* ViewController.xib */,
+				A780749B1AE1E43B00BE6D78 /* EventViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -228,6 +269,7 @@
 			children = (
 				B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */,
 				B2D5BB8E1AE1DDD40063126E /* ViewController.swift */,
+				A78074991AE1E42500BE6D78 /* EventViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -314,8 +356,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78074A61AE218E800BE6D78 /* EventViewTitleCell.xib in Resources */,
+				A78074A11AE211E700BE6D78 /* Beach.jpg in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
+				A780749C1AE1E43B00BE6D78 /* EventViewController.xib in Resources */,
 				B2D5BB941AE1DDE00063126E /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 			);
@@ -368,7 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78074AA1AE2194B00BE6D78 /* Constants.swift in Sources */,
 				B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */,
+				A78074AD1AE21A2000BE6D78 /* EventViewTitleCell.swift in Sources */,
+				A780749A1AE1E42500BE6D78 /* EventViewController.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 			);

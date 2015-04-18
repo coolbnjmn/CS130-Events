@@ -31,10 +31,10 @@ self.window.rootViewController = container;
 [self.window makeKeyAndVisible];
 
 
-*/
+*/    
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
-        let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+        let navController : UINavigationController = UINavigationController(rootViewController: EventViewController(nibName: "EventViewController", bundle:nil))
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         
