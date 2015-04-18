@@ -1,5 +1,5 @@
 //
-//  SideMenuViewController.swift
+//  EventTableViewController.swift
 //  Udder
 //
 //  Created by Benjamin Hendricks on 4/17/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuViewController: UITableViewController {
+class EventTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +18,28 @@ class SideMenuViewController: UITableViewController {
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.setupMenuBarButtonItems()
     }
-
+    
+    func setupMenuBarButtonItems() {
+        self.navigationItem.leftBarButtonItem = self.leftMenuBarButtonItem()
+        
+    }
+    
+    
+    func leftMenuBarButtonItem() -> UIBarButtonItem {
+        // another way of adding the button but by an icon, will need this soon
+        //        return UIBarButtonItem(image: UIImage(named: "menu-icon.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        return UIBarButtonItem(title: "Left", style: .Plain, target: self, action: "leftSideMenuButtonPressed:")
+        
+    }
+    
+    func leftSideMenuButtonPressed(sender: AnyObject) {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({
+            self.setupMenuBarButtonItems()
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,7 +50,7 @@ class SideMenuViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 2
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,25 +59,15 @@ class SideMenuViewController: UITableViewController {
         return 10
     }
 
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel!.text = String(format: "Item %d", arguments: [indexPath.row])
 
         // Configure the cell...
-        println("printing cell")
+        cell.textLabel!.text = String(format: "Item %d", arguments: [indexPath.row])
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.row % 2 == 0) {
-//            self.menuContainerViewController.centerViewController = EventTableViewController(nibName: "EventTableViewController", bundle: nil)
-            let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
-            self.menuContainerViewController.centerViewController = navController
-        } else {
-            let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
-            self.menuContainerViewController.centerViewController = navController
-        }
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
