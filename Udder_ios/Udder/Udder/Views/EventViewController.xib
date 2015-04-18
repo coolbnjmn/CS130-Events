@@ -6,7 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventViewController" customModule="Udder" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="YpW-WU-qCR" id="6sH-Fa-hg7"/>
+                <outlet property="attendeesTableView" destination="9uK-Ag-VHn" id="9mm-Ed-HYQ"/>
+                <outlet property="infoTableView" destination="YpW-WU-qCR" id="N3r-cc-0Ey"/>
                 <outlet property="view" destination="tuT-kO-pyN" id="x7V-Dp-a8n"/>
             </connections>
         </placeholder>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YpW-WU-qCR">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YpW-WU-qCR" userLabel="Info Table View">
                     <rect key="frame" x="0.0" y="297" width="600" height="303"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -239,8 +240,8 @@
                         <constraint firstAttribute="height" constant="28" id="rzv-Nu-Hg8"/>
                     </constraints>
                     <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
+                        <segment title="Info"/>
+                        <segment title="Attendees"/>
                     </segments>
                     <color key="tintColor" red="0.081012294884616406" green="0.73301536602209949" blue="0.034121077063731881" alpha="1" colorSpace="calibratedRGB"/>
                     <variation key="default">
@@ -253,7 +254,18 @@
                             <include reference="rzv-Nu-Hg8"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="viewSwitched:" destination="-1" eventType="valueChanged" id="huz-WD-5cm"/>
+                    </connections>
                 </segmentedControl>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9uK-Ag-VHn" userLabel="Attendees Table View">
+                    <rect key="frame" x="0.0" y="297" width="600" height="303"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="a1p-M2-Y83"/>
+                        <outlet property="delegate" destination="-1" id="t0a-B1-lPF"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -270,17 +282,22 @@
                 </constraint>
                 <constraint firstItem="giY-qS-vcU" firstAttribute="leading" secondItem="tuT-kO-pyN" secondAttribute="leading" constant="100" id="Ztm-3Q-5YL"/>
                 <constraint firstAttribute="trailing" secondItem="giY-qS-vcU" secondAttribute="trailing" constant="100" id="cOK-mk-EsY"/>
+                <constraint firstItem="9uK-Ag-VHn" firstAttribute="top" secondItem="giY-qS-vcU" secondAttribute="bottom" constant="14" id="ccs-pD-biH"/>
                 <constraint firstItem="aYN-T2-Kk3" firstAttribute="top" secondItem="tuT-kO-pyN" secondAttribute="top" id="cjb-Ub-4wf"/>
+                <constraint firstAttribute="trailing" secondItem="9uK-Ag-VHn" secondAttribute="trailing" id="dYN-aE-697"/>
+                <constraint firstItem="9uK-Ag-VHn" firstAttribute="leading" secondItem="tuT-kO-pyN" secondAttribute="leading" id="fG7-1e-UKd"/>
                 <constraint firstItem="giY-qS-vcU" firstAttribute="top" secondItem="aYN-T2-Kk3" secondAttribute="bottom" constant="20" id="kPW-Ep-z7P">
                     <variation key="widthClass=compact" constant="10"/>
                 </constraint>
                 <constraint firstItem="giY-qS-vcU" firstAttribute="top" secondItem="aYN-T2-Kk3" secondAttribute="bottom" constant="20" id="qVN-Ne-OUk"/>
                 <constraint firstItem="YpW-WU-qCR" firstAttribute="trailing" secondItem="aYN-T2-Kk3" secondAttribute="trailing" id="reN-ix-e3P"/>
+                <constraint firstAttribute="bottom" secondItem="9uK-Ag-VHn" secondAttribute="bottom" id="tNE-zh-Trt"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="giY-qS-vcU"/>
+                    <exclude reference="9uK-Ag-VHn"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="cjb-Ub-4wf"/>
@@ -289,6 +306,10 @@
                     <exclude reference="cOK-mk-EsY"/>
                     <exclude reference="kPW-Ep-z7P"/>
                     <exclude reference="qVN-Ne-OUk"/>
+                    <exclude reference="ccs-pD-biH"/>
+                    <exclude reference="dYN-aE-697"/>
+                    <exclude reference="fG7-1e-UKd"/>
+                    <exclude reference="tNE-zh-Trt"/>
                     <exclude reference="0Wg-TY-LuA"/>
                     <exclude reference="37D-c0-9JL"/>
                     <exclude reference="FNJ-yP-TA3"/>
@@ -301,6 +322,7 @@
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="giY-qS-vcU"/>
+                    <include reference="9uK-Ag-VHn"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="cjb-Ub-4wf"/>
@@ -309,6 +331,10 @@
                     <include reference="cOK-mk-EsY"/>
                     <include reference="kPW-Ep-z7P"/>
                     <exclude reference="qVN-Ne-OUk"/>
+                    <include reference="ccs-pD-biH"/>
+                    <include reference="dYN-aE-697"/>
+                    <include reference="fG7-1e-UKd"/>
+                    <include reference="tNE-zh-Trt"/>
                     <include reference="0Wg-TY-LuA"/>
                     <include reference="37D-c0-9JL"/>
                     <include reference="FNJ-yP-TA3"/>
