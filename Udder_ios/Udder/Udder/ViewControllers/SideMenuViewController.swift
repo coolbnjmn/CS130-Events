@@ -53,17 +53,22 @@ class SideMenuViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cellText = PFUser.currentUser().objectForKey("full_name") as? String ?? ""
-            cellText = cellText! + "\n" + (PFUser.currentUser().objectForKey("email") as? String ?? "");
+//            cellText = cellText! + "\n" + (PFUser.currentUser().objectForKey("email") as? String ?? "");
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = UIColor.blueColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
-            cell.textLabel?.numberOfLines = 2
+            cell.textLabel?.numberOfLines = 1
             cell.imageView?.backgroundColor = UIColor.blueColor()
+            cell.imageView?.layer.masksToBounds = true
+            cell.imageView?.clipsToBounds = true
+            
             
             if (profPic == nil) {
                 self.getProfPic()
             }
             if (profPic != nil) {
+                profPic = cropToSquare(image: profPic!)
+                cell.imageView?.layer.cornerRadius = (profPic?.size.width)!/2.0;
                 cell.imageView?.image = profPic
             }
             break;
@@ -163,11 +168,47 @@ class SideMenuViewController: UITableViewController {
     func getProfPic() {
         var fid: String? = PFUser.currentUser().objectForKey("facebookId") as? String ?? ""
         if (fid != "") {
-        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=small"
+        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal"
         var imgURL = NSURL(string: imgURLString)
         var imageData = NSData(contentsOfURL: imgURL!)
             profPic = UIImage(data: imageData!)
         }
+    }
+    
+    func cropToSquare(image originalImage: UIImage) -> UIImage {
+        // Create a copy of the image without the imageOrientation property so it is in its native orientation (landscape)
+        let contextImage: UIImage = UIImage(CGImage: originalImage.CGImage)!
+        
+        // Get the size of the contextImage
+        let contextSize: CGSize = contextImage.size
+        
+        let posX: CGFloat
+        let posY: CGFloat
+        let width: CGFloat
+        let height: CGFloat
+        
+        // Check to see which length is the longest and create the offset based on that length, then set the width and height of our rect
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            width = contextSize.height
+            height = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            width = contextSize.width
+            height = contextSize.width
+        }
+        
+        let rect: CGRect = CGRectMake(posX, posY, width, height)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef, scale: originalImage.scale, orientation: originalImage.imageOrientation)!
+        
+        return image
     }
         
     /*
