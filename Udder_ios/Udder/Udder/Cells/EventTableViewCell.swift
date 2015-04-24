@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class EventTableViewCell: UITableViewCell {
 
@@ -41,7 +42,20 @@ class EventTableViewCell: UITableViewCell {
         self.eventTitleLabel?.text = (params.objectForKey("title") as! String)
         self.timeLabel?.text = (params.objectForKey("time") as! String)
         self.locationLabel?.text = (params.objectForKey("location") as! String)
-        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
+
+        let block : PFIdResultBlock = { [weak self] (result: AnyObject!, error: NSError!) in
+            let wSelf = self
+            if(error == nil) {
+                // no error
+                let url : NSURL? = NSURL(string: result as! String)
+                let data : NSData? = NSData(contentsOfURL: url!)
+                wSelf?.backgroundImageView.image = UIImage(data: data!)
+            } else {
+            }
+        }
+        PFCloud.callFunctionInBackground("flickr", withParameters: ["title": params.objectForKey("title") as! String], block: block)
+        
+//        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
         self.locationImageView?.image = UIImage(named: "placeholder.png")
         self.timeImageView?.image = UIImage(named: "placeholder.png")
         self.categoryImageView?.image = UIImage(named: "placeholder.png")
