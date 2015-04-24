@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     @IBAction func pressedLogin(sender: AnyObject) {
+        loginButton.enabled = false
         let arr = ["user_about_me", "email"];
         PFFacebookUtils.logInWithPermissions(arr, block: {(user: PFUser!, error: NSError!) in
             if (user == nil) {
@@ -85,6 +86,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loginButton.enabled = true
+
         loginButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         loginButton.backgroundColor = UIColor.blueColor();
