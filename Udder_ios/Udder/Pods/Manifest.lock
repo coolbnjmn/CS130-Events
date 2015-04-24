@@ -1,10 +1,13 @@
 PODS:
   - MFSideMenu (0.5.5)
+  - TTTAttributedLabel (1.13.3)
 
 DEPENDENCIES:
   - MFSideMenu
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
+  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
 
 COCOAPODS: 0.36.4

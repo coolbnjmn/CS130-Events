@@ -43,7 +43,7 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = String(format: "Item %d", arguments: [indexPath.row])
-
+        println("printing cell")
         // Configure the cell...
         return cell
     }

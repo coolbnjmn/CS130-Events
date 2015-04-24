@@ -20,6 +20,8 @@ class EventTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.setupMenuBarButtonItems()
+        
+
     }
     
     func setupMenuBarButtonItems() {
@@ -70,11 +72,11 @@ class EventTableViewController: UITableViewController {
         // Configure the cell...
         var params: NSMutableDictionary = NSMutableDictionary()
         params.setObject(String(format: "Item %d", arguments: [indexPath.row]), forKey: "title")
-        params.setObject("location", forKey: "location")
-        params.setObject("time blah blah blah", forKey: "time")
+        params.setObject("location blah blah location", forKey: "location")
+        params.setObject("time blah blah blah blah blah blah blah blah", forKey: "time")
     
-        
         cell.eventTableViewCellInit(params)
+        
         
         return cell
     }

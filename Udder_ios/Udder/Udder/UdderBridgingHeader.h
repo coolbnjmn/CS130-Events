@@ -12,5 +12,6 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "MFSideMenu/MFSideMenu.h"
+#import "TTTAttributedLabel/TTTAttributedLabel.h"
 
 #endif
