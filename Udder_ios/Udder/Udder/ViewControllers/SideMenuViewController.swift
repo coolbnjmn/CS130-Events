@@ -11,7 +11,9 @@ import Parse
 import ParseUI
 
 class SideMenuViewController: UITableViewController {
-        
+    
+    var profPic: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,7 @@ class SideMenuViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,9 +53,19 @@ class SideMenuViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cellText = PFUser.currentUser().objectForKey("full_name") as? String ?? ""
+            cellText = cellText! + "\n" + (PFUser.currentUser().objectForKey("email") as? String ?? "");
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = UIColor.blueColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.textLabel?.numberOfLines = 2
+            cell.imageView?.backgroundColor = UIColor.blueColor()
+            
+            if (profPic == nil) {
+                self.getProfPic()
+            }
+            if (profPic != nil) {
+                cell.imageView?.image = profPic
+            }
             break;
         case 1:
             cellText = "Home";
@@ -125,6 +138,34 @@ class SideMenuViewController: UITableViewController {
 
         self.menuContainerViewController.centerViewController = navController
         self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let regular_height: CGFloat = 50.0
+        let larger_height: CGFloat = 100.0
+        
+        switch indexPath.row {
+        case 0:     return larger_height
+        case 1:     return regular_height
+        case 2:     return regular_height
+        case 3:     return regular_height
+        case 4:     return regular_height
+        case 5:     return regular_height
+        case 6:     return regular_height
+        default:    return 0
+        }
+        
+    }
+    
+    func getProfPic() {
+        var fid: String? = PFUser.currentUser().objectForKey("facebookId") as? String ?? ""
+        if (fid != "") {
+        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=small"
+        var imgURL = NSURL(string: imgURLString)
+        var imageData = NSData(contentsOfURL: imgURL!)
+            profPic = UIImage(data: imageData!)
+        }
     }
         
     /*
