@@ -10,6 +10,7 @@
 #define Udder_UdderBridgingHeader_h
 
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "MFSideMenu/MFSideMenu.h"
 
 #endif

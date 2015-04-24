@@ -32,9 +32,12 @@ self.window.rootViewController = container;
 
 
 */
+        
+        PFFacebookUtils.initializeFacebook();
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
-        let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+        let navController : UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle:nil))
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         
@@ -59,11 +62,31 @@ self.window.rootViewController = container;
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+//Facebook functions
+/***************/
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+                withSession:PFFacebookUtils.session())
+    }
+    
+    func application(application: UIApplication,
+        handleOpenURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+                withSession:PFFacebookUtils.session())
+    }
+/***************/
 
 
 }

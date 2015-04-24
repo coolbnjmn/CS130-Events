@@ -7,25 +7,20 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var tapHereButton: UIButton!
     
     @IBAction func tapHereWasPressed(sender: AnyObject) {
-        if(self.tapHereButton.backgroundColor == UIColor.whiteColor()) {
-            self.tapHereButton.backgroundColor = UIColor.brownColor()
-        } else {
-            self.tapHereButton.backgroundColor = UIColor.whiteColor()
-        }
+        println("pressed button")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.tapHereButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
-        self.setupMenuBarButtonItems()
-        self.tapHereButton.backgroundColor = UIColor.whiteColor()
+
     }
     
     func setupMenuBarButtonItems() {
