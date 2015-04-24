@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         self.setupMenuBarButtonItems()
         self.tapHereButton.backgroundColor = UIColor.whiteColor()
         
-        var query = PFQuery(className: "EventTest");
+        /*var query = PFQuery(className: "EventTest");
         query.getObjectInBackgroundWithId("4cBxRGrt5k") {
             (eventObject: PFObject!, error: NSError!) -> Void in
             if error == nil && eventObject != nil {
@@ -43,7 +43,25 @@ class ViewController: UIViewController {
             else {
                 println(error);
             }
+        }*/
+        
+        var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
+        
+        var successBlock: NSMutableArray -> Void = {
+            (eventArray: NSMutableArray) -> Void in
+            for event in eventArray {
+                if let eventModel = event as? EventModel {
+                    eventModel.printEvent();
+                }
+            }
         }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error2: \(error)");
+        }
+        
+        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
     }
     
     func setupMenuBarButtonItems() {

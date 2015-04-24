@@ -10,6 +10,7 @@ import Foundation
 import Parse
 
 class EventModel: BaseModel {
+    var eventId: String!;
     var eventTitle: String!;
     var eventDescription: String!;
     var eventLocation: String!;
@@ -23,6 +24,8 @@ class EventModel: BaseModel {
     
     init?(eventObject: PFObject) {
         super.init();
+        
+        self.eventId = eventObject.objectId;
         
         if let tempTitle = eventObject[Constants.EventDatabaseFields.kEventTitle] as? String {
             self.eventTitle = tempTitle;
@@ -56,6 +59,7 @@ class EventModel: BaseModel {
     }
     
     func printEvent() {
+        println("Event ID: \(self.eventId)");
         println("Title: \(self.eventTitle)");
         println("Location: \(self.eventLocation)");
         println("Description: \(self.eventDescription)");

@@ -11,6 +11,10 @@ struct Constants {
         static let kEventTitleCell = "kEventViewTitleCell"
     }
     
+    struct DatabaseClass {
+        static let kEventClass = "EventTest"
+    }
+    
     struct EventDatabaseFields {
         static let kEventTitle = "title"
         static let kEventDescription = "description"
