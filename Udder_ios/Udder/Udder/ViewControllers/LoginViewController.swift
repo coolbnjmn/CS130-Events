@@ -94,6 +94,8 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor();
         
         self.view.addSubview(loginButton)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+
 
     }
 

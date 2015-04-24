@@ -44,6 +44,7 @@
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10200E51AEA07A2007A2F8F /* LoginViewController.xib */; };
+		E132D1091AEA2CA2002000B8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E132D1081AEA2CA2002000B8 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
 		E10200E11AEA076B007A2F8F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		E10200E51AEA07A2007A2F8F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Views/LoginViewController.xib; sourceTree = "<group>"; };
+		E132D1081AEA2CA2002000B8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		B255609C1AE19A0900EBEE8B /* Udder */ = {
 			isa = PBXGroup;
 			children = (
+				E132D1081AEA2CA2002000B8 /* background.jpg */,
 				B2041B801AE9E0FB00179BBA /* placeholder.png */,
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B2BF29381AE9D42000D6714C /* Constants.swift */,
@@ -365,6 +368,7 @@
 				E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
+				E132D1091AEA2CA2002000B8 /* background.jpg in Resources */,
 				B2041B811AE9E0FB00179BBA /* placeholder.png in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 			);
