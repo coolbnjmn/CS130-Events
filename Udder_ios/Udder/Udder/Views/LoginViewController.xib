@@ -34,31 +34,42 @@
                         <constraint firstAttribute="height" constant="60" id="AJ7-Dg-t9C"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Find events in real time based on your current location" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jf-ku-gAe">
-                    <rect key="frame" x="129" y="102" width="342" height="80"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your current location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqt-Im-Nfg">
+                    <rect key="frame" x="20" y="150" width="560" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="dEm-ec-Yti"/>
-                        <constraint firstAttribute="width" constant="400" id="pWR-J3-Tat"/>
+                        <constraint firstAttribute="height" constant="40" id="b1B-HJ-mcv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find events in real-time based on" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwl-Ks-q6I">
+                    <rect key="frame" x="20" y="120" width="560" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="huj-b7-9dJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Vqg-QZ-G1V" secondAttribute="bottom" constant="60" id="0BL-5t-eya"/>
-                <constraint firstItem="3jf-ku-gAe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="5QT-2E-MF2"/>
-                <constraint firstAttribute="trailing" secondItem="3jf-ku-gAe" secondAttribute="trailing" constant="50" id="8a9-Df-t99"/>
+                <constraint firstAttribute="trailing" secondItem="Hqt-Im-Nfg" secondAttribute="trailing" constant="20" id="6Ku-dY-Bk9"/>
+                <constraint firstItem="Hqt-Im-Nfg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ITc-Bw-oqs"/>
                 <constraint firstItem="Nxu-Ba-kdL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Rbv-pc-BRt"/>
                 <constraint firstAttribute="trailing" secondItem="Vqg-QZ-G1V" secondAttribute="trailing" constant="70" id="Tb5-Zf-C62"/>
-                <constraint firstItem="3jf-ku-gAe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="UcJ-B0-FfU"/>
+                <constraint firstItem="qwl-Ks-q6I" firstAttribute="top" secondItem="Nxu-Ba-kdL" secondAttribute="bottom" id="Tcy-gO-OtA"/>
+                <constraint firstAttribute="trailing" secondItem="qwl-Ks-q6I" secondAttribute="trailing" constant="20" id="aOC-z4-WqQ"/>
                 <constraint firstAttribute="trailing" secondItem="Nxu-Ba-kdL" secondAttribute="trailing" constant="10" id="f1D-Oa-LK5"/>
-                <constraint firstItem="3jf-ku-gAe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="hMb-dR-9Aa"/>
                 <constraint firstItem="Nxu-Ba-kdL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="jAW-G6-6wO"/>
+                <constraint firstItem="Hqt-Im-Nfg" firstAttribute="top" secondItem="Nxu-Ba-kdL" secondAttribute="bottom" constant="30" id="tdb-XA-Shn"/>
                 <constraint firstItem="Vqg-QZ-G1V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="z4K-Dc-6fZ"/>
+                <constraint firstItem="qwl-Ks-q6I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zOG-p1-t7k"/>
             </constraints>
         </view>
     </objects>
