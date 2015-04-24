@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
     
     func redirectToHome() {
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
-        let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+        let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         self.presentViewController(container, animated: true, completion: nil)

@@ -7,196 +7,213 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161F638B7D33F2FB8BF6CE1C /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EABA8C01E3AB6E9217D8DFB /* MFSideMenuContainerViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		466B2568C246CFDC09EFDA0A /* Pods-Udder-MFSideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9736D3BCC01A900B19A782 /* Pods-Udder-MFSideMenu-dummy.m */; };
-		5F58EA9AC68AE81E71A6BE35 /* MFSideMenuContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6897E67B813235AA65D337 /* MFSideMenuContainerViewController.h */; };
-		6831DE59D431724C58366222 /* MFSideMenuShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C842989E6D902C6A53B5E88 /* MFSideMenuShadow.h */; };
-		78891D2B3B0B6EA1BBAC221B /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A57A3D44DA68A12AFBFD /* MFSideMenuShadow.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7C6F17D2F07019BC574CC066 /* Pods-Udder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD24B1C677887ED0F6B5B2D5 /* Pods-Udder-dummy.m */; };
-		8E9FE486AB439CCEA641A731 /* UIViewController+MFSideMenuAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 52BF1ADF781B7FE43B5ECF0D /* UIViewController+MFSideMenuAdditions.h */; };
-		9C36994B926410F72E2FB8FA /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5550CC6512657A6D07F40 /* UIViewController+MFSideMenuAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A45D6E41F065C4CF17797320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E57763E680AFC0423C8798 /* Foundation.framework */; };
-		CB9793680D33AA6E543142D2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6624E412143ACBC97D4CA470 /* QuartzCore.framework */; };
-		E043FFCD1A0F1969828E29E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E57763E680AFC0423C8798 /* Foundation.framework */; };
-		E6A9AF50907BB05E98274107 /* MFSideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 860FDFDDDE01EDC593C5C236 /* MFSideMenu.h */; };
+		05FCE533C00233E175FDE6FA /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A787A324671B5816864E3 /* MFSideMenuContainerViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		125D2BE09F9CFC70FB5748F6 /* Pods-Udder-MFSideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CDD13407D27EDDDC69AE7D /* Pods-Udder-MFSideMenu-dummy.m */; };
+		17B7497CC6349CD300B58525 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C36B4190CC73CA522687D78 /* Foundation.framework */; };
+		2BB11026276966122BC9AD73 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ECE3566CEF69C9597950E0 /* MFSideMenuShadow.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		42EB49240D732796718E7357 /* MFSideMenuContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C8219DA028A5EB4680980390 /* MFSideMenuContainerViewController.h */; };
+		47B5D15403C911ABDE72A178 /* MFSideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = C5CD954C48232BD0A3E21F6A /* MFSideMenu.h */; };
+		586843ACB36333F44F6F5E2F /* UIViewController+MFSideMenuAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 18D38249CE89D4AEDCE6A523 /* UIViewController+MFSideMenuAdditions.h */; };
+		7DA184AC33F6600D28624CCB /* Pods-Udder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 367E758F6AEDBC337E600B37 /* Pods-Udder-dummy.m */; };
+		87BA52AB7732D10D5E5EB999 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8976BFF70FEEDD870143F3FD /* UIViewController+MFSideMenuAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B6D4A5F349AFA0056D5F2B38 /* MFSideMenuShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = DE50251853AFC258886FFE50 /* MFSideMenuShadow.h */; };
+		C23C81A1F65B98527BF831C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C36B4190CC73CA522687D78 /* Foundation.framework */; };
+		C770422A5E46237DC400B018 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1A2BB68EE4ECC2EF56D4B7 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DED0B80F7F219D4A0F97984E /* PBXContainerItemProxy */ = {
+		1F2DB69808A4FEFDF7A46213 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CB1130748B6435A4C929E5D9 /* Project object */;
+			containerPortal = B45CDFE3B3D359684A76C44B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 464CE06465226CB86DE79ACF;
+			remoteGlobalIDString = 97BAF4561F13594B1E3F1BDA;
 			remoteInfo = "Pods-Udder-MFSideMenu";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08E5550CC6512657A6D07F40 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MFSideMenuAdditions.m"; path = "MFSideMenu/UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
-		131ABC3F8727FB4F0A27FA0C /* libPods-Udder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19920F69F065AEBE06F9F8D8 /* libPods-Udder-MFSideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder-MFSideMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C3C3315A32BACF620E95F4 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		468B3C6DCEF8965BF99DC941 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
-		4A81A57A3D44DA68A12AFBFD /* MFSideMenuShadow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuShadow.m; path = MFSideMenu/MFSideMenuShadow.m; sourceTree = "<group>"; };
-		4C842989E6D902C6A53B5E88 /* MFSideMenuShadow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenuShadow.h; path = MFSideMenu/MFSideMenuShadow.h; sourceTree = "<group>"; };
-		52BF1ADF781B7FE43B5ECF0D /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MFSideMenuAdditions.h"; path = "MFSideMenu/UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
-		5B9736D3BCC01A900B19A782 /* Pods-Udder-MFSideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Udder-MFSideMenu-dummy.m"; sourceTree = "<group>"; };
-		6624E412143ACBC97D4CA470 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		853ABFD5D24B27D082C03DFE /* Pods-Udder-MFSideMenu-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder-MFSideMenu-Private.xcconfig"; sourceTree = "<group>"; };
-		860FDFDDDE01EDC593C5C236 /* MFSideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenu.h; path = MFSideMenu/MFSideMenu.h; sourceTree = "<group>"; };
-		88E57763E680AFC0423C8798 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		96B944D04A84886CB770ECBC /* Pods-Udder-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Udder-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9EABA8C01E3AB6E9217D8DFB /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuContainerViewController.m; path = MFSideMenu/MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
-		A38BB43B02E38DDA82987C2D /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
-		A63FCE75FDE0B45A4130A36A /* Pods-Udder-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Udder-environment.h"; sourceTree = "<group>"; };
-		AB78B7B42AB2354F977654D1 /* Pods-Udder-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Udder-acknowledgements.plist"; sourceTree = "<group>"; };
-		B57ACBDAC05EE0ED245AFCB0 /* Pods-Udder-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Udder-resources.sh"; sourceTree = "<group>"; };
-		BD24B1C677887ED0F6B5B2D5 /* Pods-Udder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Udder-dummy.m"; sourceTree = "<group>"; };
-		D7BDC04CBC8F07A92329611D /* Pods-Udder-MFSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder-MFSideMenu.xcconfig"; sourceTree = "<group>"; };
-		D96EACC263FA70EE5BEFD4EA /* Pods-Udder-MFSideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Udder-MFSideMenu-prefix.pch"; sourceTree = "<group>"; };
-		FC6897E67B813235AA65D337 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenuContainerViewController.h; path = MFSideMenu/MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		05CDD13407D27EDDDC69AE7D /* Pods-Udder-MFSideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Udder-MFSideMenu-dummy.m"; sourceTree = "<group>"; };
+		1827500A76646801A86834BE /* Pods-Udder-MFSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder-MFSideMenu.xcconfig"; sourceTree = "<group>"; };
+		18D38249CE89D4AEDCE6A523 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MFSideMenuAdditions.h"; path = "MFSideMenu/UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
+		2C36B4190CC73CA522687D78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		367E758F6AEDBC337E600B37 /* Pods-Udder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Udder-dummy.m"; sourceTree = "<group>"; };
+		415F6AA1B473A00B074B85AF /* Pods-Udder-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Udder-acknowledgements.markdown"; sourceTree = "<group>"; };
+		64330A567CE5C954C9E04D94 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		68A7259A8D4309A7A0975CC7 /* libPods-Udder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8976BFF70FEEDD870143F3FD /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MFSideMenuAdditions.m"; path = "MFSideMenu/UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
+		8F7A787A324671B5816864E3 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuContainerViewController.m; path = MFSideMenu/MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		A886952BF5224E3485F8006C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B10BE82BDF34061EAC1A5D82 /* Pods-Udder-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Udder-environment.h"; sourceTree = "<group>"; };
+		B1247BA236390E4E6E1A88CB /* Pods-Udder-MFSideMenu-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder-MFSideMenu-Private.xcconfig"; sourceTree = "<group>"; };
+		BAD5B6BDB4D4174A1F66DF06 /* Pods-Udder-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Udder-acknowledgements.plist"; sourceTree = "<group>"; };
+		C1ECE3566CEF69C9597950E0 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuShadow.m; path = MFSideMenu/MFSideMenuShadow.m; sourceTree = "<group>"; };
+		C5CD954C48232BD0A3E21F6A /* MFSideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenu.h; path = MFSideMenu/MFSideMenu.h; sourceTree = "<group>"; };
+		C768EF40E1FA1C7E8246CB8D /* libPods-Udder-MFSideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder-MFSideMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8219DA028A5EB4680980390 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenuContainerViewController.h; path = MFSideMenu/MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		CD1A2BB68EE4ECC2EF56D4B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		DE50251853AFC258886FFE50 /* MFSideMenuShadow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFSideMenuShadow.h; path = MFSideMenu/MFSideMenuShadow.h; sourceTree = "<group>"; };
+		E2EFE8D15D2CE53875601471 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
+		E4567B0177E59B5C83BE7954 /* Pods-Udder-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Udder-resources.sh"; sourceTree = "<group>"; };
+		F2812A62A8BCE3D23B472B31 /* Pods-Udder-MFSideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Udder-MFSideMenu-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1C649EC3D87AEDB0C922C942 /* Frameworks */ = {
+		73CA0F5A1F169BA0CA6C3868 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E043FFCD1A0F1969828E29E7 /* Foundation.framework in Frameworks */,
-				CB9793680D33AA6E543142D2 /* QuartzCore.framework in Frameworks */,
+				17B7497CC6349CD300B58525 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C368B566C771A90377ECC330 /* Frameworks */ = {
+		7D3978FCA9687FF48DB5E4F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A45D6E41F065C4CF17797320 /* Foundation.framework in Frameworks */,
+				C23C81A1F65B98527BF831C0 /* Foundation.framework in Frameworks */,
+				C770422A5E46237DC400B018 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A6385332D39D6F39EF23D3B /* Pods-Udder */ = {
+		08BDA4F2F81E6BFE98A3E4FA /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				96B944D04A84886CB770ECBC /* Pods-Udder-acknowledgements.markdown */,
-				AB78B7B42AB2354F977654D1 /* Pods-Udder-acknowledgements.plist */,
-				BD24B1C677887ED0F6B5B2D5 /* Pods-Udder-dummy.m */,
-				A63FCE75FDE0B45A4130A36A /* Pods-Udder-environment.h */,
-				B57ACBDAC05EE0ED245AFCB0 /* Pods-Udder-resources.sh */,
-				468B3C6DCEF8965BF99DC941 /* Pods-Udder.debug.xcconfig */,
-				A38BB43B02E38DDA82987C2D /* Pods-Udder.release.xcconfig */,
-			);
-			name = "Pods-Udder";
-			path = "Target Support Files/Pods-Udder";
-			sourceTree = "<group>";
-		};
-		4FDCF895F61B7D5A917ADFFA /* MFSideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				860FDFDDDE01EDC593C5C236 /* MFSideMenu.h */,
-				FC6897E67B813235AA65D337 /* MFSideMenuContainerViewController.h */,
-				9EABA8C01E3AB6E9217D8DFB /* MFSideMenuContainerViewController.m */,
-				4C842989E6D902C6A53B5E88 /* MFSideMenuShadow.h */,
-				4A81A57A3D44DA68A12AFBFD /* MFSideMenuShadow.m */,
-				52BF1ADF781B7FE43B5ECF0D /* UIViewController+MFSideMenuAdditions.h */,
-				08E5550CC6512657A6D07F40 /* UIViewController+MFSideMenuAdditions.m */,
-				8EB5FC0594E285E9A4CD08E7 /* Support Files */,
-			);
-			path = MFSideMenu;
-			sourceTree = "<group>";
-		};
-		51C7A9388E8140D6C91C8399 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				88E57763E680AFC0423C8798 /* Foundation.framework */,
-				6624E412143ACBC97D4CA470 /* QuartzCore.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		7C1F0024AAAADFDC1C679E34 = {
-			isa = PBXGroup;
-			children = (
-				36C3C3315A32BACF620E95F4 /* Podfile */,
-				D5A42EF786ADCD6B839ED8F1 /* Frameworks */,
-				A1784AE8F6B1E4DC91A03F6F /* Pods */,
-				9AEB9C015DA49E94A811985F /* Products */,
-				8D082D2F09C7683DFAF8DD38 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		8D082D2F09C7683DFAF8DD38 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3A6385332D39D6F39EF23D3B /* Pods-Udder */,
+				FB913513218B56B6C1A8CA9E /* Pods-Udder */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8EB5FC0594E285E9A4CD08E7 /* Support Files */ = {
+		0FC4C88DC3376807CC1D6DD4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7BDC04CBC8F07A92329611D /* Pods-Udder-MFSideMenu.xcconfig */,
-				853ABFD5D24B27D082C03DFE /* Pods-Udder-MFSideMenu-Private.xcconfig */,
-				5B9736D3BCC01A900B19A782 /* Pods-Udder-MFSideMenu-dummy.m */,
-				D96EACC263FA70EE5BEFD4EA /* Pods-Udder-MFSideMenu-prefix.pch */,
+				D4BCE956835B9D6332AA2AF8 /* MFSideMenu */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		873F79410B2E4E96790C69AB = {
+			isa = PBXGroup;
+			children = (
+				A886952BF5224E3485F8006C /* Podfile */,
+				D5736902781130C9F0D98FC7 /* Frameworks */,
+				0FC4C88DC3376807CC1D6DD4 /* Pods */,
+				EF3F3A97D12139BC0211050E /* Products */,
+				08BDA4F2F81E6BFE98A3E4FA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8CCD2A638332072300B841E0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C36B4190CC73CA522687D78 /* Foundation.framework */,
+				CD1A2BB68EE4ECC2EF56D4B7 /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D4BCE956835B9D6332AA2AF8 /* MFSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C5CD954C48232BD0A3E21F6A /* MFSideMenu.h */,
+				C8219DA028A5EB4680980390 /* MFSideMenuContainerViewController.h */,
+				8F7A787A324671B5816864E3 /* MFSideMenuContainerViewController.m */,
+				DE50251853AFC258886FFE50 /* MFSideMenuShadow.h */,
+				C1ECE3566CEF69C9597950E0 /* MFSideMenuShadow.m */,
+				18D38249CE89D4AEDCE6A523 /* UIViewController+MFSideMenuAdditions.h */,
+				8976BFF70FEEDD870143F3FD /* UIViewController+MFSideMenuAdditions.m */,
+				EF0EA06511DD472EF81BE9C7 /* Support Files */,
+			);
+			path = MFSideMenu;
+			sourceTree = "<group>";
+		};
+		D5736902781130C9F0D98FC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CCD2A638332072300B841E0 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF0EA06511DD472EF81BE9C7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1827500A76646801A86834BE /* Pods-Udder-MFSideMenu.xcconfig */,
+				B1247BA236390E4E6E1A88CB /* Pods-Udder-MFSideMenu-Private.xcconfig */,
+				05CDD13407D27EDDDC69AE7D /* Pods-Udder-MFSideMenu-dummy.m */,
+				F2812A62A8BCE3D23B472B31 /* Pods-Udder-MFSideMenu-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Udder-MFSideMenu";
 			sourceTree = "<group>";
 		};
-		9AEB9C015DA49E94A811985F /* Products */ = {
+		EF3F3A97D12139BC0211050E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				131ABC3F8727FB4F0A27FA0C /* libPods-Udder.a */,
-				19920F69F065AEBE06F9F8D8 /* libPods-Udder-MFSideMenu.a */,
+				68A7259A8D4309A7A0975CC7 /* libPods-Udder.a */,
+				C768EF40E1FA1C7E8246CB8D /* libPods-Udder-MFSideMenu.a */,
 			);
-			name = Pods;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		A1784AE8F6B1E4DC91A03F6F /* Pods */ = {
+		FB913513218B56B6C1A8CA9E /* Pods-Udder */ = {
 			isa = PBXGroup;
 			children = (
-				4FDCF895F61B7D5A917ADFFA /* MFSideMenu */,
+				415F6AA1B473A00B074B85AF /* Pods-Udder-acknowledgements.markdown */,
+				BAD5B6BDB4D4174A1F66DF06 /* Pods-Udder-acknowledgements.plist */,
+				367E758F6AEDBC337E600B37 /* Pods-Udder-dummy.m */,
+				B10BE82BDF34061EAC1A5D82 /* Pods-Udder-environment.h */,
+				E4567B0177E59B5C83BE7954 /* Pods-Udder-resources.sh */,
+				E2EFE8D15D2CE53875601471 /* Pods-Udder.debug.xcconfig */,
+				64330A567CE5C954C9E04D94 /* Pods-Udder.release.xcconfig */,
 			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D5A42EF786ADCD6B839ED8F1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				51C7A9388E8140D6C91C8399 /* iOS */,
-			);
-			name = Frameworks;
+			name = "Pods-Udder";
+			path = "Target Support Files/Pods-Udder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E7698B03099CE8448B170C39 /* Headers */ = {
+		AECBEC57FC325FABD7A8193E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A9AF50907BB05E98274107 /* MFSideMenu.h in Headers */,
-				5F58EA9AC68AE81E71A6BE35 /* MFSideMenuContainerViewController.h in Headers */,
-				6831DE59D431724C58366222 /* MFSideMenuShadow.h in Headers */,
-				8E9FE486AB439CCEA641A731 /* UIViewController+MFSideMenuAdditions.h in Headers */,
+				47B5D15403C911ABDE72A178 /* MFSideMenu.h in Headers */,
+				42EB49240D732796718E7357 /* MFSideMenuContainerViewController.h in Headers */,
+				B6D4A5F349AFA0056D5F2B38 /* MFSideMenuShadow.h in Headers */,
+				586843ACB36333F44F6F5E2F /* UIViewController+MFSideMenuAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		464CE06465226CB86DE79ACF /* Pods-Udder-MFSideMenu */ = {
+		3193086ED2326C8A22023AA0 /* Pods-Udder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5038827E278241B35F184D4C /* Build configuration list for PBXNativeTarget "Pods-Udder-MFSideMenu" */;
+			buildConfigurationList = 785FADFC5DC166BFCFE9D3E4 /* Build configuration list for PBXNativeTarget "Pods-Udder" */;
 			buildPhases = (
-				47F2239BD78A65EDD2DA5A6A /* Sources */,
-				1C649EC3D87AEDB0C922C942 /* Frameworks */,
-				E7698B03099CE8448B170C39 /* Headers */,
+				69281507DB1AFE42130FD1F0 /* Sources */,
+				73CA0F5A1F169BA0CA6C3868 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9EA515370A4343B33098CCE /* PBXTargetDependency */,
+			);
+			name = "Pods-Udder";
+			productName = "Pods-Udder";
+			productReference = 68A7259A8D4309A7A0975CC7 /* libPods-Udder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		97BAF4561F13594B1E3F1BDA /* Pods-Udder-MFSideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09F1D7548DB8842EFBF90C7A /* Build configuration list for PBXNativeTarget "Pods-Udder-MFSideMenu" */;
+			buildPhases = (
+				9353997991ED8892F5DFC7F6 /* Sources */,
+				7D3978FCA9687FF48DB5E4F3 /* Frameworks */,
+				AECBEC57FC325FABD7A8193E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -204,85 +221,116 @@
 			);
 			name = "Pods-Udder-MFSideMenu";
 			productName = "Pods-Udder-MFSideMenu";
-			productReference = 19920F69F065AEBE06F9F8D8 /* libPods-Udder-MFSideMenu.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C65F33CCBFC764EAE608FA1E /* Pods-Udder */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 09C478D5CEE7533E62A10B5B /* Build configuration list for PBXNativeTarget "Pods-Udder" */;
-			buildPhases = (
-				03D2453DDC211C23F44F3C8E /* Sources */,
-				C368B566C771A90377ECC330 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4403957709104673ADE1A64E /* PBXTargetDependency */,
-			);
-			name = "Pods-Udder";
-			productName = "Pods-Udder";
-			productReference = 131ABC3F8727FB4F0A27FA0C /* libPods-Udder.a */;
+			productReference = C768EF40E1FA1C7E8246CB8D /* libPods-Udder-MFSideMenu.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CB1130748B6435A4C929E5D9 /* Project object */ = {
+		B45CDFE3B3D359684A76C44B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 9226646F76D8DDFE7F5946DE /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 5CDBA6F4279B9C41777A3B63 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7C1F0024AAAADFDC1C679E34;
-			productRefGroup = 9AEB9C015DA49E94A811985F /* Products */;
+			mainGroup = 873F79410B2E4E96790C69AB;
+			productRefGroup = EF3F3A97D12139BC0211050E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C65F33CCBFC764EAE608FA1E /* Pods-Udder */,
-				464CE06465226CB86DE79ACF /* Pods-Udder-MFSideMenu */,
+				3193086ED2326C8A22023AA0 /* Pods-Udder */,
+				97BAF4561F13594B1E3F1BDA /* Pods-Udder-MFSideMenu */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03D2453DDC211C23F44F3C8E /* Sources */ = {
+		69281507DB1AFE42130FD1F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C6F17D2F07019BC574CC066 /* Pods-Udder-dummy.m in Sources */,
+				7DA184AC33F6600D28624CCB /* Pods-Udder-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		47F2239BD78A65EDD2DA5A6A /* Sources */ = {
+		9353997991ED8892F5DFC7F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161F638B7D33F2FB8BF6CE1C /* MFSideMenuContainerViewController.m in Sources */,
-				78891D2B3B0B6EA1BBAC221B /* MFSideMenuShadow.m in Sources */,
-				466B2568C246CFDC09EFDA0A /* Pods-Udder-MFSideMenu-dummy.m in Sources */,
-				9C36994B926410F72E2FB8FA /* UIViewController+MFSideMenuAdditions.m in Sources */,
+				05FCE533C00233E175FDE6FA /* MFSideMenuContainerViewController.m in Sources */,
+				2BB11026276966122BC9AD73 /* MFSideMenuShadow.m in Sources */,
+				125D2BE09F9CFC70FB5748F6 /* Pods-Udder-MFSideMenu-dummy.m in Sources */,
+				87BA52AB7732D10D5E5EB999 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4403957709104673ADE1A64E /* PBXTargetDependency */ = {
+		F9EA515370A4343B33098CCE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Udder-MFSideMenu";
-			target = 464CE06465226CB86DE79ACF /* Pods-Udder-MFSideMenu */;
-			targetProxy = DED0B80F7F219D4A0F97984E /* PBXContainerItemProxy */;
+			target = 97BAF4561F13594B1E3F1BDA /* Pods-Udder-MFSideMenu */;
+			targetProxy = 1F2DB69808A4FEFDF7A46213 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		55E2E825E493E3E9F8D51AAB /* Release */ = {
+		0262B6F4C17D258310C85A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1247BA236390E4E6E1A88CB /* Pods-Udder-MFSideMenu-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Udder-MFSideMenu/Pods-Udder-MFSideMenu-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0AA83C3E3DB87888A5263D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1247BA236390E4E6E1A88CB /* Pods-Udder-MFSideMenu-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Udder-MFSideMenu/Pods-Udder-MFSideMenu-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		21B1B6A1767A86C0B9AA9DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64330A567CE5C954C9E04D94 /* Pods-Udder.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		80845FEE4C3F131C45BCC726 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -316,29 +364,13 @@
 			};
 			name = Release;
 		};
-		8A4133DE7CAFC4133A58DF92 /* Release */ = {
+		C9DAC422161492DC10C6FAF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 853ABFD5D24B27D082C03DFE /* Pods-Udder-MFSideMenu-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Udder-MFSideMenu/Pods-Udder-MFSideMenu-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		90DAE699B9C302B38106B59D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A38BB43B02E38DDA82987C2D /* Pods-Udder.release.xcconfig */;
+			baseConfigurationReference = E2EFE8D15D2CE53875601471 /* Pods-Udder.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -346,25 +378,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
-		};
-		98BD6C51319E00E3A04A0036 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 853ABFD5D24B27D082C03DFE /* Pods-Udder-MFSideMenu-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Udder-MFSideMenu/Pods-Udder-MFSideMenu-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
 			name = Debug;
 		};
-		C5C8FF47F0B074E277DC36C0 /* Debug */ = {
+		E290845111CC865582EF98FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -403,53 +419,37 @@
 			};
 			name = Debug;
 		};
-		E89CF46146382C59AD490C4C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 468B3C6DCEF8965BF99DC941 /* Pods-Udder.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09C478D5CEE7533E62A10B5B /* Build configuration list for PBXNativeTarget "Pods-Udder" */ = {
+		09F1D7548DB8842EFBF90C7A /* Build configuration list for PBXNativeTarget "Pods-Udder-MFSideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E89CF46146382C59AD490C4C /* Debug */,
-				90DAE699B9C302B38106B59D /* Release */,
+				0262B6F4C17D258310C85A6C /* Debug */,
+				0AA83C3E3DB87888A5263D0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5038827E278241B35F184D4C /* Build configuration list for PBXNativeTarget "Pods-Udder-MFSideMenu" */ = {
+		5CDBA6F4279B9C41777A3B63 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98BD6C51319E00E3A04A0036 /* Debug */,
-				8A4133DE7CAFC4133A58DF92 /* Release */,
+				E290845111CC865582EF98FE /* Debug */,
+				80845FEE4C3F131C45BCC726 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9226646F76D8DDFE7F5946DE /* Build configuration list for PBXProject "Pods" */ = {
+		785FADFC5DC166BFCFE9D3E4 /* Build configuration list for PBXNativeTarget "Pods-Udder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5C8FF47F0B074E277DC36C0 /* Debug */,
-				55E2E825E493E3E9F8D51AAB /* Release */,
+				C9DAC422161492DC10C6FAF8 /* Debug */,
+				21B1B6A1767A86C0B9AA9DEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CB1130748B6435A4C929E5D9 /* Project object */;
+	rootObject = B45CDFE3B3D359684A76C44B /* Project object */;
 }

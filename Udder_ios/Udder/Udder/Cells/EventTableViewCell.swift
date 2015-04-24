@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell, TTTAttributedLabelDelegate{
+class EventTableViewCell: UITableViewCell {
 
     
     

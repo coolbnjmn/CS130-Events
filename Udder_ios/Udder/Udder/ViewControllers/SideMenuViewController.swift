@@ -54,7 +54,7 @@ class SideMenuViewController: UITableViewController {
             let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
             self.menuContainerViewController.centerViewController = navController
         } else {
-            let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+            let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
             self.menuContainerViewController.centerViewController = navController
         }
     }
