@@ -34,20 +34,49 @@ class LoginViewController: UIViewController {
                 
             } else if (user.isNew) {
                 NSLog("User with facebook signed up and logged in!");
-                PFUser.logOut();
-                NSLog("Logged out");
+                self.gatherInfo()
+                self.redirectToHome()
             }
                 
             else {
                 NSLog("User with facebook logged in!");
-                PFUser.logOut();
-                NSLog("Logged out");
+                self.gatherInfo()
+                self.redirectToHome()
             }
             
         });
 
     }
     
+    func gatherInfo() {
+        FBRequestConnection.startForMeWithCompletionHandler({ (connection :
+            FBRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+            PFUser.currentUser().setObject(result["id"],
+                forKey: "facebookId")
+            println(result)
+            PFUser.currentUser().setObject(result["first_name"], forKey:"first_name")
+            PFUser.currentUser().setObject(result["last_name"], forKey:"last_name")
+            PFUser.currentUser().saveInBackgroundWithBlock({
+                (success : Bool, error : NSError!) -> Void in
+                if error != nil {
+                    NSLog(error!.description);
+                } else if success {
+                    self.performSegueWithIdentifier("login",
+                        sender: self);
+//                    SVProgressHUD.dismiss()
+                }
+            })
+        })
+    }
+    
+    func redirectToHome() {
+        let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+        let navController : UINavigationController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle:nil))
+        
+        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        self.presentViewController(container, animated: true, completion: nil)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

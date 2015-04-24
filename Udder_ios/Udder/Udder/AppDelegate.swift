@@ -41,7 +41,7 @@ self.window.rootViewController = container;
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         
-        self.window!.rootViewController = container
+        self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
         self.window!.makeKeyAndVisible()
         return true
     }

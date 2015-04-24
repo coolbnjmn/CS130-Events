@@ -15,12 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var tapHereButton: UIButton!
     
     @IBAction func tapHereWasPressed(sender: AnyObject) {
-        println("pressed button")
+        PFUser.logOut()
+        NSLog("Logged out")
+        self.redirectToLogin()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tapHereButton.setTitle(PFUser.currentUser().objectForKey("first_name") as? String, forState: UIControlState.Normal)
     }
     
     func setupMenuBarButtonItems() {
@@ -40,6 +43,14 @@ class ViewController: UIViewController {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({
             self.setupMenuBarButtonItems()
         })
+    }
+    
+    func redirectToLogin() {
+        let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+        let navController : UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle:nil))
+        
+        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        self.presentViewController(container, animated: true, completion: nil)
     }
     
     
