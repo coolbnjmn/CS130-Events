@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class EventTableViewCell: UITableViewCell, TTTAttributedLabelDelegate{
 
     
     
@@ -22,10 +22,13 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     
     
+    @IBOutlet weak var timeLabelWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var locationLabelWidthConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
+    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -40,25 +43,40 @@ class EventTableViewCell: UITableViewCell {
         self.locationImageView?.image = UIImage(named: "placeholder.png")
         self.timeImageView?.image = UIImage(named: "placeholder.png")
         self.categoryImageView?.image = UIImage(named: "placeholder.png")
-        
-        
+                
         self.eventTitleLabel.textColor = UIColor.whiteColor()
         self.timeLocationSubview.backgroundColor = UIColor.clearColor()
         self.timeLabel.textColor = UIColor.whiteColor()
         self.locationLabel.textColor = UIColor.whiteColor()
+       
+        self.timeLabel.sizeToFit()
+        self.timeLabelWidthConstraint.constant = self.timeLabel.frame.size.width
+        
+        let maxTimeLabelWidth : CGFloat = (self.timeLocationSubview.frame.size.width - self.locationImageView.frame.size.width) / 3
+        let maxLocationLabelWidth : CGFloat = 2*maxTimeLabelWidth
+        
+        
+        if(self.timeLabel.frame.size.width > maxTimeLabelWidth) {
+            println("timeLabel too big")
+            self.timeLabelWidthConstraint.constant = maxTimeLabelWidth
+            self.timeLabel.frame.size.width = maxTimeLabelWidth
+            println(self.timeLabel.frame)
+        }
+        
+        self.locationLabel.sizeToFit()
+        self.locationLabelWidthConstraint.constant = self.locationLabel.frame.size.width
+        println("locationlabel size")
+        println(self.locationLabel.frame)
+
+        if(self.locationLabel.frame.size.width + self.locationLabel.frame.origin.x > self.timeLocationSubview.frame.width) {
+            println("locationlabel too big")
+            self.locationLabelWidthConstraint.constant = maxLocationLabelWidth
+        }
+        
         self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:24)
         self.timeLabel.font = UIFont(name: "Avenir-Book", size:18)
         self.locationLabel.font = UIFont(name: "Avenir-Book", size: 18)
         
-        self.timeLabel.sizeToFit()
-        self.locationLabel.sizeToFit()
-        
-        let maxTimeLabelWidth : CGFloat = self.timeLocationSubview.frame.size.width / 3
-        let maxLocationLabelWidth : CGFloat = 2*maxTimeLabelWidth
-        
-        if(self.timeLabel.frame.size.width > maxTimelabelWidth) {
-            
-        }
     }
     
 }
