@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController {
     
@@ -26,6 +27,23 @@ class ViewController: UIViewController {
         self.tapHereButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
         self.setupMenuBarButtonItems()
         self.tapHereButton.backgroundColor = UIColor.whiteColor()
+        
+        var query = PFQuery(className: "EventTest");
+        query.getObjectInBackgroundWithId("4cBxRGrt5k") {
+            (eventObject: PFObject!, error: NSError!) -> Void in
+            if error == nil && eventObject != nil {
+                var eventModel:EventModel? = EventModel(eventObject: eventObject);
+                if let tempEvent = eventModel {
+                    tempEvent.printEvent();
+                }
+                else {
+                    println("Failed to generate event");
+                }
+            }
+            else {
+                println(error);
+            }
+        }
     }
     
     func setupMenuBarButtonItems() {

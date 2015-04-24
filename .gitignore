@@ -3,7 +3,6 @@ Pods
 .DS_Store
 .Trashes
 *.swap
-*.lock
 *~.nib
 build/
 *.pbxuser
