@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
+		B2041B811AE9E0FB00179BBA /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B2041B801AE9E0FB00179BBA /* placeholder.png */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		B2041B801AE9E0FB00179BBA /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 		B255609C1AE19A0900EBEE8B /* Udder */ = {
 			isa = PBXGroup;
 			children = (
+				B2041B801AE9E0FB00179BBA /* placeholder.png */,
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B2BF29381AE9D42000D6714C /* Constants.swift */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
@@ -352,6 +355,7 @@
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
+				B2041B811AE9E0FB00179BBA /* placeholder.png in Resources */,
 				B2D5BB941AE1DDE00063126E /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 			);

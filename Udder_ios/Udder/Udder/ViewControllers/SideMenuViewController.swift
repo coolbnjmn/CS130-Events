@@ -45,7 +45,6 @@ class SideMenuViewController: UITableViewController {
         cell.textLabel!.text = String(format: "Item %d", arguments: [indexPath.row])
 
         // Configure the cell...
-        println("printing cell")
         return cell
     }
 

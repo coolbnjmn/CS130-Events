@@ -15,7 +15,8 @@ class EventTableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
+//        self.tableView.registerClass(EventTableViewCell.self, forCellReuseIdentifier: "eventCell")
+        self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.setupMenuBarButtonItems()
@@ -56,15 +57,25 @@ class EventTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 10
+        return 2
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableViewCell
         // Configure the cell...
-        cell.textLabel!.text = String(format: "Item %d", arguments: [indexPath.row])
+        var params: NSMutableDictionary = NSMutableDictionary()
+        params.setObject(String(format: "Item %d", arguments: [indexPath.row]), forKey: "title")
+        params.setObject("location", forKey: "location")
+        params.setObject("time blah blah blah", forKey: "time")
+    
+        
+        cell.eventTableViewCellInit(params)
+        
         return cell
     }
 
