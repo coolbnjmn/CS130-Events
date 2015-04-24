@@ -115,10 +115,10 @@ class SideMenuViewController: UITableViewController {
             navController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 6: //Logout
-            PFUser.logOut()
-            nibNameToSwitchTo = "LoginViewController";
-            navController = UINavigationController(rootViewController: LoginViewController(nibName: nibNameToSwitchTo, bundle:nil))
-            break;
+            let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
+            appdelegate.FBlogout()
+            return
         default:
             return
         }

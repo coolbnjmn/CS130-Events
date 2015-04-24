@@ -74,6 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 /***************/
 
+    func FBlogout() {
+        PFUser.logOut()
+        UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
+        
+    }
+    
 
 }
 
