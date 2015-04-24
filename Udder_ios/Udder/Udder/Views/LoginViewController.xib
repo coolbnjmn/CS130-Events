@@ -16,23 +16,49 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-QZ-G1V">
-                    <rect key="frame" x="40" y="530" width="520" height="30"/>
+                    <rect key="frame" x="70" y="500" width="460" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="kwp-vO-Cp3"/>
+                        <constraint firstAttribute="height" constant="40" id="kwp-vO-Cp3"/>
                     </constraints>
-                    <state key="normal" title="Button">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Login with Facebook">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="pressedLogin:" destination="-1" eventType="touchUpInside" id="tyR-Zr-gC5"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üdder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxu-Ba-kdL">
+                    <rect key="frame" x="10" y="60" width="580" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="AJ7-Dg-t9C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Find events in real time based on your current location" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jf-ku-gAe">
+                    <rect key="frame" x="129" y="102" width="342" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="dEm-ec-Yti"/>
+                        <constraint firstAttribute="width" constant="400" id="pWR-J3-Tat"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Vqg-QZ-G1V" secondAttribute="bottom" constant="40" id="0BL-5t-eya"/>
-                <constraint firstAttribute="trailing" secondItem="Vqg-QZ-G1V" secondAttribute="trailing" constant="40" id="Tb5-Zf-C62"/>
-                <constraint firstItem="Vqg-QZ-G1V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="z4K-Dc-6fZ"/>
+                <constraint firstAttribute="bottom" secondItem="Vqg-QZ-G1V" secondAttribute="bottom" constant="60" id="0BL-5t-eya"/>
+                <constraint firstItem="3jf-ku-gAe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="5QT-2E-MF2"/>
+                <constraint firstAttribute="trailing" secondItem="3jf-ku-gAe" secondAttribute="trailing" constant="50" id="8a9-Df-t99"/>
+                <constraint firstItem="Nxu-Ba-kdL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Rbv-pc-BRt"/>
+                <constraint firstAttribute="trailing" secondItem="Vqg-QZ-G1V" secondAttribute="trailing" constant="70" id="Tb5-Zf-C62"/>
+                <constraint firstItem="3jf-ku-gAe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="UcJ-B0-FfU"/>
+                <constraint firstAttribute="trailing" secondItem="Nxu-Ba-kdL" secondAttribute="trailing" constant="10" id="f1D-Oa-LK5"/>
+                <constraint firstItem="3jf-ku-gAe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="hMb-dR-9Aa"/>
+                <constraint firstItem="Nxu-Ba-kdL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="jAW-G6-6wO"/>
+                <constraint firstItem="Vqg-QZ-G1V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="z4K-Dc-6fZ"/>
             </constraints>
         </view>
     </objects>

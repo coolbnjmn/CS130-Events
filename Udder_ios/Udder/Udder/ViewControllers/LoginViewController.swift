@@ -56,6 +56,9 @@ class LoginViewController: UIViewController {
             println(result)
             PFUser.currentUser().setObject(result["first_name"], forKey:"first_name")
             PFUser.currentUser().setObject(result["last_name"], forKey:"last_name")
+            PFUser.currentUser().setObject(result["name"], forKey:"full_name")
+            PFUser.currentUser().setObject(result["email"], forKey:"email")
+            PFUser.currentUser().setObject(result["gender"], forKey:"gender")
             PFUser.currentUser().saveInBackgroundWithBlock({
                 (success : Bool, error : NSError!) -> Void in
                 if error != nil {
@@ -82,13 +85,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        loginButton.setTitle("Login to Facebook", forState: UIControlState.Normal)
+        loginButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         loginButton.backgroundColor = UIColor.blueColor();
-        loginButton.layer.cornerRadius = 15;
+        loginButton.layer.cornerRadius = 20;
         loginButton.addTarget(self, action: "pressedLogin:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.backgroundColor = UIColor.whiteColor();
+        
         self.view.addSubview(loginButton)
 
     }

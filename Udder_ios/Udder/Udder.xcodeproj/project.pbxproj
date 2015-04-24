@@ -43,6 +43,7 @@
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10200E51AEA07A2007A2F8F /* LoginViewController.xib */; };
+		E132D1021AEA20DD002000B8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E132D1011AEA20DD002000B8 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
 		E10200E11AEA076B007A2F8F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		E10200E51AEA07A2007A2F8F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Views/LoginViewController.xib; sourceTree = "<group>"; };
+		E132D1011AEA20DD002000B8 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				B2446F451AE2098C006C37F9 /* EventTableViewController.xib */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
 				E10200E51AEA07A2007A2F8F /* LoginViewController.xib */,
+				E132D1011AEA20DD002000B8 /* ViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E132D1021AEA20DD002000B8 /* ViewController.xib in Resources */,
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */,

@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tapHereButton.setTitle(PFUser.currentUser().objectForKey("first_name") as? String, forState: UIControlState.Normal)
+        let logoutText: String = "Logout: " + (PFUser.currentUser().objectForKey("full_name") as? String ?? "")
+        tapHereButton.setTitle(logoutText, forState: UIControlState.Normal)
     }
     
     func setupMenuBarButtonItems() {
