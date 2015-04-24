@@ -17,6 +17,8 @@ class EventTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 //        self.tableView.registerClass(EventTableViewCell.self, forCellReuseIdentifier: "eventCell")
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.navigationItem.title = "Home"
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.setupMenuBarButtonItems()

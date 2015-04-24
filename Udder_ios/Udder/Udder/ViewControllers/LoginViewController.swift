@@ -54,7 +54,6 @@ class LoginViewController: UIViewController {
             FBRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
             PFUser.currentUser().setObject(result["id"],
                 forKey: "facebookId")
-            println(result)
             PFUser.currentUser().setObject(result["first_name"], forKey:"first_name")
             PFUser.currentUser().setObject(result["last_name"], forKey:"last_name")
             PFUser.currentUser().setObject(result["name"], forKey:"full_name")

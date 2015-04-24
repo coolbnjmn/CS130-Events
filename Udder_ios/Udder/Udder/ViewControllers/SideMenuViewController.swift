@@ -106,7 +106,9 @@ class SideMenuViewController: UITableViewController {
         let navController: UINavigationController?
         
         switch indexPath.row {
-        
+        case 0:
+            selectedCell.backgroundColor = UIColor.blueColor()
+            return
         case 1: //Home
             nibNameToSwitchTo = "EventTableViewController";
             navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))

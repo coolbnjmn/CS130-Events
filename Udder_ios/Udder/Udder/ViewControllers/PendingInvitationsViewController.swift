@@ -14,6 +14,8 @@ class PendingInvitationsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "Pending Invites"
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -20,14 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
         
         PFFacebookUtils.initializeFacebook();
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
-        let navController : UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle:nil))
         
-        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        if(PFUser.currentUser() == nil) { //Not logged in
+            self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
+        }
+        else { //Already logged in
+            let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
+            let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+            self.window?.rootViewController = container
+        }
         
-        self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
         self.window!.makeKeyAndVisible()
         return true
     }
@@ -76,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func FBlogout() {
         PFUser.logOut()
-        UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
+        UIView.transitionWithView(self.window!, duration: 0.6, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
         
     }
     
