@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
                         "A login error occurred", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
+                    self.loginButton.enabled = true
                 }
                 
             } else if (user.isNew) {
@@ -87,16 +88,17 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         loginButton.enabled = true
 
-        loginButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
-        loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        loginButton.backgroundColor = UIColor.blueColor();
-        loginButton.layer.cornerRadius = 20;
+//        loginButton.setTitle("Login with Facebook", forState: UIControlState.Normal)
+//        loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+//        loginButton.backgroundColor = UIColor.blueColor();
+//        loginButton.layer.cornerRadius = 20;
+//        loginButton.setImage(UIImage(named: "fb-btn.png"), forState: UIControlState.Normal)
         loginButton.addTarget(self, action: "pressedLogin:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.backgroundColor = UIColor.whiteColor();
         
         self.view.addSubview(loginButton)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "splash-bg.png")!)
 
 
     }

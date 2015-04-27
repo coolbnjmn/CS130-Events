@@ -2,75 +2,82 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Udder" customModuleProvider="target">
             <connections>
-                <outlet property="loginButton" destination="Vqg-QZ-G1V" id="c0z-ir-fdO"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="loginButton" destination="IGP-4E-th9" id="a7c-FT-afc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="jqn-rg-LVx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-QZ-G1V">
-                    <rect key="frame" x="70" y="500" width="460" height="40"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hSg-yo-Ceu">
+                    <rect key="frame" x="124" y="68" width="167" height="43"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find events in real-time based on your current location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkq-PP-wmc">
+                    <rect key="frame" x="88" y="131" width="238" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="kwp-vO-Cp3"/>
+                        <constraint firstAttribute="width" constant="238" id="XdR-U8-07v"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Login with Facebook">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGP-4E-th9">
+                    <rect key="frame" x="50" y="606" width="314" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="IGP-4E-th9" secondAttribute="height" multiplier="59:18" id="Gs8-Tc-JyQ"/>
+                        <constraint firstAttribute="width" secondItem="IGP-4E-th9" secondAttribute="height" multiplier="131:40" id="cfD-ct-JLp"/>
+                        <constraint firstAttribute="height" constant="50" id="eRf-0h-dZM"/>
+                        <constraint firstAttribute="height" constant="40" id="iR9-dG-e12"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="fb-btn">
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Gs8-Tc-JyQ"/>
+                            <exclude reference="cfD-ct-JLp"/>
+                            <exclude reference="iR9-dG-e12"/>
+                        </mask>
+                    </variation>
                     <connections>
-                        <action selector="pressedLogin:" destination="-1" eventType="touchUpInside" id="tyR-Zr-gC5"/>
+                        <action selector="pressedLogin:" destination="-1" eventType="touchUpInside" id="VzL-i6-6p3"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üdder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxu-Ba-kdL">
-                    <rect key="frame" x="10" y="60" width="580" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="AJ7-Dg-t9C"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="54"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your current location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqt-Im-Nfg">
-                    <rect key="frame" x="20" y="150" width="560" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="b1B-HJ-mcv"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find events in real-time based on" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwl-Ks-q6I">
-                    <rect key="frame" x="20" y="120" width="560" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="huj-b7-9dJ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Vqg-QZ-G1V" secondAttribute="bottom" constant="60" id="0BL-5t-eya"/>
-                <constraint firstAttribute="trailing" secondItem="Hqt-Im-Nfg" secondAttribute="trailing" constant="20" id="6Ku-dY-Bk9"/>
-                <constraint firstItem="Hqt-Im-Nfg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ITc-Bw-oqs"/>
-                <constraint firstItem="Nxu-Ba-kdL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Rbv-pc-BRt"/>
-                <constraint firstAttribute="trailing" secondItem="Vqg-QZ-G1V" secondAttribute="trailing" constant="70" id="Tb5-Zf-C62"/>
-                <constraint firstItem="qwl-Ks-q6I" firstAttribute="top" secondItem="Nxu-Ba-kdL" secondAttribute="bottom" id="Tcy-gO-OtA"/>
-                <constraint firstAttribute="trailing" secondItem="qwl-Ks-q6I" secondAttribute="trailing" constant="20" id="aOC-z4-WqQ"/>
-                <constraint firstAttribute="trailing" secondItem="Nxu-Ba-kdL" secondAttribute="trailing" constant="10" id="f1D-Oa-LK5"/>
-                <constraint firstItem="Nxu-Ba-kdL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="jAW-G6-6wO"/>
-                <constraint firstItem="Hqt-Im-Nfg" firstAttribute="top" secondItem="Nxu-Ba-kdL" secondAttribute="bottom" constant="30" id="tdb-XA-Shn"/>
-                <constraint firstItem="Vqg-QZ-G1V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="z4K-Dc-6fZ"/>
-                <constraint firstItem="qwl-Ks-q6I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zOG-p1-t7k"/>
+                <constraint firstItem="Kkq-PP-wmc" firstAttribute="top" secondItem="hSg-yo-Ceu" secondAttribute="bottom" constant="20" id="NiS-EL-bFN"/>
+                <constraint firstAttribute="centerX" secondItem="hSg-yo-Ceu" secondAttribute="centerX" id="Tmx-0a-iYd"/>
+                <constraint firstAttribute="trailing" secondItem="IGP-4E-th9" secondAttribute="trailing" constant="60" id="WJs-WO-TPB"/>
+                <constraint firstAttribute="trailing" secondItem="IGP-4E-th9" secondAttribute="trailing" constant="50" id="X9F-a3-ctb"/>
+                <constraint firstItem="hSg-yo-Ceu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="agg-ce-x8L"/>
+                <constraint firstItem="IGP-4E-th9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="dJ5-jW-2JX"/>
+                <constraint firstItem="IGP-4E-th9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="hKq-MV-QM7"/>
+                <constraint firstAttribute="bottom" secondItem="IGP-4E-th9" secondAttribute="bottom" constant="80" id="hXW-Pt-TPW"/>
+                <constraint firstAttribute="centerX" secondItem="Kkq-PP-wmc" secondAttribute="centerX" id="vDx-hk-L0u"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="WJs-WO-TPB"/>
+                    <exclude reference="hKq-MV-QM7"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="fb-btn" width="412" height="82"/>
+        <image name="logo" width="167" height="43"/>
+    </resources>
 </document>
