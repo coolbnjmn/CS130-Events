@@ -34,8 +34,8 @@ class EventTableViewController: UITableViewController {
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
         // another way of adding the button but by an icon, will need this soon
-        //        return UIBarButtonItem(image: UIImage(named: "menu-icon.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
-        return UIBarButtonItem(title: "Left", style: .Plain, target: self, action: "leftSideMenuButtonPressed:")
+                return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+//        return UIBarButtonItem(title: "Nav", style: .Plain, target: self, action: "leftSideMenuButtonPressed:")
         
     }
     
@@ -83,6 +83,11 @@ class EventTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.whiteColor()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

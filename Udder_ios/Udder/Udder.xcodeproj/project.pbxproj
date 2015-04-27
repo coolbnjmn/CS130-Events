@@ -10,7 +10,6 @@
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
-		B2041B811AE9E0FB00179BBA /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B2041B801AE9E0FB00179BBA /* placeholder.png */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
@@ -44,7 +43,6 @@
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10200E51AEA07A2007A2F8F /* LoginViewController.xib */; };
-		E132D1091AEA2CA2002000B8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E132D1081AEA2CA2002000B8 /* background.jpg */; };
 		E17571631AEAD24100E92F07 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571611AEAD24100E92F07 /* MyEventsViewController.swift */; };
 		E17571671AEAD25900E92F07 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */; };
 		E175716B1AEAD27A00E92F07 /* EventsNearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571691AEAD27A00E92F07 /* EventsNearMeViewController.swift */; };
@@ -53,6 +51,9 @@
 		E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */; };
 		E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */; };
 		E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */; };
+		E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FEE1AEDC6B600490B41 /* background.jpg */; };
+		E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FEF1AEDC6B600490B41 /* placeholder.png */; };
+		E1D48FF61AEDC70400490B41 /* nav1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FF21AEDC70300490B41 /* nav1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +70,6 @@
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
-		B2041B801AE9E0FB00179BBA /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +110,6 @@
 		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
 		E10200E11AEA076B007A2F8F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		E10200E51AEA07A2007A2F8F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Views/LoginViewController.xib; sourceTree = "<group>"; };
-		E132D1081AEA2CA2002000B8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		E17571611AEAD24100E92F07 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyEventsViewController.swift; path = ViewControllers/MyEventsViewController.swift; sourceTree = "<group>"; };
 		E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpcomingEventsViewController.swift; path = ViewControllers/UpcomingEventsViewController.swift; sourceTree = "<group>"; };
 		E17571691AEAD27A00E92F07 /* EventsNearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsNearMeViewController.swift; path = ViewControllers/EventsNearMeViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +118,9 @@
 		E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyEventsViewController.xib; path = Views/MyEventsViewController.xib; sourceTree = "<group>"; };
 		E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingInvitationsViewController.xib; path = Views/PendingInvitationsViewController.xib; sourceTree = "<group>"; };
 		E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpcomingEventsViewController.xib; path = Views/UpcomingEventsViewController.xib; sourceTree = "<group>"; };
+		E1D48FEE1AEDC6B600490B41 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		E1D48FEF1AEDC6B600490B41 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		E1D48FF21AEDC70300490B41 /* nav1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +192,9 @@
 		B255609C1AE19A0900EBEE8B /* Udder */ = {
 			isa = PBXGroup;
 			children = (
-				E132D1081AEA2CA2002000B8 /* background.jpg */,
-				B2041B801AE9E0FB00179BBA /* placeholder.png */,
+				E1D48FF21AEDC70300490B41 /* nav1.png */,
+				E1D48FEE1AEDC6B600490B41 /* background.jpg */,
+				E1D48FEF1AEDC6B600490B41 /* placeholder.png */,
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B2BF29381AE9D42000D6714C /* Constants.swift */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
@@ -388,16 +391,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
+				E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				E10200E61AEA07A2007A2F8F /* LoginViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
-				E132D1091AEA2CA2002000B8 /* background.jpg in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
-				B2041B811AE9E0FB00179BBA /* placeholder.png in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
+				E1D48FF61AEDC70400490B41 /* nav1.png in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
+				E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */,
 				E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
