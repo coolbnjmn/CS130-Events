@@ -60,18 +60,13 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func setLayout() {
-        self.headerViewHeightConstraint.constant = self.view.frame.size.height/3;
-        
-        var timeViewWidth:CGFloat = (self.view.frame.size.width - 50) / 2;
-        self.timeViewWidthConstraint.constant = timeViewWidth;
-        self.locationViewWidthConstraint.constant = timeViewWidth;
 
-        self.view.setNeedsLayout();
     }
     
-    func applyGradient(gradientView:UIView) {
+    // TODO: Implement gradient background
+    /*func applyGradient(gradientView:UIView) {
         var gradient:CAGradientLayer = CAGradientLayer();
-        var gradientFrame:CGRect = gradientView.frame;
+        var gradientFrame:CGRect = self.headerView.frame;
         gradientFrame.origin.x = 0;
         gradientFrame.origin.y = 0;
         gradient.frame = gradientFrame;
@@ -79,11 +74,16 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         var colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor];
         gradient.colors = colors;
         gradientView.layer.insertSublayer(gradient, atIndex: 0);
-    }
+    }*/
     
-    override func viewDidAppear(animated: Bool) {
-        self.setLayout();
-        self.applyGradient(self.backgroundGradientView);
+    override func viewDidLayoutSubviews() {
+        self.headerViewHeightConstraint.constant = self.view.frame.size.height/3;
+        
+        var timeViewWidth:CGFloat = (self.view.frame.size.width - 50) / 2;
+        self.timeViewWidthConstraint.constant = timeViewWidth;
+        self.locationViewWidthConstraint.constant = timeViewWidth;
+        
+        self.view.layoutSubviews();
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
