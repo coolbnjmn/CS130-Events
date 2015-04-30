@@ -24,29 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let logoutText: String = "Logout: " + (PFUser.currentUser().objectForKey("full_name") as? String ?? "")
-        tapHereButton.setTitle(logoutText, forState: UIControlState.Normal)
-        
-        /*var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
-        
-        var successBlock: NSMutableArray -> Void = {
-            (eventArray: NSMutableArray) -> Void in
-            for event in eventArray {
-                if let eventModel = event as? EventModel {
-                    //eventModel.printEvent();
-                    var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
-                    eventDetailViewController.setupWithEvent(eventModel);
-                    self.navigationController?.pushViewController(eventDetailViewController, animated: true);
-                    break;
-                }
-            }
-        }
-        
-        var failureBlock: NSError -> Void = {
-            (error: NSError) -> Void in
-            println("Error2: \(error)");
-        }
-        
-        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);*/
+        tapHereButton.setTitle(logoutText, forState: UIControlState.Normal)        
     }
     
     func setupMenuBarButtonItems() {
