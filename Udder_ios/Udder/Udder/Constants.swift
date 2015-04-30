@@ -9,6 +9,7 @@
 struct Constants {
     struct CellIdentifiers {
         static let kEventTitleCell = "kEventViewTitleCell"
+        static let kDescriptionTableViewCell = "DescriptionTableViewCell"
     }
     
     struct DatabaseClass {
@@ -25,5 +26,15 @@ struct Constants {
         static let kEventEndTime = "end_time"
         static let kEventImageIURL = "image_url"
         static let kEventFieldPlaceholder = ""
+    }
+    
+    struct EventDetail {
+        struct Row {
+             static let kDescriptionCell = 0;
+        }
+        
+        struct TableConstraints {
+            static let kDescriptionViewHeight:CGFloat = 110;
+        }
     }
 }

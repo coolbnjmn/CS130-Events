@@ -13,11 +13,16 @@ struct Segment {
     static let kSegmentAttendees = 1;
 }
 
-class EventDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventDetailViewController: UIViewController {
     
     var event:EventModel?;
+    var eventDetailProvider:EventDetailViewControllerProvider?;
     
+    // Views
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var backgroundGradientView: UIView!
+    
+    // Constraints
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var timeViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var locationViewWidthConstraint: NSLayoutConstraint!
@@ -27,30 +32,20 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var backgroundGradientView: UIView!
-    
+    // Tables
     @IBOutlet weak var infoTableView: UITableView!
-    //@IBOutlet weak var attendeesTableView: UITableView!
-    //@IBOutlet weak var imageOverlay: UIView!
-    
     
     var segmentSelected = Segment.kSegmentInfo;
     
     func setupWithEvent(eventModel:EventModel?) {
         self.event = eventModel;
+        self.eventDetailProvider = EventDetailViewControllerProvider(eventModel: eventModel);
     }
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
         self.populateData();
-        
-        //let titleViewNib:UINib = UINib(nibName: "EventViewTitleCell", bundle: nil);
-        //self.infoTableView.registerNib(titleViewNib, forCellReuseIdentifier: Constants.CellIdentifiers.kEventTitleCell);
-        
-        let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
-        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: "DescriptionTableViewCell");
-        
-        self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.setupTableViews();
     }
     
     func populateData() {
@@ -60,10 +55,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
             self.timeLabel.text = "12:00 pm";
             self.locationLabel.text = validatedEvent.eventLocation;
         }
-    }
-    
-    func setLayout() {
-
     }
     
     // TODO: Implement gradient background
@@ -89,32 +80,12 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.layoutSubviews();
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 110;
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = self.tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kEventTitleCell, forIndexPath: indexPath) as EventViewTitleCell;
-        //let cell = self.tableView.dequeueReusableCellWithIdentifier("Identifier", forIndexPath: indexPath) as UITableViewCell;
-        
-        if  (tableView == self.infoTableView) {
-            let cell  = self.infoTableView.dequeueReusableCellWithIdentifier("DescriptionTableViewCell") as! DescriptionTableViewCell;
-            if let validatedEvent = self.event {
-                cell.descriptionLabel.text = validatedEvent.eventDescription;
-                return cell;
-            }
-        }
-        else {
-            print("No");
-            //cell = UITableViewCell();
-            //cell.textLabel?.text = "attendee";
-        }
-
-        return UITableViewCell();
+    func setupTableViews() {
+        let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: "DescriptionTableViewCell");
+        self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.infoTableView.dataSource = self.eventDetailProvider;
+        self.infoTableView.delegate = self.eventDetailProvider;
     }
     
     @IBAction func viewSwitched(sender: UISegmentedControl) {
