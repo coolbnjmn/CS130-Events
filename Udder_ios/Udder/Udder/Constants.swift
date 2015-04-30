@@ -9,6 +9,9 @@
 struct Constants {
     struct CellIdentifiers {
         static let kEventTitleCell = "kEventViewTitleCell"
+        static let kDescriptionTableViewCell = "DescriptionTableViewCell"
+        static let kLocationTableViewCell = "LocationTableViewCell"
+        static let kStandardTableViewCell = "StandardTableViewCell"
     }
     
     struct DatabaseClass {
@@ -25,5 +28,21 @@ struct Constants {
         static let kEventEndTime = "end_time"
         static let kEventImageIURL = "image_url"
         static let kEventFieldPlaceholder = ""
+    }
+    
+    struct EventDetail {
+        struct Row {
+            static let kDescriptionCell = 2;
+            static let kTimeCell = 0;
+            static let kLocationCell = 1;
+        }
+        
+        struct TableConstraints {
+            static let kDescriptionViewHeight:CGFloat = 110;
+        }
+    }
+    
+    struct DateFormats {
+        static let kFullDateFormat = "EEE MMM d, YYYY hh:mm a"
     }
 }
