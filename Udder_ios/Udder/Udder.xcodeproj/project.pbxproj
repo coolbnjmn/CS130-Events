@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
+		A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */; };
+		A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */; };
 		A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
 		A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78542B81AEA0D2500DD1164 /* Beach.jpg */; };
 		A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
@@ -74,6 +76,8 @@
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
+		A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionTableViewCell.swift; path = Cells/DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = Views/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ViewControllers/EventDetailViewController.swift; sourceTree = "<group>"; };
 		A78542B81AEA0D2500DD1164 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
 		A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetailViewController.xib; path = Views/EventDetailViewController.xib; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				B2BF292F1AE9D32900D6714C /* EventTableViewCell.swift */,
+				A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */,
 				E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */,
 				E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */,
+				A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */,
 				A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */,
 				A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */,
 				B2BF29331AE9D35B00D6714C /* EventTableViewCell.xib */,
@@ -420,6 +426,7 @@
 				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
+				A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
@@ -483,6 +490,7 @@
 				B2BF29371AE9D3E200D6714C /* BaseModel.swift in Sources */,
 				E175716F1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift in Sources */,
 				B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */,
+				A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				E175716B1AEAD27A00E92F07 /* EventsNearMeViewController.swift in Sources */,
 				A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */,
