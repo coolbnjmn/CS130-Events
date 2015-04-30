@@ -86,6 +86,28 @@ class EventTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.whiteColor()
+        
+        var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
+        
+        var successBlock: NSMutableArray -> Void = {
+        (eventArray: NSMutableArray) -> Void in
+        for event in eventArray {
+        if let eventModel = event as? EventModel {
+        //eventModel.printEvent();
+        var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
+        eventDetailViewController.setupWithEvent(eventModel);
+        self.navigationController?.pushViewController(eventDetailViewController, animated: true);
+        break;
+        }
+        }
+        }
+        
+        var failureBlock: NSError -> Void = {
+        (error: NSError) -> Void in
+        println("Error2: \(error)");
+        }
+        
+        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
     }
     
     /*

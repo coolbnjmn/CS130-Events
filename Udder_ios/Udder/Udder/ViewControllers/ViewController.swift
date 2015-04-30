@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let logoutText: String = "Logout: " + (PFUser.currentUser().objectForKey("full_name") as? String ?? "")
         tapHereButton.setTitle(logoutText, forState: UIControlState.Normal)
     }
