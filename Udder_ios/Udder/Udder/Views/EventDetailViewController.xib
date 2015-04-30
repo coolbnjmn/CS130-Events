@@ -29,9 +29,12 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beach.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bwA-OF-pgc" userLabel="Background Image">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="227"/>
                         </imageView>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-st-Gqc" userLabel="BackgroundGradientView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-st-Gqc" userLabel="BackgroundGradientView">
                             <rect key="frame" x="0.0" y="94" width="600" height="133"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35999999999999999" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="133" id="jd6-4Q-nEL"/>
+                            </constraints>
                         </view>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-5Q-U4M">
                             <rect key="frame" x="170" y="190" width="260" height="23"/>
@@ -151,33 +154,56 @@
                         <constraint firstAttribute="bottom" secondItem="Nfc-5Q-U4M" secondAttribute="bottom" constant="15" id="RHs-kn-lnK"/>
                         <constraint firstAttribute="height" constant="227" id="ST9-Ci-ZTl"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" constant="8" id="Vrn-mn-tvj"/>
+                        <constraint firstAttribute="trailing" secondItem="a4X-st-Gqc" secondAttribute="trailing" id="ZuV-Dj-1An"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" constant="8" id="bTs-jK-8oI"/>
                         <constraint firstAttribute="trailing" secondItem="41o-V8-p0h" secondAttribute="trailing" constant="8" id="rqI-20-XXv"/>
                         <constraint firstAttribute="centerX" secondItem="Nfc-5Q-U4M" secondAttribute="centerX" id="tcj-lU-C9d"/>
                         <constraint firstItem="Nfc-5Q-U4M" firstAttribute="top" secondItem="41o-V8-p0h" secondAttribute="bottom" constant="8" id="wLg-qH-Qk4"/>
+                        <constraint firstItem="a4X-st-Gqc" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" id="xaR-XE-SiM"/>
+                        <constraint firstAttribute="bottom" secondItem="a4X-st-Gqc" secondAttribute="bottom" id="yar-5R-nOK"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
-                    <rect key="frame" x="0.0" y="227" width="600" height="309"/>
+                    <rect key="frame" x="0.0" y="267" width="600" height="269"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="26w-99-GDR"/>
                         <outlet property="delegate" destination="-1" id="job-aP-oKv"/>
                     </connections>
                 </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-AK-Jbi">
+                    <rect key="frame" x="172" y="235" width="256" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="Pd2-XT-div"/>
+                        <constraint firstAttribute="height" constant="24" id="gMm-Dd-6m0"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="04H-Dg-nuD"/>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4ZF-9g-nnc"/>
                 <constraint firstAttribute="bottom" secondItem="2ky-eq-Lr9" secondAttribute="bottom" id="Frw-N1-jcC"/>
+                <constraint firstItem="2ky-eq-Lr9" firstAttribute="top" secondItem="pwi-AK-Jbi" secondAttribute="bottom" constant="8" id="Gh7-RF-JiN"/>
                 <constraint firstItem="2ky-eq-Lr9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SY8-lD-Jyd"/>
                 <constraint firstItem="2ky-eq-Lr9" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="bottom" id="UaZ-e1-Gfm"/>
+                <constraint firstItem="pwi-AK-Jbi" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="bottom" constant="8" id="bXM-8E-MSB"/>
                 <constraint firstAttribute="trailing" secondItem="2ky-eq-Lr9" secondAttribute="trailing" id="e6s-Ma-SgG"/>
                 <constraint firstAttribute="trailing" secondItem="8cG-vt-SjQ" secondAttribute="trailing" id="mFf-me-nsY"/>
+                <constraint firstAttribute="centerX" secondItem="pwi-AK-Jbi" secondAttribute="centerX" id="o7k-rQ-eV2"/>
+                <constraint firstAttribute="centerX" secondItem="8cG-vt-SjQ" secondAttribute="centerX" id="qCB-RI-cTX"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="UaZ-e1-Gfm"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
