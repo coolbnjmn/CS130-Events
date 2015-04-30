@@ -166,10 +166,6 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
                     <rect key="frame" x="0.0" y="267" width="600" height="269"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="26w-99-GDR"/>
-                        <outlet property="delegate" destination="-1" id="job-aP-oKv"/>
-                    </connections>
                 </tableView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-AK-Jbi">
                     <rect key="frame" x="172" y="235" width="256" height="25"/>
@@ -178,12 +174,12 @@
                         <constraint firstAttribute="height" constant="24" id="gMm-Dd-6m0"/>
                     </constraints>
                     <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
+                        <segment title="Info"/>
+                        <segment title="Attendees"/>
                     </segments>
                 </segmentedControl>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.90748014502762431" green="0.90748014502762431" blue="0.90748014502762431" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="04H-Dg-nuD"/>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4ZF-9g-nnc"/>
