@@ -21,6 +21,7 @@ class EventDetailViewController: UIViewController {
     // Views
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var backgroundGradientView: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     // Constraints
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
@@ -54,6 +55,11 @@ class EventDetailViewController: UIViewController {
             // TODO: Proper time
             self.timeLabel.text = "12:00 pm";
             self.locationLabel.text = validatedEvent.eventLocation;
+            
+            var placeHolderImage:UIImage = UIImage(named: "Beach.jpg")!;
+            var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
+            
+            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
         }
     }
     

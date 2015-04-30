@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailViewController" customModule="Udder">
             <connections>
                 <outlet property="backgroundGradientView" destination="a4X-st-Gqc" id="uWI-sP-REH"/>
+                <outlet property="backgroundImageView" destination="bwA-OF-pgc" id="Im8-XI-hSu"/>
                 <outlet property="headerView" destination="8cG-vt-SjQ" id="f0i-E6-kyG"/>
                 <outlet property="headerViewHeightConstraint" destination="ST9-Ci-ZTl" id="3zr-pq-D4L"/>
                 <outlet property="infoTableView" destination="2ky-eq-Lr9" id="6RC-dH-aMp"/>
