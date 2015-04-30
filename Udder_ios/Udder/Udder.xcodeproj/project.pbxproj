@@ -14,7 +14,6 @@
 		A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
 		A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78542B81AEA0D2500DD1164 /* Beach.jpg */; };
 		A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
-		A78542BD1AEA0F8E00DD1164 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
@@ -81,7 +80,6 @@
 		A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ViewControllers/EventDetailViewController.swift; sourceTree = "<group>"; };
 		A78542B81AEA0D2500DD1164 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
 		A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetailViewController.xib; path = Views/EventDetailViewController.xib; sourceTree = "<group>"; };
-		A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventViewController.xib; path = Views/EventViewController.xib; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */,
 				A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */,
 				A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */,
-				A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */,
 				B2BF29331AE9D35B00D6714C /* EventTableViewCell.xib */,
 				B2446F451AE2098C006C37F9 /* EventTableViewController.xib */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
@@ -421,7 +418,6 @@
 			files = (
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
 				E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */,
-				A78542BD1AEA0F8E00DD1164 /* EventViewController.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
