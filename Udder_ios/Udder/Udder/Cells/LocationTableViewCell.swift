@@ -1,16 +1,15 @@
 //
-//  DescriptionTableViewCell.swift
+//  LocationTableViewCell.swift
 //  Udder
 //
-//  Created by Collin Yen on 4/29/15.
+//  Created by Collin Yen on 4/30/15.
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var descriptionLabel: UILabel!
+class LocationTableViewCell: UITableViewCell {
+    @IBOutlet weak var locationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,12 +18,11 @@ class DescriptionTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func configure(description:String) {
-        self.descriptionLabel.text = description;
+    func configure(location:String) {
+        locationLabel.text = location;
     }
-
 }

@@ -82,7 +82,13 @@ class EventDetailViewController: UIViewController {
     
     func setupTableViews() {
         let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
-        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: "DescriptionTableViewCell");
+        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kDescriptionTableViewCell);
+        
+        let locationTableViewCellNib = UINib(nibName: "LocationTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(locationTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kLocationTableViewCell);
+        
+        self.infoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        
         self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.infoTableView.dataSource = self.eventDetailProvider;
         self.infoTableView.delegate = self.eventDetailProvider;
