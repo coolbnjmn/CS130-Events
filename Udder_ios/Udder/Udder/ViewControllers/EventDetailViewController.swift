@@ -47,6 +47,9 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         //let titleViewNib:UINib = UINib(nibName: "EventViewTitleCell", bundle: nil);
         //self.infoTableView.registerNib(titleViewNib, forCellReuseIdentifier: Constants.CellIdentifiers.kEventTitleCell);
         
+        let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: "DescriptionTableViewCell");
+        
         self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
     }
     
@@ -86,24 +89,32 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.layoutSubviews();
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 110;
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return 1;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //        let cell = self.tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kEventTitleCell, forIndexPath: indexPath) as EventViewTitleCell;
         //let cell = self.tableView.dequeueReusableCellWithIdentifier("Identifier", forIndexPath: indexPath) as UITableViewCell;
         
-        var cell = UITableViewCell();
         if  (tableView == self.infoTableView) {
-            cell.textLabel?.text = "info";
-            cell.imageView?.image = UIImage(named: "Beach.jpg");
+            let cell  = self.infoTableView.dequeueReusableCellWithIdentifier("DescriptionTableViewCell") as! DescriptionTableViewCell;
+            if let validatedEvent = self.event {
+                cell.descriptionLabel.text = validatedEvent.eventDescription;
+                return cell;
+            }
         }
         else {
-            cell.textLabel?.text = "attendee";
+            print("No");
+            //cell = UITableViewCell();
+            //cell.textLabel?.text = "attendee";
         }
 
-        return cell;
+        return UITableViewCell();
     }
     
     @IBAction func viewSwitched(sender: UISegmentedControl) {
