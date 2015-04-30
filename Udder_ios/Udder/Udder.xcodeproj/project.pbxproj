@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
+		A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
+		A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78542B81AEA0D2500DD1164 /* Beach.jpg */; };
+		A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
+		A78542BD1AEA0F8E00DD1164 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
+		A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ViewControllers/EventDetailViewController.swift; sourceTree = "<group>"; };
+		A78542B81AEA0D2500DD1164 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
+		A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetailViewController.xib; path = Views/EventDetailViewController.xib; sourceTree = "<group>"; };
+		A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventViewController.xib; path = Views/EventViewController.xib; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +153,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A78542B71AEA0D0B00DD1164 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A78542B81AEA0D2500DD1164 /* Beach.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		B25560911AE19A0900EBEE8B = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +187,7 @@
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B2BF29381AE9D42000D6714C /* Constants.swift */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
+				A78542B71AEA0D0B00DD1164 /* Images */,
 				B2BF29351AE9D38200D6714C /* Models */,
 				B2BF292E1AE9D2C000D6714C /* Cells */,
 				B2D5BB8C1AE1DDC80063126E /* ViewControllers */,
@@ -254,6 +271,8 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */,
+				A78542BC1AEA0F8E00DD1164 /* EventViewController.xib */,
 				B2BF29331AE9D35B00D6714C /* EventTableViewCell.xib */,
 				B2446F451AE2098C006C37F9 /* EventTableViewController.xib */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
@@ -265,6 +284,7 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */,
 				B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */,
 				B2D5BB8E1AE1DDD40063126E /* ViewController.swift */,
 				B2446F411AE20967006C37F9 /* EventTableViewController.swift */,
@@ -355,8 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
+				A78542BD1AEA0F8E00DD1164 /* EventViewController.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
+				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
+				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				B2D5BB941AE1DDE00063126E /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
@@ -416,6 +439,7 @@
 				A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */,
 				B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */,
 				B2BF29391AE9D42000D6714C /* Constants.swift in Sources */,
+				A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */,
 				B2BF29311AE9D32900D6714C /* EventTableViewCell.swift in Sources */,
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,

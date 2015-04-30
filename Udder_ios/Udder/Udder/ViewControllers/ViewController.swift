@@ -51,7 +51,11 @@ class ViewController: UIViewController {
             (eventArray: NSMutableArray) -> Void in
             for event in eventArray {
                 if let eventModel = event as? EventModel {
-                    eventModel.printEvent();
+                    //eventModel.printEvent();
+                    var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
+                    eventDetailViewController.setupWithEvent(eventModel);
+                    self.navigationController?.pushViewController(eventDetailViewController, animated: true);
+                    break;
                 }
             }
         }
