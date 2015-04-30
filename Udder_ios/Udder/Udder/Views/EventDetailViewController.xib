@@ -32,7 +32,7 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-st-Gqc" userLabel="BackgroundGradientView">
                             <rect key="frame" x="0.0" y="94" width="600" height="133"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35999999999999999" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="133" id="jd6-4Q-nEL"/>
                             </constraints>

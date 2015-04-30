@@ -47,6 +47,7 @@ class EventDetailViewController: UIViewController {
         self.edgesForExtendedLayout = UIRectEdge.None;
         self.populateData();
         self.setupTableViews();
+        self.backgroundGradientView.addGradient();
     }
     
     func populateData() {
@@ -62,19 +63,6 @@ class EventDetailViewController: UIViewController {
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
         }
     }
-    
-    // TODO: Implement gradient background
-    /*func applyGradient(gradientView:UIView) {
-        var gradient:CAGradientLayer = CAGradientLayer();
-        var gradientFrame:CGRect = self.headerView.frame;
-        gradientFrame.origin.x = 0;
-        gradientFrame.origin.y = 0;
-        gradient.frame = gradientFrame;
-        
-        var colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor];
-        gradient.colors = colors;
-        gradientView.layer.insertSublayer(gradient, atIndex: 0);
-    }*/
     
     override func viewDidLayoutSubviews() {
         self.headerViewHeightConstraint.constant = self.view.frame.size.height/3;
