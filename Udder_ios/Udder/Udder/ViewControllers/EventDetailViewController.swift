@@ -67,9 +67,9 @@ class EventDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         self.headerViewHeightConstraint.constant = self.view.frame.size.height/3;
         
-        var timeViewWidth:CGFloat = (self.view.frame.size.width - 2 * Constants.EventDetail.TableConstraints.kDefaultMargin) / 2;
+        var timeViewWidth:CGFloat = (self.view.frame.size.width - 2 * 2 * Constants.EventDetail.TableConstraints.kDefaultMargin) / 2;
         self.timeViewWidthConstraint.constant = timeViewWidth;
-//        self.locationViewWidthConstraint.constant = timeViewWidth;
+        self.locationViewWidthConstraint.constant = timeViewWidth;
         
         self.view.layoutSubviews();
     }
