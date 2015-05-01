@@ -7,14 +7,31 @@
 //
 
 /* Class provides data for the event detail page */
+var kDescriptionCellHeightOffset:CGFloat = 40;
+var kDescriptionCellLabelMargin:CGFloat = 16;
+var kDefaultDescriptionCellHeight:CGFloat = 110;
+
 class EventDetailViewControllerProvider:BaseEventProvider {
+    var shouldShowDescriptionReadMore:Bool = false;
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var height:CGFloat;
+        var height:CGFloat = 44;
         switch (indexPath.row) {
         case Constants.EventDetail.Row.kDescriptionCell:
-            height = Constants.EventDetail.TableConstraints.kDescriptionViewHeight;
+            if let validatedEvent = self.event {
+                var attr = [NSFontAttributeName: UIFont(name: Constants.EventDetail.TableConstraints.kDescriptionTextFont, size: Constants.EventDetail.TableConstraints.kDescriptionTextSize)!];
+                var textHeight:CGFloat = GeneralUtility.heightForString(validatedEvent.eventDescription, attrs: attr, width: tableView.frame.size.width - 2*kDescriptionCellLabelMargin);
+                
+                var totalHeight:CGFloat = textHeight + kDescriptionCellHeightOffset;
+                
+                if totalHeight < kDefaultDescriptionCellHeight || self.shouldShowDescriptionReadMore {
+                    height = totalHeight;
+                }
+                else {
+                    height = kDefaultDescriptionCellHeight;
+                }
+            }
         default:
             height = 44;
         }
@@ -33,7 +50,7 @@ class EventDetailViewControllerProvider:BaseEventProvider {
             switch(indexPath.row) {
             case Constants.EventDetail.Row.kDescriptionCell:
                 let descriptionTableViewCell:DescriptionTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kDescriptionTableViewCell) as! DescriptionTableViewCell;
-                descriptionTableViewCell.configure(validatedEvent.eventDescription);
+                descriptionTableViewCell.configure(validatedEvent.eventDescription, shouldShowReadMore: shouldShowDescriptionReadMore);
                 
                 cell = descriptionTableViewCell;
             case Constants.EventDetail.Row.kTimeCell:
@@ -60,8 +77,17 @@ class EventDetailViewControllerProvider:BaseEventProvider {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Should be implemented by subclass");
-        return
+        switch(indexPath.row) {
+        case Constants.EventDetail.Row.kDescriptionCell:
+            if !self.shouldShowDescriptionReadMore {
+                tableView.beginUpdates();
+                self.shouldShowDescriptionReadMore = true;
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimation.Fade);
+                tableView.endUpdates();
+            }
+        default:
+            return;
+        }
     }
 }
 

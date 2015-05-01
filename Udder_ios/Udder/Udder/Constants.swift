@@ -38,7 +38,9 @@ struct Constants {
         }
         
         struct TableConstraints {
-            static let kDescriptionViewHeight:CGFloat = 110;
+            static let kDescriptionViewHeight:CGFloat = 150;
+            static let kDescriptionTextSize:CGFloat = 14;
+            static let kDescriptionTextFont = "Avenir-Book"
         }
     }
     

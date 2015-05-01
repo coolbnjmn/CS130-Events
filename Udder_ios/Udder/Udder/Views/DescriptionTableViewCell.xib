@@ -14,19 +14,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcI-Zx-hqE" userLabel="Header">
-                        <rect key="frame" x="8" y="8" width="304" height="15"/>
+                        <rect key="frame" x="8" y="8" width="304" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="kIR-LQ-OKS"/>
+                            <constraint firstAttribute="height" constant="20" id="kIR-LQ-OKS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-2l-bPX" userLabel="Description Label">
-                        <rect key="frame" x="8" y="23" width="304" height="78"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-2l-bPX" userLabel="Description Label" customClass="TTTAttributedLabel">
+                        <rect key="frame" x="8" y="31" width="304" height="70"/>
                         <string key="text">This isjaifjwa iejfio wajeiofj aowijef oiajweiof joiawej foijaw eoifj awoiej fioawj eofijaweio fjijawe oifj qwjeifojqweoif jiowqej foijqweoi fioqwej foijqwe oifj iowqejf oiqwje oifjwqeoi fjoij</string>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -37,7 +37,7 @@
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="top" secondItem="Cb9-yt-Un2" secondAttribute="topMargin" id="Y9c-mv-BV6"/>
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="leading" secondItem="Cb9-yt-Un2" secondAttribute="leadingMargin" id="bxo-O3-KSu"/>
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="trailing" secondItem="Cb9-yt-Un2" secondAttribute="trailingMargin" id="emX-cq-YWD"/>
-                    <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" id="flh-5G-Zo9"/>
+                    <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="3" id="flh-5G-Zo9"/>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="8" id="ikO-G3-ArM"/>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="8" id="j7b-LH-kFF"/>
                 </constraints>

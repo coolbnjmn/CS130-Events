@@ -9,8 +9,9 @@
 import UIKit
 
 class DescriptionTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var descriptionLabel: UILabel!
+    var defaultDescriptionCellFrame:CGRect?;
+    
+    @IBOutlet weak var descriptionLabel:TTTAttributedLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +24,29 @@ class DescriptionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(description:String) {
+    func configure(description:String, shouldShowReadMore:Bool) {
+        // Set the default description cell frame to the one created in the xib
+        if self.defaultDescriptionCellFrame == nil {
+            self.defaultDescriptionCellFrame = self.descriptionLabel.frame;
+        }
+        
+        self.descriptionLabel.numberOfLines = 0;
         self.descriptionLabel.text = description;
+        
+        var attr = [NSFontAttributeName: UIFont(name: Constants.EventDetail.TableConstraints.kDescriptionTextFont, size: Constants.EventDetail.TableConstraints.kDescriptionTextSize)!, NSForegroundColorAttributeName: UIColor.lightBlueColor()];
+        
+        self.descriptionLabel.truncationTokenString = "    More";
+        self.descriptionLabel.truncationTokenStringAttributes = attr;
+        
+        self.descriptionLabel.sizeToFit();
+        
+        if !shouldShowReadMore && descriptionLabel.frame.size.height > self.defaultDescriptionCellFrame!.size.height {
+            descriptionLabel.frame = self.defaultDescriptionCellFrame!
+        }
+        
+        self.selectionStyle = UITableViewCellSelectionStyle.None;
+        
+        self.hidden = false;
     }
 
 }
