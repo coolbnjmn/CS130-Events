@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346F30401AF3142C0047DC0F /* PhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346F303F1AF3142C0047DC0F /* PhoneNumberViewController.xib */; };
+		346F30421AF314560047DC0F /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346F30411AF314560047DC0F /* PhoneNumberViewController.swift */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
@@ -80,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		346F303F1AF3142C0047DC0F /* PhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneNumberViewController.xib; sourceTree = "<group>"; };
+		346F30411AF314560047DC0F /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 				B2446F451AE2098C006C37F9 /* EventTableViewController.xib */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
 				A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */,
+				346F303F1AF3142C0047DC0F /* PhoneNumberViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */,
 				E17571691AEAD27A00E92F07 /* EventsNearMeViewController.swift */,
 				E175716D1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift */,
+				346F30411AF314560047DC0F /* PhoneNumberViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
 				E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */,
+				346F30401AF3142C0047DC0F /* PhoneNumberViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +537,7 @@
 				E175716B1AEAD27A00E92F07 /* EventsNearMeViewController.swift in Sources */,
 				A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */,
 				B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */,
+				346F30421AF314560047DC0F /* PhoneNumberViewController.swift in Sources */,
 				E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */,
 				B2BF29391AE9D42000D6714C /* Constants.swift in Sources */,
 				E17571671AEAD25900E92F07 /* UpcomingEventsViewController.swift in Sources */,

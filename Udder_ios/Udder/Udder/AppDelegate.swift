@@ -27,9 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
         }
         else { //Already logged in
-            let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
-            let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
-            self.window?.rootViewController = container
+            let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
+            if (!phoneValidated) {
+                let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
+                self.window?.rootViewController = navController
+            } else {
+                let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
+                let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                self.window?.rootViewController = container
+            }
+            
         }
         
         self.window!.makeKeyAndVisible()
