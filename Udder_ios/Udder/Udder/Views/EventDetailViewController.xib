@@ -53,16 +53,19 @@
                             <rect key="frame" x="8" y="8" width="584" height="174"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-G2-d7j" userLabel="LocationView">
-                                    <rect key="frame" x="304" y="154" width="280" height="14"/>
+                                    <rect key="frame" x="304" y="154" width="280" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label asjdifjioasjdf ijwioejf iojwioeafj iojaweoi fjioawej oifjwaeio jfioawejiofj weaiof" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIV-jQ-ZYJ">
-                                            <rect key="frame" x="18" y="0.0" width="262" height="14"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                            <rect key="frame" x="18" y="0.0" width="262" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="cQm-pz-Ubj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-DJ-pQ9" userLabel="Location Image View">
-                                            <rect key="frame" x="0.0" y="2" width="10" height="10"/>
+                                            <rect key="frame" x="0.0" y="5" width="10" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="10" id="7AD-kp-Zxi"/>
                                                 <constraint firstAttribute="width" constant="10" id="NUR-ZI-YGE"/>
@@ -70,6 +73,7 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="8BR-2T-GVl"/>
                                         <constraint firstAttribute="bottom" secondItem="QIV-jQ-ZYJ" secondAttribute="bottom" id="96o-ml-oLv"/>
                                         <constraint firstItem="QIV-jQ-ZYJ" firstAttribute="leading" secondItem="4Fc-DJ-pQ9" secondAttribute="trailing" constant="8" id="CHG-Lu-YS4"/>
                                         <constraint firstItem="4Fc-DJ-pQ9" firstAttribute="leading" secondItem="MA2-G2-d7j" secondAttribute="leading" id="D9M-kG-maB"/>
@@ -95,8 +99,11 @@
                                     <rect key="frame" x="0.0" y="154" width="287" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caG-O6-IlW" userLabel="Time Label">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="14"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="VOc-vn-Gai"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -107,7 +114,7 @@
                                         <constraint firstAttribute="width" constant="287" id="IYF-ix-JE4"/>
                                         <constraint firstItem="caG-O6-IlW" firstAttribute="leading" secondItem="uBH-xv-hWH" secondAttribute="leading" id="MvT-1e-cSw"/>
                                         <constraint firstAttribute="trailing" secondItem="caG-O6-IlW" secondAttribute="trailing" id="qaa-HT-x5L"/>
-                                        <constraint firstAttribute="bottom" secondItem="caG-O6-IlW" secondAttribute="bottom" constant="6" id="yXH-gE-AUI"/>
+                                        <constraint firstAttribute="bottom" secondItem="caG-O6-IlW" secondAttribute="bottom" id="yXH-gE-AUI"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
