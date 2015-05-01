@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
+		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A70AAA8E1AF4422400E8B3F9 /* icon-location.png */,
 				A78542B81AEA0D2500DD1164 /* Beach.jpg */,
 			);
 			name = Images;
@@ -470,6 +473,7 @@
 				E1D48FF61AEDC70400490B41 /* nav1.png in Resources */,
 				E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
+				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
 				E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,

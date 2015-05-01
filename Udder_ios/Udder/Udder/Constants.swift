@@ -41,10 +41,12 @@ struct Constants {
             static let kDescriptionViewHeight:CGFloat = 150;
             static let kDescriptionTextSize:CGFloat = 14;
             static let kDescriptionTextFont = "Avenir-Book"
+            static let kDefaultMargin:CGFloat = 8;
         }
     }
     
     struct DateFormats {
         static let kFullDateFormat = "EEE MMM d, YYYY hh:mm a"
     }
+    
 }

@@ -14,7 +14,7 @@
                 <outlet property="locationLabel" destination="QIV-jQ-ZYJ" id="vgn-S3-b9V"/>
                 <outlet property="locationViewWidthConstraint" destination="juE-95-ypm" id="yFr-6B-kgS"/>
                 <outlet property="timeLabel" destination="caG-O6-IlW" id="9l4-vG-76E"/>
-                <outlet property="timeViewWidthConstraint" destination="uUr-ly-Vhc" id="UMQ-hO-NbI"/>
+                <outlet property="timeViewWidthConstraint" destination="IYF-ix-JE4" id="vPT-Jb-GiW"/>
                 <outlet property="titleLabel" destination="nz8-Fy-dce" id="1vD-rr-63G"/>
                 <outlet property="view" destination="iN0-l3-epB" id="93l-ig-uha"/>
             </connections>
@@ -31,10 +31,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="227"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-st-Gqc" userLabel="BackgroundGradientView">
-                            <rect key="frame" x="0.0" y="94" width="600" height="133"/>
+                            <rect key="frame" x="0.0" y="82" width="600" height="145"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="133" id="jd6-4Q-nEL"/>
+                                <constraint firstAttribute="height" constant="145" id="jd6-4Q-nEL"/>
                             </constraints>
                         </view>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-5Q-U4M">
@@ -61,7 +61,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-DJ-pQ9" userLabel="Location Image View">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-DJ-pQ9" userLabel="Location Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="7AD-kp-Zxi"/>
@@ -87,31 +87,22 @@
                                     </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-xv-hWH" userLabel="TimeView">
-                                    <rect key="frame" x="25" y="154" width="262" height="20"/>
+                                    <rect key="frame" x="0.0" y="154" width="287" height="20"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label asdkfjdksjafkjaskdjflajsdklfjklasjdfkljasdklfjklasdjfkljadsklfjkldkasf" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caG-O6-IlW" userLabel="Time Label">
-                                            <rect key="frame" x="20" y="0.0" width="242" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caG-O6-IlW" userLabel="Time Label">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="14"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2i-vM-8kS" userLabel="Clock Image View">
-                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="3T3-Ca-tEN"/>
-                                                <constraint firstAttribute="width" constant="20" id="ylM-4h-9VH"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="caG-O6-IlW" firstAttribute="leading" secondItem="c2i-vM-8kS" secondAttribute="trailing" id="DuB-O4-nBN"/>
                                         <constraint firstItem="caG-O6-IlW" firstAttribute="top" secondItem="uBH-xv-hWH" secondAttribute="top" id="Gb9-gc-fcs"/>
-                                        <constraint firstAttribute="trailing" secondItem="caG-O6-IlW" secondAttribute="trailing" id="OZF-Tc-M6G"/>
-                                        <constraint firstAttribute="bottom" secondItem="c2i-vM-8kS" secondAttribute="bottom" id="hFW-3I-h6E"/>
-                                        <constraint firstItem="c2i-vM-8kS" firstAttribute="top" secondItem="uBH-xv-hWH" secondAttribute="top" id="kYC-rk-BSY"/>
-                                        <constraint firstItem="c2i-vM-8kS" firstAttribute="leading" secondItem="uBH-xv-hWH" secondAttribute="leading" id="pyA-A0-j68"/>
-                                        <constraint firstAttribute="width" constant="262" id="uUr-ly-Vhc"/>
-                                        <constraint firstAttribute="bottom" secondItem="caG-O6-IlW" secondAttribute="bottom" id="yXH-gE-AUI"/>
+                                        <constraint firstAttribute="width" constant="287" id="IYF-ix-JE4"/>
+                                        <constraint firstItem="caG-O6-IlW" firstAttribute="leading" secondItem="uBH-xv-hWH" secondAttribute="leading" id="MvT-1e-cSw"/>
+                                        <constraint firstAttribute="trailing" secondItem="caG-O6-IlW" secondAttribute="trailing" id="qaa-HT-x5L"/>
+                                        <constraint firstAttribute="bottom" secondItem="caG-O6-IlW" secondAttribute="bottom" constant="6" id="yXH-gE-AUI"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
@@ -135,10 +126,13 @@
                                 <constraint firstAttribute="trailing" secondItem="uBH-xv-hWH" secondAttribute="trailing" constant="292" id="ewe-KR-iyf"/>
                                 <constraint firstItem="nz8-Fy-dce" firstAttribute="leading" secondItem="41o-V8-p0h" secondAttribute="leading" constant="25" id="iGc-My-Qmz"/>
                                 <constraint firstItem="uBH-xv-hWH" firstAttribute="top" secondItem="nz8-Fy-dce" secondAttribute="bottom" constant="8" id="iPv-I6-gFe"/>
+                                <constraint firstItem="uBH-xv-hWH" firstAttribute="leading" secondItem="41o-V8-p0h" secondAttribute="leading" id="m30-VT-FKe"/>
                                 <constraint firstAttribute="trailing" secondItem="MA2-G2-d7j" secondAttribute="trailing" constant="25" id="uxb-Jx-GoK"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="L3K-vx-YJV"/>
+                                    <exclude reference="Vvp-Bw-E22"/>
                                     <exclude reference="ewe-KR-iyf"/>
                                     <exclude reference="Gef-ic-DmD"/>
                                     <exclude reference="MW6-KQ-HAQ"/>
@@ -205,5 +199,6 @@
     </objects>
     <resources>
         <image name="Beach.jpg" width="787" height="359"/>
+        <image name="icon-location.png" width="50" height="79"/>
     </resources>
 </document>
