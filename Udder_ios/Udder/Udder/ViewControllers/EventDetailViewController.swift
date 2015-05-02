@@ -133,6 +133,8 @@ class EventDetailViewController: UIViewController {
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
             
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
+            
+            self.navigationItem.title = validatedEvent.eventTitle;
         }
     }
     
