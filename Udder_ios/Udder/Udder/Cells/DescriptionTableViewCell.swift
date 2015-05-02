@@ -16,6 +16,9 @@ class DescriptionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.backgroundColor = UIColor.clearColor();
+        self.backgroundColor = UIColor.clearColor();
+        self.textLabel?.font = UIFont(name: Constants.EventDetail.TableConstraints.kDescriptionTextFont, size: Constants.EventDetail.TableConstraints.kDescriptionTextSize);
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

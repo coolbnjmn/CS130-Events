@@ -11,6 +11,7 @@ struct Constants {
         static let kEventTitleCell = "kEventViewTitleCell"
         static let kDescriptionTableViewCell = "DescriptionTableViewCell"
         static let kLocationTableViewCell = "LocationTableViewCell"
+        static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
     }
     
@@ -41,10 +42,19 @@ struct Constants {
             static let kDescriptionViewHeight:CGFloat = 150;
             static let kDescriptionTextSize:CGFloat = 14;
             static let kDescriptionTextFont = "Avenir-Book"
+            static let kDefaultMargin:CGFloat = 8;
         }
     }
     
     struct DateFormats {
-        static let kFullDateFormat = "EEE MMM d, YYYY hh:mm a"
+        static let kFullDateFormat = "h:mm a EEE, MMM d, YYYY"
+        static let kDateFormat = "EEEE, MMM d, YYYY"
+        static let kShortWeekDateFormat = "EEE, MMM d, YYYY"
+        static let kTimeFormat = "hh:mm a"
+        static let kDayOfWeekFormat = "EEEE"
     }
+    
+    struct StandardFormats {
+        static let kStandardTextFont = "Avenir-Book";
+    }    
 }

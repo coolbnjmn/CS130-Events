@@ -1,15 +1,17 @@
 //
-//  LocationTableViewCell.swift
+//  TimeInfoTableViewCell.swift
 //  Udder
 //
-//  Created by Collin Yen on 4/30/15.
+//  Created by Collin Yen on 5/1/15.
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
 import UIKit
 
-class LocationTableViewCell: UITableViewCell {
-    @IBOutlet weak var locationLabel: UILabel!
+class TimeInfoTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,14 +20,11 @@ class LocationTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clearColor();
         self.selectionStyle = UITableViewCellSelectionStyle.None;
     }
-    
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
-    
-    func configure(location:String) {
-        locationLabel.text = location;
-    }
+
 }
