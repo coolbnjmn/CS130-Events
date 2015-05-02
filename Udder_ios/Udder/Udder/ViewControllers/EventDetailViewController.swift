@@ -74,7 +74,7 @@ class EventDetailViewController: UIViewController {
     
     func setupView() {
         var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
-        self.responseSegmentedControl.configure(UIColor.standardGreenColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
+        self.responseSegmentedControl.configure(UIColor.standardGreenColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
         self.responseSegmentedControl.valueChanged();
         
         self.backgroundGradientView.addGradient();

@@ -48,7 +48,7 @@
                                 <segment title="Accept"/>
                                 <segment title="Decline"/>
                             </segments>
-                            <color key="tintColor" red="0.29332153605199024" green="0.80906769648467125" blue="0.34388303104978818" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.85801536602209949" green="0.33943465029445696" blue="0.33943465029445696" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="acceptDeclineSwitched:" destination="-1" eventType="valueChanged" id="PXk-XV-668"/>
                             </connections>
