@@ -40,6 +40,7 @@ class EventDetailViewController: UIViewController {
     
     // Segmented Controls
     @IBOutlet weak var responseSegmentedControl: SeparateTintSegmentedControl!
+    @IBOutlet weak var tableSwitchSegmentedControl: UISegmentedControl!
     
     // Tables
     @IBOutlet weak var infoTableView: UITableView!
@@ -77,6 +78,8 @@ class EventDetailViewController: UIViewController {
         self.responseSegmentedControl.configure(UIColor.standardGreenColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
         self.responseSegmentedControl.valueChanged();
         
+        self.tableSwitchSegmentedControl.tintColor = UIColor.standardGreenColor();
+        
         self.backgroundGradientView.addGradient();
     }
     
@@ -96,6 +99,9 @@ class EventDetailViewController: UIViewController {
         
         let locationTableViewCellNib = UINib(nibName: "LocationTableViewCell", bundle: nil);
         self.infoTableView.registerNib(locationTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kLocationTableViewCell);
+        
+        let timeInfoTableViewCellNib = UINib(nibName: "TimeInfoTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(timeInfoTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kTimeInfoTableViewCell);
         
         self.infoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
         

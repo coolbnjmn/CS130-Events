@@ -7,12 +7,12 @@
 //
 
 /* Class provides data for the event detail page */
-var kDescriptionCellHeightOffset:CGFloat = 40;
+var kDescriptionCellHeightOffset:CGFloat = 45;
 var kDescriptionCellLabelMargin:CGFloat = 16;
-var kDefaultDescriptionCellHeight:CGFloat = 110;
+var kDefaultDescriptionCellHeight:CGFloat = 150;
 
 class EventDetailViewControllerProvider:BaseEventProvider {
-    var shouldShowDescriptionReadMore:Bool = false;
+    var shouldShowDescriptionReadMore:Bool = true;
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -32,6 +32,10 @@ class EventDetailViewControllerProvider:BaseEventProvider {
                     height = kDefaultDescriptionCellHeight;
                 }
             }
+        case Constants.EventDetail.Row.kLocationCell:
+            height = 55;
+        case Constants.EventDetail.Row.kTimeCell:
+            height = 75;
         default:
             height = 44;
         }
@@ -49,25 +53,14 @@ class EventDetailViewControllerProvider:BaseEventProvider {
         if let validatedEvent = self.event {
             switch(indexPath.row) {
             case Constants.EventDetail.Row.kDescriptionCell:
-                let descriptionTableViewCell:DescriptionTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kDescriptionTableViewCell) as! DescriptionTableViewCell;
-                descriptionTableViewCell.configure(validatedEvent.eventDescription, shouldShowReadMore: shouldShowDescriptionReadMore);
+                cell = configureDescriptionCell(tableView, descriptionText: validatedEvent.eventDescription, shouldShowReadMore: self.shouldShowDescriptionReadMore);
                 
-                cell = descriptionTableViewCell;
             case Constants.EventDetail.Row.kTimeCell:
-                let timeTableViewCell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kStandardTableViewCell) as! UITableViewCell;
+                cell = configureTimeCell(tableView, startTime: validatedEvent.eventStartTime, endTime: validatedEvent.eventEndTime);
                 
-                dateFormatter.dateFormat = Constants.DateFormats.kFullDateFormat;
-                var startTime:String = dateFormatter.stringFromDate(validatedEvent.eventStartTime);
-                var endTime:String = dateFormatter.stringFromDate(validatedEvent.eventEndTime);
-                var formattedTime:String = "From \(startTime) to \(endTime)";
-                timeTableViewCell.textLabel?.text = formattedTime;
-                
-                cell = timeTableViewCell;
             case Constants.EventDetail.Row.kLocationCell:
-                let locationTableViewCell:LocationTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kLocationTableViewCell) as! LocationTableViewCell;
-                locationTableViewCell.configure(validatedEvent.eventLocation);
+                cell = configureLocationCell(tableView, locationText: validatedEvent.eventLocation);
                 
-                cell = locationTableViewCell;
             default:
                 break;
             }
@@ -88,6 +81,52 @@ class EventDetailViewControllerProvider:BaseEventProvider {
         default:
             return;
         }
+    }
+    
+    // MARK: Helper Functions
+    func configureDescriptionCell(tableView:UITableView, descriptionText:String, shouldShowReadMore:Bool) -> UITableViewCell {
+        let descriptionTableViewCell:DescriptionTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kDescriptionTableViewCell) as! DescriptionTableViewCell;
+        descriptionTableViewCell.configure(descriptionText, shouldShowReadMore: shouldShowReadMore);
+        
+        return descriptionTableViewCell
+    }
+    
+    func configureLocationCell(tableView:UITableView, locationText:String) -> UITableViewCell {
+        let locationTableViewCell:LocationTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kLocationTableViewCell) as! LocationTableViewCell;
+        locationTableViewCell.configure(locationText);
+        
+        return locationTableViewCell;
+    }
+    
+    func configureTimeCell(tableView:UITableView, startTime:NSDate, endTime:NSDate) -> UITableViewCell {
+        let timeTableViewCell:TimeInfoTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kTimeInfoTableViewCell) as! TimeInfoTableViewCell;
+        
+        var firstLineText:String = "";
+        var secondLineText:String = "";
+        
+        // If the start date is equal to the end date
+        if startTime.isEqualToDateIgnoringTime(endTime) {
+            dateFormatter.dateFormat = Constants.DateFormats.kDateFormat;
+            var dateText:String = dateFormatter.stringFromDate(startTime);
+            
+            dateFormatter.dateFormat = Constants.DateFormats.kTimeFormat;
+            var startTimeText:String = dateFormatter.stringFromDate(startTime);
+            var endTimeText:String = dateFormatter.stringFromDate(endTime);
+            
+            firstLineText = dateText;
+            secondLineText = "from \(startTimeText) to \(endTimeText)";
+        }
+        else {
+            dateFormatter.dateFormat = Constants.DateFormats.kFullDateFormat;
+            firstLineText = dateFormatter.stringFromDate(startTime);
+            secondLineText = dateFormatter.stringFromDate(endTime);
+        }
+        
+        timeTableViewCell.startTimeLabel.text = firstLineText;
+        timeTableViewCell.endTimeLabel.text = secondLineText;
+        
+        
+        return timeTableViewCell;
     }
 }
 

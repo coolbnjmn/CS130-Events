@@ -14,37 +14,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcI-Zx-hqE" userLabel="Header">
-                        <rect key="frame" x="8" y="8" width="304" height="20"/>
+                        <rect key="frame" x="8" y="8" width="304" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="kIR-LQ-OKS"/>
+                            <constraint firstAttribute="height" constant="22" id="kIR-LQ-OKS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-2l-bPX" userLabel="Description Label" customClass="TTTAttributedLabel">
-                        <rect key="frame" x="8" y="31" width="304" height="70"/>
+                        <rect key="frame" x="8" y="36" width="304" height="65"/>
                         <string key="text">This isjaifjwa iejfio wajeiofj aowijef oiajweiof joiawej foijaw eoifj awoiej fioawj eofijaweio fjijawe oifj qwjeifojqweoif jiowqej foijqweoi fioqwej foijqwe oifj iowqejf oiqwje oifjwqeoi fjoij</string>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmx-M4-Dir" userLabel="Separator">
+                        <rect key="frame" x="8" y="32" width="304" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="BfC-HB-FvL"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="trailing" secondItem="Cb9-yt-Un2" secondAttribute="trailingMargin" id="1md-xV-31Q"/>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="leading" secondItem="Cb9-yt-Un2" secondAttribute="leadingMargin" id="JiH-mv-Bla"/>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="bottom" secondItem="Cb9-yt-Un2" secondAttribute="bottomMargin" id="Kbd-Bn-TEd"/>
+                    <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="Qmx-M4-Dir" secondAttribute="bottom" constant="3" id="PXP-bl-GJ2"/>
+                    <constraint firstItem="Qmx-M4-Dir" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="2" id="WLd-sS-5Ol"/>
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="top" secondItem="Cb9-yt-Un2" secondAttribute="topMargin" id="Y9c-mv-BV6"/>
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="leading" secondItem="Cb9-yt-Un2" secondAttribute="leadingMargin" id="bxo-O3-KSu"/>
                     <constraint firstItem="NcI-Zx-hqE" firstAttribute="trailing" secondItem="Cb9-yt-Un2" secondAttribute="trailingMargin" id="emX-cq-YWD"/>
                     <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="3" id="flh-5G-Zo9"/>
-                    <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="8" id="ikO-G3-ArM"/>
-                    <constraint firstItem="IQQ-2l-bPX" firstAttribute="top" secondItem="NcI-Zx-hqE" secondAttribute="bottom" constant="8" id="j7b-LH-kFF"/>
+                    <constraint firstItem="Qmx-M4-Dir" firstAttribute="leading" secondItem="Cb9-yt-Un2" secondAttribute="leadingMargin" id="g32-Wo-XQQ"/>
+                    <constraint firstItem="Qmx-M4-Dir" firstAttribute="trailing" secondItem="Cb9-yt-Un2" secondAttribute="trailingMargin" id="jTt-hd-oMl"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="ikO-G3-ArM"/>
-                        <exclude reference="j7b-LH-kFF"/>
+                        <exclude reference="flh-5G-Zo9"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

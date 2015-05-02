@@ -11,6 +11,11 @@
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
 		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
 		A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */; };
+		A70AAA931AF48DEE00E8B3F9 /* AF+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA921AF48DEE00E8B3F9 /* AF+Date+Extension.swift */; };
+		A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA941AF4929900E8B3F9 /* TimeInfoTableViewCell.xib */; };
+		A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */; };
+		A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA981AF49DF500E8B3F9 /* info.png */; };
+		A70AAA9B1AF49DF500E8B3F9 /* people.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA991AF49DF500E8B3F9 /* people.png */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -87,6 +92,11 @@
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
 		A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparateTintSegmentedControl.swift; path = Utilities/SeparateTintSegmentedControl.swift; sourceTree = "<group>"; };
+		A70AAA921AF48DEE00E8B3F9 /* AF+Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AF+Date+Extension.swift"; path = "Utilities/AF+Date+Extension.swift"; sourceTree = "<group>"; };
+		A70AAA941AF4929900E8B3F9 /* TimeInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeInfoTableViewCell.xib; path = Views/TimeInfoTableViewCell.xib; sourceTree = "<group>"; };
+		A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeInfoTableViewCell.swift; path = Cells/TimeInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A70AAA981AF49DF500E8B3F9 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Images/info.png; sourceTree = "<group>"; };
+		A70AAA991AF49DF500E8B3F9 /* people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = people.png; path = Images/people.png; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -214,6 +224,8 @@
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A70AAA981AF49DF500E8B3F9 /* info.png */,
+				A70AAA991AF49DF500E8B3F9 /* people.png */,
 				A70AAA8E1AF4422400E8B3F9 /* icon-location.png */,
 				A78542B81AEA0D2500DD1164 /* Beach.jpg */,
 			);
@@ -223,6 +235,7 @@
 		A78AC73A1AF2A0EA00B10D46 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A70AAA921AF48DEE00E8B3F9 /* AF+Date+Extension.swift */,
 				A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */,
 				A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */,
 				A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */,
@@ -331,6 +344,7 @@
 				B2BF292F1AE9D32900D6714C /* EventTableViewCell.swift */,
 				A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */,
 				A73027D81AF210A0009D2281 /* LocationTableViewCell.swift */,
+				A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -360,6 +374,7 @@
 				B2446F451AE2098C006C37F9 /* EventTableViewController.xib */,
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
 				A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */,
+				A70AAA941AF4929900E8B3F9 /* TimeInfoTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -470,6 +485,8 @@
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
 				A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */,
+				A70AAA9B1AF49DF500E8B3F9 /* people.png in Resources */,
+				A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
@@ -478,6 +495,7 @@
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
+				A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */,
 				E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
 				E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */,
@@ -553,8 +571,10 @@
 				B2BF29311AE9D32900D6714C /* EventTableViewCell.swift in Sources */,
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
+				A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */,
 				E17571631AEAD24100E92F07 /* MyEventsViewController.swift in Sources */,
 				A73027D71AF20557009D2281 /* EventDetailViewControllerProvider.swift in Sources */,
+				A70AAA931AF48DEE00E8B3F9 /* AF+Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

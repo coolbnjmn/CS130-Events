@@ -14,6 +14,7 @@
                 <outlet property="locationLabel" destination="QIV-jQ-ZYJ" id="vgn-S3-b9V"/>
                 <outlet property="locationViewWidthConstraint" destination="juE-95-ypm" id="yFr-6B-kgS"/>
                 <outlet property="responseSegmentedControl" destination="Nfc-5Q-U4M" id="psn-m8-8pD"/>
+                <outlet property="tableSwitchSegmentedControl" destination="pwi-AK-Jbi" id="M5d-dB-ano"/>
                 <outlet property="timeLabel" destination="caG-O6-IlW" id="9l4-vG-76E"/>
                 <outlet property="timeViewWidthConstraint" destination="IYF-ix-JE4" id="vPT-Jb-GiW"/>
                 <outlet property="titleLabel" destination="nz8-Fy-dce" id="1vD-rr-63G"/>
@@ -39,10 +40,10 @@
                             </constraints>
                         </view>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-5Q-U4M" customClass="SeparateTintSegmentedControl" customModule="Udder" customModuleProvider="target">
-                            <rect key="frame" x="175" y="192" width="250" height="21"/>
+                            <rect key="frame" x="175" y="188" width="250" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="250" id="7fa-bW-S44"/>
-                                <constraint firstAttribute="height" constant="20" id="nz6-d7-G5N"/>
+                                <constraint firstAttribute="height" constant="24" id="nz6-d7-G5N"/>
                             </constraints>
                             <segments>
                                 <segment title="Accept"/>
@@ -54,17 +55,17 @@
                             </connections>
                         </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41o-V8-p0h" userLabel="Info Background">
-                            <rect key="frame" x="8" y="8" width="584" height="176"/>
+                            <rect key="frame" x="8" y="8" width="584" height="172"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-G2-d7j" userLabel="LocationView">
-                                    <rect key="frame" x="304" y="156" width="280" height="20"/>
+                                    <rect key="frame" x="304" y="152" width="280" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label asjdifjioasjdf ijwioejf iojwioeafj iojaweoi fjioawej oifjwaeio jfioawejiofj weaiof" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIV-jQ-ZYJ">
                                             <rect key="frame" x="18" y="0.0" width="262" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="cQm-pz-Ubj"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -100,14 +101,14 @@
                                     </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-xv-hWH" userLabel="TimeView">
-                                    <rect key="frame" x="0.0" y="156" width="287" height="20"/>
+                                    <rect key="frame" x="0.0" y="152" width="287" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caG-O6-IlW" userLabel="Time Label">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="VOc-vn-Gai"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -122,11 +123,11 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
-                                    <rect key="frame" x="25" y="123" width="534" height="25"/>
+                                    <rect key="frame" x="25" y="119" width="534" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="yEa-m9-o8V"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -174,19 +175,19 @@
                         <constraint firstAttribute="bottom" secondItem="a4X-st-Gqc" secondAttribute="bottom" id="yar-5R-nOK"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
                     <rect key="frame" x="0.0" y="267" width="600" height="269"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-AK-Jbi">
-                    <rect key="frame" x="172" y="235" width="256" height="25"/>
+                    <rect key="frame" x="190" y="235" width="220" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="256" id="Pd2-XT-div"/>
+                        <constraint firstAttribute="width" constant="220" id="Pd2-XT-div"/>
                         <constraint firstAttribute="height" constant="24" id="gMm-Dd-6m0"/>
                     </constraints>
                     <segments>
-                        <segment title="Info"/>
-                        <segment title="Attendees"/>
+                        <segment title="" image="info.png"/>
+                        <segment title="" image="people.png"/>
                     </segments>
                 </segmentedControl>
             </subviews>
@@ -216,5 +217,7 @@
     <resources>
         <image name="Beach.jpg" width="787" height="359"/>
         <image name="icon-location.png" width="50" height="79"/>
+        <image name="info.png" width="16" height="16"/>
+        <image name="people.png" width="16" height="16"/>
     </resources>
 </document>

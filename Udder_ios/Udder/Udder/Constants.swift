@@ -11,6 +11,7 @@ struct Constants {
         static let kEventTitleCell = "kEventViewTitleCell"
         static let kDescriptionTableViewCell = "DescriptionTableViewCell"
         static let kLocationTableViewCell = "LocationTableViewCell"
+        static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
     }
     
@@ -46,7 +47,9 @@ struct Constants {
     }
     
     struct DateFormats {
-        static let kFullDateFormat = "EEE MMM d, YYYY hh:mm a"
+        static let kFullDateFormat = "h:mm a EEE, MMM d, YYYY"
+        static let kDateFormat = "EEEE, MMM d, YYYY"
+        static let kTimeFormat = "hh:mm a"
     }
     
     struct StandardFormats {
