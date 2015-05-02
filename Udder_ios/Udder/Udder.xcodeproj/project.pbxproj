@@ -17,6 +17,8 @@
 		A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA981AF49DF500E8B3F9 /* info.png */; };
 		A70AAA9B1AF49DF500E8B3F9 /* people.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA991AF49DF500E8B3F9 /* people.png */; };
 		A70AAA9D1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */; };
+		A70AAA9F1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */; };
+		A70AAAA11AF4BA1B00E8B3F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -99,6 +101,8 @@
 		A70AAA981AF49DF500E8B3F9 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Images/info.png; sourceTree = "<group>"; };
 		A70AAA991AF49DF500E8B3F9 /* people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = people.png; path = Images/people.png; sourceTree = "<group>"; };
 		A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventAttendeesViewControllerProvider.swift; path = Providers/EventAttendeesViewControllerProvider.swift; sourceTree = "<group>"; };
+		A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewControllerProvider.swift; path = Providers/EventTableViewControllerProvider.swift; sourceTree = "<group>"; };
+		A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				A73027D41AF2045D009D2281 /* BaseEventProvider.swift */,
 				A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */,
 				A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */,
+				A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */,
 				E17571691AEAD27A00E92F07 /* EventsNearMeViewController.swift */,
 				E175716D1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift */,
+				A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -576,9 +582,11 @@
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 				A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */,
+				A70AAA9F1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift in Sources */,
 				E17571631AEAD24100E92F07 /* MyEventsViewController.swift in Sources */,
 				A73027D71AF20557009D2281 /* EventDetailViewControllerProvider.swift in Sources */,
 				A70AAA931AF48DEE00E8B3F9 /* AF+Date+Extension.swift in Sources */,
+				A70AAAA11AF4BA1B00E8B3F9 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
