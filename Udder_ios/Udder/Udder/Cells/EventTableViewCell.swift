@@ -43,7 +43,7 @@ class EventTableViewCell: UITableViewCell {
         self.timeLabel?.text = (params.objectForKey("time") as! String)
         self.locationLabel?.text = (params.objectForKey("location") as! String)
 
-        let block : PFIdResultBlock = { [weak self] (result: AnyObject!, error: NSError!) in
+        /*let block : PFIdResultBlock = { [weak self] (result: AnyObject!, error: NSError!) in
             let wSelf = self
             if(error == nil) {
                 // no error
@@ -53,9 +53,10 @@ class EventTableViewCell: UITableViewCell {
             } else {
             }
         }
-        PFCloud.callFunctionInBackground("flickr", withParameters: ["title": params.objectForKey("title") as! String], block: block)
+        PFCloud.callFunctionInBackground("flickr", withParameters: ["title": params.objectForKey("title") as! String], block: block)*/
         
 //        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
+        self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String), placeholderImage:Constants.PlaceHolders.EventImage);
         self.locationImageView?.image = UIImage(named: "placeholder.png")
         self.timeImageView?.image = UIImage(named: "placeholder.png")
         self.categoryImageView?.image = UIImage(named: "placeholder.png")

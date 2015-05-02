@@ -123,10 +123,10 @@
                                         <constraint firstAttribute="bottom" secondItem="caG-O6-IlW" secondAttribute="bottom" id="yXH-gE-AUI"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
-                                    <rect key="frame" x="25" y="119" width="534" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
+                                    <rect key="frame" x="25" y="114" width="534" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="yEa-m9-o8V"/>
+                                        <constraint firstAttribute="height" constant="30" id="yEa-m9-o8V"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

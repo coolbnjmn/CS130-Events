@@ -8,8 +8,13 @@
 
 import UIKit
 
-class EventTableViewController: UITableViewController {
+class EventTableViewController: BaseViewController {
+    
+    var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
+    var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
         
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +28,29 @@ class EventTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.setupMenuBarButtonItems()
         
-
+        self.tableView.dataSource = self.eventTableViewControllerProvider;
+        self.tableView.delegate = self.eventTableViewControllerProvider;
+        
+        self.eventTableViewControllerProvider.delegate = self;
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        fetchData();
+    }
+    
+    func fetchData() {
+        var successBlock: NSMutableArray -> Void = {
+            (eventArray: NSMutableArray) -> Void in
+            self.eventTableViewControllerProvider.configure(eventArray);
+            self.tableView.reloadData();
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
     }
     
     func setupMenuBarButtonItems() {
@@ -50,65 +77,7 @@ class EventTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 5
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
-    }
-
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableViewCell
-        // Configure the cell...
-        var params: NSMutableDictionary = NSMutableDictionary()
-        params.setObject(String(format: "Item %d", arguments: [indexPath.row]), forKey: "title")
-        params.setObject("location blah blah location", forKey: "location")
-        params.setObject("time blah blah blah blah blah blah blah blah", forKey: "time")
-    
-        cell.eventTableViewCellInit(params)
-        
-        
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        selectedCell.contentView.backgroundColor = UIColor.whiteColor()
-        
-        var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
-        
-        var successBlock: NSMutableArray -> Void = {
-        (eventArray: NSMutableArray) -> Void in
-        for event in eventArray {
-        if let eventModel = event as? EventModel {
-        //eventModel.printEvent();
-        var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
-        eventDetailViewController.setupWithEvent(eventModel);
-        self.navigationController?.pushViewController(eventDetailViewController, animated: true);
-        break;
-        }
-        }
-        }
-        
-        var failureBlock: NSError -> Void = {
-        (error: NSError) -> Void in
-        println("Error2: \(error)");
-        }
-        
-        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
-    }
+   
     
     /*
     // Override to support conditional editing of the table view.

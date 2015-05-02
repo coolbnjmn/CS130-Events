@@ -50,11 +50,15 @@ struct Constants {
         static let kFullDateFormat = "EEE, MMM d, YYYY h:mm a "
         static let kDateFormat = "EEEE, MMM d, YYYY"
         static let kShortWeekDateFormat = "EEE, MMM d, YYYY"
-        static let kTimeFormat = "hh:mm a"
+        static let kTimeFormat = "h:mm a"
         static let kDayOfWeekFormat = "EEEE"
     }
     
     struct StandardFormats {
         static let kStandardTextFont = "Avenir-Book";
-    }    
+    }
+    
+    struct PlaceHolders {
+        static let EventImage:UIImage = UIImage(named: "Beach.jpg")!
+    }
 }

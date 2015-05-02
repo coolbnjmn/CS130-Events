@@ -8,7 +8,13 @@
 
 import UIKit
 
+@objc protocol ViewControllerProtocolDelegate {
+    func pushViewController(viewController:UIViewController, animated:Bool);
+}
+
 class BaseProvider: NSObject, UITableViewDelegate, UITableViewDataSource {
+    var delegate:ViewControllerProtocolDelegate?;
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println("Should be implemented by subclass");
         return 0;

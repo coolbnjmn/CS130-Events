@@ -129,10 +129,8 @@ class EventDetailViewController: UIViewController {
             self.timeLabel.text = timeLabelString(validatedEvent.eventStartTime);
             self.locationLabel.text = validatedEvent.eventLocation;
             
-            var placeHolderImage:UIImage = UIImage(named: "Beach.jpg")!;
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
-            
-            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
+            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
             
             self.navigationItem.title = validatedEvent.eventTitle;
         }
