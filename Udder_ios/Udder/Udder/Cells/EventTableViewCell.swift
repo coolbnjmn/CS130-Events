@@ -56,7 +56,7 @@ class EventTableViewCell: UITableViewCell {
         PFCloud.callFunctionInBackground("flickr", withParameters: ["title": params.objectForKey("title") as! String], block: block)*/
         
 //        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
-        self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String));
+        self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String), placeholderImage:UIImage(named: "Beach.jpg"));
         self.locationImageView?.image = UIImage(named: "placeholder.png")
         self.timeImageView?.image = UIImage(named: "placeholder.png")
         self.categoryImageView?.image = UIImage(named: "placeholder.png")
