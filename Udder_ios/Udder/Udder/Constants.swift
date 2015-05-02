@@ -49,4 +49,7 @@ struct Constants {
         static let kFullDateFormat = "EEE MMM d, YYYY hh:mm a"
     }
     
+    struct StandardFormats {
+        static let kStandardTextFont = "Avenir-Book";
+    }    
 }

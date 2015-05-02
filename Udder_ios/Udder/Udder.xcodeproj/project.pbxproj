@@ -10,6 +10,7 @@
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
 		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
+		A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -85,6 +86,7 @@
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
+		A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparateTintSegmentedControl.swift; path = Utilities/SeparateTintSegmentedControl.swift; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */,
 				A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */,
 				A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */,
+				A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */,
 				A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
+				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
 				A73027D91AF210A0009D2281 /* LocationTableViewCell.swift in Sources */,
 				A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */,
 				A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */,

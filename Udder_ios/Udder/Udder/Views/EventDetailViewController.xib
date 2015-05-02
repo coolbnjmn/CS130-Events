@@ -13,6 +13,7 @@
                 <outlet property="infoTableView" destination="2ky-eq-Lr9" id="6RC-dH-aMp"/>
                 <outlet property="locationLabel" destination="QIV-jQ-ZYJ" id="vgn-S3-b9V"/>
                 <outlet property="locationViewWidthConstraint" destination="juE-95-ypm" id="yFr-6B-kgS"/>
+                <outlet property="responseSegmentedControl" destination="Nfc-5Q-U4M" id="psn-m8-8pD"/>
                 <outlet property="timeLabel" destination="caG-O6-IlW" id="9l4-vG-76E"/>
                 <outlet property="timeViewWidthConstraint" destination="IYF-ix-JE4" id="vPT-Jb-GiW"/>
                 <outlet property="titleLabel" destination="nz8-Fy-dce" id="1vD-rr-63G"/>
@@ -37,23 +38,26 @@
                                 <constraint firstAttribute="height" constant="145" id="jd6-4Q-nEL"/>
                             </constraints>
                         </view>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-5Q-U4M">
-                            <rect key="frame" x="170" y="190" width="260" height="23"/>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-5Q-U4M" customClass="SeparateTintSegmentedControl" customModule="Udder" customModuleProvider="target">
+                            <rect key="frame" x="175" y="192" width="250" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="260" id="7fa-bW-S44"/>
-                                <constraint firstAttribute="height" constant="22" id="nz6-d7-G5N"/>
+                                <constraint firstAttribute="width" constant="250" id="7fa-bW-S44"/>
+                                <constraint firstAttribute="height" constant="20" id="nz6-d7-G5N"/>
                             </constraints>
                             <segments>
                                 <segment title="Accept"/>
                                 <segment title="Decline"/>
                             </segments>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.29332153605199024" green="0.80906769648467125" blue="0.34388303104978818" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="acceptDeclineSwitched:" destination="-1" eventType="valueChanged" id="PXk-XV-668"/>
+                            </connections>
                         </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41o-V8-p0h" userLabel="Info Background">
-                            <rect key="frame" x="8" y="8" width="584" height="174"/>
+                            <rect key="frame" x="8" y="8" width="584" height="176"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA2-G2-d7j" userLabel="LocationView">
-                                    <rect key="frame" x="304" y="154" width="280" height="20"/>
+                                    <rect key="frame" x="304" y="156" width="280" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label asjdifjioasjdf ijwioejf iojwioeafj iojaweoi fjioawej oifjwaeio jfioawejiofj weaiof" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIV-jQ-ZYJ">
                                             <rect key="frame" x="18" y="0.0" width="262" height="20"/>
@@ -96,7 +100,7 @@
                                     </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-xv-hWH" userLabel="TimeView">
-                                    <rect key="frame" x="0.0" y="154" width="287" height="20"/>
+                                    <rect key="frame" x="0.0" y="156" width="287" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caG-O6-IlW" userLabel="Time Label">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="20"/>
@@ -118,7 +122,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
-                                    <rect key="frame" x="25" y="121" width="534" height="25"/>
+                                    <rect key="frame" x="25" y="123" width="534" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="yEa-m9-o8V"/>
                                     </constraints>

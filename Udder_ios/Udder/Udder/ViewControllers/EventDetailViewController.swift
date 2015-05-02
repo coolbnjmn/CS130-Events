@@ -8,9 +8,14 @@
 
 import UIKit
 
-struct Segment {
+struct TableSegment {
     static let kSegmentInfo = 0;
     static let kSegmentAttendees = 1;
+}
+
+struct ResponseSegment {
+    static let kSegmentAccept = 0;
+    static let kSegmentDecline = 1;
 }
 
 class EventDetailViewController: UIViewController {
@@ -33,10 +38,13 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
+    // Segmented Controls
+    @IBOutlet weak var responseSegmentedControl: SeparateTintSegmentedControl!
+    
     // Tables
     @IBOutlet weak var infoTableView: UITableView!
     
-    var segmentSelected = Segment.kSegmentInfo;
+    var segmentSelected = TableSegment.kSegmentInfo;
     
     func setupWithEvent(eventModel:EventModel?) {
         self.event = eventModel;
@@ -47,7 +55,7 @@ class EventDetailViewController: UIViewController {
         self.edgesForExtendedLayout = UIRectEdge.None;
         self.populateData();
         self.setupTableViews();
-        self.backgroundGradientView.addGradient();
+        self.setupView();
     }
     
     func populateData() {
@@ -62,6 +70,14 @@ class EventDetailViewController: UIViewController {
             
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
         }
+    }
+    
+    func setupView() {
+        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
+        self.responseSegmentedControl.configure(UIColor.standardGreenColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
+        self.responseSegmentedControl.valueChanged();
+        
+        self.backgroundGradientView.addGradient();
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,19 +104,17 @@ class EventDetailViewController: UIViewController {
         self.infoTableView.delegate = self.eventDetailProvider;
     }
     
-    @IBAction func viewSwitched(sender: UISegmentedControl) {
-/*        switch sender.selectedSegmentIndex {
-            case Segment.kSegmentInfo:
-                infoTableView.hidden = false;
-                attendeesTableView.hidden = true;
-                break;
-            case Segment.kSegmentAttendees:
-                infoTableView.hidden = true;
-                attendeesTableView.hidden = false;
-                break;
-            default:
-                break;
-        }*/
+    @IBAction func acceptDeclineSwitched(sender: AnyObject) {
+        var segmentedControl:SeparateTintSegmentedControl = sender as! SeparateTintSegmentedControl;
+        segmentedControl.valueChanged();
+        
+        switch sender.selectedSegmentIndex {
+        case ResponseSegment.kSegmentAccept:
+            println("Accept selected");
+        case ResponseSegment.kSegmentDecline:
+            println("Reject selected");
+        default:
+            return;
+        }
     }
-    
 }
