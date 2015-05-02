@@ -22,6 +22,7 @@ class EventDetailViewController: UIViewController {
     
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;
+    var eventAttendeesProvider:EventAttendeesViewControllerProvider?;
     
     // Views
     @IBOutlet weak var headerView: UIView!
@@ -44,12 +45,12 @@ class EventDetailViewController: UIViewController {
     
     // Tables
     @IBOutlet weak var infoTableView: UITableView!
-    
-    var segmentSelected = TableSegment.kSegmentInfo;
+    @IBOutlet weak var attendeesTableView: UITableView!
     
     func setupWithEvent(eventModel:EventModel?) {
         self.event = eventModel;
         self.eventDetailProvider = EventDetailViewControllerProvider(eventModel: eventModel);
+        self.eventAttendeesProvider = EventAttendeesViewControllerProvider(eventModel: eventModel);
     }
     
     override func viewDidLoad() {
@@ -108,6 +109,11 @@ class EventDetailViewController: UIViewController {
         self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.infoTableView.dataSource = self.eventDetailProvider;
         self.infoTableView.delegate = self.eventDetailProvider;
+        
+        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.attendeesTableView.dataSource = self.eventAttendeesProvider;
+        self.attendeesTableView.delegate = self.eventAttendeesProvider;
     }
     
     @IBAction func acceptDeclineSwitched(sender: AnyObject) {
@@ -123,4 +129,18 @@ class EventDetailViewController: UIViewController {
             return;
         }
     }
+    
+    @IBAction func switchTable(sender: AnyObject) {
+        switch sender.selectedSegmentIndex {
+        case TableSegment.kSegmentInfo:
+            self.infoTableView.hidden = false;
+            self.attendeesTableView.hidden = true;
+        case TableSegment.kSegmentAttendees:
+            self.infoTableView.hidden = true;
+            self.attendeesTableView.hidden = false;
+        default:
+            return;
+        }
+    }
+    
 }

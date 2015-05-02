@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailViewController" customModule="Udder">
             <connections>
+                <outlet property="attendeesTableView" destination="duy-NV-PQ0" id="95y-9Y-6NJ"/>
                 <outlet property="backgroundGradientView" destination="a4X-st-Gqc" id="uWI-sP-REH"/>
                 <outlet property="backgroundImageView" destination="bwA-OF-pgc" id="Im8-XI-hSu"/>
                 <outlet property="headerView" destination="8cG-vt-SjQ" id="f0i-E6-kyG"/>
@@ -175,11 +176,7 @@
                         <constraint firstAttribute="bottom" secondItem="a4X-st-Gqc" secondAttribute="bottom" id="yar-5R-nOK"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
-                    <rect key="frame" x="0.0" y="267" width="600" height="269"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </tableView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-AK-Jbi">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-AK-Jbi" userLabel="Switch Table">
                     <rect key="frame" x="190" y="235" width="220" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="220" id="Pd2-XT-div"/>
@@ -189,29 +186,50 @@
                         <segment title="" image="info.png"/>
                         <segment title="" image="people.png"/>
                     </segments>
+                    <connections>
+                        <action selector="switchTable:" destination="-1" eventType="valueChanged" id="3Bl-Td-nez"/>
+                    </connections>
                 </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fT-Ld-ybf" userLabel="Table View Container">
+                    <rect key="frame" x="0.0" y="267" width="600" height="269"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-eq-Lr9" userLabel="Info Table View">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="duy-NV-PQ0" userLabel="Attendees Table View">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="2ky-eq-Lr9" firstAttribute="top" secondItem="2fT-Ld-ybf" secondAttribute="top" id="Fnn-fG-OZC"/>
+                        <constraint firstAttribute="bottom" secondItem="2ky-eq-Lr9" secondAttribute="bottom" id="ST5-me-GtU"/>
+                        <constraint firstAttribute="trailing" secondItem="2ky-eq-Lr9" secondAttribute="trailing" id="cfp-Rl-cxm"/>
+                        <constraint firstItem="duy-NV-PQ0" firstAttribute="top" secondItem="2fT-Ld-ybf" secondAttribute="top" id="dWw-Pc-sQB"/>
+                        <constraint firstItem="duy-NV-PQ0" firstAttribute="leading" secondItem="2fT-Ld-ybf" secondAttribute="leading" id="fGJ-te-zJs"/>
+                        <constraint firstItem="2ky-eq-Lr9" firstAttribute="leading" secondItem="2fT-Ld-ybf" secondAttribute="leading" id="hJG-Q8-kLr"/>
+                        <constraint firstAttribute="bottom" secondItem="duy-NV-PQ0" secondAttribute="bottom" id="kZ8-fa-jdp"/>
+                        <constraint firstAttribute="trailing" secondItem="duy-NV-PQ0" secondAttribute="trailing" id="lys-g4-9BQ"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.960824225715455" green="0.960824225715455" blue="0.960824225715455" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="04H-Dg-nuD"/>
                 <constraint firstItem="8cG-vt-SjQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4ZF-9g-nnc"/>
-                <constraint firstAttribute="bottom" secondItem="2ky-eq-Lr9" secondAttribute="bottom" id="Frw-N1-jcC"/>
-                <constraint firstItem="2ky-eq-Lr9" firstAttribute="top" secondItem="pwi-AK-Jbi" secondAttribute="bottom" constant="8" id="Gh7-RF-JiN"/>
-                <constraint firstItem="2ky-eq-Lr9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SY8-lD-Jyd"/>
-                <constraint firstItem="2ky-eq-Lr9" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="bottom" id="UaZ-e1-Gfm"/>
+                <constraint firstAttribute="bottom" secondItem="2fT-Ld-ybf" secondAttribute="bottom" id="DR7-Kp-hfm"/>
+                <constraint firstItem="2fT-Ld-ybf" firstAttribute="top" secondItem="pwi-AK-Jbi" secondAttribute="bottom" constant="8" id="Rd1-I2-Np6"/>
                 <constraint firstItem="pwi-AK-Jbi" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="bottom" constant="8" id="bXM-8E-MSB"/>
-                <constraint firstAttribute="trailing" secondItem="2ky-eq-Lr9" secondAttribute="trailing" id="e6s-Ma-SgG"/>
+                <constraint firstAttribute="trailing" secondItem="2fT-Ld-ybf" secondAttribute="trailing" id="bjy-So-9Fp"/>
                 <constraint firstAttribute="trailing" secondItem="8cG-vt-SjQ" secondAttribute="trailing" id="mFf-me-nsY"/>
                 <constraint firstAttribute="centerX" secondItem="pwi-AK-Jbi" secondAttribute="centerX" id="o7k-rQ-eV2"/>
                 <constraint firstAttribute="centerX" secondItem="8cG-vt-SjQ" secondAttribute="centerX" id="qCB-RI-cTX"/>
+                <constraint firstItem="2fT-Ld-ybf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t84-r9-JsE"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="UaZ-e1-Gfm"/>
-                </mask>
-            </variation>
         </view>
     </objects>
     <resources>
