@@ -49,7 +49,9 @@ struct Constants {
     struct DateFormats {
         static let kFullDateFormat = "h:mm a EEE, MMM d, YYYY"
         static let kDateFormat = "EEEE, MMM d, YYYY"
+        static let kShortWeekDateFormat = "EEE, MMM d, YYYY"
         static let kTimeFormat = "hh:mm a"
+        static let kDayOfWeekFormat = "EEEE"
     }
     
     struct StandardFormats {

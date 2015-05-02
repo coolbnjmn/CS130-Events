@@ -24,6 +24,8 @@ class EventDetailViewController: UIViewController {
     var eventDetailProvider:EventDetailViewControllerProvider?;
     var eventAttendeesProvider:EventAttendeesViewControllerProvider?;
     
+    var dateFormatter:NSDateFormatter = NSDateFormatter();
+    
     // Views
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var backgroundGradientView: UIView!
@@ -60,30 +62,6 @@ class EventDetailViewController: UIViewController {
         self.setupView();
     }
     
-    func populateData() {
-        if let validatedEvent = self.event {
-            self.titleLabel.text = validatedEvent.eventTitle;
-            // TODO: Proper time
-            self.timeLabel.text = "12:00 pm";
-            self.locationLabel.text = validatedEvent.eventLocation;
-            
-            var placeHolderImage:UIImage = UIImage(named: "Beach.jpg")!;
-            var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
-            
-            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
-        }
-    }
-    
-    func setupView() {
-        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
-        self.responseSegmentedControl.configure(UIColor.standardGreenColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
-        self.responseSegmentedControl.valueChanged();
-        
-        self.tableSwitchSegmentedControl.tintColor = UIColor.standardGreenColor();
-        
-        self.backgroundGradientView.addGradient();
-    }
-    
     override func viewDidLayoutSubviews() {
         self.headerViewHeightConstraint.constant = self.view.frame.size.height/3;
         
@@ -92,28 +70,6 @@ class EventDetailViewController: UIViewController {
         self.locationViewWidthConstraint.constant = timeViewWidth;
         
         self.view.layoutSubviews();
-    }
-    
-    func setupTableViews() {
-        let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
-        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kDescriptionTableViewCell);
-        
-        let locationTableViewCellNib = UINib(nibName: "LocationTableViewCell", bundle: nil);
-        self.infoTableView.registerNib(locationTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kLocationTableViewCell);
-        
-        let timeInfoTableViewCellNib = UINib(nibName: "TimeInfoTableViewCell", bundle: nil);
-        self.infoTableView.registerNib(timeInfoTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kTimeInfoTableViewCell);
-        
-        self.infoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
-        
-        self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
-        self.infoTableView.dataSource = self.eventDetailProvider;
-        self.infoTableView.delegate = self.eventDetailProvider;
-        
-        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
-        self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
-        self.attendeesTableView.dataSource = self.eventAttendeesProvider;
-        self.attendeesTableView.delegate = self.eventAttendeesProvider;
     }
     
     @IBAction func acceptDeclineSwitched(sender: AnyObject) {
@@ -143,4 +99,75 @@ class EventDetailViewController: UIViewController {
         }
     }
     
+    // MARK: Helper Functions
+    func setupTableViews() {
+        let descriptionTableViewCellNib = UINib(nibName: "DescriptionTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(descriptionTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kDescriptionTableViewCell);
+        
+        let locationTableViewCellNib = UINib(nibName: "LocationTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(locationTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kLocationTableViewCell);
+        
+        let timeInfoTableViewCellNib = UINib(nibName: "TimeInfoTableViewCell", bundle: nil);
+        self.infoTableView.registerNib(timeInfoTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kTimeInfoTableViewCell);
+        
+        self.infoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        
+        self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.infoTableView.dataSource = self.eventDetailProvider;
+        self.infoTableView.delegate = self.eventDetailProvider;
+        
+        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.attendeesTableView.dataSource = self.eventAttendeesProvider;
+        self.attendeesTableView.delegate = self.eventAttendeesProvider;
+    }
+    
+    func populateData() {
+        if let validatedEvent = self.event {
+            self.titleLabel.text = validatedEvent.eventTitle;
+            // TODO: Proper time
+            self.timeLabel.text = timeLabelString(validatedEvent.eventStartTime);
+            self.locationLabel.text = validatedEvent.eventLocation;
+            
+            var placeHolderImage:UIImage = UIImage(named: "Beach.jpg")!;
+            var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
+            
+            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: placeHolderImage);
+        }
+    }
+    
+    func setupView() {
+        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
+        self.responseSegmentedControl.configure(UIColor.standardGreenColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
+        self.responseSegmentedControl.valueChanged();
+        
+        self.tableSwitchSegmentedControl.tintColor = UIColor.standardGreenColor();
+        
+        self.backgroundGradientView.addGradient();
+    }
+    
+    func timeLabelString(startTime:NSDate) -> String {
+        var timeText:String = "";
+        
+        if startTime.isToday() {
+            timeText = "Today";
+        }
+        else if startTime.isTomorrow() {
+            timeText = "Tomorrow";
+        }
+        else if startTime.isThisWeek() && startTime.isLaterThanDate(NSDate.new()) {
+            dateFormatter.dateFormat = Constants.DateFormats.kDayOfWeekFormat;
+            timeText = dateFormatter.stringFromDate(startTime);
+        }
+        else if startTime.isNextWeek() && startTime.isLaterThanDate(NSDate.new()) {
+            dateFormatter.dateFormat = Constants.DateFormats.kDayOfWeekFormat;
+            timeText = "Next \(dateFormatter.stringFromDate(startTime))"
+        }
+        else {
+            dateFormatter.dateFormat = Constants.DateFormats.kShortWeekDateFormat;
+            timeText = dateFormatter.stringFromDate(startTime);
+        }
+        
+        return timeText;
+    }
 }
