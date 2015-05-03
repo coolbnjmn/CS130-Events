@@ -1,14 +1,15 @@
+var creds = require('cloud/credentials.js');
 
-// Use Parse.Cloud.define to define as many cloud functions as you want.
-// For example:
-Parse.Cloud.define("hello", function(request, response) {
-  response.success("Hello world!");
-});
-
-
-// This will become an afterSave trigger in the final version
-// i.e. Parse.Cloud.afterSave("Event", function(request) {
-// UPDATE: Maybe not, since we need to send a response. 
+/**
+* Finds a Flickr photo for the event cover based on the given text about an event
+* Optionally include latitude and longitude coordinates to perform a location based search on the same text
+*
+* @param {string} request.params.text The text to be searched for on Flickr
+* OPTIONAL PARAMS:
+* @param {double} request.params.lat Latitude in decimal form to center the search around
+* @param {double} request.params.lon Longitude in decimal form to center the search around
+* @return {string} either returns an error message or the URL for the Flickr photo
+*/
 Parse.Cloud.define("flickr", function(request, response) {
 	var FLICKR_API_KEY = "1841d87292afbe9c627a5b82cf1416df";
 	var searchText = request.params.title;
@@ -71,4 +72,53 @@ Parse.Cloud.define("flickr", function(request, response) {
 		    response.error('Request failed with response code ' + httpResponse.status);
 		}
 	});
+});
+
+
+/**
+* Send verification code to given phone number and store that code in the user object
+* Randomly generates a 6 digit number and sets it to the current user, and then sends the text using twilio
+*
+* @param {string} request.params.phoneNumber The user's enterred phone number to be verified
+* @return {HTTPResponse} either returns an error message or the word Success.
+*/
+Parse.Cloud.define("sendVerificationCode", function(request, response) {
+    var verificationCode = Math.floor(Math.random()*999999);
+    var user = Parse.User.current();
+    user.set("phoneNumber", request.params.phoneNumber);
+    user.set("phoneVerificationCode", verificationCode);
+    user.save();
+    var credentials = creds.getTwilioConfig();
+    var twilio = require('twilio')(credentials.AccountSID, credentials.AuthToken);
+
+    twilio.sendSms({
+        From: "(818) 877-4527",
+        To: request.params.phoneNumber,
+        Body: "Your verification code is " + verificationCode + "."
+    }, function(err, responseData) { 
+        if (err) {
+          response.error(err);
+        } else { 
+          response.success("Success");
+        }
+    });
+});
+
+/**
+* Verify the given code with the user's phone number to make sure it's the right code
+*
+* @param {string} request.params.phoneVerificationCode The user's enterred verification code to be verified
+* @return {HTTPResponse} either returns an error message or the word Success.
+*/
+
+Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
+    var user = Parse.User.current();
+    var verificationCode = user.get("phoneVerificationCode");
+    if (verificationCode == request.params.phoneVerificationCode) {
+        user.set("phoneValidated", true);
+        user.save();
+        response.success("Success");
+    } else {
+        response.error("Invalid verification code.");
+    }
 });
