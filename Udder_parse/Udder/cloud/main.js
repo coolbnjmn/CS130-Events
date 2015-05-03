@@ -11,12 +11,11 @@ var creds = require('cloud/credentials.js');
 * @return {string} either returns an error message or the URL for the Flickr photo
 */
 Parse.Cloud.define("flickr", function(request, response) {
-	var FLICKR_API_KEY = "1841d87292afbe9c627a5b82cf1416df";
 	var searchText = request.params.title;
 
 	params = {
 		method: 'flickr.photos.search',
-	  	api_key:  FLICKR_API_KEY,
+	  	api_key:  creds.getFlickrConfig(),
 	  	text: searchText,
 	  	per_page: 20,
 	    format: 'json', 

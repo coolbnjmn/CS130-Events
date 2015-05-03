@@ -20,3 +20,5 @@ xcuserdata
 *.moved-aside
 
 *.xcworkspace/
+
+credentials.js
