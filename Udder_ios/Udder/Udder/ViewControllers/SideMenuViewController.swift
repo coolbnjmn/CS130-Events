@@ -127,8 +127,9 @@ class SideMenuViewController: UITableViewController {
             navController = UINavigationController(rootViewController: UpcomingEventsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 4: //Events Near Me
-            nibNameToSwitchTo = "EventsNearMeViewController";
-            navController = UINavigationController(rootViewController: EventsNearMeViewController(nibName: nibNameToSwitchTo, bundle:nil))
+            // TODO: SWITCH BACK
+            nibNameToSwitchTo = "InviteContactTableViewController";
+            navController = UINavigationController(rootViewController: InviteContactTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 5: //Pending Invitations
             nibNameToSwitchTo = "PendingInvitationsViewController";
