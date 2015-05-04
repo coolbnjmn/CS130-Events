@@ -69,8 +69,9 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                     }
                 }
                 
-                self.tableView.reloadData()
-
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
             }
            
             ABAddressBookRequestAccessWithCompletion(addressBookRef, block)
