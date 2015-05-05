@@ -24,8 +24,11 @@ class EventTableViewController: BaseViewController {
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.navigationItem.title = "Home"
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
+        navigationController!.navigationBar.barTintColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.setupMenuBarButtonItems()
         
         self.tableView.dataSource = self.eventTableViewControllerProvider;
