@@ -16,7 +16,7 @@ struct Constants {
     }
     
     struct DatabaseClass {
-        static let kEventClass = "EventTest"
+        static let kEventClass = "Event"
     }
     
     struct EventDatabaseFields {

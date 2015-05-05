@@ -18,6 +18,7 @@ class EventManagerModel: BaseModel {
     // TODO: Have this actually retrieve upcoming events
     func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+        query.orderByDescending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error:NSError!) -> Void in
             if error == nil {
