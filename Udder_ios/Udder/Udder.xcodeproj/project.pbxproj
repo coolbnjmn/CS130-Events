@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */; };
+		348E20B21AF97D7B003BDB1F /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
@@ -96,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhoneNumberViewController.xib; path = Views/PhoneNumberViewController.xib; sourceTree = "<group>"; };
+		348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberViewController.swift; path = ViewControllers/PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */,
 				B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */,
 				E12F8F7E1AEED69800EA0BBA /* LoginViewController.xib */,
 				E12F8F7B1AEED40100EA0BBA /* ViewController.xib */,
@@ -401,6 +406,7 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */,
 				A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */,
 				B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */,
 				B2D5BB8E1AE1DDD40063126E /* ViewController.swift */,
@@ -498,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */,
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
 				E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */,
 				A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */,
@@ -594,6 +601,7 @@
 				A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */,
 				A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */,
 				B2BF29311AE9D32900D6714C /* EventTableViewCell.swift in Sources */,
+				348E20B21AF97D7B003BDB1F /* PhoneNumberViewController.swift in Sources */,
 				55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */,
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
