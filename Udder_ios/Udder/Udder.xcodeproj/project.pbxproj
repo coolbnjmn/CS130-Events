@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
 		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
 		A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparateTintSegmentedControl.swift; path = Utilities/SeparateTintSegmentedControl.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		B2BF292E1AE9D2C000D6714C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */,
 				B2BF292F1AE9D32900D6714C /* EventTableViewCell.swift */,
 				A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */,
 				A73027D81AF210A0009D2281 /* LocationTableViewCell.swift */,
@@ -591,6 +594,7 @@
 				A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */,
 				A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */,
 				B2BF29311AE9D32900D6714C /* EventTableViewCell.swift in Sources */,
+				55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */,
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 				A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */,
