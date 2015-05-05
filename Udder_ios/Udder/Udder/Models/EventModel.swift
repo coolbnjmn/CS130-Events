@@ -18,9 +18,10 @@ class EventModel: BaseModel {
     var eventLongitude: Float?;
     var eventStartTime: NSDate!;
     var eventEndTime: NSDate!;
-    var formattedStartTime: String!;
-    var formattedEndTime: String!;
     var eventImage: String!;
+    var eventHost: PFUser!;
+    var eventCategory: String?;
+    var eventInvitees: NSArray?;
     
     init?(eventObject: PFObject) {
         super.init();
@@ -37,7 +38,7 @@ class EventModel: BaseModel {
         self.eventDescription = eventObject[Constants.EventDatabaseFields.kEventDescription] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
-        self.eventImage = eventObject[Constants.EventDatabaseFields.kEventImageIURL] as? String ??
+        self.eventImage = eventObject[Constants.EventDatabaseFields.kEventImageURL] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
         if let tempStartTime = eventObject[Constants.EventDatabaseFields.kEventStartTime] as? NSDate {
@@ -52,8 +53,17 @@ class EventModel: BaseModel {
         self.eventLatitude = eventObject[Constants.EventDatabaseFields.kEventLatitude] as? Float;
         self.eventLongitude = eventObject[Constants.EventDatabaseFields.kEventLongitude] as? Float;
         
+        if let tempEventHost = eventObject[Constants.EventDatabaseFields.kEventHost] as? PFUser {
+            self.eventHost = tempEventHost;
+        }
+        
+        self.eventCategory = eventObject[Constants.EventDatabaseFields.kEventCategory] as? String ??
+            Constants.EventDatabaseFields.kEventFieldPlaceholder;
+        
+        // TODO: Add array for the invitees
+        
         // Check to make sure all required fields are set
-        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil) {
+        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
             return nil;
         }
     }
@@ -73,5 +83,8 @@ class EventModel: BaseModel {
         if let longitude = self.eventLongitude {
             println("Longitude: \(longitude)");
         }
+        
+        println("Host: \(self.eventHost)");
+        println("Category: \(self.eventCategory)");
     }
 }
