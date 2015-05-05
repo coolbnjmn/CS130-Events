@@ -21,6 +21,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var gradientView: UIView!
     
     
     @IBOutlet weak var timeLabelWidthConstraint: NSLayoutConstraint!
@@ -57,8 +58,8 @@ class EventTableViewCell: UITableViewCell {
         
 //        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
         self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String), placeholderImage:Constants.PlaceHolders.EventImage);
-        self.locationImageView?.image = UIImage(named: "placeholder.png")
-        self.timeImageView?.image = UIImage(named: "placeholder.png")
+        self.locationImageView?.image = UIImage(named: "icon-location.png")
+        self.timeImageView?.image = UIImage(named: "icon-time.png")
         self.categoryImageView?.image = UIImage(named: "placeholder.png")
                 
         self.eventTitleLabel.textColor = UIColor.whiteColor()
@@ -89,10 +90,11 @@ class EventTableViewCell: UITableViewCell {
             self.locationLabel.frame.size.width = maxLocationLabelWidth
         }
         
-        self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:24)
-        self.timeLabel.font = UIFont(name: "Avenir-Book", size:18)
-        self.locationLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:20)
+        self.timeLabel.font = UIFont(name: "Avenir-Book", size:14)
+        self.locationLabel.font = UIFont(name: "Avenir-Book", size: 14)
         
+        self.gradientView.addGradient()
     }
     
 }
