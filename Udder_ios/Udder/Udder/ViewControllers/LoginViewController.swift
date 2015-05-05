@@ -36,21 +36,32 @@ class LoginViewController: UIViewController {
                 
             } else if (user.isNew) {
                 NSLog("User with facebook signed up and logged in!");
-                self.gatherInfo()
-                self.redirectToHome()
+                self.gatherInfo(false)
+                let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
+                if (phoneValidated) {
+                    self.redirectToHome()
+                } else {
+                    self.redirectToPhoneNumber()
+                }
             }
                 
             else {
                 NSLog("User with facebook logged in!");
-                self.gatherInfo()
-                self.redirectToHome()
+                self.gatherInfo(true)
+                let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
+                if (phoneValidated) {
+                    self.redirectToHome()
+                } else {
+                    NSLog("Not validated")
+                    self.redirectToPhoneNumber()
+                }
             }
             
         });
 
     }
     
-    func gatherInfo() {
+    func gatherInfo(phoneValidated: Bool) {
         FBRequestConnection.startForMeWithCompletionHandler({ (connection :
             FBRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
             PFUser.currentUser().setObject(result["id"],
@@ -60,6 +71,10 @@ class LoginViewController: UIViewController {
             PFUser.currentUser().setObject(result["name"], forKey:"full_name")
             PFUser.currentUser().setObject(result["email"], forKey:"email")
             PFUser.currentUser().setObject(result["gender"], forKey:"gender")
+            //Should only be done first time
+            if (!phoneValidated) {
+                PFUser.currentUser().setObject(false, forKey: "phoneValidated")
+            }
             PFUser.currentUser().saveInBackgroundWithBlock({
                 (success : Bool, error : NSError!) -> Void in
                 if error != nil {
@@ -79,6 +94,11 @@ class LoginViewController: UIViewController {
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         self.presentViewController(container, animated: true, completion: nil)
+    }
+    
+    func redirectToPhoneNumber() {
+        let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
+        self.presentViewController(navController, animated: true, completion: nil)
     }
 
     
