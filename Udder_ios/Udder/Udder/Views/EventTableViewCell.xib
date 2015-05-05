@@ -15,16 +15,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdK-VD-RI2">
                         <rect key="frame" x="6" y="2" width="308" height="195"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzW-o8-aQd">
-                                <rect key="frame" x="0.0" y="115" width="308" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="OrR-JM-929"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-vT-cwV">
                                 <rect key="frame" x="0.0" y="0.0" width="308" height="195"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzW-o8-aQd">
+                                <rect key="frame" x="0.0" y="100" width="308" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="OrR-JM-929"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bla-LZ-A9b">
                                 <rect key="frame" x="0.0" y="165" width="308" height="25"/>
                                 <subviews>
