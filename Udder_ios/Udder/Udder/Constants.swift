@@ -61,4 +61,8 @@ struct Constants {
     struct PlaceHolders {
         static let EventImage:UIImage = UIImage(named: "Beach.jpg")!
     }
+    
+    struct Colors {
+        static let ThemeColor:UIColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
+    }
 }

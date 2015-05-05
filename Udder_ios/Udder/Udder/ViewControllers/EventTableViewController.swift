@@ -27,7 +27,7 @@ class EventTableViewController: BaseViewController {
         
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
-        navigationController!.navigationBar.barTintColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
+        navigationController!.navigationBar.barTintColor = Constants.Colors.ThemeColor
 
         self.setupMenuBarButtonItems()
         
