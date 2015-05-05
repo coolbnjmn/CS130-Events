@@ -101,7 +101,6 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     func applySearch(sender: AnyObject) {
         self.searchResults.removeAll(keepCapacity: false)
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", self.mySearchController!.searchBar.text)
         let filteredArray = self.contactDataArray.filter({
             if var name:String = $0.name {
                 return name.lowercaseString.hasPrefix(self.mySearchController!.searchBar.text.lowercaseString)

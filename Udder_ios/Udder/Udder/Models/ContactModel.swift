@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactModel: Equatable {
+class ContactModel: BaseModel,  Equatable {
     var name : String!
     var phone : String!
     
