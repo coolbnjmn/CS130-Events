@@ -92,6 +92,28 @@ class EventDetailViewController: UIViewController {
             self.infoTableView.hidden = false;
             self.attendeesTableView.hidden = true;
         case TableSegment.kSegmentAttendees:
+            
+            // TODO: Remove and place proper stuff here
+            var successBlock: EventModel -> Void = {
+                (eventModel: EventModel) -> Void in
+                var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
+
+                eventDetailViewController.setupWithEvent(eventModel);
+                
+                var parentViewController: UIViewController = self.navigationController?.viewControllers[0] as! UIViewController;
+                self.navigationController?.popViewControllerAnimated(false);
+                parentViewController.navigationController?.pushViewController(eventDetailViewController, animated: true);
+            }
+            
+            var failureBlock: NSError -> Void = {
+                (error: NSError) -> Void in
+                println("Error: \(error)");
+            }
+            
+            var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
+            
+            eventManagerModel.createEvent("New Event", description: "This event is to test the functionality of creating an event", location: "UCLA", startTime: NSDate(), endTime: NSDate(), category: "Sports", image: "http://cironline.org/sites/default/files/styles/inline-large/public/6291479824_197fdd1283_z.jpg?itok=kxv3Fesz", success: successBlock, failure: failureBlock);
+            
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
         default:
