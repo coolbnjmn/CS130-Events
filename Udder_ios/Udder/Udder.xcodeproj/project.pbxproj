@@ -39,6 +39,7 @@
 		B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF74A1AF732CB00E32212 /* ContactModel.swift */; };
 		B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */; };
 		B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */; };
+		B241B5D01AF96EE8001BB17B /* icon-time.png in Resources */ = {isa = PBXBuildFile; fileRef = B241B5CF1AF96EE8001BB17B /* icon-time.png */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
@@ -129,6 +130,7 @@
 		B23AF74A1AF732CB00E32212 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactModel.swift; path = Models/ContactModel.swift; sourceTree = "<group>"; };
 		B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteContactTableViewController.swift; path = ViewControllers/InviteContactTableViewController.swift; sourceTree = "<group>"; };
 		B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InviteContactTableViewController.xib; path = Views/InviteContactTableViewController.xib; sourceTree = "<group>"; };
+		B241B5CF1AF96EE8001BB17B /* icon-time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-time.png"; path = "Images/icon-time.png"; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B241B5CF1AF96EE8001BB17B /* icon-time.png */,
 				A70AAA981AF49DF500E8B3F9 /* info.png */,
 				A70AAA991AF49DF500E8B3F9 /* people.png */,
 				A70AAA8E1AF4422400E8B3F9 /* icon-location.png */,
@@ -510,6 +513,7 @@
 				A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
+				B241B5D01AF96EE8001BB17B /* icon-time.png in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
 				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
 				B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */,
