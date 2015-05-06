@@ -58,6 +58,7 @@ class EventTableViewController: BaseViewController {
     
     func setupMenuBarButtonItems() {
         self.navigationItem.leftBarButtonItem = self.leftMenuBarButtonItem()
+        self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
     }
     
     
@@ -69,6 +70,27 @@ class EventTableViewController: BaseViewController {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({
             self.setupMenuBarButtonItems()
         })
+    }
+    
+    func rightMenuBarButtonItem() -> UIBarButtonItem {
+        // another way of adding the button but by an icon, will need this soon
+        //return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "rightSideMenuButtonPressed:")
+        return UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "rightSideMenuButtonPressed:")
+        
+        //        return UIBarButtonItem(title: "Nav", style: .Plain, target: self, action: "leftSideMenuButtonPressed:")
+        
+    }
+    
+    func rightSideMenuButtonPressed(sender: AnyObject) {
+       // let createVC = WholeViewController(nibName: "WholeViewController", bundle: nil)
+       // self.presentViewController(createVC, animated: false, completion: nil)
+        
+        let nibNameToSwitchTo: String?
+        let navController: UINavigationController?
+        nibNameToSwitchTo = "WholeViewController";
+        navController = UINavigationController(rootViewController: WholeViewController(nibName: nibNameToSwitchTo, bundle:nil))
+        self.menuContainerViewController.centerViewController = navController
+        
     }
     
     override func didReceiveMemoryWarning() {

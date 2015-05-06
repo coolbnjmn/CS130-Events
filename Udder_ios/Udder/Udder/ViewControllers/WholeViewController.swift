@@ -1,0 +1,276 @@
+//
+//  WholeViewController.swift
+//  Udder
+//
+//  Created by shai segal on 4/24/15.
+//  Copyright (c) 2015 UCLA. All rights reserved.
+//
+
+import UIKit
+import MapKit
+
+class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
+    @IBOutlet weak var ECtable: UITableView!
+    @IBOutlet weak var descriptiontext: UITextView!
+    @IBOutlet weak var finishbutton: UIButton!
+    @IBAction func finishbuttonclicked(sender: UIButton) {
+        println(title_string)
+        println(date_string)
+        println(loc_string)
+        println(cat_string)
+        println("\(priv_bool)")
+        println("start date \(start_date)")
+        println("end date \(end_date)")
+        println(des_string)
+    }
+    func setaddtext(cell:RegEventCreationTableViewCell) {
+        title_string = cell.addtext.text
+       
+    }
+    var title_string:String = String()
+    func setactualdate(cell: DateTableViewCell){
+        date_string = cell.actualdate.text
+        
+    }
+    var date_string:String = String()
+    func settimetext(cell: TimeTableViewCell) {
+        if cell.textLabel?.text == "Start Time"{
+           // start_string = cell.timetext.text
+            start_date = cell.date!
+        }
+        else{
+          //  end_string = cell.timetext.text
+            end_date = cell.date!
+        }
+    }
+    var start_date: NSDate = NSDate()
+    var end_date: NSDate = NSDate()
+    //var start_string:String = String()
+    //var end_string:String = String()
+    func setwheretext(cell:WhereTableViewCell){
+        loc_string = cell.wheretext.text
+    }
+    var loc_string:String = String()
+    func setcattext(cell:CatTableViewCell){
+        cat_string = cell.cattext.text
+    }
+    var cat_string:String = String()
+    func setswitch(cell:PrivateEventCreationTableViewCell){
+        priv_bool = cell.Private
+    }
+    var priv_bool:Bool = true
+    var des_string:String = String()
+    
+    var my_int:Int = 1
+    var lat:CLLocationDegrees = 0.0
+    var long:CLLocationDegrees = 0.0
+    
+    let cellnames = ["Title", "Start Time", "End Time", "Location", "Categories","Private Event","Description"]
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        ECtable.editing = false
+        ECtable.dataSource = self
+        ECtable.delegate = self
+        descriptiontext.delegate = self
+        
+        descriptiontext.text = "(optional)"
+        descriptiontext.textColor = UIColor.lightGrayColor()
+        
+        var nav = self.navigationController?.navigationBar
+     //   nav!.delegate = self
+        nav?.barStyle = UIBarStyle.BlackTranslucent
+        nav?.topItem?.title = "Create Event"
+        
+      
+            //example segue code
+          /*  let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
+            mapVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+            presentViewController(mapVC, animated: true, completion: nil)*/
+        
+        self.setupMenuBarButtonItems()
+
+        self.ECtable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        
+        var nib = UINib (nibName: "RegEventCreationTableViewCell", bundle: nil)
+        ECtable.registerNib(nib, forCellReuseIdentifier: "regcell")
+        
+        var nib1 = UINib (nibName: "DescriptionEventCreationTableViewCell", bundle: nil)
+        ECtable.registerNib(nib1, forCellReuseIdentifier: "DescriptionCell")
+        
+        var nib2 = UINib (nibName: "ButtonCreationEventTableViewCell", bundle: nil)
+        ECtable.registerNib(nib2, forCellReuseIdentifier: "ButtonCell")
+        
+        var nib3 = UINib (nibName: "PrivateEventCreationTableViewCell", bundle: nil)
+        ECtable.registerNib(nib3, forCellReuseIdentifier: "PrivateCell")
+        
+        var nib4 = UINib (nibName: "DateTableViewCell", bundle: nil)
+        ECtable.registerNib(nib4, forCellReuseIdentifier: "DateCell")
+        
+        var nib5 = UINib (nibName: "TimeTableViewCell", bundle: nil)
+        ECtable.registerNib(nib5, forCellReuseIdentifier: "TimeCell")
+        
+        var nib6 = UINib (nibName: "WhereTableViewCell", bundle: nil)
+        ECtable.registerNib(nib6, forCellReuseIdentifier: "WhereCell")
+        
+        var nib7 = UINib (nibName: "CatTableViewCell", bundle: nil)
+        ECtable.registerNib(nib7, forCellReuseIdentifier: "CatCell")
+
+
+        // Do any additional setup after loading the view.
+    }
+
+    func setupMenuBarButtonItems() {
+        self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
+        
+    }
+    
+    func rightMenuBarButtonItem() -> UIBarButtonItem {
+     
+        return UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "rightSideMenuButtonPressed:")
+        
+    }
+    
+    func rightSideMenuButtonPressed(sender: AnyObject) {
+        let nibNameToSwitchTo: String?
+        let navController: UINavigationController?
+        nibNameToSwitchTo = "EventTableViewController";
+        navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
+        self.menuContainerViewController.centerViewController = navController
+    }
+
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        if (my_int == 1)
+        {
+        descriptiontext.text = ""
+        my_int = 0
+        descriptiontext.textColor = UIColor.blackColor()
+        }
+        self.view.frame.origin.y -= 150
+        finishbutton.hidden = true
+        return true
+    }
+   /*
+    func navigationBar(navigationBar: UINavigationBar, shouldPushItem item: UINavigationItem) -> Bool {
+        return true
+    }*/
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        self.view.frame.origin.y += 150
+        finishbutton.hidden = false
+        des_string = textView.text
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        return 7//8
+    }
+    
+    //COMMENTED OUT IN CASE WE WANT TO CHANGE
+    //WAY TO CHOOSE LOCATION
+   /* func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.row == 4){
+            let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
+            mapVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+            presentViewController(mapVC, animated: true, completion: nil)
+            println("transition to map")
+        }
+        return indexPath
+    }*/
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let row = indexPath.row
+        if(cellnames[row] == "Title"){
+        var cell:RegEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("regcell") as! RegEventCreationTableViewCell
+        cell.cellname?.text=cellnames[row]
+        cell.addtext?.placeholder = "Ex. Venice Beach Run"
+        cell.delegate = self
+            return cell
+        }
+     /*   else if (cellnames[row] == "Date")
+        {
+            var DateCell:DateTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DateCell") as! DateTableViewCell
+            DateCell.actualdate?.placeholder="04/18/15"
+            DateCell.delegate = self
+            return DateCell
+        }*/
+        else if (cellnames[row] == "Start Time"){
+            var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
+            cell.textLabel?.text="Start Time"
+            cell.timetext?.placeholder = "04/18/15 4:00 PM"
+            cell.delegate = self
+            return cell
+            
+        }
+        else if (cellnames[row] == "End Time"){
+            var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
+            cell.textLabel?.text="End Time"
+            cell.timetext?.placeholder = "04/18/15 6:00 PM"
+            cell.delegate = self
+            return cell
+            
+        }
+        else if (cellnames[row] == "Location"){ //SHOULD BE LOCATION
+            var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
+            cell.wheretext?.placeholder = "Ex. Venice Beach"
+            cell.delegate = self
+            return cell
+            
+        }
+        else if (cellnames[row] == "Private Event"){
+            var cell:PrivateEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("PrivateCell") as! PrivateEventCreationTableViewCell
+            cell.cellname?.text=cellnames[row]
+            cell.delegate = self
+            return cell
+            
+        }
+        else if (cellnames[row] == "Categories"){ //SHOULD BE CATEGORIES
+            var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
+            cell.cattext?.placeholder = "Ex. Sports"
+            cell.delegate = self
+            return cell
+            
+        }
+        else {
+            var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
+            return cell
+        }
+    
+    }
+
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
