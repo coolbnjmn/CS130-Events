@@ -91,7 +91,7 @@ class EventDetailViewController: UIViewController {
         case TableSegment.kSegmentInfo:
             self.infoTableView.hidden = false;
             self.attendeesTableView.hidden = true;
-        case TableSegment.kSegmentAttendees:
+        case TableSegment.kSegmentAttendees:                        
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
         default:

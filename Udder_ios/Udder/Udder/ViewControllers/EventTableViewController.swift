@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewController: BaseViewController {
     
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
-    var eventManagerModel:EventManagerModel = EventManagerModel(userId: "123");
+    var eventManagerModel:EventManagerModel = EventManagerModel();
         
     @IBOutlet var tableView: UITableView!
     
@@ -82,7 +82,8 @@ class EventTableViewController: BaseViewController {
     }
     
     func rightPlusButtonPressed(sender: AnyObject) {
-        NSLog("Pressed + button")
+        var wholeViewController:WholeViewController = WholeViewController(nibName: "WholeViewController", bundle: nil);
+        self.navigationController?.pushViewController(wholeViewController, animated: true);
     }
     
     func rightSideMenuButtonPressed(sender: AnyObject) {

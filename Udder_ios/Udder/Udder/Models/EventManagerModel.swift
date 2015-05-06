@@ -9,15 +9,10 @@
 import Parse
 
 class EventManagerModel: BaseModel {
-    var userId:String;
-    
-    init(userId: String) {
-        self.userId = userId;
-    }
-    
     // TODO: Have this actually retrieve upcoming events
     func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+        query.orderByDescending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error:NSError!) -> Void in
             if error == nil {
@@ -60,5 +55,35 @@ class EventManagerModel: BaseModel {
     
     func retrieveAttendeesForEvent(event: EventModel) {
         // TODO: Maybe implement depending on if we can store the attendees in the event model from the query
+    }
+    
+    func createEvent(title:String, description:String, location:String, startTime:NSDate, endTime:NSDate, category:String, image:String, isPrivate:Bool, success: EventModel -> Void, failure: NSError -> Void) {
+        var event = PFObject(className: Constants.DatabaseClass.kEventClass);
+        event[Constants.EventDatabaseFields.kEventTitle] = title;
+        event[Constants.EventDatabaseFields.kEventDescription] = description;
+        event[Constants.EventDatabaseFields.kEventLocation] = location;
+        event[Constants.EventDatabaseFields.kEventStartTime] = startTime;
+        event[Constants.EventDatabaseFields.kEventEndTime] = endTime;
+        event[Constants.EventDatabaseFields.kEventCategory] = category;
+        event[Constants.EventDatabaseFields.kEventImageURL] = image;
+        event[Constants.EventDatabaseFields.kEventHost] = PFUser.currentUser();
+        event[Constants.EventDatabaseFields.kEventPrivate] = isPrivate;
+        
+        event.saveInBackgroundWithBlock { (isSuccessful, error) -> Void in
+            if isSuccessful {
+                var eventModel:EventModel? = EventModel(eventObject: event);
+                
+                if let validatedEventModel = eventModel {
+                    success(validatedEventModel);
+                }
+                else {
+                    var error:NSError = NSError(domain: "Unable to generate event model", code: 1, userInfo: nil);
+                    failure(error);
+                }
+            }
+            else {
+                failure(error);
+            }
+        }
     }
 }

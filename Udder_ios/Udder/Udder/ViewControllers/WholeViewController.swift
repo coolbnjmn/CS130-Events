@@ -10,6 +10,9 @@ import UIKit
 import MapKit
 
 class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
+    
+    var eventManagerModel:EventManagerModel = EventManagerModel();
+    
     @IBOutlet weak var ECtable: UITableView!
     @IBOutlet weak var descriptiontext: UITextView!
     @IBOutlet weak var finishbutton: UIButton!
@@ -22,6 +25,24 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         println("start date \(start_date)")
         println("end date \(end_date)")
         println(des_string)
+        
+        var successBlock: EventModel -> Void = {
+            (eventModel: EventModel) -> Void in
+            var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
+            
+            eventDetailViewController.setupWithEvent(eventModel);
+            
+            var parentViewController: UIViewController = self.navigationController?.viewControllers[0] as! UIViewController;
+            self.navigationController?.popViewControllerAnimated(false);
+            parentViewController.navigationController?.pushViewController(eventDetailViewController, animated: true);
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
     }
     func setaddtext(cell:RegEventCreationTableViewCell) {
         title_string = cell.addtext.text
