@@ -64,11 +64,16 @@ class EventTableViewController: BaseViewController {
     
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage(named: "icon-menu.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        let leftButton:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon-menu.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        leftButton.tintColor = UIColor.whiteColor()
+        return leftButton
     }
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage(named: "icon-plus.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")    }
+        let rightButton:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon-plus.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
+        rightButton.tintColor = UIColor.whiteColor()
+        return rightButton
+    }
     
     func leftSideMenuButtonPressed(sender: AnyObject) {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({
@@ -76,8 +81,20 @@ class EventTableViewController: BaseViewController {
         })
     }
     
-    func rightPlusButtonPressed() {
+    func rightPlusButtonPressed(sender: AnyObject) {
         NSLog("Pressed + button")
+    }
+    
+    func rightSideMenuButtonPressed(sender: AnyObject) {
+       // let createVC = WholeViewController(nibName: "WholeViewController", bundle: nil)
+       // self.presentViewController(createVC, animated: false, completion: nil)
+        
+        let nibNameToSwitchTo: String?
+        let navController: UINavigationController?
+        nibNameToSwitchTo = "WholeViewController";
+        navController = UINavigationController(rootViewController: WholeViewController(nibName: nibNameToSwitchTo, bundle:nil))
+        self.menuContainerViewController.centerViewController = navController
+        
     }
     
     override func didReceiveMemoryWarning() {
