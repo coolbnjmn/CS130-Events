@@ -26,7 +26,8 @@ class EventTableViewController: BaseViewController {
         self.navigationItem.title = "Home"
         
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
+//        self.navigationController!.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController!.navigationBar.backgroundColor = UIColor.whiteColor()
         navigationController!.navigationBar.barTintColor = UIColor.themeColor()
 
         self.setupMenuBarButtonItems()
@@ -58,17 +59,25 @@ class EventTableViewController: BaseViewController {
     
     func setupMenuBarButtonItems() {
         self.navigationItem.leftBarButtonItem = self.leftMenuBarButtonItem()
+        self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
     }
     
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        return UIBarButtonItem(image: UIImage(named: "icon-menu.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
     }
+    
+    func rightMenuBarButtonItem() -> UIBarButtonItem {
+        return UIBarButtonItem(image: UIImage(named: "icon-plus.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")    }
     
     func leftSideMenuButtonPressed(sender: AnyObject) {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({
             self.setupMenuBarButtonItems()
         })
+    }
+    
+    func rightPlusButtonPressed() {
+        NSLog("Pressed + button")
     }
     
     override func didReceiveMemoryWarning() {

@@ -68,13 +68,25 @@ class PhoneNumberViewController: UIViewController {
         nav?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         sendCodeBtn.backgroundColor = UIColor.themeColor()
-        
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelAndLogout")
+        self.navigationItem.rightBarButtonItem!.tintColor = UIColor.whiteColor()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func cancelAndLogout() {
+        let alertController = UIAlertController(title: "Cancel and Logout?", message:
+            "", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Yes", style:UIAlertActionStyle.Default) {
+            UIAlertAction in
+            let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appdelegate.FBlogout()
+            })
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     
