@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Update user with db attribute values
             //Error handling is needed
             currentUser.fetch()
-            let phoneValidated = currentUser.valueForKey("phoneValidated") as! Bool
+            let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
             if (!phoneValidated) {
                 let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
                 self.window?.rootViewController = navController
@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func FBlogout() {
         PFUser.logOut()
-        UIView.transitionWithView(self.window!, duration: 0.6, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
+        UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
         
     }
     

@@ -64,10 +64,10 @@ class PhoneNumberViewController: UIViewController {
         self.navigationItem.title = "Step 1 of 2"
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.BlackTranslucent
-        nav?.barTintColor = UIColor(red: (86/255), green: (206/255), blue: (106/255), alpha: 1.0)
+        nav?.barTintColor = UIColor.themeColor()
         nav?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        sendCodeBtn.backgroundColor = UIColor(red: (86/255), green: (206/255), blue: (106/255), alpha: 1.0)
+        sendCodeBtn.backgroundColor = UIColor.themeColor()
         
         
     }

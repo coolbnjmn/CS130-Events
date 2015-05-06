@@ -53,12 +53,10 @@ class SideMenuViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cellText = PFUser.currentUser().objectForKey("full_name") as? String ?? ""
-//            cellText = cellText! + "\n" + (PFUser.currentUser().objectForKey("email") as? String ?? "");
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.backgroundColor = UIColor.blueColor()
+            cell.backgroundColor = UIColor.themeColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
             cell.textLabel?.numberOfLines = 1
-            cell.imageView?.backgroundColor = UIColor.blueColor()
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.clipsToBounds = true
             
@@ -136,9 +134,17 @@ class SideMenuViewController: UITableViewController {
             navController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 6: //Logout
-            let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
-            appdelegate.FBlogout()
+            
+            let alertController = UIAlertController(title: "Logout?", message:
+                "", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "Yes", style:UIAlertActionStyle.Default) {
+                UIAlertAction in
+                    let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
+                    appdelegate.FBlogout()
+                })
+            self.presentViewController(alertController, animated: true, completion: nil)
             return
         default:
             return
@@ -169,7 +175,7 @@ class SideMenuViewController: UITableViewController {
     func getProfPic() {
         var fid: String? = PFUser.currentUser().objectForKey("facebookId") as? String ?? ""
         if (fid != "") {
-        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal"
+        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal" //type=normal
         var imgURL = NSURL(string: imgURLString)
         var imageData = NSData(contentsOfURL: imgURL!)
             profPic = UIImage(data: imageData!)

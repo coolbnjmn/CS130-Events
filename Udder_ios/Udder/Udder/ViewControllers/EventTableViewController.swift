@@ -27,7 +27,7 @@ class EventTableViewController: BaseViewController {
         
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
-        navigationController!.navigationBar.barTintColor = Constants.Colors.ThemeColor
+        navigationController!.navigationBar.barTintColor = UIColor.themeColor()
 
         self.setupMenuBarButtonItems()
         
@@ -58,15 +58,11 @@ class EventTableViewController: BaseViewController {
     
     func setupMenuBarButtonItems() {
         self.navigationItem.leftBarButtonItem = self.leftMenuBarButtonItem()
-        
     }
     
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
-        // another way of adding the button but by an icon, will need this soon
-                return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
-//        return UIBarButtonItem(title: "Nav", style: .Plain, target: self, action: "leftSideMenuButtonPressed:")
-        
+        return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
     }
     
     func leftSideMenuButtonPressed(sender: AnyObject) {

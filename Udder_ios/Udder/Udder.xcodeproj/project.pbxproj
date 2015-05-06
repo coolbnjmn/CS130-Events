@@ -82,9 +82,6 @@
 		E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */; };
 		E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */; };
 		E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */; };
-		E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FEE1AEDC6B600490B41 /* background.jpg */; };
-		E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FEF1AEDC6B600490B41 /* placeholder.png */; };
-		E1D48FF61AEDC70400490B41 /* nav1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D48FF21AEDC70300490B41 /* nav1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,9 +177,6 @@
 		E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyEventsViewController.xib; path = Views/MyEventsViewController.xib; sourceTree = "<group>"; };
 		E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingInvitationsViewController.xib; path = Views/PendingInvitationsViewController.xib; sourceTree = "<group>"; };
 		E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpcomingEventsViewController.xib; path = Views/UpcomingEventsViewController.xib; sourceTree = "<group>"; };
-		E1D48FEE1AEDC6B600490B41 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		E1D48FEF1AEDC6B600490B41 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		E1D48FF21AEDC70300490B41 /* nav1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,9 +284,6 @@
 		B255609C1AE19A0900EBEE8B /* Udder */ = {
 			isa = PBXGroup;
 			children = (
-				E1D48FF21AEDC70300490B41 /* nav1.png */,
-				E1D48FEE1AEDC6B600490B41 /* background.jpg */,
-				E1D48FEF1AEDC6B600490B41 /* placeholder.png */,
 				B2AD19491AE1A25E0021DE33 /* UdderBridgingHeader.h */,
 				B2BF29381AE9D42000D6714C /* Constants.swift */,
 				B255609F1AE19A0900EBEE8B /* AppDelegate.swift */,
@@ -509,7 +500,6 @@
 			files = (
 				348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */,
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
-				E1D48FF11AEDC6B600490B41 /* placeholder.png in Resources */,
 				A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
@@ -523,13 +513,11 @@
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
-				E1D48FF61AEDC70400490B41 /* nav1.png in Resources */,
 				E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
 				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
 				A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */,
-				E1D48FF01AEDC6B600490B41 /* background.jpg in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
 				E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */,
 			);
