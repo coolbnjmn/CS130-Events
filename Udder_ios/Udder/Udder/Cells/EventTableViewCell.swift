@@ -10,8 +10,7 @@ import UIKit
 import Parse
 
 class EventTableViewCell: UITableViewCell {
-
-    
+    var hasGradient:Bool = false;
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
@@ -28,9 +27,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabelWidthConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -93,8 +90,6 @@ class EventTableViewCell: UITableViewCell {
         self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:20)
         self.timeLabel.font = UIFont(name: "Avenir-Book", size:14)
         self.locationLabel.font = UIFont(name: "Avenir-Book", size: 14)
-        
-        self.gradientView.addGradient()
     }
     
 }

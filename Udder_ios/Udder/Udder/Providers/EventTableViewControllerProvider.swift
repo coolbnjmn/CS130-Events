@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kTableViewMargins:CGFloat = 6;
+
 class EventTableViewControllerProvider: BaseProvider {
     var eventArray:NSMutableArray = NSMutableArray();
     var dateFormatter:NSDateFormatter = NSDateFormatter();
@@ -50,6 +52,13 @@ class EventTableViewControllerProvider: BaseProvider {
         params.setObject(event.eventImage, forKey: "image");
         
         cell.eventTableViewCellInit(params)
+        
+        if cell.hasGradient == false {
+            var customBounds = tableView.bounds;
+            customBounds.size.width = customBounds.size.width - kTableViewMargins*2;
+            cell.gradientView.addGradient(customBounds);
+            cell.hasGradient = true;
+        }
         
         return cell
     }

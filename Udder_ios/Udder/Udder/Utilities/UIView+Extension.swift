@@ -15,4 +15,12 @@ extension UIView {
         gradient.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor];
         self.layer.insertSublayer(gradient, atIndex:0);
     }
+    
+    func addGradient(customBounds:CGRect) {
+        var gradient:CAGradientLayer = CAGradientLayer();
+        gradient.frame = self.bounds;
+        gradient.frame.size.width = customBounds.size.width;
+        gradient.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor];
+        self.layer.insertSublayer(gradient, atIndex:0);
+    }
 }
