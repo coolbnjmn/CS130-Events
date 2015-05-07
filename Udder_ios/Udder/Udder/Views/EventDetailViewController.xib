@@ -132,7 +132,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-Fy-dce">
-                                    <rect key="frame" x="25" y="114" width="534" height="30"/>
+                                    <rect key="frame" x="25" y="118" width="534" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="yEa-m9-o8V"/>
                                     </constraints>
@@ -151,7 +151,7 @@
                                 <constraint firstAttribute="bottom" secondItem="uBH-xv-hWH" secondAttribute="bottom" id="dZx-XQ-FVN"/>
                                 <constraint firstAttribute="trailing" secondItem="uBH-xv-hWH" secondAttribute="trailing" constant="292" id="ewe-KR-iyf"/>
                                 <constraint firstItem="nz8-Fy-dce" firstAttribute="leading" secondItem="41o-V8-p0h" secondAttribute="leading" constant="25" id="iGc-My-Qmz"/>
-                                <constraint firstItem="uBH-xv-hWH" firstAttribute="top" secondItem="nz8-Fy-dce" secondAttribute="bottom" constant="8" id="iPv-I6-gFe"/>
+                                <constraint firstItem="uBH-xv-hWH" firstAttribute="top" secondItem="nz8-Fy-dce" secondAttribute="bottom" constant="4" id="iPv-I6-gFe"/>
                                 <constraint firstItem="uBH-xv-hWH" firstAttribute="leading" secondItem="41o-V8-p0h" secondAttribute="leading" id="m30-VT-FKe"/>
                                 <constraint firstAttribute="trailing" secondItem="MA2-G2-d7j" secondAttribute="trailing" id="uxb-Jx-GoK"/>
                             </constraints>
