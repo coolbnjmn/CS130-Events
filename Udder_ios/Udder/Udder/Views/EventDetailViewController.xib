@@ -234,7 +234,7 @@
     </objects>
     <resources>
         <image name="Beach.jpg" width="787" height="359"/>
-        <image name="icon-location.png" width="50" height="79"/>
+        <image name="icon-location.png" width="79" height="79"/>
         <image name="info.png" width="16" height="16"/>
         <image name="people.png" width="16" height="16"/>
     </resources>

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +30,21 @@ class LocationTableViewCell: UITableViewCell {
     
     func configure(location:String) {
         locationLabel.text = location;
+
+        let location = CLLocationCoordinate2D(
+            latitude: 34.069201,
+            longitude: -118.445192
+        )
+
+        let span = MKCoordinateSpanMake(0.05, 0.05);
+        let region = MKCoordinateRegion(center: location, span: span);
+        mapView.setRegion(region, animated: true);
+        
+        let annotation = MKPointAnnotation();
+        annotation.coordinate = location;
+
+        annotation.title = "UCLA";
+        annotation.subtitle = "An Udder Event";
+        mapView.addAnnotation(annotation);
     }
 }
