@@ -9,6 +9,7 @@
                 <outlet property="attendeesTableView" destination="duy-NV-PQ0" id="95y-9Y-6NJ"/>
                 <outlet property="backgroundGradientView" destination="a4X-st-Gqc" id="uWI-sP-REH"/>
                 <outlet property="backgroundImageView" destination="bwA-OF-pgc" id="Im8-XI-hSu"/>
+                <outlet property="categoryImageView" destination="AO2-jB-bsC" id="9v7-Ak-uGI"/>
                 <outlet property="headerView" destination="8cG-vt-SjQ" id="f0i-E6-kyG"/>
                 <outlet property="headerViewHeightConstraint" destination="ST9-Ci-ZTl" id="3zr-pq-D4L"/>
                 <outlet property="infoTableView" destination="2ky-eq-Lr9" id="6RC-dH-aMp"/>
@@ -55,6 +56,13 @@
                                 <action selector="acceptDeclineSwitched:" destination="-1" eventType="valueChanged" id="PXk-XV-668"/>
                             </connections>
                         </segmentedControl>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category-fitness.png" translatesAutoresizingMaskIntoConstraints="NO" id="AO2-jB-bsC" userLabel="Category Image View">
+                            <rect key="frame" x="570" y="0.0" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ulN-xz-eyq"/>
+                                <constraint firstAttribute="width" constant="30" id="uzQ-LB-BNo"/>
+                            </constraints>
+                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41o-V8-p0h" userLabel="Info Background">
                             <rect key="frame" x="8" y="8" width="584" height="172"/>
                             <subviews>
@@ -166,9 +174,11 @@
                         <constraint firstItem="bwA-OF-pgc" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" id="KDD-IQ-3bP"/>
                         <constraint firstAttribute="bottom" secondItem="Nfc-5Q-U4M" secondAttribute="bottom" constant="15" id="RHs-kn-lnK"/>
                         <constraint firstAttribute="height" constant="227" id="ST9-Ci-ZTl"/>
+                        <constraint firstAttribute="trailing" secondItem="AO2-jB-bsC" secondAttribute="trailing" id="Sxj-X1-gUr"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" constant="8" id="Vrn-mn-tvj"/>
                         <constraint firstAttribute="trailing" secondItem="a4X-st-Gqc" secondAttribute="trailing" id="ZuV-Dj-1An"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" constant="8" id="bTs-jK-8oI"/>
+                        <constraint firstItem="AO2-jB-bsC" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" id="h3C-wr-fL8"/>
                         <constraint firstAttribute="trailing" secondItem="41o-V8-p0h" secondAttribute="trailing" constant="8" id="rqI-20-XXv"/>
                         <constraint firstAttribute="centerX" secondItem="Nfc-5Q-U4M" secondAttribute="centerX" id="tcj-lU-C9d"/>
                         <constraint firstItem="Nfc-5Q-U4M" firstAttribute="top" secondItem="41o-V8-p0h" secondAttribute="bottom" constant="8" id="wLg-qH-Qk4"/>
@@ -234,6 +244,7 @@
     </objects>
     <resources>
         <image name="Beach.jpg" width="787" height="359"/>
+        <image name="category-fitness.png" width="55" height="55"/>
         <image name="icon-location.png" width="79" height="79"/>
         <image name="info.png" width="16" height="16"/>
         <image name="people.png" width="16" height="16"/>
