@@ -30,6 +30,7 @@ class EventDetailViewController: BaseViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var backgroundGradientView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var categoryImageView: UIImageView!
     
     // Constraints
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
@@ -144,6 +145,19 @@ class EventDetailViewController: BaseViewController {
         self.tableSwitchSegmentedControl.tintColor = UIColor.themeColor();
         
         self.backgroundGradientView.addGradient();
+        
+        // Set up category view
+        if let validatedEvent = self.event {
+            var categoryName:String = validatedEvent.eventCategory;
+            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
+            
+            if let validatedCategoryImage = categoryImage {
+                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
+            }
+            else {
+                self.categoryImageView?.image = UIImage(named: "placeholder.png");
+            }
+        }
     }
     
     func timeLabelString(startTime:NSDate) -> String {
