@@ -88,6 +88,7 @@
 		B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */; };
 		B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8E1AE1DDD40063126E /* ViewController.swift */; };
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
+		B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF09F21AFC15F000A1B433 /* ContactCell.swift */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7B1AEED40100EA0BBA /* ViewController.xib */; };
 		E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7E1AEED69800EA0BBA /* LoginViewController.xib */; };
@@ -198,6 +199,7 @@
 		B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuViewController.swift; path = ViewControllers/SideMenuViewController.swift; sourceTree = "<group>"; };
 		B2D5BB8E1AE1DDD40063126E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideMenuViewController.xib; path = Views/SideMenuViewController.xib; sourceTree = "<group>"; };
+		B2EF09F21AFC15F000A1B433 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
 		B3B33F21B4DA105929A47308 /* libPods-Udder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.debug.xcconfig"; sourceTree = "<group>"; };
 		E10200E11AEA076B007A2F8F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */,
 				A73027D81AF210A0009D2281 /* LocationTableViewCell.swift */,
 				A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */,
+				B2EF09F21AFC15F000A1B433 /* ContactCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				5548ED1E1AFA9FFB0063F6E4 /* WholeViewController.swift in Sources */,
 				B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */,
 				A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */,
+				B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */,
 				5548ED261AFAA0110063F6E4 /* CatTableViewCell.swift in Sources */,
 				A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
@@ -740,7 +744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -778,7 +782,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

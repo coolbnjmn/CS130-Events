@@ -37,7 +37,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ContactCell")
+        self.tableView.registerClass(ContactCell.self, forCellReuseIdentifier: "ContactCell")
         
         let addressBookRef: ABAddressBookRef = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
         
@@ -49,22 +49,24 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                 
                 for record:ABRecordRef in allPeople {
                     var contactPerson: ABRecordRef = record
-                    var contactName: String = ABRecordCopyCompositeName(contactPerson).takeRetainedValue() as String
-                    
-                    /* Get all the phone numbers this user has */
-                    let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
-                    let phones: ABMultiValueRef = unmanagedPhones.takeRetainedValue()
-                    let countOfPhones = ABMultiValueGetCount(phones)
-                    
-                    // TODO: what to do with multiple phone numbers per contact?
-                    for index in 0..<countOfPhones{
-                        let unmanagedPhone = ABMultiValueCopyValueAtIndex(phones, index)
-                        let phone: String = unmanagedPhone.takeRetainedValue() as! String
+                    if let validatedName = ABRecordCopyCompositeName(contactPerson) {
+                        var contactName: String = validatedName.takeRetainedValue() as String
                         
-                        if(index == 0) {
-                            let contactModel : ContactModel? = ContactModel(name: contactName, phone: phone)
+                        /* Get all the phone numbers this user has */
+                        let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
+                        let phones: ABMultiValueRef = unmanagedPhones.takeRetainedValue()
+                        let countOfPhones = ABMultiValueGetCount(phones)
+                        
+                        // TODO: what to do with multiple phone numbers per contact?
+                        for index in 0..<countOfPhones{
+                            let unmanagedPhone = ABMultiValueCopyValueAtIndex(phones, index)
+                            let phone: String = unmanagedPhone.takeRetainedValue() as! String
                             
-                            self.contactDataArray.append(contactModel!)
+                            if(index == 0) {
+                                let contactModel : ContactModel? = ContactModel(name: contactName, phone: phone)
+                                
+                                self.contactDataArray.append(contactModel!)
+                            }
                         }
                     }
                 }
@@ -165,13 +167,14 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as? ContactCell
+       
         println("did deselect")
         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! ContactCell
         println("select row")
         
         if(indexPath.section == 0) {
@@ -198,12 +201,13 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! ContactCell
         
         if(indexPath.section == 0) {
             let contactModel = self.selectedDataArray[(indexPath.row)] as ContactModel
             
             cell.textLabel?.text = contactModel.name
+            cell.detailTextLabel?.text = contactModel.phone
             cell.accessoryType = .Checkmark
         } else {
             if var searchController = self.mySearchController {
@@ -211,15 +215,18 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                     let contactModel = self.contactDataArray[(indexPath.row)] as ContactModel
                     
                     cell.textLabel?.text = contactModel.name
+                    cell.detailTextLabel?.text = contactModel.phone
                 } else {
                     let contactModel = self.searchResults[(indexPath.row)] as ContactModel
                     
                     cell.textLabel?.text = contactModel.name
+                    cell.detailTextLabel?.text = contactModel.phone
                 }
             } else {
                 let contactModel = self.searchResults[(indexPath.row)] as ContactModel
                 
                 cell.textLabel?.text = contactModel.name
+                cell.detailTextLabel?.text = contactModel.phone
             }
             cell.accessoryType = .None
         }

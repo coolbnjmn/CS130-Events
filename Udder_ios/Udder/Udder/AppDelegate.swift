@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentUser = PFUser.currentUser()
             //Update user with db attribute values
             //Error handling is needed
-            currentUser.fetch()
+            currentUser.fetchIfNeeded(nil)
             let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
             if (!phoneValidated) {
                 let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
                 let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                container.view.backgroundColor = UIColor.whiteColor()
                 self.window?.rootViewController = container
             }
         }
