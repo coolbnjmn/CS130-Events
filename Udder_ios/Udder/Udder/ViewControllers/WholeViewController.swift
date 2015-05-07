@@ -14,9 +14,9 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var eventManagerModel:EventManagerModel = EventManagerModel();
     
     @IBOutlet weak var ECtable: UITableView!
-    @IBOutlet weak var descriptiontext: UITextView!
-    @IBOutlet weak var finishbutton: UIButton!
-    @IBAction func finishbuttonclicked(sender: UIButton) {
+   // @IBOutlet weak var descriptiontext: UITextView!
+   // @IBOutlet weak var finishbutton: UIButton!
+  /*  @IBAction func finishbuttonclicked(sender: UIButton) {
         println(title_string)
         println(date_string)
         println(loc_string)
@@ -43,7 +43,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
-    }
+    }*/
     func setaddtext(cell:RegEventCreationTableViewCell) {
         title_string = cell.addtext.text
        
@@ -93,10 +93,10 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ECtable.editing = false
         ECtable.dataSource = self
         ECtable.delegate = self
-        descriptiontext.delegate = self
+      //  descriptiontext.delegate = self
         
-        descriptiontext.text = "(optional)"
-        descriptiontext.textColor = UIColor.lightGrayColor()
+       // descriptiontext.text = "(optional)"
+       // descriptiontext.textColor = UIColor.lightGrayColor()
         
         var nav = self.navigationController?.navigationBar
      //   nav!.delegate = self
@@ -149,16 +149,33 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
      
-        return UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "rightSideMenuButtonPressed:")
+        return UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "rightSideMenuButtonPressed:")
         
     }
     
     func rightSideMenuButtonPressed(sender: AnyObject) {
-        let nibNameToSwitchTo: String?
+        /*let nibNameToSwitchTo: String?
         let navController: UINavigationController?
         nibNameToSwitchTo = "EventTableViewController";
         navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
-        self.menuContainerViewController.centerViewController = navController
+        self.menuContainerViewController.centerViewController = navController*/
+        var successBlock: EventModel -> Void = {
+            (eventModel: EventModel) -> Void in
+            var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
+            eventDetailViewController.setupWithEvent(eventModel);
+            
+            var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+            viewControllers.removeObjectIdenticalTo(self);
+            viewControllers.addObject(eventDetailViewController);
+            self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
     }
 
     
@@ -166,7 +183,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   /*
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         if (my_int == 1)
         {
@@ -177,17 +194,17 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.view.frame.origin.y -= 150
         finishbutton.hidden = true
         return true
-    }
+    }*/
    /*
     func navigationBar(navigationBar: UINavigationBar, shouldPushItem item: UINavigationItem) -> Bool {
         return true
     }*/
     
-    func textViewDidEndEditing(textView: UITextView) {
+ /*   func textViewDidEndEditing(textView: UITextView) {
         self.view.frame.origin.y += 150
         finishbutton.hidden = false
         des_string = textView.text
-    }
+    }*/
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
@@ -213,7 +230,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return indexPath
     }*/
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    /*func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n"){
             textView.resignFirstResponder()
             return false
@@ -221,7 +238,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         else {
             return true
         }
-    }
+    }*/
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
