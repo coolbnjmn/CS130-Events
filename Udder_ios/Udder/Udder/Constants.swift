@@ -74,6 +74,8 @@ struct Constants {
     struct Images {
         static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
+    }
+
     struct EventCategories {
         static let kFitnessCategory = "Fitness";
         static let kFoodCategory = "Food";
