@@ -50,6 +50,7 @@ class EventTableViewControllerProvider: BaseProvider {
         params.setObject(dateFormatter.stringFromDate(event.eventStartTime), forKey: "time")
         
         params.setObject(event.eventImage, forKey: "image");
+        params.setObject(event.eventCategory, forKey: "category");
         
         cell.eventTableViewCellInit(params)
         

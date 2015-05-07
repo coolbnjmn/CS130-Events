@@ -11,7 +11,7 @@ import MapKit
 
 class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
     
-    var eventManagerModel:EventManagerModel = EventManagerModel();
+    var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
     
     @IBOutlet weak var ECtable: UITableView!
     @IBOutlet weak var descriptiontext: UITextView!
