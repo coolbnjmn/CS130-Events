@@ -29,12 +29,12 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
             var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
-            
             eventDetailViewController.setupWithEvent(eventModel);
             
-            var parentViewController: UIViewController = self.navigationController?.viewControllers[0] as! UIViewController;
-            self.navigationController?.popViewControllerAnimated(false);
-            parentViewController.navigationController?.pushViewController(eventDetailViewController, animated: true);
+            var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+            viewControllers.removeObjectIdenticalTo(self);
+            viewControllers.addObject(eventDetailViewController);
+            self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
         }
         
         var failureBlock: NSError -> Void = {
@@ -101,7 +101,8 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var nav = self.navigationController?.navigationBar
      //   nav!.delegate = self
         nav?.barStyle = UIBarStyle.BlackTranslucent
-        nav?.topItem?.title = "Create Event"
+
+        self.navigationItem.title = "Create Event";
         
       
             //example segue code
