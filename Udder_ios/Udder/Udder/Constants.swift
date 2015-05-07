@@ -59,6 +59,7 @@ struct Constants {
     
     struct StandardFormats {
         static let kStandardTextFont = "Avenir-Heavy";
+        static let kStandardEventsTextFont = "Avenir-Book";
         static let kNavTitleFontSize: CGFloat = 25.0
         static let kSideBarNavNameFontSize: CGFloat = 20.0
     }

@@ -138,7 +138,7 @@ class EventDetailViewController: BaseViewController {
     }
     
     func setupView() {
-        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
+        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardEventsTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
         self.responseSegmentedControl.configure(UIColor.themeColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
         self.responseSegmentedControl.valueChanged();
         
