@@ -110,6 +110,7 @@ Parse.Cloud.define("sendVerificationCode", function(request, response) {
 * @return {HTTPResponse} either returns an error message or the word Success.
 */
 
+//in the future include the user's name in the text message
 Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
     var user = Parse.User.current();
     var verificationCode = user.get("phoneVerificationCode");
@@ -121,3 +122,5 @@ Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
         response.error("Invalid verification code.");
     }
 });
+
+
