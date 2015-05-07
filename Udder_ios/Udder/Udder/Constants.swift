@@ -68,4 +68,22 @@ struct Constants {
     struct Colors {
         static let ThemeColor:UIColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
     }
+    
+    struct EventCategories {
+        static let kFitnessCategory = "Fitness";
+        static let kFoodCategory = "Food";
+        static let kEntertainmentCategory = "Entertainment";
+        static let kMusicCategory = "Music";
+        static let kAcademicCategory = "Academic";
+        static let kOtherCategory = "Other"
+    }
+    
+    static let EventCategoryImageMap = [
+        EventCategories.kFitnessCategory: "Beach.jpg",
+        EventCategories.kFoodCategory: "Beach.jpg",
+        EventCategories.kEntertainmentCategory: "Beach.jpg",
+        EventCategories.kMusicCategory: "Beach.jpg",
+        EventCategories.kAcademicCategory: "Beach.jpg",
+        EventCategories.kOtherCategory: "Beach.jpg"
+    ]
 }

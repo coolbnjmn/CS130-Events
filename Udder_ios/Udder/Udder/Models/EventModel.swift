@@ -20,7 +20,7 @@ class EventModel: BaseModel {
     var eventEndTime: NSDate!;
     var eventImage: String!;
     var eventHost: PFUser!;
-    var eventCategory: String?;
+    var eventCategory: String!;
     var eventInvitees: NSArray?;
     var eventPrivate: Bool!;
     
