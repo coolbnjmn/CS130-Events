@@ -74,5 +74,21 @@ struct Constants {
     struct Images {
         static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
+    struct EventCategories {
+        static let kFitnessCategory = "Fitness";
+        static let kFoodCategory = "Food";
+        static let kEntertainmentCategory = "Entertainment";
+        static let kMusicCategory = "Music";
+        static let kAcademicCategory = "Academic";
+        static let kOtherCategory = "Other"
     }
+    
+    static let EventCategoryImageMap = [
+        EventCategories.kFitnessCategory: "Beach.jpg",
+        EventCategories.kFoodCategory: "Beach.jpg",
+        EventCategories.kEntertainmentCategory: "Beach.jpg",
+        EventCategories.kMusicCategory: "Beach.jpg",
+        EventCategories.kAcademicCategory: "Beach.jpg",
+        EventCategories.kOtherCategory: "Beach.jpg"
+    ]
 }
