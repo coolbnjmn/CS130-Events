@@ -24,11 +24,6 @@ class EventTableViewController: BaseViewController {
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.navigationItem.title = "Home"
-        
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//        self.navigationController!.navigationBar.barStyle = UIBarStyle.BlackTranslucent
-        self.navigationController!.navigationBar.backgroundColor = UIColor.whiteColor()
-        navigationController!.navigationBar.barTintColor = UIColor.themeColor()
 
         self.setupMenuBarButtonItems()
         
@@ -64,13 +59,13 @@ class EventTableViewController: BaseViewController {
     
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
-        let leftButton:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon-menu.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        let leftButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.NavBarIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
         leftButton.tintColor = UIColor.whiteColor()
         return leftButton
     }
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
-        let rightButton:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon-plus.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
+        let rightButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.PlusIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
         rightButton.tintColor = UIColor.whiteColor()
         return rightButton
     }

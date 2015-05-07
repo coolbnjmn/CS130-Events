@@ -18,7 +18,7 @@ struct ResponseSegment {
     static let kSegmentDecline = 1;
 }
 
-class EventDetailViewController: UIViewController {
+class EventDetailViewController: BaseViewController {
     
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;

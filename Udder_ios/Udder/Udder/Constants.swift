@@ -44,7 +44,7 @@ struct Constants {
         struct TableConstraints {
             static let kDescriptionViewHeight:CGFloat = 150;
             static let kDescriptionTextSize:CGFloat = 14;
-            static let kDescriptionTextFont = "Avenir-Book"
+            static let kDescriptionTextFont = "Avenir-Medium"
             static let kDefaultMargin:CGFloat = 8;
         }
     }
@@ -58,7 +58,9 @@ struct Constants {
     }
     
     struct StandardFormats {
-        static let kStandardTextFont = "Avenir-Book";
+        static let kStandardTextFont = "Avenir-Heavy";
+        static let kNavTitleFontSize: CGFloat = 25.0
+        static let kSideBarNavNameFontSize: CGFloat = 20.0
     }
     
     struct PlaceHolders {
@@ -67,5 +69,10 @@ struct Constants {
     
     struct Colors {
         static let ThemeColor:UIColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
+    }
+    
+    struct Images {
+        static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
+        static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
     }
 }

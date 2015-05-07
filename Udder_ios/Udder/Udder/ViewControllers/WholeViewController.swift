@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
     
     var eventManagerModel:EventManagerModel = EventManagerModel();
     
@@ -100,7 +100,6 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var nav = self.navigationController?.navigationBar
      //   nav!.delegate = self
-        nav?.barStyle = UIBarStyle.BlackTranslucent
 
         self.navigationItem.title = "Create Event";
         

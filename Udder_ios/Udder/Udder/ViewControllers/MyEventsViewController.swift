@@ -8,18 +8,13 @@
 
 import UIKit
 
-class MyEventsViewController: UIViewController {
+class MyEventsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "My Events"
-        
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
-        navigationController!.navigationBar.barTintColor = UIColor.themeColor()
-        
         self.setupMenuBarButtonItems()
 
     }
@@ -35,7 +30,9 @@ class MyEventsViewController: UIViewController {
     
     
     func leftMenuBarButtonItem() -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage(named: "nav1.png"), style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        let leftButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.NavBarIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
+        leftButton.tintColor = UIColor.whiteColor()
+        return leftButton
     }
     
     func leftSideMenuButtonPressed(sender: AnyObject) {
