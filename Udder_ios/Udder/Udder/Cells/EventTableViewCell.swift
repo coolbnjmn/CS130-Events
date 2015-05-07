@@ -87,9 +87,9 @@ class EventTableViewCell: UITableViewCell {
             self.locationLabel.frame.size.width = maxLocationLabelWidth
         }
         
-        self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:20)
-        self.timeLabel.font = UIFont(name: "Avenir-Book", size:14)
-        self.locationLabel.font = UIFont(name: "Avenir-Book", size: 14)
+        self.eventTitleLabel.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size:20)
+        self.timeLabel.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size:14)
+        self.locationLabel.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 14)
     }
     
 }

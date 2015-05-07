@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewController: BaseViewController {
     
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
-    var eventManagerModel:EventManagerModel = EventManagerModel();
+    var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
         
     @IBOutlet var tableView: UITableView!
     
