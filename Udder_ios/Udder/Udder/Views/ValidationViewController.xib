@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ValidationViewController" customModule="Udder" customModuleProvider="target">
+            <connections>
+                <outlet property="submitBtn" destination="Y2c-oe-TY7" id="Wxd-jh-nqD"/>
+                <outlet property="verficationCode" destination="XZP-Vz-yNU" id="AmO-Mo-fCc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="QDU-RU-g0O"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="64" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTy-Ba-gri">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="ykH-4R-RTw"/>
+                    </items>
+                </navigationBar>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Validation Code" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="XZP-Vz-yNU">
+                    <rect key="frame" x="0.0" y="84" width="414" height="48"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="6Vd-lF-n0c"/>
+                        <constraint firstAttribute="height" constant="48" id="8ST-40-CvF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="8ST-40-CvF"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="codeChanged:" destination="-1" eventType="editingChanged" id="dUX-kH-ylB"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please enter the verification code sent to you via SMS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej7-7f-fRQ">
+                    <rect key="frame" x="40" y="230" width="334" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="odi-GD-k7q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.6128274937" green="0.60687771219999997" blue="0.60687771219999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="odi-GD-k7q"/>
+                        </mask>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-oe-TY7">
+                    <rect key="frame" x="40" y="162" width="334" height="48"/>
+                    <color key="backgroundColor" red="0.43517039590000001" green="0.82386270800000005" blue="0.37529506260000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="cK6-eI-O9Q"/>
+                        <constraint firstAttribute="height" constant="48" id="mXC-qa-Pkm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mXC-qa-Pkm"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="submitCodePressed:" destination="-1" eventType="touchUpInside" id="LzF-5t-Jug"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.94764046719999995" green="0.94764046719999995" blue="0.94764046719999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="3A9-XE-ep9"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="4As-ZK-Xzb"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="centerX" secondItem="XZP-Vz-yNU" secondAttribute="centerX" id="CIi-KJ-fgD"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="Cdf-BQ-VFJ"/>
+                <constraint firstAttribute="trailing" secondItem="XZP-Vz-yNU" secondAttribute="trailing" id="CgI-nh-ItK"/>
+                <constraint firstAttribute="trailing" secondItem="Y2c-oe-TY7" secondAttribute="trailing" constant="40" id="D6c-v0-j9L"/>
+                <constraint firstItem="ej7-7f-fRQ" firstAttribute="top" secondItem="Y2c-oe-TY7" secondAttribute="bottom" constant="20" id="EGG-Og-UWb"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EoV-87-ike"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="top" secondItem="XZP-Vz-yNU" secondAttribute="bottom" constant="30" id="FYl-AS-dqa"/>
+                <constraint firstItem="ej7-7f-fRQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="HXN-5t-obL"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="top" secondItem="XZP-Vz-yNU" secondAttribute="bottom" constant="30" id="Hqy-ma-8yd"/>
+                <constraint firstAttribute="trailing" secondItem="XZP-Vz-yNU" secondAttribute="trailing" id="Hxi-bZ-2e9"/>
+                <constraint firstAttribute="trailing" secondItem="ej7-7f-fRQ" secondAttribute="trailing" constant="40" id="ISF-bP-uyn"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="leading" secondItem="ej7-7f-fRQ" secondAttribute="leading" id="JQU-q5-AnH"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Q3O-IY-bIw"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SV0-Wc-1Hq"/>
+                <constraint firstAttribute="trailing" secondItem="XZP-Vz-yNU" secondAttribute="trailing" id="Udc-Rp-cN1"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="WJd-iO-bUv"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="oQz-pw-FRm"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u0u-as-LUM"/>
+                <constraint firstItem="ej7-7f-fRQ" firstAttribute="top" secondItem="Y2c-oe-TY7" secondAttribute="bottom" constant="20" id="xmk-oF-8g0"/>
+                <constraint firstItem="XZP-Vz-yNU" firstAttribute="top" secondItem="UTy-Ba-gri" secondAttribute="bottom" constant="40" id="yK6-bU-QLl"/>
+                <constraint firstItem="Y2c-oe-TY7" firstAttribute="trailing" secondItem="ej7-7f-fRQ" secondAttribute="trailing" id="zmk-th-NW7"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4As-ZK-Xzb"/>
+                    <exclude reference="Cdf-BQ-VFJ"/>
+                    <exclude reference="CgI-nh-ItK"/>
+                    <exclude reference="EoV-87-ike"/>
+                    <exclude reference="Udc-Rp-cN1"/>
+                    <exclude reference="WJd-iO-bUv"/>
+                    <exclude reference="oQz-pw-FRm"/>
+                    <exclude reference="u0u-as-LUM"/>
+                    <exclude reference="3A9-XE-ep9"/>
+                    <exclude reference="CIi-KJ-fgD"/>
+                    <exclude reference="FYl-AS-dqa"/>
+                    <exclude reference="JQU-q5-AnH"/>
+                    <exclude reference="zmk-th-NW7"/>
+                    <exclude reference="xmk-oF-8g0"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
