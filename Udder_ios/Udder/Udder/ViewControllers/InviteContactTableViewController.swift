@@ -30,6 +30,8 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     var searchResults : Array<ContactModel> = []
     var selectedResultsIndices : [NSIndexPath]?
     var selectedDataArray : Array<ContactModel> = []
+    var event : EventModel?
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,6 +39,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.registerClass(ContactCell.self, forCellReuseIdentifier: "ContactCell")
         
         let addressBookRef: ABAddressBookRef = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
@@ -98,9 +101,20 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
             return controller
         })()
 
-
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invite", style: UIBarButtonItemStyle.Plain, target: self, action: "inviteContacts:")
+        
     }
     
+    func setupWithEvent(eventModel:EventModel?) {
+        self.event = eventModel
+    }
+    
+    func inviteContacts(sender: AnyObject) {
+        var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
+        eventDetailViewController.setupWithEvent(self.event)
+        self.navigationController?.pushViewController(eventDetailViewController, animated: true)
+    }
+
     func applySearch(sender: AnyObject) {
         self.searchResults.removeAll(keepCapacity: false)
         let filteredArray = self.contactDataArray.filter({
