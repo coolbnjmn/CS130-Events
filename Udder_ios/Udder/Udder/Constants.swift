@@ -79,6 +79,7 @@ struct Constants {
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
     }
 
+    // TODO: Add a category for Social
     struct EventCategories {
         static let kFitnessCategory = "Fitness";
         static let kFoodCategory = "Food";

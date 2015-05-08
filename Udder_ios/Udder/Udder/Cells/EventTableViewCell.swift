@@ -66,7 +66,7 @@ class EventTableViewCell: UITableViewCell {
             self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
         }
         else {
-            self.categoryImageView?.image = UIImage(named: "placeholder.png");
+            self.categoryImageView?.image = UIImage(named: Constants.EventCategoryImageMap[Constants.EventCategories.kOtherCategory]!);
         }
         
         self.eventTitleLabel.textColor = UIColor.whiteColor()
