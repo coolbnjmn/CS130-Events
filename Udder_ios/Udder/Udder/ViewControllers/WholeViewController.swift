@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
+class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate{
     
     var eventManagerModel:EventManagerModel = EventManagerModel();
     
@@ -44,24 +44,52 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
     }*/
+    
+    func tableView(tableView: UITableView,
+        heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+            let row = indexPath.row
+            if (cellnames[row] == "textview"){
+                return 300
+            }
+            return tableView.rowHeight
+    }
+    
     func setaddtext(cell:RegEventCreationTableViewCell) {
         title_string = cell.addtext.text
+        if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
        
     }
     var title_string:String = String()
-    func setactualdate(cell: DateTableViewCell){
+  /*  func setactualdate(cell: DateTableViewCell){
         date_string = cell.actualdate.text
         
     }
-    var date_string:String = String()
+    var date_string:String = String()*/
     func settimetext(cell: TimeTableViewCell) {
         if cell.textLabel?.text == "Start Time"{
            // start_string = cell.timetext.text
             start_date = cell.date!
+            if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+                self.navigationItem.rightBarButtonItem?.enabled = true
+            }
+            else{
+                self.navigationItem.rightBarButtonItem?.enabled = false
+            }
         }
         else{
           //  end_string = cell.timetext.text
             end_date = cell.date!
+            if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+                self.navigationItem.rightBarButtonItem?.enabled = true
+            }
+            else{
+                self.navigationItem.rightBarButtonItem?.enabled = false
+            }
         }
     }
     var start_date: NSDate = NSDate()
@@ -70,23 +98,48 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //var end_string:String = String()
     func setwheretext(cell:WhereTableViewCell){
         loc_string = cell.wheretext.text
+        if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
     var loc_string:String = String()
     func setcattext(cell:CatTableViewCell){
         cat_string = cell.cattext.text
+        if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
     var cat_string:String = String()
     func setswitch(cell:PrivateEventCreationTableViewCell){
         priv_bool = cell.Private
+        if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
     var priv_bool:Bool = true
+    func up(){
+         self.view.frame.origin.y -= 200
+    }
+    func down(cell: textviewTableViewCell){
+        self.view.frame.origin.y += 200
+        des_string = cell.mytext.text
+    }
     var des_string:String = String()
     
     var my_int:Int = 1
     var lat:CLLocationDegrees = 0.0
     var long:CLLocationDegrees = 0.0
     
-    let cellnames = ["Title", "Start Time", "End Time", "Location", "Categories","Private Event","Description"]
+    let cellnames = ["Title", "Start Time", "End Time", "Location", "Categories","Private Event","Description", "textview"]
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -137,6 +190,9 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var nib7 = UINib (nibName: "CatTableViewCell", bundle: nil)
         ECtable.registerNib(nib7, forCellReuseIdentifier: "CatCell")
+        
+        var nib8 = UINib (nibName: "textviewTableViewCell", bundle: nil)
+        ECtable.registerNib(nib8, forCellReuseIdentifier: "tvCell")
 
 
         // Do any additional setup after loading the view.
@@ -144,6 +200,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
+        self.navigationItem.rightBarButtonItem?.enabled = false
         
     }
     
@@ -159,6 +216,13 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         nibNameToSwitchTo = "EventTableViewController";
         navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
         self.menuContainerViewController.centerViewController = navController*/
+        println(title_string)
+        println(loc_string)
+        println(cat_string)
+        println("\(priv_bool)")
+        println("start date \(start_date)")
+        println("end date \(end_date)")
+        println(des_string)
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
             var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
@@ -183,27 +247,11 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   /*
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        if (my_int == 1)
-        {
-        descriptiontext.text = ""
-        my_int = 0
-        descriptiontext.textColor = UIColor.blackColor()
-        }
-        self.view.frame.origin.y -= 150
-        finishbutton.hidden = true
-        return true
-    }*/
+   
+    
    /*
     func navigationBar(navigationBar: UINavigationBar, shouldPushItem item: UINavigationItem) -> Bool {
         return true
-    }*/
-    
- /*   func textViewDidEndEditing(textView: UITextView) {
-        self.view.frame.origin.y += 150
-        finishbutton.hidden = false
-        des_string = textView.text
     }*/
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -215,7 +263,7 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 7//8
+        return 8
     }
     
     //COMMENTED OUT IN CASE WE WANT TO CHANGE
@@ -293,6 +341,11 @@ class WholeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.delegate = self
             return cell
             
+        }
+        else if (cellnames[row] == "textview"){
+            var cell:textviewTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("tvCell") as! textviewTableViewCell
+            cell.delegate = self
+            return cell
         }
         else {
             var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
