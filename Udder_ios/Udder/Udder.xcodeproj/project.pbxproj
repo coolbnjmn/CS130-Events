@@ -26,6 +26,8 @@
 		5548ED3C1AFAA0300063F6E4 /* TimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED331AFAA0300063F6E4 /* TimeTableViewCell.xib */; };
 		5548ED3D1AFAA0300063F6E4 /* WhereTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED341AFAA0300063F6E4 /* WhereTableViewCell.xib */; };
 		5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED351AFAA0300063F6E4 /* WholeViewController.xib */; };
+		55571E451AFC1414008AF1C3 /* textviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */; };
+		55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
@@ -139,6 +141,8 @@
 		5548ED331AFAA0300063F6E4 /* TimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeTableViewCell.xib; path = Views/TimeTableViewCell.xib; sourceTree = "<group>"; };
 		5548ED341AFAA0300063F6E4 /* WhereTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WhereTableViewCell.xib; path = Views/WhereTableViewCell.xib; sourceTree = "<group>"; };
 		5548ED351AFAA0300063F6E4 /* WholeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WholeViewController.xib; path = Views/WholeViewController.xib; sourceTree = "<group>"; };
+		55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = textviewTableViewCell.xib; path = Views/textviewTableViewCell.xib; sourceTree = "<group>"; };
+		55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textviewTableViewCell.swift; path = Cells/textviewTableViewCell.swift; sourceTree = "<group>"; };
 		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 		B2BF292E1AE9D2C000D6714C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */,
 				5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */,
 				5548ED201AFAA0110063F6E4 /* DateTableViewCell.swift */,
 				5548ED211AFAA0110063F6E4 /* DescriptionEventCreationTableViewCell.swift */,
@@ -440,6 +445,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */,
 				5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */,
 				5548ED2E1AFAA0300063F6E4 /* DateTableViewCell.xib */,
 				5548ED2F1AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib */,
@@ -583,6 +589,7 @@
 				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
 				B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */,
 				A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */,
+				55571E451AFC1414008AF1C3 /* textviewTableViewCell.xib in Resources */,
 				A70AAA9B1AF49DF500E8B3F9 /* people.png in Resources */,
 				A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */,
 				A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */,
@@ -664,6 +671,7 @@
 				B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */,
 				5548ED2B1AFAA0110063F6E4 /* TimeTableViewCell.swift in Sources */,
 				5548ED2A1AFAA0110063F6E4 /* RegEventCreationTableViewCell.swift in Sources */,
+				55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */,
 				5548ED271AFAA0110063F6E4 /* DateTableViewCell.swift in Sources */,
 				A70AAA9D1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift in Sources */,
 				5548ED1E1AFA9FFB0063F6E4 /* WholeViewController.swift in Sources */,
