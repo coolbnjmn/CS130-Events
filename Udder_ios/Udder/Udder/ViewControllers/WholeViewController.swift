@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate{
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate{
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
     
@@ -224,8 +224,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         println(des_string)
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
-            var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
-            eventDetailViewController.setupWithEvent(eventModel);
+            var eventDetailViewController:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
+            //InviteContactTableViewController.setupWithEvent(eventModel);
             
             var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
             viewControllers.removeObjectIdenticalTo(self);
