@@ -239,7 +239,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             println("Error: \(error)");
         }
         
-        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
+        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
     }
 
     
