@@ -88,10 +88,10 @@ struct Constants {
     
     static let EventCategoryImageMap = [
         EventCategories.kFitnessCategory: "category-fitness.png",
-        EventCategories.kFoodCategory: "Beach.jpg",
-        EventCategories.kEntertainmentCategory: "Beach.jpg",
-        EventCategories.kMusicCategory: "Beach.jpg",
-        EventCategories.kAcademicCategory: "Beach.jpg",
-        EventCategories.kOtherCategory: "Beach.jpg"
+        EventCategories.kFoodCategory: "category-food.png",
+        EventCategories.kEntertainmentCategory: "category-entertainment.png",
+        EventCategories.kMusicCategory: "category-music.png",
+        EventCategories.kAcademicCategory: "category-academic.png",
+        EventCategories.kOtherCategory: "category-other.png"
     ]
 }
