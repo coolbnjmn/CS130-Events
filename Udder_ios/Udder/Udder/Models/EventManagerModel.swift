@@ -9,6 +9,14 @@
 import Parse
 
 class EventManagerModel: BaseModel {
+    
+    class var sharedInstance : EventManagerModel {
+        struct EventManager {
+            static let instance : EventManagerModel = EventManagerModel()
+        }
+        return EventManager.instance
+    }
+    
     // TODO: Have this actually retrieve upcoming events
     func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);

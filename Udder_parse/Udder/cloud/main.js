@@ -4,14 +4,14 @@ var creds = require('cloud/credentials.js');
 * Finds a Flickr photo for the event cover based on the given text about an event
 * Optionally include latitude and longitude coordinates to perform a location based search on the same text
 *
-* @param {string} request.params.text The text to be searched for on Flickr
+* @param {string} request.params.title The text to be searched for on Flickr
 * OPTIONAL PARAMS:
 * @param {double} request.params.lat Latitude in decimal form to center the search around
 * @param {double} request.params.lon Longitude in decimal form to center the search around
 * @return {string} either returns an error message or the URL for the Flickr photo
 */
-Parse.Cloud.define("flickr", function(request, response) {
-	var searchText = request.params.title;
+Parse.Cloud.beforeSave("Event", function(request, response) {
+	var searchText = request.object.get("title");
 
 	params = {
 		method: 'flickr.photos.search',
@@ -22,18 +22,18 @@ Parse.Cloud.define("flickr", function(request, response) {
 		nojsoncallback: 1, 
 		geocontext: 2,
 		content_type: 1,
-		sort: 'interestingness-desc',
+		sort: 'relevance',
 		license: '4,5,6,7'// All commercially allowed licenses - ids found from https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
 	}
 
-	if (request.params.hasOwnProperty('lat') && request.params.hasOwnProperty('lon')) {
-		params['lat'] = request.params.lat;
-		params['lon'] = request.params.lon;
+	// if (request.params.hasOwnProperty('lat') && request.params.hasOwnProperty('lon')) {
+	// 	params['lat'] = request.params.lat;
+	// 	params['lon'] = request.params.lon;
 
-		// Define the radius of the geo-search, up to 20 miles
-		params['radius'] = 20;
-		params['radius_units'] = "mi";
-	}		
+	// 	// Define the radius of the geo-search, up to 20 miles
+	// 	params['radius'] = 20;
+	// 	params['radius_units'] = "mi";
+	// }		
 
 
 	Parse.Cloud.httpRequest({
@@ -49,21 +49,24 @@ Parse.Cloud.define("flickr", function(request, response) {
 		    //console.log(httpResponse.text);
 
 		    if(data['photos']['total'] == 0) {
-		    	response.error("No photo results");
+		    	response.success(request.object);
 		    }
 		    else {
 		    	// Use the first photo as the image to return
 			    firstPhoto = data['photos']['photo'][0];
 
 			    // Choose the size of the photo, probably more programatically than this
-			    thumbnail = true;
+			    thumbnail = false;
 			    size = thumbnail ? "m" : "b";
 
 			    // Construct URL for the flickr photo
 				photoURLString = "http://farm" + firstPhoto['farm'] + ".staticflickr.com/" + firstPhoto['server'] + "/" + firstPhoto['id'] + "_" + firstPhoto['secret'] + "_" + size + ".jpg";
 
-				// Send the constructed URL back as the response
-			    response.success(photoURLString);
+				// Save the constructed URL in the event object
+				request.object.set("image_url", photoURLString);
+
+				// Save the event object and pass it back to the client
+			    response.success(request.object);
 		    }
 
 		},
@@ -93,7 +96,7 @@ Parse.Cloud.define("sendVerificationCode", function(request, response) {
     twilio.sendSms({
         From: "(818) 877-4527",
         To: request.params.phoneNumber,
-        Body: "Your verification code is " + verificationCode + "."
+        Body: "Hi " + user.get("first_name") + "! Your verification code is " + verificationCode + "."
     }, function(err, responseData) { 
         if (err) {
           response.error(err);

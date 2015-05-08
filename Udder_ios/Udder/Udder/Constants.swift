@@ -44,7 +44,7 @@ struct Constants {
         struct TableConstraints {
             static let kDescriptionViewHeight:CGFloat = 150;
             static let kDescriptionTextSize:CGFloat = 14;
-            static let kDescriptionTextFont = "Avenir-Book"
+            static let kDescriptionTextFont = "Avenir-Medium"
             static let kDefaultMargin:CGFloat = 8;
         }
     }
@@ -58,7 +58,10 @@ struct Constants {
     }
     
     struct StandardFormats {
-        static let kStandardTextFont = "Avenir-Book";
+        static let kStandardTextFont = "Avenir-Heavy";
+        static let kStandardEventsTextFont = "Avenir-Book";
+        static let kNavTitleFontSize: CGFloat = 25.0
+        static let kSideBarNavNameFontSize: CGFloat = 20.0
     }
     
     struct PlaceHolders {
@@ -68,4 +71,27 @@ struct Constants {
     struct Colors {
         static let ThemeColor:UIColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
     }
+    
+    struct Images {
+        static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
+        static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
+    }
+
+    struct EventCategories {
+        static let kFitnessCategory = "Fitness";
+        static let kFoodCategory = "Food";
+        static let kEntertainmentCategory = "Entertainment";
+        static let kMusicCategory = "Music";
+        static let kAcademicCategory = "Academic";
+        static let kOtherCategory = "Other"
+    }
+    
+    static let EventCategoryImageMap = [
+        EventCategories.kFitnessCategory: "category-fitness.png",
+        EventCategories.kFoodCategory: "category-food.png",
+        EventCategories.kEntertainmentCategory: "category-entertainment.png",
+        EventCategories.kMusicCategory: "category-music.png",
+        EventCategories.kAcademicCategory: "category-academic.png",
+        EventCategories.kOtherCategory: "category-other.png"
+    ]
 }

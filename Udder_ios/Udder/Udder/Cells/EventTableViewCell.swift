@@ -57,8 +57,18 @@ class EventTableViewCell: UITableViewCell {
         self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String), placeholderImage:Constants.PlaceHolders.EventImage);
         self.locationImageView?.image = UIImage(named: "icon-location.png")
         self.timeImageView?.image = UIImage(named: "icon-time.png")
-        self.categoryImageView?.image = UIImage(named: "placeholder.png")
-                
+        
+        // Set the Category image view
+        var categoryName:String = params.objectForKey("category") as! String;
+        var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
+        
+        if let validatedCategoryImage = categoryImage {
+            self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
+        }
+        else {
+            self.categoryImageView?.image = UIImage(named: "placeholder.png");
+        }
+        
         self.eventTitleLabel.textColor = UIColor.whiteColor()
         self.timeLocationSubview.backgroundColor = UIColor.clearColor()
         self.timeLabel.textColor = UIColor.whiteColor()
@@ -87,9 +97,9 @@ class EventTableViewCell: UITableViewCell {
             self.locationLabel.frame.size.width = maxLocationLabelWidth
         }
         
-        self.eventTitleLabel.font = UIFont(name: "Avenir-Book", size:20)
-        self.timeLabel.font = UIFont(name: "Avenir-Book", size:14)
-        self.locationLabel.font = UIFont(name: "Avenir-Book", size: 14)
+        self.eventTitleLabel.font = UIFont(name: Constants.StandardFormats.kStandardEventsTextFont, size:20)
+        self.timeLabel.font = UIFont(name: Constants.StandardFormats.kStandardEventsTextFont, size:14)
+        self.locationLabel.font = UIFont(name: Constants.StandardFormats.kStandardEventsTextFont, size: 14)
     }
     
 }
