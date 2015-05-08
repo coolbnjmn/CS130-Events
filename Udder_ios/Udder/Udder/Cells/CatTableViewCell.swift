@@ -18,6 +18,7 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var catlabel: UILabel!
     @IBOutlet weak var cattext: UITextField!
     @IBAction func clickedcattext(sender: UITextField) {
+        cattext.text?="Fitness"
         var PickerView  : UIPickerView = UIPickerView()
         PickerView.delegate = self
         PickerView.dataSource = self

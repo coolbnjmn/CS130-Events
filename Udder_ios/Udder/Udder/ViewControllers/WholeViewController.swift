@@ -336,7 +336,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         }
         else if (cellnames[row] == "Categories"){ //SHOULD BE CATEGORIES
             var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
-            cell.cattext?.placeholder = "Ex. Sports"
+            cell.cattext?.placeholder = "Ex. Fitness"
             cell.delegate = self
             return cell
             
