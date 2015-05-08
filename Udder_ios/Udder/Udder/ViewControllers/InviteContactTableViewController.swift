@@ -101,6 +101,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         })()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invite", style: UIBarButtonItemStyle.Plain, target: self, action: "inviteContacts:")
+        self.navigationItem.hidesBackButton = true
         
     }
     
@@ -111,7 +112,11 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     func inviteContacts(sender: AnyObject) {
         var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
         eventDetailViewController.setupWithEvent(self.event)
-        self.navigationController?.pushViewController(eventDetailViewController, animated: true)
+      
+        var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+        viewControllers.removeObjectIdenticalTo(self);
+        viewControllers.addObject(eventDetailViewController);
+        self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
     }
 
     func applySearch(sender: AnyObject) {
