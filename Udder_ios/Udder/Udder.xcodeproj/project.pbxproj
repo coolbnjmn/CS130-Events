@@ -551,6 +551,7 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 4VFFSF6V7V;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
@@ -834,6 +835,8 @@
 			baseConfigurationReference = C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -847,6 +850,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Udder/UdderBridgingHeader.h";
 			};
 			name = Debug;
@@ -856,6 +860,8 @@
 			baseConfigurationReference = 1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -869,6 +875,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Udder/UdderBridgingHeader.h";
 			};
 			name = Release;

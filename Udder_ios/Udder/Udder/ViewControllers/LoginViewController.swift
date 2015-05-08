@@ -13,6 +13,7 @@ import ParseUI
 class LoginViewController: BaseViewController {
 
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var backgroundImgView: UIImageView!
     
     @IBAction func pressedLogin(sender: AnyObject) {
         loginButton.enabled = false
@@ -118,9 +119,12 @@ class LoginViewController: BaseViewController {
         self.view.backgroundColor = UIColor.whiteColor();
         
         self.view.addSubview(loginButton)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "splash-bg.png")!)
-
-
+        let bgImg:UIImage = UIImage(named: "splash-bg.png")!
+        self.backgroundImgView.contentMode = .ScaleAspectFit
+        self.backgroundImgView.image = bgImg
+        
+//        UIColor(patternImage: )
+//        self.view.backgroundColor = .drawInRect(self.view.bounds))
     }
 
     override func didReceiveMemoryWarning() {

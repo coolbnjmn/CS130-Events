@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Udder" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImgView" destination="PtJ-uc-umF" id="vvo-gS-i46"/>
                 <outlet property="loginButton" destination="IGP-4E-th9" id="a7c-FT-afc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jqn-rg-LVx"/>
             </connections>
@@ -16,6 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PtJ-uc-umF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hSg-yo-Ceu">
                     <rect key="frame" x="124" y="58" width="167" height="49"/>
                 </imageView>
@@ -28,11 +32,12 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGP-4E-th9">
-                    <rect key="frame" x="50" y="606" width="314" height="50"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGP-4E-th9">
+                    <rect key="frame" x="70" y="599" width="274" height="57"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="IGP-4E-th9" secondAttribute="height" multiplier="59:18" id="Gs8-Tc-JyQ"/>
                         <constraint firstAttribute="width" secondItem="IGP-4E-th9" secondAttribute="height" multiplier="131:40" id="cfD-ct-JLp"/>
+                        <constraint firstAttribute="height" constant="57" id="dZy-W3-TXn"/>
                         <constraint firstAttribute="height" constant="50" id="eRf-0h-dZM"/>
                         <constraint firstAttribute="height" constant="40" id="iR9-dG-e12"/>
                         <constraint firstAttribute="height" constant="50" id="v6e-RA-vxN"/>
@@ -46,6 +51,7 @@
                             <exclude reference="cfD-ct-JLp"/>
                             <exclude reference="eRf-0h-dZM"/>
                             <exclude reference="iR9-dG-e12"/>
+                            <exclude reference="v6e-RA-vxN"/>
                         </mask>
                     </variation>
                     <connections>
@@ -55,12 +61,18 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="PtJ-uc-umF" secondAttribute="trailing" id="F6M-vU-Nw9"/>
+                <constraint firstItem="IGP-4E-th9" firstAttribute="bottom" secondItem="PtJ-uc-umF" secondAttribute="bottom" id="MKO-ON-mMy"/>
+                <constraint firstItem="PtJ-uc-umF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NMy-m7-KZ9"/>
                 <constraint firstItem="Kkq-PP-wmc" firstAttribute="top" secondItem="hSg-yo-Ceu" secondAttribute="bottom" constant="20" id="NiS-EL-bFN"/>
+                <constraint firstAttribute="bottom" secondItem="PtJ-uc-umF" secondAttribute="bottom" id="Qk4-B1-jd3"/>
                 <constraint firstAttribute="centerX" secondItem="hSg-yo-Ceu" secondAttribute="centerX" id="Tmx-0a-iYd"/>
+                <constraint firstItem="PtJ-uc-umF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VnV-Zk-4aW"/>
                 <constraint firstAttribute="trailing" secondItem="IGP-4E-th9" secondAttribute="trailing" constant="60" id="WJs-WO-TPB"/>
-                <constraint firstAttribute="trailing" secondItem="IGP-4E-th9" secondAttribute="trailing" constant="50" id="X9F-a3-ctb"/>
+                <constraint firstAttribute="trailing" secondItem="IGP-4E-th9" secondAttribute="trailing" constant="70" id="X9F-a3-ctb"/>
                 <constraint firstItem="hSg-yo-Ceu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="agg-ce-x8L"/>
-                <constraint firstItem="IGP-4E-th9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="dJ5-jW-2JX"/>
+                <constraint firstItem="IGP-4E-th9" firstAttribute="top" secondItem="PtJ-uc-umF" secondAttribute="bottom" id="bCC-qj-Wmf"/>
+                <constraint firstItem="IGP-4E-th9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="dJ5-jW-2JX"/>
                 <constraint firstItem="IGP-4E-th9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="hKq-MV-QM7"/>
                 <constraint firstAttribute="bottom" secondItem="IGP-4E-th9" secondAttribute="bottom" constant="80" id="hXW-Pt-TPW"/>
                 <constraint firstAttribute="centerX" secondItem="Kkq-PP-wmc" secondAttribute="centerX" id="vDx-hk-L0u"/>
@@ -72,7 +84,9 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="MKO-ON-mMy"/>
                     <exclude reference="WJs-WO-TPB"/>
+                    <exclude reference="bCC-qj-Wmf"/>
                     <exclude reference="hKq-MV-QM7"/>
                 </mask>
             </variation>

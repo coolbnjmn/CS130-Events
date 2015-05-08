@@ -10,17 +10,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 UCLA. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="splash-bg" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-Da-dF1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015 UCLA. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="695" width="375" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="phV-50-rfx">
-                    <rect key="frame" x="186" y="0.0" width="167" height="43"/>
+                    <rect key="frame" x="124" y="58" width="167" height="49"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find events in real-time based on your current location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQc-pO-l3r">
-                    <rect key="frame" x="0.0" y="63" width="238" height="41"/>
+                    <rect key="frame" x="88" y="127" width="238" height="41"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="238" id="fhX-aY-aZ6"/>
                     </constraints>
@@ -28,29 +31,40 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="splash-bg" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-Da-dF1">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gQc-pO-l3r" firstAttribute="leading" secondItem="UYr-Da-dF1" secondAttribute="leading" id="0rs-7m-GmS"/>
+                <constraint firstItem="UYr-Da-dF1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0wW-15-J3h"/>
                 <constraint firstItem="gQc-pO-l3r" firstAttribute="top" secondItem="phV-50-rfx" secondAttribute="bottom" constant="20" id="1ze-TS-tA2"/>
+                <constraint firstAttribute="bottom" secondItem="UYr-Da-dF1" secondAttribute="bottom" id="391-v3-OtE"/>
                 <constraint firstAttribute="trailing" secondItem="phV-50-rfx" secondAttribute="trailing" constant="61" id="Ea6-t3-dRt"/>
+                <constraint firstAttribute="centerX" secondItem="gQc-pO-l3r" secondAttribute="centerX" id="GeZ-Gp-3bH"/>
+                <constraint firstItem="phV-50-rfx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="JYk-sl-hW9"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="UYr-Da-dF1" secondAttribute="bottom" constant="-20" id="Q9J-EA-Cdf"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="UYr-Da-dF1" secondAttribute="bottom" id="Q9J-EA-Cdf"/>
+                <constraint firstItem="UYr-Da-dF1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WRF-Kc-tj9"/>
+                <constraint firstAttribute="centerX" secondItem="phV-50-rfx" secondAttribute="centerX" id="WUX-bx-NE8"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstItem="UYr-Da-dF1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iDC-Hc-pb1"/>
                 <constraint firstItem="gQc-pO-l3r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="kGf-3u-KGl"/>
                 <constraint firstItem="UYr-Da-dF1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p6K-M7-GTf"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="UYr-Da-dF1" secondAttribute="bottom" id="qsx-XP-lx1"/>
                 <constraint firstAttribute="trailing" secondItem="UYr-Da-dF1" secondAttribute="trailing" id="wjX-zS-K77"/>
+                <constraint firstAttribute="trailing" secondItem="UYr-Da-dF1" secondAttribute="trailing" id="xEe-Ta-Fyt"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="0wW-15-J3h"/>
+                    <exclude reference="iDC-Hc-pb1"/>
+                    <exclude reference="xEe-Ta-Fyt"/>
+                    <exclude reference="0rs-7m-GmS"/>
+                    <exclude reference="kGf-3u-KGl"/>
+                    <exclude reference="Ea6-t3-dRt"/>
+                    <exclude reference="Q9J-EA-Cdf"/>
                     <exclude reference="qsx-XP-lx1"/>
                 </mask>
             </variation>
@@ -58,7 +72,7 @@
         </view>
     </objects>
     <resources>
-        <image name="logo" width="167" height="43"/>
+        <image name="logo" width="167" height="49"/>
         <image name="splash-bg" width="375" height="667"/>
     </resources>
 </document>
