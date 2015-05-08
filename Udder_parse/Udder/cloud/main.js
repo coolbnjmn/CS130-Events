@@ -11,6 +11,11 @@ var creds = require('cloud/credentials.js');
 * @return {string} either returns an error message or the URL for the Flickr photo
 */
 Parse.Cloud.beforeSave("Event", function(request, response) {
+
+	if(request.object.get("image_url")) {
+		response.success(request.object);
+	}
+
 	var searchText = request.object.get("title");
 
 	params = {
@@ -113,7 +118,6 @@ Parse.Cloud.define("sendVerificationCode", function(request, response) {
 * @return {HTTPResponse} either returns an error message or the word Success.
 */
 
-//in the future include the user's name in the text message
 Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
     var user = Parse.User.current();
     var verificationCode = user.get("phoneVerificationCode");
