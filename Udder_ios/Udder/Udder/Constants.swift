@@ -62,6 +62,8 @@ struct Constants {
         static let kStandardEventsTextFont = "Avenir-Book";
         static let kNavTitleFontSize: CGFloat = 25.0
         static let kSideBarNavNameFontSize: CGFloat = 20.0
+        static let kButtonTextFont = "Avenir-Book"
+        static let kButtonTextFontSize: CGFloat = 20.0
     }
     
     struct PlaceHolders {

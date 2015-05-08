@@ -23,7 +23,7 @@ class PhoneNumberViewController: BaseViewController {
                 // Your error handling here
                 
             } else {
-                NSLog("Success, text sent.")
+                self.navigationController?.pushViewController(ValidationViewController(nibName: "ValidationViewController", bundle: nil), animated: true)
             }
         }
     }

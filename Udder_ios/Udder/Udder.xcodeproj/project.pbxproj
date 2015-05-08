@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */; };
+		3487C5181AFC411800C8BA90 /* ValidationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3487C5171AFC411800C8BA90 /* ValidationViewController.xib */; };
 		348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */; };
 		348E20B21AF97D7B003BDB1F /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */; };
 		5548ED1E1AFA9FFB0063F6E4 /* WholeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */; };
@@ -122,6 +124,8 @@
 
 /* Begin PBXFileReference section */
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidationViewController.swift; path = ViewControllers/ValidationViewController.swift; sourceTree = "<group>"; };
+		3487C5171AFC411800C8BA90 /* ValidationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ValidationViewController.xib; path = Views/ValidationViewController.xib; sourceTree = "<group>"; };
 		348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhoneNumberViewController.xib; path = Views/PhoneNumberViewController.xib; sourceTree = "<group>"; };
 		348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberViewController.swift; path = ViewControllers/PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WholeViewController.swift; path = ViewControllers/WholeViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3487C5171AFC411800C8BA90 /* ValidationViewController.xib */,
 				55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */,
 				5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */,
 				5548ED2E1AFAA0300063F6E4 /* DateTableViewCell.xib */,
@@ -477,6 +482,7 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */,
 				5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */,
 				348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */,
 				A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */,
@@ -598,6 +604,7 @@
 				5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
+				3487C5181AFC411800C8BA90 /* ValidationViewController.xib in Resources */,
 				A718E8EB1AFC348700CE63B9 /* category-food.png in Resources */,
 				E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
@@ -683,6 +690,7 @@
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */,
 				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
+				3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */,
 				A73027D91AF210A0009D2281 /* LocationTableViewCell.swift in Sources */,
 				A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */,
 				A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */,
