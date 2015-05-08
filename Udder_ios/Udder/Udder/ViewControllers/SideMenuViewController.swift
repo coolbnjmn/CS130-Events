@@ -56,7 +56,7 @@ class SideMenuViewController: UITableViewController {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = UIColor.themeColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
-            cell.textLabel?.numberOfLines = 1
+            cell.textLabel?.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size: Constants.StandardFormats.kSideBarNavNameFontSize)
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.clipsToBounds = true
             

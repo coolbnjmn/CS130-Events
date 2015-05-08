@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class PhoneNumberViewController: UIViewController {
+class PhoneNumberViewController: BaseViewController {
     
     @IBOutlet weak var sendCodeBtn: UIButton!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -63,9 +63,6 @@ class PhoneNumberViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Step 1 of 2"
         var nav = self.navigationController?.navigationBar
-        nav?.barStyle = UIBarStyle.BlackTranslucent
-        nav?.barTintColor = UIColor.themeColor()
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         sendCodeBtn.backgroundColor = UIColor.themeColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelAndLogout")

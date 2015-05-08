@@ -39,6 +39,11 @@
 		A70AAA9D1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */; };
 		A70AAA9F1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */; };
 		A70AAAA11AF4BA1B00E8B3F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */; };
+		A718E8E61AFC347F00CE63B9 /* category-academic.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8E41AFC347F00CE63B9 /* category-academic.png */; };
+		A718E8E71AFC347F00CE63B9 /* category-entertainment.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8E51AFC347F00CE63B9 /* category-entertainment.png */; };
+		A718E8EB1AFC348700CE63B9 /* category-food.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8E81AFC348700CE63B9 /* category-food.png */; };
+		A718E8EC1AFC348700CE63B9 /* category-music.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8E91AFC348700CE63B9 /* category-music.png */; };
+		A718E8ED1AFC348700CE63B9 /* category-other.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8EA1AFC348700CE63B9 /* category-other.png */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -52,6 +57,7 @@
 		A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
 		A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */; };
 		A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
+		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
 		B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF74A1AF732CB00E32212 /* ContactModel.swift */; };
 		B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */; };
@@ -145,6 +151,11 @@
 		A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventAttendeesViewControllerProvider.swift; path = Providers/EventAttendeesViewControllerProvider.swift; sourceTree = "<group>"; };
 		A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewControllerProvider.swift; path = Providers/EventTableViewControllerProvider.swift; sourceTree = "<group>"; };
 		A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
+		A718E8E41AFC347F00CE63B9 /* category-academic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-academic.png"; path = "Images/category-academic.png"; sourceTree = "<group>"; };
+		A718E8E51AFC347F00CE63B9 /* category-entertainment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-entertainment.png"; path = "Images/category-entertainment.png"; sourceTree = "<group>"; };
+		A718E8E81AFC348700CE63B9 /* category-food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-food.png"; path = "Images/category-food.png"; sourceTree = "<group>"; };
+		A718E8E91AFC348700CE63B9 /* category-music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-music.png"; path = "Images/category-music.png"; sourceTree = "<group>"; };
+		A718E8EA1AFC348700CE63B9 /* category-other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-other.png"; path = "Images/category-other.png"; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -158,6 +169,7 @@
 		A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetailViewController.xib; path = Views/EventDetailViewController.xib; sourceTree = "<group>"; };
 		A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Utilities/UIView+Extension.swift"; sourceTree = "<group>"; };
 		A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtility.swift; path = Utilities/GeneralUtility.swift; sourceTree = "<group>"; };
+		A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-fitness.png"; path = "Images/category-fitness.png"; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
 		B23AF74A1AF732CB00E32212 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactModel.swift; path = Models/ContactModel.swift; sourceTree = "<group>"; };
 		B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteContactTableViewController.swift; path = ViewControllers/InviteContactTableViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +288,12 @@
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A718E8E81AFC348700CE63B9 /* category-food.png */,
+				A718E8E91AFC348700CE63B9 /* category-music.png */,
+				A718E8EA1AFC348700CE63B9 /* category-other.png */,
+				A718E8E41AFC347F00CE63B9 /* category-academic.png */,
+				A718E8E51AFC347F00CE63B9 /* category-entertainment.png */,
+				A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */,
 				B241B5CF1AF96EE8001BB17B /* icon-time.png */,
 				A70AAA981AF49DF500E8B3F9 /* info.png */,
 				A70AAA991AF49DF500E8B3F9 /* people.png */,
@@ -566,22 +584,28 @@
 				B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */,
 				A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */,
 				A70AAA9B1AF49DF500E8B3F9 /* people.png in Resources */,
+				A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */,
 				A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */,
 				5548ED3D1AFAA0300063F6E4 /* WhereTableViewCell.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
 				E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */,
+				A718E8EB1AFC348700CE63B9 /* category-food.png in Resources */,
 				E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */,
 				B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */,
+				A718E8ED1AFC348700CE63B9 /* category-other.png in Resources */,
+				A718E8E61AFC347F00CE63B9 /* category-academic.png in Resources */,
 				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
 				A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */,
 				5548ED361AFAA0300063F6E4 /* CatTableViewCell.xib in Resources */,
+				A718E8EC1AFC348700CE63B9 /* category-music.png in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
 				5548ED3C1AFAA0300063F6E4 /* TimeTableViewCell.xib in Resources */,
 				5548ED381AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib in Resources */,
 				5548ED3A1AFAA0300063F6E4 /* PrivateEventCreationTableViewCell.xib in Resources */,
+				A718E8E71AFC347F00CE63B9 /* category-entertainment.png in Resources */,
 				E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

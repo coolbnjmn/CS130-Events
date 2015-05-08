@@ -18,7 +18,7 @@ struct ResponseSegment {
     static let kSegmentDecline = 1;
 }
 
-class EventDetailViewController: UIViewController {
+class EventDetailViewController: BaseViewController {
     
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;
@@ -30,6 +30,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var backgroundGradientView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var categoryImageView: UIImageView!
     
     // Constraints
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
@@ -137,13 +138,26 @@ class EventDetailViewController: UIViewController {
     }
     
     func setupView() {
-        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
+        var segmentedAttrs = [NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardEventsTextFont, size: 12)!, NSForegroundColorAttributeName: UIColor.whiteColor()];
         self.responseSegmentedControl.configure(UIColor.themeColor(), selectColorRight: UIColor.standardRedColor(), unselectColor: UIColor.whiteColor(), textAttrs: segmentedAttrs);
         self.responseSegmentedControl.valueChanged();
         
         self.tableSwitchSegmentedControl.tintColor = UIColor.themeColor();
         
         self.backgroundGradientView.addGradient();
+        
+        // Set up category view
+        if let validatedEvent = self.event {
+            var categoryName:String = validatedEvent.eventCategory;
+            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
+            
+            if let validatedCategoryImage = categoryImage {
+                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
+            }
+            else {
+                self.categoryImageView?.image = UIImage(named: "placeholder.png");
+            }
+        }
     }
     
     func timeLabelString(startTime:NSDate) -> String {
