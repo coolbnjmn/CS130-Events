@@ -134,6 +134,7 @@ class EventDetailViewController: BaseViewController {
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
             
 //            self.navigationItem.title = validatedEvent.eventTitle;
+            self.navigationItem.title = "Event Detail";
         }
     }
     
