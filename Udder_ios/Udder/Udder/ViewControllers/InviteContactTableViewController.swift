@@ -32,7 +32,6 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     var selectedDataArray : Array<ContactModel> = []
     var event : EventModel?
     
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }

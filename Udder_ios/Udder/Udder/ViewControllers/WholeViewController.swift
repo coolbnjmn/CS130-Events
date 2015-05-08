@@ -222,14 +222,15 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         println("start date \(start_date)")
         println("end date \(end_date)")
         println(des_string)
+        
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
-            var eventDetailViewController:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
-            //InviteContactTableViewController.setupWithEvent(eventModel);
+            var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
+            invitePage.setupWithEvent(eventModel);
             
             var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
             viewControllers.removeObjectIdenticalTo(self);
-            viewControllers.addObject(eventDetailViewController);
+            viewControllers.addObject(invitePage);
             self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
         }
         
