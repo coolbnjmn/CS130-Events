@@ -482,13 +482,13 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */,
-				5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */,
 				348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */,
+				3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */,
+				B2446F411AE20967006C37F9 /* EventTableViewController.swift */,
+				5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */,
 				A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */,
 				B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */,
 				B2D5BB8E1AE1DDD40063126E /* ViewController.swift */,
-				B2446F411AE20967006C37F9 /* EventTableViewController.swift */,
 				E10200E11AEA076B007A2F8F /* LoginViewController.swift */,
 				E17571611AEAD24100E92F07 /* MyEventsViewController.swift */,
 				E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */,

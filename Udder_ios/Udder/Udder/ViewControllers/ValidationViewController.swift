@@ -9,19 +9,37 @@
 import UIKit
 import Parse
 
-class ValidationViewController: UIViewController {
+class ValidationViewController: BaseViewController {
     
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var verficationCode: UITextField!
     
     @IBAction func submitCodePressed(sender: AnyObject) {
+        
+        submitBtn.enabled = false
+        
         let parameters = ["phoneVerificationCode": verficationCode.text!]
         PFCloud.callFunctionInBackground("verifyPhoneNumber", withParameters: parameters) { results, error in
             if error != nil {
                 // Your error handling here
                 NSLog("Validation code is incorrect")
+                let alertController = UIAlertController(title: "Incorrect Validation Code", message:
+                    "", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel) {
+                    UIAlertAction in
+                        self.verficationCode.text = ""
+                        self.submitBtn.enabled = true
+                    })
+                self.presentViewController(alertController, animated: true, completion: nil)
             } else {
-                self.redirectToHome()
+                
+                let alertController = UIAlertController(title: "Verification Successful", message:
+                    "Welcome to Üdder!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Continue", style:UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                        self.redirectToHome()
+                    })
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -40,7 +58,11 @@ class ValidationViewController: UIViewController {
         self.navigationItem.title = "Step 2 of 2"
         
         submitBtn.backgroundColor = UIColor.themeColor()
-
+        
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = backButton
+//        navigationItem.leftBarButtonItem?.title = "Back"
+//        navigationItem.backBarButtonItem?.title = "Back"
     }
     
     override func didReceiveMemoryWarning() {

@@ -28,7 +28,7 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
             break
         case 4: name="Collin Yen"
             break
-        case 5: name="Shai Segall"
+        case 5: name="Shai Segal"
             break
         default: name="John Appleseed"
         }

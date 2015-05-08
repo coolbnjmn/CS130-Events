@@ -15,11 +15,14 @@ class BaseViewController: UIViewController, ViewControllerProtocolDelegate {
         // Do any additional setup after loading the view.
 
         let attributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: Constants.StandardFormats.kStandardTextFont, size:Constants.StandardFormats.kNavTitleFontSize)!]
-        let nav = self.navigationController!.navigationBar
-        nav.titleTextAttributes = attributes
-        nav.backgroundColor = UIColor.whiteColor()
-        nav.barTintColor = UIColor.themeColor()
-        nav.barStyle = UIBarStyle.BlackTranslucent
+        
+        if(self.navigationController != nil) {
+            let nav = self.navigationController!.navigationBar
+            nav.titleTextAttributes = attributes
+            nav.backgroundColor = UIColor.whiteColor()
+            nav.barTintColor = UIColor.themeColor()
+            nav.barStyle = UIBarStyle.BlackTranslucent
+        }
         
     }
 

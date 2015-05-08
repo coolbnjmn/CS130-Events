@@ -53,12 +53,12 @@ class SideMenuViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cellText = PFUser.currentUser().objectForKey("full_name") as? String ?? ""
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = UIColor.themeColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
             cell.textLabel?.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size: Constants.StandardFormats.kSideBarNavNameFontSize)
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.clipsToBounds = true
+            cell.selectionStyle = .None
             
             
             if (profPic == nil) {
@@ -103,14 +103,11 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        selectedCell.contentView.backgroundColor = UIColor.whiteColor()
-        
         let nibNameToSwitchTo: String?
         let navController: UINavigationController?
         
         switch indexPath.row {
         case 0:
-            selectedCell.backgroundColor = UIColor.blueColor()
             return
         case 1: //Home
             nibNameToSwitchTo = "EventTableViewController";

@@ -15,16 +15,43 @@ class PhoneNumberViewController: BaseViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     
     @IBAction func sendCodePressed(sender: AnyObject) {
+        
+        sendCodeBtn.enabled = false
+        
         let regex = NSRegularExpression(pattern: "[\\(\\)\\-\\s]", options: nil, error: nil)
         let phoneNumber = regex?.stringByReplacingMatchesInString(phoneTextField.text!, options: nil, range: NSMakeRange(0, count(phoneTextField.text!)), withTemplate: "")
-        let parameters = ["phoneNumber": phoneNumber!]
-        PFCloud.callFunctionInBackground("sendVerificationCode", withParameters: parameters) { results, error in
-            if error != nil {
-                // Your error handling here
-                
-            } else {
-                self.navigationController?.pushViewController(ValidationViewController(nibName: "ValidationViewController", bundle: nil), animated: true)
+        
+        if(count(phoneNumber!) != 10) {
+            let alertController = UIAlertController(title: "Invalid Phone Number", message:
+                "Must enter exactly 10 digits", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default) {
+                UIAlertAction in
+                    self.phoneTextField.text = ""
+                    self.sendCodeBtn.enabled = true
+                })
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        else {
+        
+            let parameters = ["phoneNumber": phoneNumber!]
+            PFCloud.callFunctionInBackground("sendVerificationCode", withParameters: parameters) { results, error in
+                if error != nil {
+                    // Your error handling here
+                    let alertController = UIAlertController(title: "Invalid Phone Number", message:
+                        "The number you entered is not reachable, please make sure you entered the number correctly", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default) {
+                        UIAlertAction in
+                            self.phoneTextField.text = ""
+                            self.sendCodeBtn.enabled = true
+                        })
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                } else {
+                    self.navigationController?.pushViewController(ValidationViewController(nibName: "ValidationViewController", bundle: nil), animated: true)
+                }
             }
+            
         }
     }
     

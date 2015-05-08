@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     @IBOutlet var loginButton: UIButton!
     
