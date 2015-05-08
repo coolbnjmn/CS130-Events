@@ -1,5 +1,5 @@
 # Xcode Files
-Pods
+Pods/
 .DS_Store
 .Trashes
 *.swap
