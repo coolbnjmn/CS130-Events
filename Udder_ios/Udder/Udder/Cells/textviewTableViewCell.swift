@@ -11,6 +11,7 @@ import UIKit
 @objc protocol tvCellDelegate{
     optional func up()
     optional func down(cell: textviewTableViewCell)
+    optional func save(cell: textviewTableViewCell)
 }
 
 class textviewTableViewCell: UITableViewCell,UITextViewDelegate {
@@ -28,7 +29,11 @@ class textviewTableViewCell: UITableViewCell,UITextViewDelegate {
         
     }
     
-    
+    func textViewDidChange(textView: UITextView){
+        
+        delegate?.save!(self)
+        
+    }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         if (my_int == 1)
