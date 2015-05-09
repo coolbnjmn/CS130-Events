@@ -56,10 +56,10 @@ class SideMenuViewController: UITableViewController {
             cell.backgroundColor = UIColor.themeColor()
             cell.textLabel?.textColor = UIColor.whiteColor()
             cell.textLabel?.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size: Constants.StandardFormats.kSideBarNavNameFontSize)
+            cell.textLabel?.numberOfLines = 2
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.clipsToBounds = true
             cell.selectionStyle = .None
-            
             
             if (profPic == nil) {
                 self.getProfPic()
@@ -87,6 +87,7 @@ class SideMenuViewController: UITableViewController {
             break;
         case 6:
             cellText = "Logout";
+            cell.textLabel?.textColor = UIColor.standardRedColor()
             break;
         default:
             cellText = "";
@@ -123,8 +124,8 @@ class SideMenuViewController: UITableViewController {
             break;
         case 4: //Events Near Me
             // TODO: SWITCH BACK
-            nibNameToSwitchTo = "InviteContactTableViewController";
-            navController = UINavigationController(rootViewController: InviteContactTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
+            nibNameToSwitchTo = "EventsNearMeViewController";
+            navController = UINavigationController(rootViewController: EventsNearMeViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 5: //Pending Invitations
             nibNameToSwitchTo = "PendingInvitationsViewController";
