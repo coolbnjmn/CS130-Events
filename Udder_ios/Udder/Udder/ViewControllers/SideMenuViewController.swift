@@ -21,6 +21,8 @@ class SideMenuViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.scrollEnabled = false
+        self.tableView.alwaysBounceVertical = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     
@@ -48,6 +50,7 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         var cellText: String?;
         
         switch indexPath.row {
