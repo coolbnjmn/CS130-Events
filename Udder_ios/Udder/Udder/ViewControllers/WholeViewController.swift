@@ -133,6 +133,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         self.view.frame.origin.y += 200
         des_string = cell.mytext.text
     }
+    func save(cell: textviewTableViewCell){
+        des_string = cell.mytext.text
+    }
     var des_string:String = String()
     
     var my_int:Int = 1
