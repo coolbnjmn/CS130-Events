@@ -30,6 +30,8 @@
 		5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED351AFAA0300063F6E4 /* WholeViewController.xib */; };
 		55571E451AFC1414008AF1C3 /* textviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */; };
 		55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */; };
+		55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B3A8261B02F93800614EA8 /* regularCell.xib */; };
+		55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
@@ -147,6 +149,8 @@
 		5548ED351AFAA0300063F6E4 /* WholeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WholeViewController.xib; path = Views/WholeViewController.xib; sourceTree = "<group>"; };
 		55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = textviewTableViewCell.xib; path = Views/textviewTableViewCell.xib; sourceTree = "<group>"; };
 		55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textviewTableViewCell.swift; path = Cells/textviewTableViewCell.swift; sourceTree = "<group>"; };
+		55B3A8261B02F93800614EA8 /* regularCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = regularCell.xib; path = Views/regularCell.xib; sourceTree = "<group>"; };
+		55B3A8281B02F94400614EA8 /* regularCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = regularCell.swift; path = Cells/regularCell.swift; sourceTree = "<group>"; };
 		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
@@ -417,6 +421,7 @@
 		B2BF292E1AE9D2C000D6714C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				55B3A8281B02F94400614EA8 /* regularCell.swift */,
 				55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */,
 				5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */,
 				5548ED201AFAA0110063F6E4 /* DateTableViewCell.swift */,
@@ -449,6 +454,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				55B3A8261B02F93800614EA8 /* regularCell.xib */,
 				3487C5171AFC411800C8BA90 /* ValidationViewController.xib */,
 				55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */,
 				5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */,
@@ -617,6 +623,7 @@
 				5548ED361AFAA0300063F6E4 /* CatTableViewCell.xib in Resources */,
 				A718E8EC1AFC348700CE63B9 /* category-music.png in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
+				55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */,
 				5548ED3C1AFAA0300063F6E4 /* TimeTableViewCell.xib in Resources */,
 				5548ED381AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib in Resources */,
 				5548ED3A1AFAA0300063F6E4 /* PrivateEventCreationTableViewCell.xib in Resources */,
@@ -681,6 +688,7 @@
 				5548ED2A1AFAA0110063F6E4 /* RegEventCreationTableViewCell.swift in Sources */,
 				55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */,
 				5548ED271AFAA0110063F6E4 /* DateTableViewCell.swift in Sources */,
+				55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */,
 				A70AAA9D1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift in Sources */,
 				5548ED1E1AFA9FFB0063F6E4 /* WholeViewController.swift in Sources */,
 				B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */,

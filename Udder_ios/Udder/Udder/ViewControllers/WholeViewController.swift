@@ -7,51 +7,52 @@
 //
 
 import UIKit
-import MapKit
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, MKMapViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
     
     @IBOutlet weak var ECtable: UITableView!
-   // @IBOutlet weak var descriptiontext: UITextView!
-   // @IBOutlet weak var finishbutton: UIButton!
-  /*  @IBAction func finishbuttonclicked(sender: UIButton) {
-        println(title_string)
-        println(date_string)
-        println(loc_string)
-        println(cat_string)
-        println("\(priv_bool)")
-        println("start date \(start_date)")
-        println("end date \(end_date)")
-        println(des_string)
-        
-        var successBlock: EventModel -> Void = {
-            (eventModel: EventModel) -> Void in
-            var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
-            eventDetailViewController.setupWithEvent(eventModel);
-            
-            var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
-            viewControllers.removeObjectIdenticalTo(self);
-            viewControllers.addObject(eventDetailViewController);
-            self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
-        }
-        
-        var failureBlock: NSError -> Void = {
-            (error: NSError) -> Void in
-            println("Error: \(error)");
-        }
-        
-        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "TODO", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
-    }*/
-    
+    @IBOutlet weak var placestable: UITableView!
+    var places: [AnyObject] = [AnyObject] ()
+    var doneplaces: [AnyObject] = [AnyObject] ()
     func tableView(tableView: UITableView,
         heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+            if(tableView.tag == 0){
             let row = indexPath.row
             if (cellnames[row] == "textview"){
                 return 300
-            }
+                }}
             return tableView.rowHeight
+    }
+    
+    func findPlaces(){
+        var str1:String = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
+        var str2:String = "&sensor=false&key=AIzaSyCZE_8eTEeIfoKXPWmoMb43k4PYHz0BrXY"
+        var str3:String = String()
+        for character in loc_string {
+            if(character == " "){
+                str3 += "+"
+            }
+            else{
+                str3 += String(character)
+            }
+        }
+        var final:String = str1+str3+str2
+        println(final)
+        var url:NSURL = NSURL(string: final)!
+        var request:NSURLRequest = NSURLRequest(URL: url)
+        var op:AFHTTPRequestOperation = AFHTTPRequestOperation(request: request)
+        op.responseSerializer = AFJSONResponseSerializer()
+        op.setCompletionBlockWithSuccess({ (AFHTTPRequestOperation, responseObject) -> Void in
+            var results:String = "results"
+            self.places=responseObject.objectForKey(results)! as! [(AnyObject)]
+           //println("printing places \(self.places) \n\n")
+           //put code here
+            }, failure: { (AFHTTPRequestOperation, NSError) -> Void in
+                println("failure")
+        })
+         op.start()
     }
     
     func setaddtext(cell:RegEventCreationTableViewCell) {
@@ -65,14 +66,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
        
     }
     var title_string:String = String()
-  /*  func setactualdate(cell: DateTableViewCell){
-        date_string = cell.actualdate.text
-        
-    }
-    var date_string:String = String()*/
+
     func settimetext(cell: TimeTableViewCell) {
         if cell.textLabel?.text == "Start Time"{
-           // start_string = cell.timetext.text
             start_date = cell.date!
             if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
                 self.navigationItem.rightBarButtonItem?.enabled = true
@@ -82,7 +78,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
         }
         else{
-          //  end_string = cell.timetext.text
+          
             end_date = cell.date!
             if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
                 self.navigationItem.rightBarButtonItem?.enabled = true
@@ -94,16 +90,19 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     var start_date: NSDate = NSDate()
     var end_date: NSDate = NSDate()
-    //var start_string:String = String()
-    //var end_string:String = String()
+   
     func setwheretext(cell:WhereTableViewCell){
         loc_string = cell.wheretext.text
+        self.findPlaces()
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
             self.navigationItem.rightBarButtonItem?.enabled = true
         }
         else{
             self.navigationItem.rightBarButtonItem?.enabled = false
         }
+    }
+    func placesTableHidden(){
+        placestable.hidden = false
     }
     var loc_string:String = String()
     func setcattext(cell:CatTableViewCell){
@@ -149,28 +148,22 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         ECtable.editing = false
         ECtable.dataSource = self
         ECtable.delegate = self
-      //  descriptiontext.delegate = self
-        
-       // descriptiontext.text = "(optional)"
-       // descriptiontext.textColor = UIColor.lightGrayColor()
-        
+        placestable.dataSource = self
+        placestable.delegate = self
+        placestable.hidden = true
         var nav = self.navigationController?.navigationBar
-     //   nav!.delegate = self
 
         self.navigationItem.title = "Create Event";
-        
-      
-            //example segue code
-          /*  let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
-            mapVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-            presentViewController(mapVC, animated: true, completion: nil)*/
         
         self.setupMenuBarButtonItems()
 
         self.ECtable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+        self.placestable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         
         var nib = UINib (nibName: "RegEventCreationTableViewCell", bundle: nil)
         ECtable.registerNib(nib, forCellReuseIdentifier: "regcell")
+        var nib1a = UINib (nibName: "regularCell", bundle: nil)
+        placestable.registerNib(nib1a, forCellReuseIdentifier: "regularCell")
         
         var nib1 = UINib (nibName: "DescriptionEventCreationTableViewCell", bundle: nil)
         ECtable.registerNib(nib1, forCellReuseIdentifier: "DescriptionCell")
@@ -213,11 +206,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     func rightSideMenuButtonPressed(sender: AnyObject) {
-        /*let nibNameToSwitchTo: String?
-        let navController: UINavigationController?
-        nibNameToSwitchTo = "EventTableViewController";
-        navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
-        self.menuContainerViewController.centerViewController = navController*/
         println(title_string)
         println(loc_string)
         println(cat_string)
@@ -252,48 +240,38 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
    
     
-   /*
-    func navigationBar(navigationBar: UINavigationBar, shouldPushItem item: UINavigationItem) -> Bool {
-        return true
-    }*/
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        if(tableView.tag==0)
+        {return 1}
+        else{
+            return 1
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 8
+        if(tableView.tag==0)
+        {return 8}
+        else{
+            return 4
+        }
     }
     
-    //COMMENTED OUT IN CASE WE WANT TO CHANGE
-    //WAY TO CHOOSE LOCATION
-   /* func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if(indexPath.row == 4){
-            let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
-            mapVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-            presentViewController(mapVC, animated: true, completion: nil)
-            println("transition to map")
+    func tableView(tableView: UITableView,
+    didSelectRowAtIndexPath indexPath: NSIndexPath){
+      let row = indexPath.row
+        if(tableView.tag == 1){
+            self.view.endEditing(true)
+            placestable.hidden = true
         }
-        return indexPath
-    }*/
-    
-    /*func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n"){
-            textView.resignFirstResponder()
-            return false
-        }
-        else {
-            return true
-        }
-    }*/
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let row = indexPath.row
+        if(tableView.tag==0){
         if(cellnames[row] == "Title"){
         var cell:RegEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("regcell") as! RegEventCreationTableViewCell
         cell.cellname?.text=cellnames[row]
@@ -301,13 +279,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         cell.delegate = self
             return cell
         }
-     /*   else if (cellnames[row] == "Date")
-        {
-            var DateCell:DateTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DateCell") as! DateTableViewCell
-            DateCell.actualdate?.placeholder="04/18/15"
-            DateCell.delegate = self
-            return DateCell
-        }*/
+ 
         else if (cellnames[row] == "Start Time"){
             var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
             cell.textLabel?.text="Start Time"
@@ -352,6 +324,10 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         }
         else {
             var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
+            return cell
+            }}
+        else{
+            var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
             return cell
         }
     

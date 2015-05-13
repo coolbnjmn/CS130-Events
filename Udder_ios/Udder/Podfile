@@ -9,6 +9,8 @@ pod 'SDWebImage', '~>3.7'
 
 pod 'TTTAttributedLabel', '~> 1.10.1'
 
+pod 'AFNetworking', '~> 2.5'
+
 end
 
 target 'UdderTests' do

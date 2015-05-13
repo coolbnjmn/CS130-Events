@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LocationTableViewCell: UITableViewCell {
+class LocationTableViewCell: UITableViewCell{
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!

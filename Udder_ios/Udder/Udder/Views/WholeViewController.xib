@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WholeViewController" customModule="Udder" customModuleProvider="target">
             <connections>
                 <outlet property="ECtable" destination="vqs-ht-ixT" id="xes-K4-3Pk"/>
+                <outlet property="placestable" destination="TeW-mJ-Vd4" id="wZX-VJ-O02"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +23,10 @@
                         <outlet property="dataSource" destination="i5M-Pr-FkT" id="WUb-VA-bb0"/>
                         <outlet property="delegate" destination="i5M-Pr-FkT" id="ZqO-B7-0ej"/>
                     </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-mJ-Vd4">
+                    <rect key="frame" x="0.0" y="252" width="600" height="243"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
