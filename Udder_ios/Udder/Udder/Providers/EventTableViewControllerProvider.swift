@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kTableViewMargins:CGFloat = 6;
+let kTableViewMargins:CGFloat = 4;
 
 class EventTableViewControllerProvider: BaseProvider {
     var eventArray:NSMutableArray = NSMutableArray();

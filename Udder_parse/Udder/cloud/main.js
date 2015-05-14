@@ -130,4 +130,78 @@ Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
     }
 });
 
+/**
+* Verify the given code with the user's phone number to make sure it's the right code
+*
+* @param {string} request.params.phoneVerificationCode The user's enterred verification code to be verified
+* @return {HTTPResponse} either returns an error message or the word Success.
+*/
+
+Parse.Cloud.define("sendInvitations", function(request, response) {
+    var eventId = request.params.eventId;
+    var invitees = request.params.invitees;
+    //Create User Objects
+    createUsersFromInvitees(invitees, function(err) {
+      if (err) {
+        response.error(err);
+      } else {
+        response.success("Success");
+        /*
+        createInvitations(invitees, function(err) {
+
+        });
+        */
+      }
+    });
+});
+
+function createInvitations(invitees) {
+
+}
+
+function createUsersFromInvitees(invitees, callback) {
+    //Create new Parse Users for each invitee if they do not exists
+    var newUsers = [];
+    for (var i=0; i < invitees.length; i++) {
+        //Check if user already exists by looking up phone number
+        if (!userExists(invitees[i].phoneNumber)) {
+            var user = new Parse.User();
+            var fullName = invitees[i].name;
+            var nameArr = fullName.split(" ");
+            user.set("phoneNumber", invitees[i].phoneNumber);
+            user.set("full_name", fullName);
+            user.set("first_name", nameArr[0]);
+            user.set("last_name", nameArr[(nameArr.length-1)]);
+            //Add new User to array of new Users to save
+            newUsers.push(user);
+        }
+    }
+    //Save all User objects to db
+    Parse.Object.saveAll(newUsers, function(list, error) {
+        if (list) {
+            callback(null);
+        } else {
+            callback("Saving of users failed");
+        }
+    });
+}
+
+function userExists(phoneNumber) {
+    var query = new Parse.Query("User");
+    query.equalTo("phoneNumber", phoneNumber);
+    query.find({
+        success: function (results) {
+            if (results.length > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        error: function (error) {
+            console.log("Error in phoneNumber User query");
+        }
+    });
+}
+
+
 

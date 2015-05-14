@@ -8,7 +8,6 @@
 import UIKit
 
 class BaseViewController: UIViewController, ViewControllerProtocolDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

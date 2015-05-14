@@ -10,6 +10,7 @@ import AddressBookUI
 import UIKit
 
 import Foundation
+import Parse
 
 extension Array {
     func indexOfObject(object : AnyObject) -> NSInteger {
@@ -110,6 +111,22 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     }
     
     func inviteContacts(sender: AnyObject) {
+        
+        var invitees = [Dictionary<String, String>]()
+        for contact: ContactModel in selectedDataArray {
+            invitees.append(["name": contact.name!, "number": stripNumber(contact.phone!)])
+        }
+        
+        var params = Dictionary<String, AnyObject>()
+        params.updateValue((event?.eventId)!, forKey: "eventId")
+        params.updateValue(invitees, forKey: "invitees")
+
+        println(params)
+
+        PFCloud.callFunctionInBackground("sendInvitations", withParameters: params as [NSObject : AnyObject]) {results, error in
+        
+        }
+        
         var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
         eventDetailViewController.setupWithEvent(self.event)
       
@@ -117,6 +134,11 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         viewControllers.removeObjectIdenticalTo(self);
         viewControllers.addObject(eventDetailViewController);
         self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+    }
+    
+    func stripNumber(num: String) -> String {
+        let digits = num.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        return "".join(digits)
     }
 
     func applySearch(sender: AnyObject) {

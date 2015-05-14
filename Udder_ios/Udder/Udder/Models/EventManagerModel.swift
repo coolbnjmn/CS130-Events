@@ -53,6 +53,53 @@ class EventManagerModel: BaseModel {
         }
     }
     
+    func retrievePendingInvites(success: NSMutableArray -> Void, failure: NSError -> Void) {
+        var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+        query.whereKeyDoesNotExist(Constants.InvitationDatabaseFields.kInvitationResponse);
+        query.orderByAscending(Constants.InvitationDatabaseFields.kInvitationCreatedAt);
+        
+        query.includeKey(Constants.InvitationDatabaseFields.kInvitationEvent);
+        
+        query.findObjectsInBackgroundWithBlock {
+            (invitations: [AnyObject]!, error:NSError!) -> Void in
+            if error == nil {
+                if let invitations = invitations as? [PFObject] {
+                    var eventArray:NSMutableArray = NSMutableArray();
+                    
+                    for invitation in invitations {
+                        var event = invitation["event"] as? PFObject;
+                        
+                        if let event = event {
+                            var eventModel:EventModel? = EventModel(eventObject: event, invitation:invitation);
+                            
+                            // If the event model failed to generate then don't include it in the array
+                            if let validatedEventModel = eventModel {
+                                eventArray.addObject(validatedEventModel);
+                            }
+                            else {
+                                println("Event did not validate");
+                            }
+                        }
+                        else {
+                            println("Event was not a PFObject");
+                        }
+                    }
+                    
+                    success(eventArray);
+                }
+                else {
+                    println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+                }
+            }
+            else {
+                // Log details of the error
+                println("Error: \(error) \(error.userInfo!)");
+                failure(error);
+            }
+        }
+    }
+    
     func retrieveMyEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         // TODO: Implement
     }

@@ -23,10 +23,35 @@ class EventModel: BaseModel {
     var eventCategory: String!;
     var eventInvitees: NSArray?;
     var eventPrivate: Bool!;
+    var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
+    
+    init?(eventObject: PFObject, invitation: PFObject) {
+        super.init();
+        
+        self.setupEvent(eventObject);
+        self.setupInvitation(invitation);
+        
+        // Check to make sure all required fields are set
+        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
+            return nil;
+        }
+    }
     
     init?(eventObject: PFObject) {
         super.init();
+        self.setupEvent(eventObject);
         
+        // Check to make sure all required fields are set
+        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
+            return nil;
+        }
+    }
+    
+    func setupInvitation(invitation: PFObject) {
+        self.eventInvitation = InvitationModel(invitation: invitation);
+    }
+    
+    func setupEvent(eventObject:PFObject) {
         self.eventId = eventObject.objectId;
         
         if let tempTitle = eventObject[Constants.EventDatabaseFields.kEventTitle] as? String {
@@ -62,12 +87,24 @@ class EventModel: BaseModel {
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
         self.eventPrivate = eventObject[Constants.EventDatabaseFields.kEventPrivate] as? Bool ?? false;
-        
-        // TODO: Add array for the invitees
-        
-        // Check to make sure all required fields are set
-        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
-            return nil;
+    }
+    
+    func updateInvitationResponse(response: Bool, success: () -> Void, failure: NSError -> Void) {
+        if let eventInvitation = eventInvitation {
+            var invitationObject:PFObject = eventInvitation.invitationObject;
+            invitationObject[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
+            invitationObject.saveInBackgroundWithBlock({ (isSuccessful, error) -> Void in
+                if isSuccessful {
+                    success();
+                }
+                else {
+                    failure(error);
+                }
+            });
+        }
+        else {
+            var error:NSError = NSError(domain: "No invitation object found", code: 1, userInfo: nil);
+            failure(error);
         }
     }
     
