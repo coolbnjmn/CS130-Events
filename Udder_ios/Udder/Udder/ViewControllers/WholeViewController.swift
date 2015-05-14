@@ -15,11 +15,15 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var ECtable: UITableView!
     @IBOutlet weak var placestable: UITableView!
     
-    var places: [AnyObject] = [AnyObject] ()
-    var doneplaces: [AnyObject] = [AnyObject] ()
+    var set_placesTable: Int = 0
+    var places_add: [PlacesModel] = [PlacesModel] ()
+    var places_loc: CLLocation = CLLocation ()
+    
     var cell_title: RegEventCreationTableViewCell = RegEventCreationTableViewCell()
     var cell_start: TimeTableViewCell = TimeTableViewCell()
     var cell_end: TimeTableViewCell = TimeTableViewCell()
+    var cell_loc: WhereTableViewCell = WhereTableViewCell()
+    var cell_arr:[UITableViewCell] = [UITableViewCell]()
     
     func tableView(tableView: UITableView,
         heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
@@ -44,16 +48,29 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
         }
         var final:String = str1+str3+str2
-        println(final)
         var url:NSURL = NSURL(string: final)!
         var request:NSURLRequest = NSURLRequest(URL: url)
         var op:AFHTTPRequestOperation = AFHTTPRequestOperation(request: request)
         op.responseSerializer = AFJSONResponseSerializer()
         op.setCompletionBlockWithSuccess({ (AFHTTPRequestOperation, responseObject) -> Void in
+            //setup vars for placesmodel
+            var add:String
+            var lat: Double
+            var long: Double
+            var place:PlacesModel
+            
             var results:String = "results"
-            self.places=responseObject.objectForKey(results)! as! [(AnyObject)]
-           //println("printing places \(self.places) \n\n")
-           //put code here
+            var resultObj = responseObject.objectForKey(results)! as! [(AnyObject)]
+            for resultItem:AnyObject in resultObj  {
+                add = resultItem.objectForKey("formatted_address")! as! String
+                lat = resultItem.objectForKey("geometry")!.objectForKey("location")!.objectForKey("lat")! as! Double
+                long = resultItem.objectForKey("geometry")!.objectForKey("location")!.objectForKey("lng") as! Double
+                place = PlacesModel(add: add, lat: lat, long: long)!
+                self.places_add.insert(place, atIndex:0)
+               //  println("Directly after insert \(self.places_add.count)")
+            }
+          //  println("After for loop \(self.places_add.count)")
+            self.set_placesTable = self.set_placesTable+1
             }, failure: { (AFHTTPRequestOperation, NSError) -> Void in
                 println("failure")
         })
@@ -99,6 +116,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     func setwheretext(cell:WhereTableViewCell){
         loc_string = cell.wheretext.text
         self.findPlaces()
+        placestable.reloadData()
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
             self.navigationItem.rightBarButtonItem?.enabled = true
         }
@@ -215,13 +233,13 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     func rightSideMenuButtonPressed(sender: AnyObject) {
-        println(title_string)
+        /*println(title_string)
         println(loc_string)
         println(cat_string)
         println("\(priv_bool)")
         println("start date \(start_date)")
         println("end date \(end_date)")
-        println(des_string)
+        println(des_string)*/
         
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
@@ -273,11 +291,19 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     didSelectRowAtIndexPath indexPath: NSIndexPath){
       let row = indexPath.row
         if(tableView.tag == 1){
+            if(set_placesTable == 0)
+            {
+                //do nothing
+            }
+            else{
             self.view.endEditing(true)
             placestable.hidden = true
             cell_title.enable()
             cell_start.enable = true
             cell_end.enable = true
+            cell_loc.wheretext.text = cell_arr[row].textLabel?.text
+            places_loc = places_add[row].location
+            }
         }
     }
     
@@ -315,6 +341,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
             cell.wheretext?.placeholder = "Ex. Venice Beach"
             cell.delegate = self
+            cell_loc = cell
             return cell
             
         }
@@ -342,8 +369,20 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             return cell
             }}
         else{
+            if(set_placesTable < 2){
             var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
+            cell.textLabel?.text = "Type Location"
+            cell_arr.append(cell)
             return cell
+            }
+            else{
+                var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
+              //  println("In else \(self.places_add.count)")
+              cell.textLabel?.text = self.places_add[row].get_add()
+                 cell_arr.append(cell)
+                return cell
+            }
+            
         }
     
     }

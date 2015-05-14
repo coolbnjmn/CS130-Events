@@ -30,6 +30,7 @@
 		5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED351AFAA0300063F6E4 /* WholeViewController.xib */; };
 		55571E451AFC1414008AF1C3 /* textviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */; };
 		55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */; };
+		55AF9D101B0531D500AE7216 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B3A8261B02F93800614EA8 /* regularCell.xib */; };
 		55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
@@ -149,6 +150,7 @@
 		5548ED351AFAA0300063F6E4 /* WholeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WholeViewController.xib; path = Views/WholeViewController.xib; sourceTree = "<group>"; };
 		55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = textviewTableViewCell.xib; path = Views/textviewTableViewCell.xib; sourceTree = "<group>"; };
 		55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textviewTableViewCell.swift; path = Cells/textviewTableViewCell.swift; sourceTree = "<group>"; };
+		55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		55B3A8261B02F93800614EA8 /* regularCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = regularCell.xib; path = Views/regularCell.xib; sourceTree = "<group>"; };
 		55B3A8281B02F94400614EA8 /* regularCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = regularCell.swift; path = Cells/regularCell.swift; sourceTree = "<group>"; };
 		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				A72068AB1AE9DFBD00037D06 /* EventModel.swift */,
 				A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */,
 				B23AF74A1AF732CB00E32212 /* ContactModel.swift */,
+				55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */,
+				55AF9D101B0531D500AE7216 /* PlacesModel.swift in Sources */,
 				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
 				3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */,
 				A73027D91AF210A0009D2281 /* LocationTableViewCell.swift in Sources */,
