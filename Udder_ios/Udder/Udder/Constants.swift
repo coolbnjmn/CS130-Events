@@ -17,6 +17,7 @@ struct Constants {
     
     struct DatabaseClass {
         static let kEventClass = "Event"
+        static let kInvitationClass = "Invitation"
     }
     
     struct EventDatabaseFields {
@@ -32,6 +33,13 @@ struct Constants {
         static let kEventCategory = "category"
         static let kEventPrivate = "private"
         static let kEventFieldPlaceholder = ""
+    }
+    
+    struct InvitationDatabaseFields {
+        static let kInvitationUser = "user"
+        static let kInvitationResponse = "response"
+        static let kInvitationEvent = "event"
+        static let kInvitationCreatedAt = "createdAt"
     }
     
     struct EventDetail {
