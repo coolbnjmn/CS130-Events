@@ -18,6 +18,7 @@ class EventTableViewController: BaseEventTableViewController {
         var successBlock: NSMutableArray -> Void = {
             (eventArray: NSMutableArray) -> Void in
             self.eventTableViewControllerProvider.configure(eventArray);
+            self.searchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
             self.tableView.reloadData();
         }
         
