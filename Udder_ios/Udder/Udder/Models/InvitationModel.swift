@@ -15,5 +15,6 @@ class InvitationModel: BaseModel {
         super.init();
         
         self.invitationResponse = invitation[Constants.InvitationDatabaseFields.kInvitationResponse] as? Bool;
+        self.invitationObject = invitation;
     }
 }

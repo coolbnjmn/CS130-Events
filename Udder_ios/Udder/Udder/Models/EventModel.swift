@@ -89,6 +89,25 @@ class EventModel: BaseModel {
         self.eventPrivate = eventObject[Constants.EventDatabaseFields.kEventPrivate] as? Bool ?? false;
     }
     
+    func updateInvitationResponse(response: Bool, success: () -> Void, failure: NSError -> Void) {
+        if let eventInvitation = eventInvitation {
+            var invitationObject:PFObject = eventInvitation.invitationObject;
+            invitationObject[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
+            invitationObject.saveInBackgroundWithBlock({ (isSuccessful, error) -> Void in
+                if isSuccessful {
+                    success();
+                }
+                else {
+                    failure(error);
+                }
+            });
+        }
+        else {
+            var error:NSError = NSError(domain: "No invitation object found", code: 1, userInfo: nil);
+            failure(error);
+        }
+    }
+    
     func printEvent() {
         println("Event ID: \(self.eventId)");
         println("Title: \(self.eventTitle)");

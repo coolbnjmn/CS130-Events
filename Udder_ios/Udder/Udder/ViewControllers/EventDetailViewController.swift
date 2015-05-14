@@ -78,14 +78,28 @@ class EventDetailViewController: BaseViewController {
         var segmentedControl:SeparateTintSegmentedControl = sender as! SeparateTintSegmentedControl;
         segmentedControl.valueChanged();
         
+        var response:Bool;
+        
         switch sender.selectedSegmentIndex {
         case ResponseSegment.kSegmentAccept:
-            println("Accept selected");
+            response = true;
         case ResponseSegment.kSegmentDecline:
-            println("Reject selected");
+            response = false;
         default:
             return;
         }
+        
+        var successBlock:() -> Void = {
+            self.setSegmentControllerForResponse(response);
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        self.event?.updateInvitationResponse(response, success: successBlock, failure: failureBlock);
+
     }
     
     @IBAction func switchTable(sender: AnyObject) {
