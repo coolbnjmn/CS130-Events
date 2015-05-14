@@ -64,6 +64,8 @@
 		A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
 		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
+		B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
+		B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DAC01B0533F200850122 /* BaseSearchProvider.swift */; };
 		B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF74A1AF732CB00E32212 /* ContactModel.swift */; };
 		B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */; };
 		B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */; };
@@ -181,6 +183,8 @@
 		A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtility.swift; path = Utilities/GeneralUtility.swift; sourceTree = "<group>"; };
 		A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-fitness.png"; path = "Images/category-fitness.png"; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
+		B210DABE1B0533BA00850122 /* EventSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSearchProvider.swift; path = Providers/EventSearchProvider.swift; sourceTree = "<group>"; };
+		B210DAC01B0533F200850122 /* BaseSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSearchProvider.swift; path = Providers/BaseSearchProvider.swift; sourceTree = "<group>"; };
 		B23AF74A1AF732CB00E32212 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactModel.swift; path = Models/ContactModel.swift; sourceTree = "<group>"; };
 		B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteContactTableViewController.swift; path = ViewControllers/InviteContactTableViewController.swift; sourceTree = "<group>"; };
 		B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InviteContactTableViewController.xib; path = Views/InviteContactTableViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 			children = (
 				A73027D21AF202D4009D2281 /* BaseProvider.swift */,
 				A73027D41AF2045D009D2281 /* BaseEventProvider.swift */,
+				B210DAC01B0533F200850122 /* BaseSearchProvider.swift */,
+				B210DABE1B0533BA00850122 /* EventSearchProvider.swift */,
 				A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */,
 				A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */,
 				A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */,
@@ -554,7 +560,7 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 4VFFSF6V7V;
+						DevelopmentTeam = M6Y34M2A35;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
@@ -691,9 +697,11 @@
 				A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */,
 				B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */,
 				5548ED261AFAA0110063F6E4 /* CatTableViewCell.swift in Sources */,
+				B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */,
 				A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */,
+				B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */,
 				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
 				3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */,
 				A73027D91AF210A0009D2281 /* LocationTableViewCell.swift in Sources */,

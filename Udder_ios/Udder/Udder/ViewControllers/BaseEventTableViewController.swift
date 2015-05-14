@@ -12,6 +12,7 @@ class BaseEventTableViewController : BaseViewController {
     
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
+    var searchProvider: EventSearchProvider = EventSearchProvider()
     
     @IBOutlet var tableView: UITableView!
     
@@ -27,7 +28,10 @@ class BaseEventTableViewController : BaseViewController {
         self.tableView.delegate = self.eventTableViewControllerProvider;
         
         self.eventTableViewControllerProvider.delegate = self;
+        
+        self.searchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         fetchData();
