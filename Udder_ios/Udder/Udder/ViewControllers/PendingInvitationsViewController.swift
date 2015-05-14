@@ -17,8 +17,18 @@ class PendingInvitationsViewController: BaseEventTableViewController {
         self.navigationItem.title = "Pending Invites"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }    
+    override func fetchData() {
+        var successBlock: NSMutableArray -> Void = {
+            (eventArray: NSMutableArray) -> Void in
+            self.eventTableViewControllerProvider.configure(eventArray);
+            self.tableView.reloadData();
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        eventManagerModel.retrievePendingInvites(successBlock, failure: failureBlock);
+    }
 }
