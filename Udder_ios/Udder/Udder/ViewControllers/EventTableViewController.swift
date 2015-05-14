@@ -26,6 +26,6 @@ class EventTableViewController: BaseEventTableViewController {
             println("Error: \(error)");
         }
         
-        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
+        eventManagerModel.retrieveAllEvents(successBlock, failure: failureBlock);
     }
 }

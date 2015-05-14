@@ -90,7 +90,8 @@ class EventModel: BaseModel {
     }
     
     func updateInvitationResponse(response: Bool, success: () -> Void, failure: NSError -> Void) {
-        if let eventInvitation = eventInvitation {
+        if let eventInvitation = self.eventInvitation {
+            eventInvitation.invitationResponse = response;
             var invitationObject:PFObject = eventInvitation.invitationObject;
             invitationObject[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
             invitationObject.saveInBackgroundWithBlock({ (isSuccessful, error) -> Void in

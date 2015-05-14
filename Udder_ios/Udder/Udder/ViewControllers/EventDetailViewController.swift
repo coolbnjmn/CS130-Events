@@ -99,7 +99,6 @@ class EventDetailViewController: BaseViewController {
         }
         
         self.event?.updateInvitationResponse(response, success: successBlock, failure: failureBlock);
-
     }
     
     @IBAction func switchTable(sender: AnyObject) {
