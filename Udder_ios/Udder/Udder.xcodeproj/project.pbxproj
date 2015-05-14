@@ -50,6 +50,7 @@
 		A718E8ED1AFC348700CE63B9 /* category-other.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8EA1AFC348700CE63B9 /* category-other.png */; };
 		A71E69CF1B05333900F59E9D /* BaseEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E69CE1B05333900F59E9D /* BaseEventTableViewController.swift */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
+		A725CDD41B054ED700C930F5 /* InvitationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A725CDD31B054ED700C930F5 /* InvitationModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
 		A73027D71AF20557009D2281 /* EventDetailViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */; };
@@ -167,6 +168,7 @@
 		A718E8EA1AFC348700CE63B9 /* category-other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-other.png"; path = "Images/category-other.png"; sourceTree = "<group>"; };
 		A71E69CE1B05333900F59E9D /* BaseEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventTableViewController.swift; path = ViewControllers/BaseEventTableViewController.swift; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
+		A725CDD31B054ED700C930F5 /* InvitationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvitationModel.swift; path = Models/InvitationModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
 		A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewControllerProvider.swift; path = Providers/EventDetailViewControllerProvider.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		B2BF29351AE9D38200D6714C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A725CDD31B054ED700C930F5 /* InvitationModel.swift */,
 				B2BF29361AE9D3E200D6714C /* BaseModel.swift */,
 				A72068AB1AE9DFBD00037D06 /* EventModel.swift */,
 				A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */,
@@ -715,6 +718,7 @@
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
 				A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */,
 				A70AAA9F1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift in Sources */,
+				A725CDD41B054ED700C930F5 /* InvitationModel.swift in Sources */,
 				E17571631AEAD24100E92F07 /* MyEventsViewController.swift in Sources */,
 				A73027D71AF20557009D2281 /* EventDetailViewControllerProvider.swift in Sources */,
 				A70AAA931AF48DEE00E8B3F9 /* AF+Date+Extension.swift in Sources */,

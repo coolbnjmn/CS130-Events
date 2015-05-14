@@ -71,7 +71,7 @@ class EventManagerModel: BaseModel {
                         var event = invitation["event"] as? PFObject;
                         
                         if let event = event {
-                            var eventModel:EventModel? = EventModel(eventObject: event);
+                            var eventModel:EventModel? = EventModel(eventObject: event, invitation:invitation);
                             
                             // If the event model failed to generate then don't include it in the array
                             if let validatedEventModel = eventModel {
