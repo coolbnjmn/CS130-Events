@@ -107,31 +107,26 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        let nibNameToSwitchTo: String?
+        let nibNameToSwitchTo:String = "EventTableViewController"
         let navController: UINavigationController?
         
         switch indexPath.row {
         case 0:
             return
         case 1: //Home
-            nibNameToSwitchTo = "EventTableViewController";
             navController = UINavigationController(rootViewController: EventTableViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 2: //MyEvents
-            nibNameToSwitchTo = "MyEventsViewController";
             navController = UINavigationController(rootViewController: MyEventsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 3: //Upcoming Events
-            nibNameToSwitchTo = "UpcomingEventsViewController";
             navController = UINavigationController(rootViewController: UpcomingEventsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 4: //Events Near Me
             // TODO: SWITCH BACK
-            nibNameToSwitchTo = "EventsNearMeViewController";
             navController = UINavigationController(rootViewController: EventsNearMeViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 5: //Pending Invitations
-            nibNameToSwitchTo = "PendingInvitationsViewController";
             navController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
         case 6: //Logout
