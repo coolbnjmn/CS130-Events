@@ -15,10 +15,8 @@ import UIKit
 class DateTableViewCell: UITableViewCell{
 
     var delegate: DateCellDelegate?
-    
+    //actualdate.delegate = sel
     @IBOutlet weak var actualdate: UITextField!
-    //actualdate.delegate = self
-   
    
     @IBAction func actualdateclicked(sender: UITextField) {
         var DatePickerView  : UIDatePicker = UIDatePicker()

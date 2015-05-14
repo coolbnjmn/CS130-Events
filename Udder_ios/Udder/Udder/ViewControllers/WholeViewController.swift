@@ -11,11 +11,16 @@ import UIKit
 class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
-    
+
     @IBOutlet weak var ECtable: UITableView!
     @IBOutlet weak var placestable: UITableView!
+    
     var places: [AnyObject] = [AnyObject] ()
     var doneplaces: [AnyObject] = [AnyObject] ()
+    var cell_title: RegEventCreationTableViewCell = RegEventCreationTableViewCell()
+    var cell_start: TimeTableViewCell = TimeTableViewCell()
+    var cell_end: TimeTableViewCell = TimeTableViewCell()
+    
     func tableView(tableView: UITableView,
         heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
             if(tableView.tag == 0){
@@ -103,6 +108,10 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     func placesTableHidden(){
         placestable.hidden = false
+        //here want to disable all cells of of ECtable
+        cell_title.disable()
+        cell_start.enable = false
+        cell_end.enable = false
     }
     var loc_string:String = String()
     func setcattext(cell:CatTableViewCell){
@@ -266,6 +275,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         if(tableView.tag == 1){
             self.view.endEditing(true)
             placestable.hidden = true
+            cell_title.enable()
+            cell_start.enable = true
+            cell_end.enable = true
         }
     }
     
@@ -277,7 +289,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         cell.cellname?.text=cellnames[row]
         cell.addtext?.placeholder = "Ex. Venice Beach Run"
         cell.delegate = self
-            return cell
+        cell_title = cell
+        return cell
         }
  
         else if (cellnames[row] == "Start Time"){
@@ -285,6 +298,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             cell.textLabel?.text="Start Time"
             cell.timetext?.placeholder = "04/18/15 4:00 PM"
             cell.delegate = self
+            cell_start = cell
             return cell
             
         }
@@ -293,6 +307,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             cell.textLabel?.text="End Time"
             cell.timetext?.placeholder = "04/18/15 6:00 PM"
             cell.delegate = self
+            cell_end = cell
             return cell
             
         }

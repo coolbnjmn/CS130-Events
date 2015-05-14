@@ -49,7 +49,7 @@ class WhereTableViewCell: UITableViewCell, UITextFieldDelegate{
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        wheretext.resignFirstResponder()
+        textField.resignFirstResponder()
         delegate?.setwheretext!(self)
         return false
     }

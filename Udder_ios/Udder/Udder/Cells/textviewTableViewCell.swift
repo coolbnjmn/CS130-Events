@@ -23,7 +23,7 @@ class textviewTableViewCell: UITableViewCell,UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mytext.text = "(optional)"
+       mytext.text = "(optional)"
         mytext.textColor = UIColor.lightGrayColor()
         mytext.delegate = self
         

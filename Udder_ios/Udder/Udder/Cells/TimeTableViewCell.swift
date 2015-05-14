@@ -16,6 +16,7 @@ class TimeTableViewCell: UITableViewCell {
 
     var delegate: TimeCellDelegate?
     var date: NSDate?
+    var enable: Bool = true
     
     @IBOutlet weak var timelabel: UILabel!
    
@@ -24,13 +25,17 @@ class TimeTableViewCell: UITableViewCell {
     @IBAction func timetextclicked(sender: UITextField) {
         var DatePickerView  : UIDatePicker = UIDatePicker()
        // DatePickerView.datePickerMode = UIDatePickerMode.Time
+        if(enable){
         sender.inputView = DatePickerView
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
-        timetext.text = dateFormatter.stringFromDate(DatePickerView.date)
+        sender.text = dateFormatter.stringFromDate(DatePickerView.date)
         //println("god damn")
-        DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+            DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)}
+        else{
+            //do nothing
+        }
     }
   
     func handleDatePicker(sender: UIDatePicker) {

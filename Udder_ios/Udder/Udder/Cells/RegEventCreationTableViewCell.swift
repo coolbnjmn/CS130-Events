@@ -21,6 +21,23 @@ class RegEventCreationTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func addtextclicked(sender: UITextField) {
     }
+    
+    var answer = true
+    
+    func disable(){
+        answer = false
+        self.textFieldShouldBeginEditing(addtext)
+    }
+    
+    func enable(){
+        answer = true
+        self.textFieldShouldBeginEditing(addtext)
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return answer
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,7 +55,7 @@ class RegEventCreationTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        addtext.resignFirstResponder()
+        textField.resignFirstResponder()
         delegate?.setaddtext!(self)
         return false
     }
