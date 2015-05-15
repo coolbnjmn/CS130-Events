@@ -43,7 +43,6 @@ class BaseEventTableViewController : BaseViewController {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
     }
     
-    
     func leftMenuBarButtonItem() -> UIBarButtonItem {
         let leftButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.NavBarIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "leftSideMenuButtonPressed:")
         leftButton.tintColor = UIColor.whiteColor()
@@ -56,27 +55,15 @@ class BaseEventTableViewController : BaseViewController {
         return rightButton
     }
     
-    func leftSideMenuButtonPressed(sender: AnyObject) {
-        self.menuContainerViewController.toggleLeftSideMenuCompletion({
-            self.setupMenuBarButtonItems()
-        })
-    }
-    
     func rightPlusButtonPressed(sender: AnyObject) {
         var wholeViewController:WholeViewController = WholeViewController(nibName: "WholeViewController", bundle: nil);
         self.navigationController?.pushViewController(wholeViewController, animated: true);
     }
     
-    func rightSideMenuButtonPressed(sender: AnyObject) {
-        // let createVC = WholeViewController(nibName: "WholeViewController", bundle: nil)
-        // self.presentViewController(createVC, animated: false, completion: nil)
-        
-        let nibNameToSwitchTo: String?
-        let navController: UINavigationController?
-        nibNameToSwitchTo = "WholeViewController";
-        navController = UINavigationController(rootViewController: WholeViewController(nibName: nibNameToSwitchTo, bundle:nil))
-        self.menuContainerViewController.centerViewController = navController
-        
+    func leftSideMenuButtonPressed(sender: AnyObject) {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({
+            self.setupMenuBarButtonItems()
+        })
     }
     
     override func didReceiveMemoryWarning() {
