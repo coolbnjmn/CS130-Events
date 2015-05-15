@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentUser = PFUser.currentUser()
             //Update user with db attribute values
             //Error handling is needed
-            currentUser.fetch()
+            currentUser.fetch() // TODO: Make this async
             let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
             if (!phoneValidated) {
                 let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))

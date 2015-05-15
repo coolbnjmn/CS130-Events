@@ -12,7 +12,7 @@ class BaseEventTableViewController : BaseViewController {
     
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
-    var searchProvider: EventSearchProvider = EventSearchProvider()
+    var eventSearchProvider: EventSearchProvider = EventSearchProvider()
     
     @IBOutlet var tableView: UITableView!
     
@@ -28,8 +28,7 @@ class BaseEventTableViewController : BaseViewController {
         self.tableView.delegate = self.eventTableViewControllerProvider;
         
         self.eventTableViewControllerProvider.delegate = self;
-        
-        self.searchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
+        self.eventSearchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
         definesPresentationContext = true
 
     }

@@ -28,5 +28,7 @@ class EventSearchProvider: BaseSearchProvider {
         
         self.searchResults = nmSearchResults;
     }
+    
+    
 
 }
