@@ -67,11 +67,13 @@ class BaseSearchProvider: NSObject, UISearchResultsUpdating, UISearchControllerD
             self.searchProvider?.configure(self.data!)
         }
         self.tableView?.dataSource = self.searchProvider
+        self.tableView?.delegate = self.searchProvider
         self.tableView?.reloadData()
     }
     func willDismissSearchController(searchController: UISearchController) {
         println("will dismiss search controller")
         self.tableView?.dataSource = self.tableViewProvider
+        self.tableView?.delegate = self.tableViewProvider
         self.tableView?.reloadData()
 
     }
