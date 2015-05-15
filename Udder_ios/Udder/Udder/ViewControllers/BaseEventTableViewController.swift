@@ -30,6 +30,8 @@ class BaseEventTableViewController : BaseViewController {
         self.eventTableViewControllerProvider.delegate = self;
         
         self.searchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
+        definesPresentationContext = true
+
     }
     
     
