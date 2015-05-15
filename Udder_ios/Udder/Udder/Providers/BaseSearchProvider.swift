@@ -9,7 +9,7 @@
 import UIKit
 
 
-class BaseSearchProvider: NSObject, UISearchResultsUpdating, UISearchControllerDelegate {
+class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControllerDelegate {
     var searchController: UISearchController?
     var tableView: UITableView?
     var tableViewProvider: EventTableViewControllerProvider?
@@ -66,6 +66,7 @@ class BaseSearchProvider: NSObject, UISearchResultsUpdating, UISearchControllerD
         } else {
             self.searchProvider?.configure(self.data!)
         }
+        self.searchProvider!.delegate = self.delegate
         self.tableView?.dataSource = self.searchProvider
         self.tableView?.delegate = self.searchProvider
         self.tableView?.reloadData()
