@@ -130,78 +130,170 @@ Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
     }
 });
 
+
+
+
 /**
-* Verify the given code with the user's phone number to make sure it's the right code
-*
-* @param {string} request.params.phoneVerificationCode The user's enterred verification code to be verified
-* @return {HTTPResponse} either returns an error message or the word Success.
+* First, create new users if phone numbers in the invitees do not exist as users already
+* Then, send invitations either via text or via push notification to the invitees about eventId event
 */
 
 Parse.Cloud.define("sendInvitations", function(request, response) {
     var eventId = request.params.eventId;
     var invitees = request.params.invitees;
     //Create User Objects
-    createUsersFromInvitees(invitees, function(err) {
+    createUsersFromInvitees(invitees, function(err, users) {
       if (err) {
         response.error(err);
       } else {
+
         response.success("Success");
-        /*
-        createInvitations(invitees, function(err) {
+
+     //    for(var i = 0; i < users.length; i++) {
+    	// 	console.log(users[i]);
+    	// }
+
+        createInvitations(users, eventId, function(err) {
 
         });
-        */
+        
       }
     });
 });
 
-function createInvitations(invitees) {
+function createInvitations(users, eventId) {
 
+        for(var i = 0; i < users.length; i++) {
+        	if(users[i].get('facebookId')) {
+        		// send push notification
+        		console.log('push')
+        	} else {
+        		// send text via twilio
+        		console.log('text')
+        		var credentials = creds.getTwilioConfig();
+			    var twilio = require('twilio')(credentials.AccountSID, credentials.AuthToken);
+
+			    var Event = Parse.Object.extend("Event");
+			    var query = new Parse.Query(Event);
+                console.log("about to query");
+                // Event query not working yet
+			    query.get(eventId, {
+			        success: function (result) {
+                        console.log(result);
+			            
+			                // var event = results[0];
+                   //          var creator = event.get('host').get('first_name');
+                   //          console.log(event);
+                   //          console.log(creator);
+		        //         	twilio.sendSms({
+						    //     From: "(818) 877-4527",
+						    //     To: users[i].get('phoneNumber'),
+						    //     Body: "Hi " + users[i].get("first_name") + "! You have been invited to event " + event + "."
+						    // }, function(err, responseData) { 
+						    //     if (err) {
+						    //       response.error(err);
+						    //     } else { 
+						    //       response.success("Success");
+						    //     }
+						    // });
+			            
+			        },
+			        error: function (error) {
+			            console.log("Error in get Event query");
+			            //callback(error);
+			        }
+			    });
+
+
+
+        	}
+    	}
 }
+
+/**
+* Go through each invitee, check the phone number for existence in the database already
+*
+*
+*/
 
 function createUsersFromInvitees(invitees, callback) {
     //Create new Parse Users for each invitee if they do not exists
-    var newUsers = [];
+    var users = [];
     for (var i=0; i < invitees.length; i++) {
-        //Check if user already exists by looking up phone number
-        if (!userExists(invitees[i].phoneNumber)) {
+        checkPhoneNumber(invitees[i], function (err, user) {
+            if (err) {
+                return callback(err);
+            }
+            if (user) {
+                users.push(user);
+                if (users.length === invitees.length) {
+                  return callback(null, users);
+                }
+            }
+        });
+    }
+}
+
+
+/**
+* Logic to create new user if he/she does not already exist
+*
+*/
+function checkPhoneNumber(invitee, callback) {
+    //Check if user already exists by looking up phone number
+    userExists(invitee.phoneNumber, function (err, user) {
+        if (err) {
+            return callback(err);
+        }
+
+        if (!user) {
             var user = new Parse.User();
-            var fullName = invitees[i].name;
+            var fullName = invitee.name;
             var nameArr = fullName.split(" ");
-            user.set("phoneNumber", invitees[i].phoneNumber);
+            user.set("username", "textuser_" + invitee.phoneNumber);
+            user.set("password", "resUtxeT");
+            user.set("phoneNumber", invitee.phoneNumber);
             user.set("full_name", fullName);
             user.set("first_name", nameArr[0]);
             user.set("last_name", nameArr[(nameArr.length-1)]);
-            //Add new User to array of new Users to save
-            newUsers.push(user);
-        }
-    }
-    //Save all User objects to db
-    Parse.Object.saveAll(newUsers, function(list, error) {
-        if (list) {
-            callback(null);
+            user.signUp(null, {
+                success: function (user) {
+                    callback(null, user);
+                },
+                error: function (user, error) {
+                  console.log("User could not be signed up: " + error.message);
+                  callback(err);
+                }
+            });
         } else {
-            callback("Saving of users failed");
+          callback(null, user);
+        }
+    });
+    
+}
+/**
+* Check if there exists a user with the given phone number
+* Return the user if he/she exists, or false if he/she does not
+*
+*/
+function userExists(phoneNumber, callback) {
+    var query = new Parse.Query(Parse.User);
+    query.equalTo("phoneNumber", phoneNumber);
+    query.find({
+        success: function (results) {
+            if (results.length) {
+                return callback(null, results[0]);
+            }
+            callback(null, false);
+        },
+        error: function (error) {
+            console.log("Error in phoneNumber User query");
+            callback(error);
         }
     });
 }
 
-function userExists(phoneNumber) {
-    var query = new Parse.Query("User");
-    query.equalTo("phoneNumber", phoneNumber);
-    query.find({
-        success: function (results) {
-            if (results.length > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        },
-        error: function (error) {
-            console.log("Error in phoneNumber User query");
-        }
-    });
-}
+
 
 
 
