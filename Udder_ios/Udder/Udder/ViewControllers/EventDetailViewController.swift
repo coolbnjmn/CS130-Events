@@ -79,6 +79,10 @@ class EventDetailViewController: BaseViewController {
         segmentedControl.valueChanged();
         
         var response:Bool;
+        var wasSelected:Bool = false;
+        if let event = event {
+            wasSelected = event.eventInvitation != nil;
+        }
         
         switch sender.selectedSegmentIndex {
         case ResponseSegment.kSegmentAccept:
@@ -96,6 +100,12 @@ class EventDetailViewController: BaseViewController {
         var failureBlock: NSError -> Void = {
             (error: NSError) -> Void in
             println("Error: \(error)");
+            if wasSelected {
+                self.setSegmentControllerForResponse(!response);
+            }
+            else {
+                segmentedControl.deselectControl();
+            }
         }
         
         self.event?.updateInvitationResponse(response, success: successBlock, failure: failureBlock);
@@ -148,7 +158,6 @@ class EventDetailViewController: BaseViewController {
             
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {
-                self.eventInvitation = invitation;
                 self.setSegmentControllerForResponse(invitation.invitationResponse);
             }
             
