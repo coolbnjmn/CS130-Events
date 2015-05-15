@@ -116,25 +116,31 @@ class EventManagerModel: BaseModel {
     // Function handles event data and parses it into event model
     func handleEvents(objects: [AnyObject]!, error:NSError!, success: NSMutableArray -> Void, failure: NSError -> Void) {
         if error == nil {
-            if let eventObjects = objects as? [PFObject] {
-                var eventArray:NSMutableArray = NSMutableArray();
-                
-                for event in eventObjects {
-                    var eventModel:EventModel? = EventModel(eventObject: event);
-                    
-                    // If the event model failed to generate then don't include it in the array
-                    if let validatedEventModel = eventModel {
-                        eventArray.addObject(validatedEventModel);
+            var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+            query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+            
+            query.findObjectsInBackgroundWithBlock {
+                (invitations: [AnyObject]!, error:NSError!) -> Void in
+                if error == nil {
+                    if let invitations = invitations as? [PFObject] {
+                        if let eventObjects = objects as? [PFObject] {
+                            var eventArray:NSMutableArray = self.mergeEventsWithInvitations(eventObjects, invitations: invitations);
+                            
+                            success(eventArray);
+                        }
+                        else {
+                            println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+                        }
                     }
                     else {
-                        println("Event did not validate");
+                        println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
                     }
                 }
-                
-                success(eventArray);
-            }
-            else {
-                println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+                else {
+                    // Log details of the error
+                    println("Error: \(error) \(error.userInfo!)");
+                    failure(error);
+                }
             }
         }
         else {
@@ -142,6 +148,44 @@ class EventManagerModel: BaseModel {
             println("Error: \(error) \(error.userInfo!)");
             failure(error);
         }
+    }
+    
+    // Merges the invitations with events
+    func mergeEventsWithInvitations(eventObjects:[PFObject], invitations:[PFObject]) -> NSMutableArray {
+        var eventArray:NSMutableArray = NSMutableArray();
+        
+        for event in eventObjects {
+            var eventModel:EventModel? = EventModel(eventObject: event);
+            
+            // If the event model failed to generate then don't include it in the array
+            if let validatedEventModel = eventModel {
+                eventArray.addObject(validatedEventModel);
+            }
+            else {
+                println("Failed to validate event");
+            }
+        }
+        
+        for invitation in invitations {
+            var invitationEvent = invitation["event"] as? PFObject;
+            
+            if let invitationEvent = invitationEvent {
+                for event in eventArray {
+                    if let event = event as? EventModel {
+                        if invitationEvent.objectId == event.eventObject.objectId {
+                            var invitationModel:InvitationModel = InvitationModel(invitation: invitation);
+                            event.eventInvitation = invitationModel;
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                println("Event was not a PFObject");
+            }
+        }
+        
+        return eventArray;
     }
     
     // Function handles invitation data and parsing it into events
