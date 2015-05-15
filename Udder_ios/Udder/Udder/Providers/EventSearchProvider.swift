@@ -16,7 +16,6 @@ class EventSearchProvider: BaseSearchProvider {
     }
     
     override func applySearch(sender: AnyObject) {
-        println(self.searchController?.searchBar.text.lowercaseString)
         let searchText: String? = self.searchController?.searchBar.text.lowercaseString
         let eventTitlePredicate = NSPredicate(format: "eventTitle contains[cd] %@", searchText!)
         let eventLocationPredicate = NSPredicate(format: "eventLocation contains[cd] %@", searchText!)

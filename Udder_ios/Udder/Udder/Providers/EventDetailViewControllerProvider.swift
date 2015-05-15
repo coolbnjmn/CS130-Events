@@ -7,6 +7,8 @@
 //
 
 /* Class provides data for the event detail page */
+import Parse
+
 var kDescriptionCellHeightOffset:CGFloat = 45;
 var kDescriptionCellLabelMargin:CGFloat = 16;
 var kDefaultDescriptionCellHeight:CGFloat = 150;
@@ -59,7 +61,7 @@ class EventDetailViewControllerProvider:BaseEventProvider {
                 cell = configureTimeCell(tableView, startTime: validatedEvent.eventStartTime, endTime: validatedEvent.eventEndTime);
                 
             case Constants.EventDetail.Row.kLocationCell:
-                cell = configureLocationCell(tableView, locationText: validatedEvent.eventLocation);
+                cell = configureLocationCell(tableView, event: validatedEvent);
                 
             default:
                 break;
@@ -91,9 +93,10 @@ class EventDetailViewControllerProvider:BaseEventProvider {
         return descriptionTableViewCell
     }
     
-    func configureLocationCell(tableView:UITableView, locationText:String) -> UITableViewCell {
+    func configureLocationCell(tableView:UITableView, event:EventModel) -> UITableViewCell {
         let locationTableViewCell:LocationTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kLocationTableViewCell) as! LocationTableViewCell;
-        locationTableViewCell.configure(locationText);
+        
+        locationTableViewCell.configure(event);
         
         return locationTableViewCell;
     }

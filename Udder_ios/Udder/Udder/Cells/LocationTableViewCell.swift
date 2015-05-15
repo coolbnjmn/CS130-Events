@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
@@ -28,23 +29,25 @@ class LocationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(location:String) {
-        locationLabel.text = location;
+    func configure(event:EventModel) {
+        locationLabel.text = event.eventLocation;
 
-        let location = CLLocationCoordinate2D(
-            latitude: 34.069201,
-            longitude: -118.445192
-        )
-
-        let span = MKCoordinateSpanMake(0.05, 0.05);
-        let region = MKCoordinateRegion(center: location, span: span);
-        mapView.setRegion(region, animated: true);
-        
-        let annotation = MKPointAnnotation();
-        annotation.coordinate = location;
-
-        annotation.title = "UCLA";
-        annotation.subtitle = "An Udder Event";
-        mapView.addAnnotation(annotation);
+        if let geoCoordinate = event.eventGeoCoordinate {
+            let location = CLLocationCoordinate2D(
+                latitude: geoCoordinate.latitude,
+                longitude: geoCoordinate.longitude
+            )
+            
+            let span = MKCoordinateSpanMake(0.05, 0.05);
+            let region = MKCoordinateRegion(center: location, span: span);
+            mapView.setRegion(region, animated: true);
+            
+            let annotation = MKPointAnnotation();
+            annotation.coordinate = location;
+            
+            annotation.title = event.eventLocation;
+            annotation.subtitle = "10980 Wellworth Ave"; // TODO: Change this to actual address
+            mapView.addAnnotation(annotation);
+        }
     }
 }

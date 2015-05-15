@@ -14,8 +14,7 @@ class EventModel: BaseModel {
     var eventTitle: String!;
     var eventDescription: String!;
     var eventLocation: String!;
-    var eventLatitude: Float?;
-    var eventLongitude: Float?;
+    var eventGeoCoordinate: PFGeoPoint?;
     var eventStartTime: NSDate!;
     var eventEndTime: NSDate!;
     var eventImage: String!;
@@ -63,6 +62,8 @@ class EventModel: BaseModel {
         self.eventLocation = eventObject[Constants.EventDatabaseFields.kEventLocation] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
+        self.eventGeoCoordinate = eventObject[Constants.EventDatabaseFields.kEventGeoCoordinate] as? PFGeoPoint;
+        
         self.eventDescription = eventObject[Constants.EventDatabaseFields.kEventDescription] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
@@ -77,9 +78,6 @@ class EventModel: BaseModel {
         if let tempEventTime = eventObject[Constants.EventDatabaseFields.kEventEndTime] as? NSDate {
             self.eventEndTime = tempEventTime;
         }
-        
-        self.eventLatitude = eventObject[Constants.EventDatabaseFields.kEventLatitude] as? Float;
-        self.eventLongitude = eventObject[Constants.EventDatabaseFields.kEventLongitude] as? Float;
         
         if let tempEventHost = eventObject[Constants.EventDatabaseFields.kEventHost] as? PFUser {
             self.eventHost = tempEventHost;
@@ -138,15 +136,7 @@ class EventModel: BaseModel {
         println("Location: \(self.eventLocation)");
         println("Description: \(self.eventDescription)");
         println("Image: \(self.eventImage)");
-        println("Start Time: \(self.eventStartTime)");
-        
-        if let latitude = self.eventLatitude {
-            println("Latitude: \(latitude)");
-        }
-        
-        if let longitude = self.eventLongitude {
-            println("Longitude: \(longitude)");
-        }
+        println("Start Time: \(self.eventStartTime)");        
         
         println("Host: \(self.eventHost)");
         println("Category: \(self.eventCategory)");
