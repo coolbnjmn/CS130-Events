@@ -13,6 +13,7 @@ struct Constants {
         static let kLocationTableViewCell = "LocationTableViewCell"
         static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
+        static let kAttendeesTableViewCell = "AttendeesTableViewCell"
     }
     
     struct DatabaseClass {
@@ -24,8 +25,7 @@ struct Constants {
         static let kEventTitle = "title"
         static let kEventDescription = "description"
         static let kEventLocation = "location"
-        static let kEventLatitude = "latitude"
-        static let kEventLongitude = "longitude"
+        static let kEventGeoCoordinate = "geocoordinate"
         static let kEventStartTime = "start_time"
         static let kEventEndTime = "end_time"
         static let kEventImageURL = "image_url"
@@ -54,6 +54,9 @@ struct Constants {
             static let kDescriptionTextSize:CGFloat = 14;
             static let kDescriptionTextFont = "Avenir-Medium"
             static let kDefaultMargin:CGFloat = 8;
+            static let kAttendeeTextFont = "Avenir-Book"
+            static let kAttendeeTextSize:CGFloat = 18.0
+            static let kAttendeeCellHeight:CGFloat = 55.0
         }
     }
     

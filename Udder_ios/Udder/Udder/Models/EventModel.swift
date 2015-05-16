@@ -14,8 +14,7 @@ class EventModel: BaseModel {
     var eventTitle: String!;
     var eventDescription: String!;
     var eventLocation: String!;
-    var eventLatitude: Float?;
-    var eventLongitude: Float?;
+    var eventGeoCoordinate: PFGeoPoint?;
     var eventStartTime: NSDate!;
     var eventEndTime: NSDate!;
     var eventImage: String!;
@@ -24,6 +23,7 @@ class EventModel: BaseModel {
     var eventInvitees: NSArray?;
     var eventPrivate: Bool!;
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
+    var eventObject: PFObject!; // The parse event object
     
     init?(eventObject: PFObject, invitation: PFObject) {
         super.init();
@@ -52,6 +52,7 @@ class EventModel: BaseModel {
     }
     
     func setupEvent(eventObject:PFObject) {
+        self.eventObject = eventObject;
         self.eventId = eventObject.objectId;
         
         if let tempTitle = eventObject[Constants.EventDatabaseFields.kEventTitle] as? String {
@@ -60,6 +61,8 @@ class EventModel: BaseModel {
         
         self.eventLocation = eventObject[Constants.EventDatabaseFields.kEventLocation] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
+        
+        self.eventGeoCoordinate = eventObject[Constants.EventDatabaseFields.kEventGeoCoordinate] as? PFGeoPoint;
         
         self.eventDescription = eventObject[Constants.EventDatabaseFields.kEventDescription] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
@@ -76,9 +79,6 @@ class EventModel: BaseModel {
             self.eventEndTime = tempEventTime;
         }
         
-        self.eventLatitude = eventObject[Constants.EventDatabaseFields.kEventLatitude] as? Float;
-        self.eventLongitude = eventObject[Constants.EventDatabaseFields.kEventLongitude] as? Float;
-        
         if let tempEventHost = eventObject[Constants.EventDatabaseFields.kEventHost] as? PFUser {
             self.eventHost = tempEventHost;
         }
@@ -90,11 +90,13 @@ class EventModel: BaseModel {
     }
     
     func updateInvitationResponse(response: Bool, success: () -> Void, failure: NSError -> Void) {
-        if let eventInvitation = eventInvitation {
+        // If there already is an invitation then update the response of the invitation
+        if let eventInvitation = self.eventInvitation {
             var invitationObject:PFObject = eventInvitation.invitationObject;
             invitationObject[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
             invitationObject.saveInBackgroundWithBlock({ (isSuccessful, error) -> Void in
                 if isSuccessful {
+                    eventInvitation.invitationResponse = response;
                     success();
                 }
                 else {
@@ -102,9 +104,29 @@ class EventModel: BaseModel {
                 }
             });
         }
+        // If there is no invitatin then create one for the event
         else {
-            var error:NSError = NSError(domain: "No invitation object found", code: 1, userInfo: nil);
-            failure(error);
+            self.createInvitation(response, success: success, failure: failure);
+        }
+    }
+    
+    // Helper functions
+    func createInvitation(response: Bool, success: () -> Void, failure: NSError -> Void) {
+        var invitation = PFObject(className: Constants.DatabaseClass.kInvitationClass);
+        invitation[Constants.InvitationDatabaseFields.kInvitationEvent] = self.eventObject;
+        invitation[Constants.InvitationDatabaseFields.kInvitationUser] = PFUser.currentUser();
+        invitation[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
+        
+        invitation.saveInBackgroundWithBlock { (isSuccessful, error) -> Void in
+            if isSuccessful {
+                var invitationModel:InvitationModel = InvitationModel(invitation: invitation);
+                self.eventInvitation = invitationModel;
+                success();
+            }
+            else {
+                println("Unable to create invitation: \(error)");
+                failure(error);
+            }
         }
     }
     
@@ -114,15 +136,7 @@ class EventModel: BaseModel {
         println("Location: \(self.eventLocation)");
         println("Description: \(self.eventDescription)");
         println("Image: \(self.eventImage)");
-        println("Start Time: \(self.eventStartTime)");
-        
-        if let latitude = self.eventLatitude {
-            println("Latitude: \(latitude)");
-        }
-        
-        if let longitude = self.eventLongitude {
-            println("Longitude: \(longitude)");
-        }
+        println("Start Time: \(self.eventStartTime)");        
         
         println("Host: \(self.eventHost)");
         println("Category: \(self.eventCategory)");

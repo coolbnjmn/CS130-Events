@@ -79,6 +79,10 @@ class EventDetailViewController: BaseViewController {
         segmentedControl.valueChanged();
         
         var response:Bool;
+        var wasSelected:Bool = false;
+        if let event = event {
+            wasSelected = event.eventInvitation != nil;
+        }
         
         switch sender.selectedSegmentIndex {
         case ResponseSegment.kSegmentAccept:
@@ -96,10 +100,15 @@ class EventDetailViewController: BaseViewController {
         var failureBlock: NSError -> Void = {
             (error: NSError) -> Void in
             println("Error: \(error)");
+            if wasSelected {
+                self.setSegmentControllerForResponse(!response);
+            }
+            else {
+                segmentedControl.deselectControl();
+            }
         }
         
         self.event?.updateInvitationResponse(response, success: successBlock, failure: failureBlock);
-
     }
     
     @IBAction func switchTable(sender: AnyObject) {
@@ -131,8 +140,12 @@ class EventDetailViewController: BaseViewController {
         self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.infoTableView.dataSource = self.eventDetailProvider;
         self.infoTableView.delegate = self.eventDetailProvider;
+
         
-        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        let attendeesTableViewCellNib = UINib(nibName: "AttendeesTableViewCell", bundle: nil);
+        self.attendeesTableView.registerNib(attendeesTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kAttendeesTableViewCell);
+        
+//        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
         self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.attendeesTableView.dataSource = self.eventAttendeesProvider;
         self.attendeesTableView.delegate = self.eventAttendeesProvider;
@@ -149,7 +162,6 @@ class EventDetailViewController: BaseViewController {
             
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {
-                self.eventInvitation = invitation;
                 self.setSegmentControllerForResponse(invitation.invitationResponse);
             }
             

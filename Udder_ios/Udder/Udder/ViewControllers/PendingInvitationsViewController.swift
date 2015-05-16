@@ -18,17 +18,6 @@ class PendingInvitationsViewController: BaseEventTableViewController {
     }
 
     override func fetchData() {
-        var successBlock: NSMutableArray -> Void = {
-            (eventArray: NSMutableArray) -> Void in
-            self.eventTableViewControllerProvider.configure(eventArray);
-            self.tableView.reloadData();
-        }
-        
-        var failureBlock: NSError -> Void = {
-            (error: NSError) -> Void in
-            println("Error: \(error)");
-        }
-        
-        eventManagerModel.retrievePendingInvites(successBlock, failure: failureBlock);
+        eventManagerModel.retrievePendingInvites(self.successBlock, failure: self.failureBlock);
     }
 }

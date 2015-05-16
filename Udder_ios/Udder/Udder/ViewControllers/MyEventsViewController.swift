@@ -15,4 +15,9 @@ class MyEventsViewController: BaseEventTableViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "My Events"
     }
+    
+    override func fetchData() {
+        eventManagerModel.retrieveMyEvents(self.successBlock, failure: self.failureBlock);
+    }
 }
+

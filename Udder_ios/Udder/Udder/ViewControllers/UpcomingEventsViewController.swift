@@ -16,4 +16,8 @@ class UpcomingEventsViewController: BaseEventTableViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Upcoming Events"
     }
+    
+    override func fetchData() {
+        eventManagerModel.retrieveUpcomingEvents(self.successBlock, failure: self.failureBlock);
+    }
 }

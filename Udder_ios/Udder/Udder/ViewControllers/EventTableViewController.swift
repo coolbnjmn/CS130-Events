@@ -15,17 +15,6 @@ class EventTableViewController: BaseEventTableViewController {
     }
     
     override func fetchData() {
-        var successBlock: NSMutableArray -> Void = {
-            (eventArray: NSMutableArray) -> Void in
-            self.eventTableViewControllerProvider.configure(eventArray);
-            self.tableView.reloadData();
-        }
-        
-        var failureBlock: NSError -> Void = {
-            (error: NSError) -> Void in
-            println("Error: \(error)");
-        }
-        
-        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
+        eventManagerModel.retrieveAllEvents(self.successBlock, failure: self.failureBlock);
     }
 }

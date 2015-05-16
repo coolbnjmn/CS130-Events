@@ -17,39 +17,24 @@ class EventManagerModel: BaseModel {
         return EventManager.instance
     }
     
-    // TODO: Have this actually retrieve upcoming events
-    func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveAllEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
         query.orderByDescending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error:NSError!) -> Void in
-            if error == nil {
-                if let eventObjects = objects as? [PFObject] {
-                    var eventArray:NSMutableArray = NSMutableArray();
-                    
-                    for event in eventObjects {
-                        var eventModel:EventModel? = EventModel(eventObject: event);
-                        
-                        // If the event model failed to generate then don't include it in the array
-                        if let validatedEventModel = eventModel {
-                            eventArray.addObject(validatedEventModel);
-                        }
-                        else {
-                            println("Event did not validate");
-                        }
-                    }
-                    
-                    success(eventArray);
-                }
-                else {
-                    println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
-                }
-            }
-            else {
-                // Log details of the error
-                println("Error: \(error) \(error.userInfo!)");
-                failure(error);
-            }
+            self.handleEvents(objects, error: error, success: success, failure: failure);
+        }
+    }
+    
+    func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+        var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+        
+        query.includeKey(Constants.InvitationDatabaseFields.kInvitationEvent);
+        
+        query.findObjectsInBackgroundWithBlock {
+            (invitations: [AnyObject]!, error:NSError!) -> Void in
+            self.handleInvitations(invitations, error: error, success: success, failure: failure, shouldSort: true);
         }
     }
     
@@ -63,49 +48,37 @@ class EventManagerModel: BaseModel {
         
         query.findObjectsInBackgroundWithBlock {
             (invitations: [AnyObject]!, error:NSError!) -> Void in
-            if error == nil {
-                if let invitations = invitations as? [PFObject] {
-                    var eventArray:NSMutableArray = NSMutableArray();
-                    
-                    for invitation in invitations {
-                        var event = invitation["event"] as? PFObject;
-                        
-                        if let event = event {
-                            var eventModel:EventModel? = EventModel(eventObject: event, invitation:invitation);
-                            
-                            // If the event model failed to generate then don't include it in the array
-                            if let validatedEventModel = eventModel {
-                                eventArray.addObject(validatedEventModel);
-                            }
-                            else {
-                                println("Event did not validate");
-                            }
-                        }
-                        else {
-                            println("Event was not a PFObject");
-                        }
-                    }
-                    
-                    success(eventArray);
-                }
-                else {
-                    println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
-                }
-            }
-            else {
-                // Log details of the error
-                println("Error: \(error) \(error.userInfo!)");
-                failure(error);
-            }
+            self.handleInvitations(invitations, error: error, success: success, failure: failure, shouldSort: false);
         }
     }
     
     func retrieveMyEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
-        // TODO: Implement
+        var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+        query.whereKey(Constants.EventDatabaseFields.kEventHost, equalTo: PFUser.currentUser());
+        query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
+        
+        query.findObjectsInBackgroundWithBlock {
+            (events: [AnyObject]!, error:NSError!) -> Void in
+            self.handleEvents(events, error: error, success: success, failure: failure);
+        }
     }
-    
-    func retrieveNearbyEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
-        // TODO: Implement
+
+    func retrieveEventsNearMe(miles:Double, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+            if error == nil {
+                var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+                query.whereKey(Constants.EventDatabaseFields.kEventGeoCoordinate, nearGeoPoint: geoPoint, withinMiles: miles);
+                query.findObjectsInBackgroundWithBlock({
+                    (events: [AnyObject]!, error: NSError!) -> Void in
+                    self.handleEvents(events, error: error, success: success, failure: failure);
+                })
+            }
+            else {
+                println("Unable to find current user's location");
+                failure(error);
+            }
+        }
     }
     
     func retrieveAttendeesForEvent(event: EventModel) {
@@ -139,6 +112,134 @@ class EventManagerModel: BaseModel {
             else {
                 failure(error);
             }
+        }
+    }
+    
+    // Helper Functions
+    func sortEventsInDescendingOrder(eventsArray:NSMutableArray) -> NSMutableArray {
+        var sortedEvents:NSArray = sorted(eventsArray) {
+            (obj1, obj2) in
+            let event1 = obj1 as! EventModel;
+            let event2 = obj2 as! EventModel;
+            return event1.eventStartTime.isEarlierThanDate(event2.eventStartTime);
+        }
+        
+        return NSMutableArray(array: sortedEvents);
+    }
+    
+    // Function handles event data and parses it into event model
+    func handleEvents(objects: [AnyObject]!, error:NSError!, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        if error == nil {
+            var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+            query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+            
+            query.findObjectsInBackgroundWithBlock {
+                (invitations: [AnyObject]!, error:NSError!) -> Void in
+                if error == nil {
+                    if let invitations = invitations as? [PFObject] {
+                        if let eventObjects = objects as? [PFObject] {
+                            var eventArray:NSMutableArray = self.mergeEventsWithInvitations(eventObjects, invitations: invitations);
+                            
+                            success(eventArray);
+                        }
+                        else {
+                            println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+                        }
+                    }
+                    else {
+                        println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+                    }
+                }
+                else {
+                    // Log details of the error
+                    println("Error: \(error) \(error.userInfo!)");
+                    failure(error);
+                }
+            }
+        }
+        else {
+            // Log details of the error
+            println("Error: \(error) \(error.userInfo!)");
+            failure(error);
+        }
+    }
+    
+    // Merges the invitations with events
+    func mergeEventsWithInvitations(eventObjects:[PFObject], invitations:[PFObject]) -> NSMutableArray {
+        var eventArray:NSMutableArray = NSMutableArray();
+        
+        for event in eventObjects {
+            var eventModel:EventModel? = EventModel(eventObject: event);
+            
+            // If the event model failed to generate then don't include it in the array
+            if let validatedEventModel = eventModel {
+                eventArray.addObject(validatedEventModel);
+            }
+            else {
+                println("Failed to validate event");
+            }
+        }
+        
+        for invitation in invitations {
+            var invitationEvent = invitation["event"] as? PFObject;
+            
+            if let invitationEvent = invitationEvent {
+                for event in eventArray {
+                    if let event = event as? EventModel {
+                        if invitationEvent.objectId == event.eventObject.objectId {
+                            var invitationModel:InvitationModel = InvitationModel(invitation: invitation);
+                            event.eventInvitation = invitationModel;
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                println("Event was not a PFObject");
+            }
+        }
+        
+        return eventArray;
+    }
+    
+    // Function handles invitation data and parsing it into events
+    func handleInvitations(invitations: [AnyObject]!, error:NSError!, success: NSMutableArray -> Void, failure: NSError -> Void, shouldSort:Bool) {
+        if error == nil {
+            if let invitations = invitations as? [PFObject] {
+                var eventArray:NSMutableArray = NSMutableArray();
+                
+                for invitation in invitations {
+                    var event = invitation["event"] as? PFObject;
+                    
+                    if let event = event {
+                        var eventModel:EventModel? = EventModel(eventObject: event, invitation:invitation);
+                        
+                        // If the event model failed to generate then don't include it in the array
+                        if let validatedEventModel = eventModel {
+                            eventArray.addObject(validatedEventModel);
+                        }
+                        else {
+                            println("Event did not validate");
+                        }
+                    }
+                    else {
+                        println("Event was not a PFObject");
+                    }
+                }
+                
+                if shouldSort {
+                    eventArray = self.sortEventsInDescendingOrder(eventArray);
+                }
+                success(eventArray);
+            }
+            else {
+                println("Error: Shouldn't have gotten to this point: PFObject array not retrieved");
+            }
+        }
+        else {
+            // Log details of the error
+            println("Error: \(error) \(error.userInfo!)");
+            failure(error);
         }
     }
 }
