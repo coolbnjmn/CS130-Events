@@ -116,8 +116,12 @@ class EventDetailViewController: BaseViewController {
         self.infoTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.infoTableView.dataSource = self.eventDetailProvider;
         self.infoTableView.delegate = self.eventDetailProvider;
+
         
-        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        let attendeesTableViewCellNib = UINib(nibName: "AttendeesTableViewCell", bundle: nil);
+        self.attendeesTableView.registerNib(attendeesTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kAttendeesTableViewCell);
+        
+//        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
         self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.attendeesTableView.dataSource = self.eventAttendeesProvider;
         self.attendeesTableView.delegate = self.eventAttendeesProvider;

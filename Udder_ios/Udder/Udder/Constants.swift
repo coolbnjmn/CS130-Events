@@ -13,6 +13,7 @@ struct Constants {
         static let kLocationTableViewCell = "LocationTableViewCell"
         static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
+        static let kAttendeesTableViewCell = "AttendeesTableViewCell"
     }
     
     struct DatabaseClass {
@@ -54,6 +55,9 @@ struct Constants {
             static let kDescriptionTextSize:CGFloat = 14;
             static let kDescriptionTextFont = "Avenir-Medium"
             static let kDefaultMargin:CGFloat = 8;
+            static let kAttendeeTextFont = "Avenir-Book"
+            static let kAttendeeTextSize:CGFloat = 18.0
+            static let kAttendeeCellHeight:CGFloat = 55.0
         }
     }
     

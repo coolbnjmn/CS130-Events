@@ -171,9 +171,9 @@ class SideMenuViewController: UITableViewController {
     func getProfPic() {
         var fid: String? = PFUser.currentUser().objectForKey("facebookId") as? String ?? ""
         if (fid != "") {
-        var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal" //type=normal
-        var imgURL = NSURL(string: imgURLString)
-        var imageData = NSData(contentsOfURL: imgURL!)
+            var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal" //type=normal
+            var imgURL = NSURL(string: imgURLString)
+            var imageData = NSData(contentsOfURL: imgURL!)
             profPic = UIImage(data: imageData!)
         }
     }

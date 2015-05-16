@@ -111,6 +111,8 @@
 		E17571761AEAD31C00E92F07 /* MyEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */; };
 		E17571771AEAD31C00E92F07 /* PendingInvitationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */; };
 		E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */; };
+		E1DB02381B0550580027AFF0 /* AttendeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */; };
+		E1DB023B1B0550A50027AFF0 /* AttendeesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,8 @@
 		E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyEventsViewController.xib; path = Views/MyEventsViewController.xib; sourceTree = "<group>"; };
 		E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingInvitationsViewController.xib; path = Views/PendingInvitationsViewController.xib; sourceTree = "<group>"; };
 		E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpcomingEventsViewController.xib; path = Views/UpcomingEventsViewController.xib; sourceTree = "<group>"; };
+		E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeesTableViewCell.swift; path = Cells/AttendeesTableViewCell.swift; sourceTree = "<group>"; };
+		E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttendeesTableViewCell.xib; path = Views/AttendeesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +437,7 @@
 				A73027D81AF210A0009D2281 /* LocationTableViewCell.swift */,
 				A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */,
 				B2EF09F21AFC15F000A1B433 /* ContactCell.swift */,
+				E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */,
 				3487C5171AFC411800C8BA90 /* ValidationViewController.xib */,
 				55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */,
 				5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */,
@@ -621,6 +627,7 @@
 				A718E8EC1AFC348700CE63B9 /* category-music.png in Resources */,
 				E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */,
 				5548ED3C1AFAA0300063F6E4 /* TimeTableViewCell.xib in Resources */,
+				E1DB023B1B0550A50027AFF0 /* AttendeesTableViewCell.xib in Resources */,
 				5548ED381AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib in Resources */,
 				5548ED3A1AFAA0300063F6E4 /* PrivateEventCreationTableViewCell.xib in Resources */,
 				A718E8E71AFC347F00CE63B9 /* category-entertainment.png in Resources */,
@@ -678,6 +685,7 @@
 				B2BF29371AE9D3E200D6714C /* BaseModel.swift in Sources */,
 				5548ED2C1AFAA0110063F6E4 /* WhereTableViewCell.swift in Sources */,
 				E175716F1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift in Sources */,
+				E1DB02381B0550580027AFF0 /* AttendeesTableViewCell.swift in Sources */,
 				5548ED281AFAA0110063F6E4 /* DescriptionEventCreationTableViewCell.swift in Sources */,
 				B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */,
 				5548ED2B1AFAA0110063F6E4 /* TimeTableViewCell.swift in Sources */,
