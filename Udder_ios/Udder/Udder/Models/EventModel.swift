@@ -23,10 +23,37 @@ class EventModel: BaseModel {
     var eventCategory: String!;
     var eventInvitees: NSArray?;
     var eventPrivate: Bool!;
+    var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
+    var eventObject: PFObject!; // The parse event object
+    
+    init?(eventObject: PFObject, invitation: PFObject) {
+        super.init();
+        
+        self.setupEvent(eventObject);
+        self.setupInvitation(invitation);
+        
+        // Check to make sure all required fields are set
+        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
+            return nil;
+        }
+    }
     
     init?(eventObject: PFObject) {
         super.init();
+        self.setupEvent(eventObject);
         
+        // Check to make sure all required fields are set
+        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
+            return nil;
+        }
+    }
+    
+    func setupInvitation(invitation: PFObject) {
+        self.eventInvitation = InvitationModel(invitation: invitation);
+    }
+    
+    func setupEvent(eventObject:PFObject) {
+        self.eventObject = eventObject;
         self.eventId = eventObject.objectId;
         
         if let tempTitle = eventObject[Constants.EventDatabaseFields.kEventTitle] as? String {
@@ -62,12 +89,46 @@ class EventModel: BaseModel {
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
         self.eventPrivate = eventObject[Constants.EventDatabaseFields.kEventPrivate] as? Bool ?? false;
+    }
+    
+    func updateInvitationResponse(response: Bool, success: () -> Void, failure: NSError -> Void) {
+        // If there already is an invitation then update the response of the invitation
+        if let eventInvitation = self.eventInvitation {
+            var invitationObject:PFObject = eventInvitation.invitationObject;
+            invitationObject[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
+            invitationObject.saveInBackgroundWithBlock({ (isSuccessful, error) -> Void in
+                if isSuccessful {
+                    eventInvitation.invitationResponse = response;
+                    success();
+                }
+                else {
+                    failure(error);
+                }
+            });
+        }
+        // If there is no invitatin then create one for the event
+        else {
+            self.createInvitation(response, success: success, failure: failure);
+        }
+    }
+    
+    // Helper functions
+    func createInvitation(response: Bool, success: () -> Void, failure: NSError -> Void) {
+        var invitation = PFObject(className: Constants.DatabaseClass.kInvitationClass);
+        invitation[Constants.InvitationDatabaseFields.kInvitationEvent] = self.eventObject;
+        invitation[Constants.InvitationDatabaseFields.kInvitationUser] = PFUser.currentUser();
+        invitation[Constants.InvitationDatabaseFields.kInvitationResponse] = response;
         
-        // TODO: Add array for the invitees
-        
-        // Check to make sure all required fields are set
-        if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
-            return nil;
+        invitation.saveInBackgroundWithBlock { (isSuccessful, error) -> Void in
+            if isSuccessful {
+                var invitationModel:InvitationModel = InvitationModel(invitation: invitation);
+                self.eventInvitation = invitationModel;
+                success();
+            }
+            else {
+                println("Unable to create invitation: \(error)");
+                failure(error);
+            }
         }
     }
     

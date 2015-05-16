@@ -23,6 +23,7 @@ class EventDetailViewController: BaseViewController {
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;
     var eventAttendeesProvider:EventAttendeesViewControllerProvider?;
+    var eventInvitation:InvitationModel?;
     
     var dateFormatter:NSDateFormatter = NSDateFormatter();
     
@@ -77,14 +78,37 @@ class EventDetailViewController: BaseViewController {
         var segmentedControl:SeparateTintSegmentedControl = sender as! SeparateTintSegmentedControl;
         segmentedControl.valueChanged();
         
+        var response:Bool;
+        var wasSelected:Bool = false;
+        if let event = event {
+            wasSelected = event.eventInvitation != nil;
+        }
+        
         switch sender.selectedSegmentIndex {
         case ResponseSegment.kSegmentAccept:
-            println("Accept selected");
+            response = true;
         case ResponseSegment.kSegmentDecline:
-            println("Reject selected");
+            response = false;
         default:
             return;
         }
+        
+        var successBlock:() -> Void = {
+            self.setSegmentControllerForResponse(response);
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+            if wasSelected {
+                self.setSegmentControllerForResponse(!response);
+            }
+            else {
+                segmentedControl.deselectControl();
+            }
+        }
+        
+        self.event?.updateInvitationResponse(response, success: successBlock, failure: failureBlock);
     }
     
     @IBAction func switchTable(sender: AnyObject) {
@@ -130,15 +154,31 @@ class EventDetailViewController: BaseViewController {
     func populateData() {
         if let validatedEvent = self.event {
             self.titleLabel.text = validatedEvent.eventTitle;
-            // TODO: Proper time
             self.timeLabel.text = timeLabelString(validatedEvent.eventStartTime);
             self.locationLabel.text = validatedEvent.eventLocation;
             
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
             
-//            self.navigationItem.title = validatedEvent.eventTitle;
+            // Set the invitation if there is one
+            if let invitation = validatedEvent.eventInvitation {
+                self.setSegmentControllerForResponse(invitation.invitationResponse);
+            }
+            
             self.navigationItem.title = "Event Detail";
+        }
+    }
+    
+    func setSegmentControllerForResponse(response:Bool?) {
+        if let response = response {
+            if response {
+                self.responseSegmentedControl.selectedSegmentIndex = ResponseSegment.kSegmentAccept;
+            }
+            else {
+                self.responseSegmentedControl.selectedSegmentIndex = ResponseSegment.kSegmentDecline;
+            }
+            
+            self.responseSegmentedControl.valueChanged();
         }
     }
     

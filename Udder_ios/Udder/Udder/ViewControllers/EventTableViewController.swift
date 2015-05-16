@@ -18,6 +18,8 @@ class EventTableViewController: BaseEventTableViewController {
         var successBlock: NSMutableArray -> Void = {
             (eventArray: NSMutableArray) -> Void in
             self.eventTableViewControllerProvider.configure(eventArray);
+            self.eventSearchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
+            self.eventSearchProvider.delegate = self
             self.tableView.reloadData();
         }
         
@@ -26,6 +28,6 @@ class EventTableViewController: BaseEventTableViewController {
             println("Error: \(error)");
         }
         
-        eventManagerModel.retrieveUpcomingEvents(successBlock, failure: failureBlock);
+        eventManagerModel.retrieveAllEvents(successBlock, failure: failureBlock);
     }
 }
