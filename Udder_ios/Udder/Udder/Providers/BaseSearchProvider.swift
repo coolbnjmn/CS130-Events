@@ -59,7 +59,11 @@ class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControl
                 self.searchProvider?.configure(self.searchResults!)
             }
         } else {
-            self.searchProvider?.configure(self.data!)
+            if let data = self.data {
+                self.searchProvider?.configure(self.data!)
+            } else {
+                self.searchProvider?.configure(NSMutableArray())
+            }
         }
         self.tableView?.reloadData()
     }

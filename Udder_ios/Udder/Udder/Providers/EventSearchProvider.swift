@@ -22,11 +22,14 @@ class EventSearchProvider: BaseSearchProvider {
         let eventLocationPredicate = NSPredicate(format: "eventLocation contains[cd] %@", searchText!)
         let eventDescriptionPredicate = NSPredicate(format: "eventDescription contains[cd] %@", searchText!)
         let cPredicate : NSCompoundPredicate = NSCompoundPredicate.orPredicateWithSubpredicates([eventTitlePredicate, eventLocationPredicate, eventDescriptionPredicate])
-        let searchResults: [AnyObject] = self.data!.filteredArrayUsingPredicate(cPredicate)
         
-        let nmSearchResults : NSMutableArray = NSMutableArray(array: searchResults)
+        if let data : NSMutableArray = self.data {
+            let searchResults: [AnyObject] = data.filteredArrayUsingPredicate(cPredicate)
+            let nmSearchResults : NSMutableArray = NSMutableArray(array: searchResults)
+            self.searchResults = nmSearchResults;
+        }
         
-        self.searchResults = nmSearchResults;
+        
     }
     
     
