@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
 
@@ -16,6 +17,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var placestable: UITableView!
     
     var set_placesTable: Int = 0
+    var moveApple: Int = 0
     var places_add: [PlacesModel] = [PlacesModel] ()
     var places_loc: CLLocation = CLLocation ()
     
@@ -34,6 +36,32 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 }}
             return tableView.rowHeight
     }
+    
+    func findApple(){
+        if(moveApple>1){
+        self.set_placesTable = self.set_placesTable+1
+        var request:MKLocalSearchRequest = MKLocalSearchRequest()
+        request.naturalLanguageQuery = loc_string
+        //request.region = self.map.region
+        var search:MKLocalSearch = MKLocalSearch(request: request)
+        search.startWithCompletionHandler { (response, error) -> Void in
+            if(response != nil){
+            for item in response.mapItems {
+                var area = item as! MKMapItem
+                var add:String = area.name
+                var lat:Double = area.placemark.coordinate.latitude
+                var long:Double = area.placemark.coordinate.longitude
+                var place:PlacesModel = PlacesModel(add: add, lat: lat, long: long)!
+                self.places_add.insert(place, atIndex:0)
+                }}
+            }}
+        else{
+            //do nothing
+        }
+        moveApple = moveApple+1
+    }
+    
+    //////////////START findPlaces
     
     func findPlaces(){
         var str1:String = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
@@ -77,6 +105,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
          op.start()
     }
     
+    
+    ////////////END findPlaces
+    
     func setaddtext(cell:RegEventCreationTableViewCell) {
         title_string = cell.addtext.text
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
@@ -115,7 +146,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
    
     func setwheretext(cell:WhereTableViewCell){
         loc_string = cell.wheretext.text
-        self.findPlaces()
+        //self.findPlaces()
+        self.findApple()
         placestable.reloadData()
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
             self.navigationItem.rightBarButtonItem?.enabled = true
@@ -303,6 +335,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             cell_end.enable = true
             cell_loc.wheretext.text = cell_arr[row].textLabel?.text
             places_loc = places_add[row].location
+            println(places_loc.coordinate.latitude)
+            println(places_loc.coordinate.longitude)
             }
         }
     }
@@ -369,7 +403,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             return cell
             }}
         else{
-            if(set_placesTable < 2){
+            if(places_add.count == 0){
             var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
             cell.textLabel?.text = "Type Location"
             cell_arr.append(cell)
@@ -377,9 +411,20 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
             else{
                 var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
-              //  println("In else \(self.places_add.count)")
-              cell.textLabel?.text = self.places_add[row].get_add()
-                 cell_arr.append(cell)
+                if(places_add.count == 1){
+                     cell.textLabel?.text = self.places_add[0].get_add()
+                }
+                else if (places_add.count == 2)
+                {
+                     cell.textLabel?.text = self.places_add[row%2].get_add()
+                }
+                else if (places_add.count == 3){
+                     cell.textLabel?.text = self.places_add[row%3].get_add()
+                }
+                else{
+                  cell.textLabel?.text = self.places_add[row].get_add()
+                }
+                cell_arr.append(cell)
                 return cell
             }
             
