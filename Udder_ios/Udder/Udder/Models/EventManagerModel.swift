@@ -62,13 +62,11 @@ class EventManagerModel: BaseModel {
             self.handleEvents(events, error: error, success: success, failure: failure);
         }
     }
-    
+
     func retrieveEventsNearMe(miles:Double, success: NSMutableArray -> Void, failure: NSError -> Void) {
-        println("here");
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             if error == nil {
-                println("My Location: \(geoPoint)");
                 var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
                 query.whereKey(Constants.EventDatabaseFields.kEventGeoCoordinate, nearGeoPoint: geoPoint, withinMiles: miles);
                 query.findObjectsInBackgroundWithBlock({
