@@ -473,11 +473,8 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				55B3A8261B02F93800614EA8 /* regularCell.xib */,
-=======
 				E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */,
->>>>>>> 33d66e297994251b3fa6954dd8b9778b9a07b0e0
 				3487C5171AFC411800C8BA90 /* ValidationViewController.xib */,
 				55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */,
 				5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */,
@@ -726,11 +723,8 @@
 				A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */,
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */,
-<<<<<<< HEAD
 				55AF9D101B0531D500AE7216 /* PlacesModel.swift in Sources */,
-=======
 				B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */,
->>>>>>> 33d66e297994251b3fa6954dd8b9778b9a07b0e0
 				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
 				3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */,
 				A73027D91AF210A0009D2281 /* LocationTableViewCell.swift in Sources */,
