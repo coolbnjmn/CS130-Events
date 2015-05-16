@@ -14,6 +14,10 @@ class BaseEventTableViewController : BaseViewController {
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
     var eventSearchProvider: EventSearchProvider = EventSearchProvider()
     
+    // Completion blocks for retrieving data: Override in subclasses for customization
+    var successBlock: NSMutableArray -> Void = {(event: NSMutableArray) -> Void in};
+    var failureBlock: NSError -> Void = {(error: NSError) -> Void in};
+    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,7 +34,19 @@ class BaseEventTableViewController : BaseViewController {
         self.eventTableViewControllerProvider.delegate = self;
         self.eventSearchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
         definesPresentationContext = true
-
+        
+        self.successBlock = {
+            (eventArray: NSMutableArray) -> Void in
+            self.eventTableViewControllerProvider.configure(eventArray);
+            self.eventSearchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
+            self.eventSearchProvider.delegate = self
+            self.tableView.reloadData();
+        }
+        
+        self.failureBlock = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
     }
     
     

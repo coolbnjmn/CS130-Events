@@ -16,4 +16,8 @@ class EventsNearMeViewController: BaseEventTableViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Events Near Me"
     }
+    
+    override func fetchData() {
+        self.eventManagerModel.retrieveEventsNearMe(10.0, success: self.successBlock, failure: self.failureBlock);
+    }
 }

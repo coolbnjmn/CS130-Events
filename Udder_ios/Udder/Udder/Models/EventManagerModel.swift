@@ -63,8 +63,24 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrieveNearbyEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
-        // TODO: Implement
+    func retrieveEventsNearMe(miles:Double, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        println("here");
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+            if error == nil {
+                println("My Location: \(geoPoint)");
+                var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+                query.whereKey(Constants.EventDatabaseFields.kEventGeoCoordinate, nearGeoPoint: geoPoint, withinMiles: miles);
+                query.findObjectsInBackgroundWithBlock({
+                    (events: [AnyObject]!, error: NSError!) -> Void in
+                    self.handleEvents(events, error: error, success: success, failure: failure);
+                })
+            }
+            else {
+                println("Unable to find current user's location");
+                failure(error);
+            }
+        }
     }
     
     func retrieveAttendeesForEvent(event: EventModel) {
