@@ -34,6 +34,7 @@
 		55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B3A8261B02F93800614EA8 /* regularCell.xib */; };
 		55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
+		55DF5DD6122682FBBD7A88FD /* libPods-UdderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16201F752B79D118EE62CB1F /* libPods-UdderTests.a */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
 		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
@@ -71,11 +72,29 @@
 		B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
 		B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DAC01B0533F200850122 /* BaseSearchProvider.swift */; };
 		B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF74A1AF732CB00E32212 /* ContactModel.swift */; };
+		B23FD6C01B0E7DE7003CCE93 /* EventTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */; };
 		B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */; };
 		B2408BE91AF54CD800568B0C /* InviteContactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */; };
 		B241B5D01AF96EE8001BB17B /* icon-time.png in Resources */ = {isa = PBXBuildFile; fileRef = B241B5CF1AF96EE8001BB17B /* icon-time.png */; };
 		B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
 		B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
+		B247C15D1B0E8290001D0EB5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15931AE19D4D00BE181B /* FacebookSDK.framework */; };
+		B247C15E1B0E8290001D0EB5 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15941AE19D4D00BE181B /* FBAudienceNetwork.framework */; };
+		B247C15F1B0E8290001D0EB5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15951AE19D4D00BE181B /* Parse.framework */; };
+		B247C1601B0E8290001D0EB5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15961AE19D4D00BE181B /* ParseCrashReporting.framework */; };
+		B247C1611B0E8290001D0EB5 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15971AE19D4D00BE181B /* ParseFacebookUtils.framework */; };
+		B247C1621B0E8290001D0EB5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15981AE19D4D00BE181B /* ParseUI.framework */; };
+		B247C1631B0E831B001D0EB5 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
+		B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF29361AE9D3E200D6714C /* BaseModel.swift */; };
+		B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A725CDD31B054ED700C930F5 /* InvitationModel.swift */; };
+		B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF29381AE9D42000D6714C /* Constants.swift */; };
+		B247C1691B0E8926001D0EB5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15AB1AE19DB500BE181B /* libsqlite3.dylib */; };
+		B247C16A1B0E8931001D0EB5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15A91AE19DA500BE181B /* AudioToolbox.framework */; };
+		B247C16B1B0E894A001D0EB5 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */; };
+		B247C16C1B0E894A001D0EB5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CC9641AE1A6B40035213D /* libstdc++.dylib */; };
+		B247C16D1B0E895C001D0EB5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15AD1AE19DDD00BE181B /* Social.framework */; };
+		B247C16E1B0E897D001D0EB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */; };
+		B247C1701B0E899F001D0EB5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B247C16F1B0E899F001D0EB5 /* Accounts.framework */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25560A61AE19A0900EBEE8B /* Images.xcassets */; };
 		B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */; };
@@ -132,7 +151,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16201F752B79D118EE62CB1F /* libPods-UdderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UdderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udder/Pods-Udder.release.xcconfig"; sourceTree = "<group>"; };
+		2CAA23FFF676B6CAA9F23964 /* Pods-UdderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UdderTests/Pods-UdderTests.release.xcconfig"; sourceTree = "<group>"; };
 		3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidationViewController.swift; path = ViewControllers/ValidationViewController.swift; sourceTree = "<group>"; };
 		3487C5171AFC411800C8BA90 /* ValidationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ValidationViewController.xib; path = Views/ValidationViewController.xib; sourceTree = "<group>"; };
 		348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhoneNumberViewController.xib; path = Views/PhoneNumberViewController.xib; sourceTree = "<group>"; };
@@ -196,11 +217,13 @@
 		B210DABE1B0533BA00850122 /* EventSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSearchProvider.swift; path = Providers/EventSearchProvider.swift; sourceTree = "<group>"; };
 		B210DAC01B0533F200850122 /* BaseSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSearchProvider.swift; path = Providers/BaseSearchProvider.swift; sourceTree = "<group>"; };
 		B23AF74A1AF732CB00E32212 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactModel.swift; path = Models/ContactModel.swift; sourceTree = "<group>"; };
+		B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCellTest.swift; sourceTree = "<group>"; };
 		B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteContactTableViewController.swift; path = ViewControllers/InviteContactTableViewController.swift; sourceTree = "<group>"; };
 		B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InviteContactTableViewController.xib; path = Views/InviteContactTableViewController.xib; sourceTree = "<group>"; };
 		B241B5CF1AF96EE8001BB17B /* icon-time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-time.png"; path = "Images/icon-time.png"; sourceTree = "<group>"; };
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
+		B247C16F1B0E899F001D0EB5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +274,7 @@
 		E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpcomingEventsViewController.xib; path = Views/UpcomingEventsViewController.xib; sourceTree = "<group>"; };
 		E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeesTableViewCell.swift; path = Cells/AttendeesTableViewCell.swift; sourceTree = "<group>"; };
 		E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttendeesTableViewCell.xib; path = Views/AttendeesTableViewCell.xib; sourceTree = "<group>"; };
+		F4E31BB04A3FC700DAAE2644 /* Pods-UdderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdderTests/Pods-UdderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +308,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B247C1701B0E899F001D0EB5 /* Accounts.framework in Frameworks */,
+				B247C16E1B0E897D001D0EB5 /* SystemConfiguration.framework in Frameworks */,
+				B247C16D1B0E895C001D0EB5 /* Social.framework in Frameworks */,
+				B247C16B1B0E894A001D0EB5 /* libstdc++.6.0.9.dylib in Frameworks */,
+				B247C16C1B0E894A001D0EB5 /* libstdc++.dylib in Frameworks */,
+				B247C16A1B0E8931001D0EB5 /* AudioToolbox.framework in Frameworks */,
+				B247C1691B0E8926001D0EB5 /* libsqlite3.dylib in Frameworks */,
+				B247C15D1B0E8290001D0EB5 /* FacebookSDK.framework in Frameworks */,
+				B247C15E1B0E8290001D0EB5 /* FBAudienceNetwork.framework in Frameworks */,
+				B247C15F1B0E8290001D0EB5 /* Parse.framework in Frameworks */,
+				B247C1601B0E8290001D0EB5 /* ParseCrashReporting.framework in Frameworks */,
+				B247C1611B0E8290001D0EB5 /* ParseFacebookUtils.framework in Frameworks */,
+				B247C1621B0E8290001D0EB5 /* ParseUI.framework in Frameworks */,
+				55DF5DD6122682FBBD7A88FD /* libPods-UdderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +333,8 @@
 			children = (
 				C7502EDFD18E46DBF1E2F0C7 /* Pods-Udder.debug.xcconfig */,
 				1757CA4C60A32A2C80BE1541 /* Pods-Udder.release.xcconfig */,
+				F4E31BB04A3FC700DAAE2644 /* Pods-UdderTests.debug.xcconfig */,
+				2CAA23FFF676B6CAA9F23964 /* Pods-UdderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -396,6 +436,7 @@
 			children = (
 				B25560B51AE19A0900EBEE8B /* UdderTests.swift */,
 				B25560B31AE19A0900EBEE8B /* Supporting Files */,
+				B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */,
 			);
 			path = UdderTests;
 			sourceTree = "<group>";
@@ -411,6 +452,7 @@
 		B25F15B31AE19F2E00BE181B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B247C16F1B0E899F001D0EB5 /* Accounts.framework */,
 				B29CC9631AE1A6B40035213D /* libstdc++.6.0.9.dylib */,
 				B29CC9641AE1A6B40035213D /* libstdc++.dylib */,
 				B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */,
@@ -430,6 +472,7 @@
 				B25F15971AE19D4D00BE181B /* ParseFacebookUtils.framework */,
 				B25F15981AE19D4D00BE181B /* ParseUI.framework */,
 				B3B33F21B4DA105929A47308 /* libPods-Udder.a */,
+				16201F752B79D118EE62CB1F /* libPods-UdderTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -553,9 +596,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B25560BC1AE19A0900EBEE8B /* Build configuration list for PBXNativeTarget "UdderTests" */;
 			buildPhases = (
+				9FF6CAA67037AF65DF2C7EBE /* Check Pods Manifest.lock */,
 				B25560AB1AE19A0900EBEE8B /* Sources */,
 				B25560AC1AE19A0900EBEE8B /* Frameworks */,
 				B25560AD1AE19A0900EBEE8B /* Resources */,
+				B269DB445F63F529517D5315 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -680,6 +725,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udder/Pods-Udder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9FF6CAA67037AF65DF2C7EBE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		A94C10CB7DC47FF52A7AA841 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -693,6 +753,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B269DB445F63F529517D5315 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UdderTests/Pods-UdderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -760,7 +835,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23FD6C01B0E7DE7003CCE93 /* EventTableViewCellTest.swift in Sources */,
+				B247C1631B0E831B001D0EB5 /* EventModel.swift in Sources */,
 				B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */,
+				B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */,
+				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
+				B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,6 +999,7 @@
 		};
 		B25560BD1AE19A0900EBEE8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4E31BB04A3FC700DAAE2644 /* Pods-UdderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -926,6 +1007,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -941,6 +1023,7 @@
 		};
 		B25560BE1AE19A0900EBEE8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CAA23FFF676B6CAA9F23964 /* Pods-UdderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -948,6 +1031,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = UdderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
