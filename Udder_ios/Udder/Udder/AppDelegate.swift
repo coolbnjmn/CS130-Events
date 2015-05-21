@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentUser = PFUser.currentUser()
             //Update user with db attribute values
             //Error handling is needed
-            currentUser.fetch() // TODO: Make this async
+            currentUser.fetchInBackgroundWithBlock(nil) // TODO: Make this async
             let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
             if (!phoneValidated) {
                 let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
@@ -52,6 +52,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 container.view.backgroundColor = UIColor.whiteColor()
                 self.window?.rootViewController = container
             }
+        }
+        
+        // Register for Push Notitications
+        if application.applicationState != UIApplicationState.Background {
+            // Track an app open here if we launch with a push, unless
+            // "content_available" was used to trigger a background push (introduced in iOS 7).
+            // In that case, we skip tracking here to avoid double counting the app-open.
+            
+            let preBackgroundPush = !application.respondsToSelector("backgroundRefreshStatus")
+            let oldPushHandlerOnly = !self.respondsToSelector("application:didReceiveRemoteNotification:fetchCompletionHandler:")
+            var pushPayload = false
+            if let options = launchOptions {
+                pushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil
+            }
+            if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
+                PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+            }
+        }
+        
+        if application.respondsToSelector("registerUserNotificationSettings:") {
+            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
         }
         
         self.window!.makeKeyAndVisible()
@@ -81,6 +105,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        installation.setObject(PFUser.currentUser(), forKey: "user")
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackgroundWithBlock(nil)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            println("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+//        PFPush.handlePush(userInfo)
+        
+        // TODO : Handle push notifications here -- and in didFinishlaunchingwithoptions, using a boolean.
+        let notificationPayload : NSDictionary? = userInfo["aps"] as? NSDictionary;
+        
+//        if var nPayload : NSDictionary = notificationPayload {
+//            println("got notification");
+//            var alert = UIAlertController(title: "Push Received", message: "Push Received", preferredStyle: UIAlertControllerStyle.Alert)
+//            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
+        
+        if application.applicationState == UIApplicationState.Inactive {
+            PFAnalytics.trackAppOpenedWithRemoteNotificationPayloadInBackground(userInfo, block:nil)
+            // TODO: Set a flag to know the push was received for next launch?
+        }
+    }
+    
 //Facebook functions
 /***************/
     func application(application: UIApplication,
@@ -105,6 +163,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
         
     }
+    
+    
     
 
 }

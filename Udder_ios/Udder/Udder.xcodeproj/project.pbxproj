@@ -578,10 +578,11 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = QW4YTV2H2T;
+						DevelopmentTeam = M6Y34M2A35;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = M6Y34M2A35;
 						TestTargetID = B25560991AE19A0900EBEE8B;
 					};
 				};
@@ -920,6 +921,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -931,6 +934,7 @@
 				INFOPLIST_FILE = UdderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udder.app/Udder";
 			};
 			name = Debug;
@@ -939,6 +943,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -946,6 +952,7 @@
 				INFOPLIST_FILE = UdderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udder.app/Udder";
 			};
 			name = Release;
