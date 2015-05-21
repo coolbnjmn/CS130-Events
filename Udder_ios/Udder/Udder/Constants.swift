@@ -5,6 +5,7 @@
 //  Created by Benjamin Hendricks on 4/23/15.
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
+import UIKit
 
 struct Constants {
     struct CellIdentifiers {
@@ -50,13 +51,13 @@ struct Constants {
         }
         
         struct TableConstraints {
-            static let kDescriptionViewHeight:CGFloat = 150;
-            static let kDescriptionTextSize:CGFloat = 14;
+            static let kDescriptionViewHeight: CGFloat = 150;
+            static let kDescriptionTextSize: CGFloat = 14;
             static let kDescriptionTextFont = "Avenir-Medium"
-            static let kDefaultMargin:CGFloat = 8;
+            static let kDefaultMargin: CGFloat = 8;
             static let kAttendeeTextFont = "Avenir-Book"
-            static let kAttendeeTextSize:CGFloat = 18.0
-            static let kAttendeeCellHeight:CGFloat = 55.0
+            static let kAttendeeTextSize: CGFloat = 18.0
+            static let kAttendeeCellHeight: CGFloat = 55.0
         }
     }
     
@@ -78,7 +79,7 @@ struct Constants {
     }
     
     struct PlaceHolders {
-        static let EventImage:UIImage = UIImage(named: "Beach.jpg")!
+        static let EventImage: UIImage = UIImage(named: "Beach.jpg")!
     }
     
     struct Colors {
