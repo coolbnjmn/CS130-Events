@@ -8,8 +8,41 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,CLLocationManagerDelegate, RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+    
+
+    var locationManager: CLLocationManager = CLLocationManager ()
+    
+    func setupLocManager(){
+        println("created location manager")
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.distanceFilter = 500
+        locationManager.requestWhenInUseAuthorization()
+        
+    }
+    
+    func startStandardUpdates(){
+        println("starting standard updates")
+        locationManager.startUpdatingLocation()
+        if(CLLocationManager.locationServicesEnabled() == true){
+            println("location services are enabled")
+        }
+         println(CLLocationManager.authorizationStatus().rawValue)
+    }
+    
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("delegate called")
+        var location:CLLocation = locations[locations.count-1] as! CLLocation
+        var eventDate:NSDate = location.timestamp
+        var howRecent:NSTimeInterval = eventDate.timeIntervalSinceNow
+        if (abs(howRecent) < 15.0){
+            println("latitude is \(location.coordinate.latitude) and longitude is \(location.coordinate.longitude)")
+        }
+    }
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
 
@@ -201,9 +234,12 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     var long:CLLocationDegrees = 0.0
     
     let cellnames = ["Title", "Start Time", "End Time", "Location", "Categories","Private Event","Description", "textview"]
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.setupLocManager()
+        self.startStandardUpdates()
         ECtable.editing = false
         ECtable.dataSource = self
         ECtable.delegate = self
