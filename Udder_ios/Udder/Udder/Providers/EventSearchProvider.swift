@@ -18,7 +18,7 @@ class EventSearchProvider: BaseSearchProvider {
     override func applySearch(sender: AnyObject) {
         let searchText: String? = self.searchController?.searchBar.text.lowercaseString
         let eventTitlePredicate = NSPredicate(format: "eventTitle contains[cd] %@", searchText!)
-        let eventLocationPredicate = NSPredicate(format: "eventLocation contains[cd] %@", searchText!)
+        let eventLocationPredicate = NSPredicate(format: "locationObject.placeLocationName contains[cd] %@", searchText!)
         let eventDescriptionPredicate = NSPredicate(format: "eventDescription contains[cd] %@", searchText!)
         let cPredicate : NSCompoundPredicate = NSCompoundPredicate.orPredicateWithSubpredicates([eventTitlePredicate, eventLocationPredicate, eventDescriptionPredicate])
         

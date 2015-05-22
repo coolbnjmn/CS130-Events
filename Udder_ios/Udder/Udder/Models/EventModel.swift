@@ -13,8 +13,7 @@ class EventModel: BaseModel {
     var eventId: String!;
     var eventTitle: String!;
     var eventDescription: String!;
-    var eventLocation: String!;
-    var eventGeoCoordinate: PFGeoPoint?;
+    var locationObject: PlacesModel!;
     var eventStartTime: NSDate!;
     var eventEndTime: NSDate!;
     var eventImage: String!;
@@ -59,10 +58,13 @@ class EventModel: BaseModel {
             self.eventTitle = tempTitle;
         }
         
-        self.eventLocation = eventObject[Constants.EventDatabaseFields.kEventLocation] as? String ??
+        var geoCoordinate = eventObject[Constants.EventDatabaseFields.kEventGeoCoordinate] as? PFGeoPoint;
+        var location = eventObject[Constants.EventDatabaseFields.kEventLocation] as? String ??
+            Constants.EventDatabaseFields.kEventFieldPlaceholder;
+        var address = eventObject[Constants.EventDatabaseFields.kEventAddress] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
         
-        self.eventGeoCoordinate = eventObject[Constants.EventDatabaseFields.kEventGeoCoordinate] as? PFGeoPoint;
+        self.locationObject = PlacesModel(address: address, geoPoint: geoCoordinate, locationName: location);
         
         self.eventDescription = eventObject[Constants.EventDatabaseFields.kEventDescription] as? String ??
             Constants.EventDatabaseFields.kEventFieldPlaceholder;
@@ -133,7 +135,7 @@ class EventModel: BaseModel {
     func printEvent() {
         println("Event ID: \(self.eventId)");
         println("Title: \(self.eventTitle)");
-        println("Location: \(self.eventLocation)");
+        println("Location: \(self.locationObject)");
         println("Description: \(self.eventDescription)");
         println("Image: \(self.eventImage)");
         println("Start Time: \(self.eventStartTime)");        

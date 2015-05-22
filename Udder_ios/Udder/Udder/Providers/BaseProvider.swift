@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol ViewControllerProtocolDelegate {
     func pushViewController(viewController:UIViewController, animated:Bool);
+    func popViewController();
 }
 
 class BaseProvider: NSObject, UITableViewDelegate, UITableViewDataSource {

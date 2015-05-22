@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="239" id="7D4-t2-zf2" customClass="LocationTableViewCell" customModule="Udder">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="270" id="7D4-t2-zf2" customClass="LocationTableViewCell" customModule="Udder">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7D4-t2-zf2" id="Y9U-7q-gNP">
                 <autoresizingMask key="autoresizingMask"/>
@@ -50,12 +50,29 @@
                             <constraint firstAttribute="height" constant="120" id="vwL-qL-ttv"/>
                         </constraints>
                     </mapView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1E-Gn-Ryb">
+                        <rect key="frame" x="8" y="189" width="304" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="a7j-kj-zFR"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fZ1-Ps-Rl9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.24716848544973546" green="0.24716848544973546" blue="0.24716848544973546" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fZ1-Ps-Rl9"/>
+                            </mask>
+                        </variation>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="top" secondItem="QA9-3a-r9B" secondAttribute="bottom" constant="8" id="43y-Ph-Y35"/>
+                    <constraint firstItem="j1E-Gn-Ryb" firstAttribute="top" secondItem="TYQ-Rx-AYS" secondAttribute="bottom" constant="3" id="6ff-wM-02B"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="7VZ-DO-e9X"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="8lr-5e-gLl"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="top" secondItem="QA9-3a-r9B" secondAttribute="bottom" constant="87" id="CX5-iN-7mD"/>
+                    <constraint firstItem="j1E-Gn-Ryb" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="FIx-8T-eJ3"/>
                     <constraint firstItem="QA9-3a-r9B" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="HA4-Iw-lis"/>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="Hlm-0j-wyE"/>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="top" secondItem="lCS-m2-g5a" secondAttribute="bottom" id="OPj-Qk-AK6"/>
@@ -68,8 +85,10 @@
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="top" secondItem="JS7-7i-4pW" secondAttribute="bottom" constant="8" id="pCM-tT-Squ"/>
                     <constraint firstItem="lCS-m2-g5a" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="pxO-ff-xny"/>
                     <constraint firstItem="QA9-3a-r9B" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" constant="8" id="rz2-AR-3XQ"/>
+                    <constraint firstItem="j1E-Gn-Ryb" firstAttribute="bottom" secondItem="Y9U-7q-gNP" secondAttribute="bottomMargin" id="tjD-1i-Vbq"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="uhU-pl-6lg"/>
                     <constraint firstItem="lCS-m2-g5a" firstAttribute="top" secondItem="Y9U-7q-gNP" secondAttribute="topMargin" id="y1K-lb-CX5"/>
+                    <constraint firstItem="j1E-Gn-Ryb" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="z72-LS-uOf"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -79,14 +98,16 @@
                         <exclude reference="8lr-5e-gLl"/>
                         <exclude reference="CX5-iN-7mD"/>
                         <exclude reference="uhU-pl-6lg"/>
+                        <exclude reference="tjD-1i-Vbq"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addressLabel" destination="j1E-Gn-Ryb" id="QrI-F5-azw"/>
                 <outlet property="locationLabel" destination="TYQ-Rx-AYS" id="T29-40-1qQ"/>
                 <outlet property="mapView" destination="JS7-7i-4pW" id="1k6-zu-miz"/>
             </connections>
-            <point key="canvasLocation" x="307" y="247"/>
+            <point key="canvasLocation" x="307" y="252"/>
         </tableViewCell>
     </objects>
 </document>

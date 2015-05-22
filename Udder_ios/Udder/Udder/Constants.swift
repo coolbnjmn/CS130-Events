@@ -15,6 +15,7 @@ struct Constants {
         static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
         static let kAttendeesTableViewCell = "AttendeesTableViewCell"
+        static let kLocationPickerTableViewCell = "LocationPickerTableViewCell"
     }
     
     struct DatabaseClass {
@@ -27,6 +28,7 @@ struct Constants {
         static let kEventDescription = "description"
         static let kEventLocation = "location"
         static let kEventGeoCoordinate = "geocoordinate"
+        static let kEventAddress = "address"
         static let kEventStartTime = "start_time"
         static let kEventEndTime = "end_time"
         static let kEventImageURL = "image_url"
@@ -80,6 +82,7 @@ struct Constants {
     
     struct PlaceHolders {
         static let EventImage: UIImage = UIImage(named: "Beach.jpg")!
+        static let LocationImage: UIImage = UIImage(named: "Beach.jpg")!
     }
     
     struct Colors {
@@ -109,4 +112,10 @@ struct Constants {
         EventCategories.kAcademicCategory: "category-academic.png",
         EventCategories.kOtherCategory: "category-other.png"
     ]
+    
+    // Google Maps Constants
+    struct GoogleMaps {
+        static let kUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
+        static let kApiKey = "AIzaSyBYOIc_oRgl8ridepQWCR3mG9IkfEODe8A";
+    }
 }

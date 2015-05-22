@@ -48,7 +48,7 @@ class EventTableViewControllerProvider: BaseProvider {
         
         var params: NSMutableDictionary = NSMutableDictionary()
         params.setObject(event.eventTitle, forKey: "title")
-        params.setObject(event.eventLocation, forKey: "location")
+        params.setObject(event.locationObject.placeLocationName, forKey: "location")
         
         dateFormatter.dateFormat = Constants.DateFormats.kShortWeekDateFormat;
         params.setObject(dateFormatter.stringFromDate(event.eventStartTime), forKey: "time")
