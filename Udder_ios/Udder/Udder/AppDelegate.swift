@@ -41,17 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentUser = PFUser.currentUser()
             //Update user with db attribute values
             //Error handling is needed
-            currentUser.fetchInBackgroundWithBlock(nil) // TODO: Make this async
-            let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
-            if (!phoneValidated) {
-                let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
-                self.window?.rootViewController = navController
-            } else {
-                let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
-                let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
-                container.view.backgroundColor = UIColor.whiteColor()
-                self.window?.rootViewController = container
-            }
+            let block:PFObjectResultBlock = {(PFObject object, NSError error) in
+                let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
+                if (!phoneValidated) {
+                    let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
+                    self.window?.rootViewController = navController
+                } else {
+                    let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
+                    let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                    container.view.backgroundColor = UIColor.whiteColor()
+                    self.window?.rootViewController = container
+                }
+            };
+            currentUser.fetchIfNeededInBackgroundWithBlock(block);// TODO: Make this async
         }
         
         // Register for Push Notitications
