@@ -66,7 +66,7 @@ class EventTableViewCellTest: XCTestCase {
         
         XCTAssertEqual(constantTitle, eventModel!.eventTitle, "title should match up")
         XCTAssertEqual(constantDescription, eventModel!.eventDescription, "description should match up")
-        XCTAssertEqual(constantLocation, eventModel!.eventLocation, "location should match up")
+        XCTAssertEqual(constantLocation, eventModel!.locationObject!.description, "location should match up")
         XCTAssertEqual(constantStartTime, eventModel!.eventStartTime, "start time should match up")
         XCTAssertEqual(constantEndTime, eventModel!.eventEndTime, "end time should match up")
         XCTAssertEqual(constantCategory, eventModel!.eventCategory, "category should match up")

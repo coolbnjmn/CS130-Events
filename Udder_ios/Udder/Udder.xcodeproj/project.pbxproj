@@ -71,7 +71,6 @@
 		A78723421B0EB74E00059A58 /* LocationPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78723411B0EB74E00059A58 /* LocationPickerModel.swift */; };
 		A78723441B0EEF7400059A58 /* LocationPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78723431B0EEF7400059A58 /* LocationPickerTableViewCell.swift */; };
 		A78723461B0EEFA500059A58 /* LocationPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78723451B0EEFA500059A58 /* LocationPickerTableViewCell.xib */; };
-		A78723471B0F050900059A58 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */; };
 		A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
 		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
@@ -137,6 +136,7 @@
 		B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8E1AE1DDD40063126E /* ViewController.swift */; };
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
 		B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF09F21AFC15F000A1B433 /* ContactCell.swift */; };
+		B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7B1AEED40100EA0BBA /* ViewController.xib */; };
 		E12F8F7F1AEED69800EA0BBA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7E1AEED69800EA0BBA /* LoginViewController.xib */; };
@@ -874,6 +874,7 @@
 				B247C1631B0E831B001D0EB5 /* EventModel.swift in Sources */,
 				B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */,
 				B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */,
+				B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */,
 				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
 				B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */,
 				B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */,
