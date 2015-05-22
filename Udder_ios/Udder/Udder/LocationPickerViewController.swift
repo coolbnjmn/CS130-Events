@@ -13,6 +13,8 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
     
     var locationPickerProvider = LocationPickerProvider();
     var locationPickerModel = LocationPickerModel();
+
+    var timer: NSTimer? = nil
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
@@ -27,7 +29,9 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
     }
     
-    func fetchData(text:String) {
+    func fetchData(timer:NSTimer) {
+        var textField = timer.userInfo as! UITextField;
+        var text = textField.text;
         var successBlock = {
             (locationArray: NSMutableArray) -> Void in
             println("Success: \(locationArray)");
@@ -43,16 +47,10 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         locationPickerModel.searchForText(text, success: successBlock, failure: failureBlock);
     }
     
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        NSRunLoop.cancelPreviousPerformRequestsWithTarget(self);
-        
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1*Double(NSEC_PER_SEC)));
-        dispatch_after(delayTime, dispatch_get_main_queue()) { () -> Void in
-            self.fetchData(textField.text);
-        }
-        
-        return true;
+        timer?.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("fetchData:"), userInfo: textField, repeats: false)
+        return true
     }
     
     func textFieldShouldClear(textField: UITextField) -> Bool {

@@ -113,6 +113,6 @@ struct Constants {
     // Google Maps Constants
     struct GoogleMaps {
         static let kUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-        static let kApiKey = "AIzaSyCZE_8eTEeIfoKXPWmoMb43k4PYHz0BrXY";
+        static let kApiKey = "AIzaSyBYOIc_oRgl8ridepQWCR3mG9IkfEODe8A";
     }
 }
