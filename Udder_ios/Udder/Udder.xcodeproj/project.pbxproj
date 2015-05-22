@@ -95,6 +95,11 @@
 		B247C16D1B0E895C001D0EB5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15AD1AE19DDD00BE181B /* Social.framework */; };
 		B247C16E1B0E897D001D0EB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F15B11AE19F0800BE181B /* SystemConfiguration.framework */; };
 		B247C1701B0E899F001D0EB5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B247C16F1B0E899F001D0EB5 /* Accounts.framework */; };
+		B247C1721B0E96AF001D0EB5 /* EventManagerModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247C1711B0E96AF001D0EB5 /* EventManagerModelTest.swift */; };
+		B247C1731B0E96C9001D0EB5 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
+		B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA921AF48DEE00E8B3F9 /* AF+Date+Extension.swift */; };
+		B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */; };
+		B247C1771B0FBA0B001D0EB5 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23AF74A1AF732CB00E32212 /* ContactModel.swift */; };
 		B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25560A61AE19A0900EBEE8B /* Images.xcassets */; };
 		B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25560A81AE19A0900EBEE8B /* LaunchScreen.xib */; };
@@ -224,6 +229,8 @@
 		B2446F411AE20967006C37F9 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ViewControllers/EventTableViewController.swift; sourceTree = "<group>"; };
 		B2446F451AE2098C006C37F9 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewController.xib; path = Views/EventTableViewController.xib; sourceTree = "<group>"; };
 		B247C16F1B0E899F001D0EB5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		B247C1711B0E96AF001D0EB5 /* EventManagerModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerModelTest.swift; sourceTree = "<group>"; };
+		B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModelTest.swift; sourceTree = "<group>"; };
 		B255609A1AE19A0900EBEE8B /* Udder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B255609E1AE19A0900EBEE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B255609F1AE19A0900EBEE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -434,9 +441,11 @@
 		B25560B21AE19A0900EBEE8B /* UdderTests */ = {
 			isa = PBXGroup;
 			children = (
+				B247C1711B0E96AF001D0EB5 /* EventManagerModelTest.swift */,
+				B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */,
 				B25560B51AE19A0900EBEE8B /* UdderTests.swift */,
-				B25560B31AE19A0900EBEE8B /* Supporting Files */,
 				B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */,
+				B25560B31AE19A0900EBEE8B /* Supporting Files */,
 			);
 			path = UdderTests;
 			sourceTree = "<group>";
@@ -835,12 +844,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B247C1731B0E96C9001D0EB5 /* EventManagerModel.swift in Sources */,
 				B23FD6C01B0E7DE7003CCE93 /* EventTableViewCellTest.swift in Sources */,
 				B247C1631B0E831B001D0EB5 /* EventModel.swift in Sources */,
 				B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */,
 				B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */,
 				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
 				B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */,
+				B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */,
+				B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */,
+				B247C1721B0E96AF001D0EB5 /* EventManagerModelTest.swift in Sources */,
+				B247C1771B0FBA0B001D0EB5 /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

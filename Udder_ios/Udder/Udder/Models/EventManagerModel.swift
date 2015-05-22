@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
+import UIKit
 import Parse
 
 class EventManagerModel: BaseModel {
