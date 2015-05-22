@@ -13,6 +13,15 @@ import Parse
 
 class EventTableViewCellTest: XCTestCase {
 
+    let constantTitle : String = "title";
+    let constantDescription : String = "description";
+    let constantLocation : String = "location";
+    let constantStartTime : NSDate = NSDate(timeIntervalSinceNow: 0)
+    let constantEndTime : NSDate = NSDate(timeIntervalSinceNow: 3600)
+    let constantCategory : String = "category"
+    let constantImageURL : String = "image";
+    
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,24 +39,12 @@ class EventTableViewCellTest: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+//        self.measureBlock() {
+//            // Put the code you want to measure the time of here.
+//        }
     }
     
-    func testEventModel() {
-//        let testEventModel : EventModel = EventModel();
-        
-        let constantTitle : String = "title";
-        let constantDescription : String = "description";
-        let constantLocation : String = "location";
-        let constantStartTime : NSDate = NSDate(timeIntervalSinceNow: 0)
-        let constantEndTime : NSDate = NSDate(timeIntervalSinceNow: 3600)
-        let constantCategory : String = "category"
-        let constantImageURL : String = "image";
-        
-        Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
-
+    func makeTestEvent() -> PFObject {
         var event = PFObject(className: Constants.DatabaseClass.kEventClass);
         event[Constants.EventDatabaseFields.kEventTitle] = constantTitle;
         event[Constants.EventDatabaseFields.kEventDescription] = constantDescription;
@@ -58,11 +55,35 @@ class EventTableViewCellTest: XCTestCase {
         event[Constants.EventDatabaseFields.kEventImageURL] = constantImageURL;
         event[Constants.EventDatabaseFields.kEventHost] = PFUser.currentUser();
         event[Constants.EventDatabaseFields.kEventPrivate] = true;
-        
-        var eventModel:EventModel? = EventModel(eventObject: event);
+        return event;
+    }
+    
+    func testBasicEventModel() {
+        Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
+
+        var eventModel:EventModel? = EventModel(eventObject: makeTestEvent());
 
         
         XCTAssertEqual(constantTitle, eventModel!.eventTitle, "title should match up")
+        XCTAssertEqual(constantDescription, eventModel!.eventDescription, "description should match up")
+        XCTAssertEqual(constantLocation, eventModel!.locationObject!.description, "location should match up")
+        XCTAssertEqual(constantStartTime, eventModel!.eventStartTime, "start time should match up")
+        XCTAssertEqual(constantEndTime, eventModel!.eventEndTime, "end time should match up")
+        XCTAssertEqual(constantCategory, eventModel!.eventCategory, "category should match up")
+        XCTAssertEqual(constantImageURL, eventModel!.eventImage, "image should match up")
+        XCTAssertEqual(PFUser.currentUser().objectId, eventModel!.eventHost.objectId, "host should match up")
+        XCTAssertEqual(true, eventModel!.eventPrivate, "title should match up")
+
     }
+    
+    func testEventCellLayoutBasic() {
+        Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
+        
+        var eventModel:EventModel? = EventModel(eventObject: makeTestEvent());
+        var cell: UITableViewCell = UITableViewCell()
+        XCTAssertLessThanOrEqual(cell.textLabel!.frame.size.width, cell.frame.size.width, "text label width should be less than cell's frame")
+    }
+    
+    
 
 }
