@@ -11,7 +11,7 @@ import MapKit
 
 
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate, LocationPickerProtocolDelegate {
     
     struct CreateTableSegment {
         static let kSegmentLocation = 3;
@@ -26,6 +26,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     var moveApple: Int = 0
     var places_add: [PlacesModel] = [PlacesModel] ()
     var places_loc: CLLocation = CLLocation ()
+    
+    var selectedLocation:PlacesModel?;
     
     var cell_title: RegEventCreationTableViewCell = RegEventCreationTableViewCell()
     var cell_start: TimeTableViewCell = TimeTableViewCell()
@@ -80,7 +82,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     var end_date: NSDate = NSDate()
    
     func setwheretext(cell:WhereTableViewCell){
-        loc_string = cell.wheretext.text
         placestable.reloadData()
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
             self.navigationItem.rightBarButtonItem?.enabled = true
@@ -265,7 +266,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             cell_title.enable()
             cell_start.enable = true
             cell_end.enable = true
-            cell_loc.wheretext.text = cell_arr[row].textLabel?.text
             //places_loc = places_add[row].location
             println(places_loc.coordinate.latitude)
             println(places_loc.coordinate.longitude)
@@ -274,6 +274,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         else {
             if (row == CreateTableSegment.kSegmentLocation) {
                 var locationPickerViewController = LocationPickerViewController(nibName: "LocationPickerViewController", bundle: nil);
+                locationPickerViewController.invokerViewController = self;
                 self.pushViewController(locationPickerViewController, animated: true);
                 
             }
@@ -312,8 +313,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
             else if (cellnames[row] == "Location"){ //SHOULD BE LOCATION
                 var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
-                cell.wheretext?.placeholder = "Ex. Venice Beach"
-                //cell.delegate = self
+                
+                cell.locationLabel.text = self.selectedLocation?.placeLocationName;
+                cell.selectionStyle = UITableViewCellSelectionStyle.None;
                 cell_loc = cell
                 return cell
                 
@@ -346,14 +348,18 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Location picker delegate
+    func updateWithLocation(location: PlacesModel) {
+        self.selectedLocation = location;
+        self.loc_string = location.placeLocationName;
+        self.ECtable.reloadData();
+        
+        if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
-    */
 
 }

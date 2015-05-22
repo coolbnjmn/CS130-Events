@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class PlacesModel: BaseModel /*,  Equatable*/ {
-    var placeAddress:String!
+    var placeAddress:String?
     var placeLatitude:Double?
     var placeLongitude:Double?
-    var placeLocationName:String?
+    var placeLocationName:String!
     var placeIcon:String?
     
     init(address:String, latitude:Double, longitude:Double, locationName:String) {

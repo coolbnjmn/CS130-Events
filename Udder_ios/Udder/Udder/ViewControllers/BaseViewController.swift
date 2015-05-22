@@ -34,6 +34,12 @@ class BaseViewController: UIViewController, ViewControllerProtocolDelegate {
         self.navigationController?.pushViewController(viewController, animated: animated);
     }
     
+    func popViewController() {
+        if let navController = self.navigationController {
+            navController.popViewControllerAnimated(true)
+        }
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

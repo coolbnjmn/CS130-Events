@@ -11,6 +11,7 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var invokerViewController:LocationPickerProtocolDelegate?;
     var locationPickerProvider = LocationPickerProvider();
     var locationPickerModel = LocationPickerModel();
 
@@ -24,9 +25,14 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         self.tableView.delegate = locationPickerProvider;
         self.tableView.dataSource = locationPickerProvider;
         
-//        let timeInfoTableViewCellNib = UINib(nibName: "TimeInfoTableViewCell", bundle: nil);
-//        self.infoTableView.registerNib(timeInfoTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kTimeInfoTableViewCell);
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
+        self.locationPickerProvider.delegate = self;
+        if let invokerViewController = self.invokerViewController {
+            self.locationPickerProvider.locationPickerDelegate = invokerViewController;
+        }
+        
+        let locationPickerTableViewCellNib = UINib(nibName: "LocationPickerTableViewCell", bundle: nil);
+        self.tableView.registerNib(locationPickerTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kLocationPickerTableViewCell);
+
     }
     
     func fetchData(timer:NSTimer) {
@@ -34,7 +40,7 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         var text = textField.text;
         var successBlock = {
             (locationArray: NSMutableArray) -> Void in
-            println("Success: \(locationArray)");
+
             self.locationPickerProvider.configure(locationArray);
             self.tableView.reloadData();
         }
@@ -46,6 +52,8 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         
         locationPickerModel.searchForText(text, success: successBlock, failure: failureBlock);
     }
+    
+    // MARK: Text Field Delegate
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         timer?.invalidate()
@@ -63,4 +71,5 @@ class LocationPickerViewController: BaseViewController, UITextFieldDelegate {
         textField.resignFirstResponder();
         return true;
     }
+    
 }

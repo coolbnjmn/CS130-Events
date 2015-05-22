@@ -15,6 +15,7 @@ struct Constants {
         static let kTimeInfoTableViewCell = "TimeInfoTableViewCell"
         static let kStandardTableViewCell = "StandardTableViewCell"
         static let kAttendeesTableViewCell = "AttendeesTableViewCell"
+        static let kLocationPickerTableViewCell = "LocationPickerTableViewCell"
     }
     
     struct DatabaseClass {
@@ -80,6 +81,7 @@ struct Constants {
     
     struct PlaceHolders {
         static let EventImage: UIImage = UIImage(named: "Beach.jpg")!
+        static let LocationImage: UIImage = UIImage(named: "Beach.jpg")!
     }
     
     struct Colors {
