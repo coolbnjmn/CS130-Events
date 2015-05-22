@@ -119,6 +119,7 @@ class EventDetailViewController: BaseViewController {
         case TableSegment.kSegmentAttendees:                        
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
+            event?.getAttendeesIfNeeded({self.attendeesTableView.reloadData()})
         default:
             return;
         }

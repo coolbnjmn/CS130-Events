@@ -9,6 +9,20 @@
 import Foundation
 import Parse
 
+struct Attendee {
+    
+    var name: String
+    var number: String
+    var fbid: String
+    
+    init(name: String, num: String, fb: String) {
+        self.name = name
+        self.number = num
+        self.fbid = fb
+    }
+}
+
+
 class EventModel: BaseModel {
     var eventId: String!;
     var eventTitle: String!;
@@ -23,6 +37,8 @@ class EventModel: BaseModel {
     var eventPrivate: Bool!;
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
     var eventObject: PFObject!; // The parse event object
+    
+    var attendees: [Attendee]?
     
     init?(eventObject: PFObject, invitation: PFObject) {
         super.init();
@@ -144,4 +160,36 @@ class EventModel: BaseModel {
         println("Category: \(self.eventCategory)");
         println("Is Private: \(self.eventPrivate)");
     }
+    
+    func getAttendeesIfNeeded(success: Void -> Void) {
+        
+        if let attendees = attendees {
+            return
+        }
+        else {
+            let parameters = ["eventId": eventId]
+            PFCloud.callFunctionInBackground("getAttendees", withParameters: parameters) { results, error in
+                if error != nil {
+                    
+                }
+                else {
+ 
+                    let list:[PFObject] = results as! [PFObject]
+                    self.attendees = [Attendee]()
+                    for user:PFObject in list {
+                        println()
+                        let user_name: String = user.objectForKey("user").objectForKey("full_name") as? String ?? ""
+                        let user_phone: String = user.objectForKey("user").objectForKey("phoneNumber") as? String ?? ""
+                        let user_fbid: String = user.objectForKey("user").objectForKey("facebookId") as? String ?? ""
+                        
+                        self.attendees?.append(Attendee(name: user_name, num: user_phone, fb: user_fbid))// (Attendee())
+                    }
+                    
+                    success()
+                    
+                }
+            }
+        }
+    }
+    
 }

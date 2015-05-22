@@ -17,39 +17,35 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6;
+        if let attendees = event?.attendees {
+            if (attendees.count == 0) {
+                return 1
+            }
+            else {
+                return attendees.count
+            }
+        }
+        else {
+            return 1;
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellIdentifiers.kAttendeesTableViewCell) as! AttendeesTableViewCell;
         
-        var name:String = ""
-        var fid:String = ""
-        switch(indexPath.row) {
-        case 0: name="Ari Ekmekji"
-                fid="10152853185652219"
-            break
-        case 1: name="Mark Ketenjian"
-                fid="10152853185652219"
-            break
-        case 2: name="Matt Clark"
-                fid="10205248970197720"
-            break
-        case 3: name="Benjamin Hendricks"
-                fid="10155364447165018"
-            break
-        case 4: name="Collin Yen"
-                fid="10153315583286098"
-            break
-        case 5: name="Shai Segal"
-                fid = "10200709210568537"
-            break
-        default: name="John Appleseed"
+        if let attendees = event?.attendees {
+            if (attendees.isEmpty) {
+                cell.contactName.text = "No attendees for this event"
+            }
+            else {
+                cell.configure(attendees[indexPath.row].name, fid: attendees[indexPath.row].fbid)
+            }
         }
-        
-
-        cell.configure(name, fid: fid)
+        else {
+            cell.contactName.text = "Loading attendees"
+            //launch loading spin bar
+        }
         
         return cell;
     }
