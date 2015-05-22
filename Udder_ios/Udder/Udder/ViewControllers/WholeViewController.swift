@@ -198,15 +198,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func rightSideMenuButtonPressed(sender: AnyObject) {
-        /*println(title_string)
-        println(loc_string)
-        println(cat_string)
-        println("\(priv_bool)")
-        println("start date \(start_date)")
-        println("end date \(end_date)")
-        println(des_string)*/
-        
+    func rightSideMenuButtonPressed(sender: AnyObject) {        
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
             var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
@@ -223,7 +215,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             println("Error: \(error)");
         }
         
-        eventManagerModel.createEvent(title_string, description: des_string, location: loc_string, startTime: start_date, endTime: end_date, category: cat_string, image: "", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
+        eventManagerModel.createEvent(title_string, description: des_string, locationObject: self.selectedLocation!, startTime: start_date, endTime: end_date, category: cat_string, image: "", isPrivate: priv_bool, success: successBlock, failure: failureBlock);
     }
 
     

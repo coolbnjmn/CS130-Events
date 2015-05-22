@@ -30,9 +30,11 @@ class LocationTableViewCell: UITableViewCell{
     }
     
     func configure(event:EventModel) {
-        locationLabel.text = event.eventLocation;
+        var placesModel:PlacesModel = event.locationObject;
+        
+        locationLabel.text = placesModel.placeLocationName;
 
-        if let geoCoordinate = event.eventGeoCoordinate {
+        if let geoCoordinate = placesModel.geoPoint {
             let location = CLLocationCoordinate2D(
                 latitude: geoCoordinate.latitude,
                 longitude: geoCoordinate.longitude
@@ -45,8 +47,8 @@ class LocationTableViewCell: UITableViewCell{
             let annotation = MKPointAnnotation();
             annotation.coordinate = location;
             
-            annotation.title = event.eventLocation;
-            annotation.subtitle = "10980 Wellworth Ave"; // TODO: Change this to actual address
+            annotation.title = placesModel.placeLocationName;
+            annotation.subtitle = placesModel.placeAddress; // TODO: Change this to actual address
             mapView.addAnnotation(annotation);
         }
     }

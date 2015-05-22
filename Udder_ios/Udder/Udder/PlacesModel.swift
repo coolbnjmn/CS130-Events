@@ -6,21 +6,18 @@
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
-import Foundation
-import UIKit
+import Parse
 
 class PlacesModel: BaseModel /*,  Equatable*/ {
     var placeAddress:String?
-    var placeLatitude:Double?
-    var placeLongitude:Double?
     var placeLocationName:String!
     var placeIcon:String?
+    var geoPoint:PFGeoPoint?
     
-    init(address:String, latitude:Double, longitude:Double, locationName:String) {
+    init(address:String?, geoPoint:PFGeoPoint?, locationName:String) {
         self.placeAddress = address;
-        self.placeLatitude = latitude;
-        self.placeLongitude = longitude;
         self.placeLocationName = locationName;
+        self.geoPoint = geoPoint;
     }
     
     init?(object:AnyObject!) {
@@ -36,9 +33,13 @@ class PlacesModel: BaseModel /*,  Equatable*/ {
             if let name = name {
                 self.placeLocationName = name;
                 self.placeAddress = address;
-                self.placeLongitude = longitude;
-                self.placeLatitude = latitude;
                 self.placeIcon = icon;
+                
+                if let latitude = latitude {
+                    if let longitude = longitude {
+                         self.geoPoint = PFGeoPoint(latitude: latitude, longitude: longitude);
+                    }
+                }
             }
             else {
                 println("No name found");

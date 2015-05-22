@@ -28,6 +28,7 @@ struct Constants {
         static let kEventDescription = "description"
         static let kEventLocation = "location"
         static let kEventGeoCoordinate = "geocoordinate"
+        static let kEventAddress = "address"
         static let kEventStartTime = "start_time"
         static let kEventEndTime = "end_time"
         static let kEventImageURL = "image_url"

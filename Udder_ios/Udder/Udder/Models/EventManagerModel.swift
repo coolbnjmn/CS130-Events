@@ -85,17 +85,20 @@ class EventManagerModel: BaseModel {
         // TODO: Maybe implement depending on if we can store the attendees in the event model from the query
     }
     
-    func createEvent(title:String, description:String, location:String, startTime:NSDate, endTime:NSDate, category:String, image:String, isPrivate:Bool, success: EventModel -> Void, failure: NSError -> Void) {
+    func createEvent(title:String, description:String, locationObject:PlacesModel, startTime:NSDate, endTime:NSDate, category:String, image:String, isPrivate:Bool, success: EventModel -> Void, failure: NSError -> Void) {
         var event = PFObject(className: Constants.DatabaseClass.kEventClass);
         event[Constants.EventDatabaseFields.kEventTitle] = title;
         event[Constants.EventDatabaseFields.kEventDescription] = description;
-        event[Constants.EventDatabaseFields.kEventLocation] = location;
         event[Constants.EventDatabaseFields.kEventStartTime] = startTime;
         event[Constants.EventDatabaseFields.kEventEndTime] = endTime;
         event[Constants.EventDatabaseFields.kEventCategory] = category;
         event[Constants.EventDatabaseFields.kEventImageURL] = image;
         event[Constants.EventDatabaseFields.kEventHost] = PFUser.currentUser();
         event[Constants.EventDatabaseFields.kEventPrivate] = isPrivate;
+        
+        event[Constants.EventDatabaseFields.kEventLocation] = locationObject.placeLocationName;
+        event[Constants.EventDatabaseFields.kEventGeoCoordinate] = locationObject.geoPoint;
+        event[Constants.EventDatabaseFields.kEventAddress] = locationObject.placeAddress;
         
         event.saveInBackgroundWithBlock { (isSuccessful, error) -> Void in
             if isSuccessful {

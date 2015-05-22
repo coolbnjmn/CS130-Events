@@ -145,7 +145,6 @@ class EventDetailViewController: BaseViewController {
         let attendeesTableViewCellNib = UINib(nibName: "AttendeesTableViewCell", bundle: nil);
         self.attendeesTableView.registerNib(attendeesTableViewCellNib, forCellReuseIdentifier: Constants.CellIdentifiers.kAttendeesTableViewCell);
         
-//        self.attendeesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.kStandardTableViewCell);
         self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.attendeesTableView.dataSource = self.eventAttendeesProvider;
         self.attendeesTableView.delegate = self.eventAttendeesProvider;
@@ -155,7 +154,7 @@ class EventDetailViewController: BaseViewController {
         if let validatedEvent = self.event {
             self.titleLabel.text = validatedEvent.eventTitle;
             self.timeLabel.text = timeLabelString(validatedEvent.eventStartTime);
-            self.locationLabel.text = validatedEvent.eventLocation;
+            self.locationLabel.text = validatedEvent.locationObject.placeLocationName;
             
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
             self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
