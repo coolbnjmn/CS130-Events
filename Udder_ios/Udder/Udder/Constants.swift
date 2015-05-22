@@ -83,6 +83,7 @@ struct Constants {
     struct PlaceHolders {
         static let EventImage: UIImage = UIImage(named: "Beach.jpg")!
         static let LocationImage: UIImage = UIImage(named: "Beach.jpg")!
+        static let AttendeeImage: UIImage = UIImage(named: "people.png")!
     }
     
     struct Colors {

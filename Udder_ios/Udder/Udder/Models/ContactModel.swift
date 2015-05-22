@@ -11,11 +11,12 @@ import UIKit
 class ContactModel: BaseModel,  Equatable {
     var name : String!
     var phone : String!
+    var fbid: String!
     
-    init?(name: String, phone: String) {
+    init?(name: String, phone: String, fb: String = "") {
         self.name = name
         self.phone = phone
-            
+        self.fbid = fb
     }
 
 }

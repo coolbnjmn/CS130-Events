@@ -38,7 +38,7 @@ class EventModel: BaseModel {
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
     var eventObject: PFObject!; // The parse event object
     
-    var attendees: [Attendee]?
+    var attendees: [ContactModel]?
     
     init?(eventObject: PFObject, invitation: PFObject) {
         super.init();
@@ -175,14 +175,14 @@ class EventModel: BaseModel {
                 else {
  
                     let list:[PFObject] = results as! [PFObject]
-                    self.attendees = [Attendee]()
+                    self.attendees = [ContactModel]()
                     for user:PFObject in list {
                         println()
                         let user_name: String = user.objectForKey("user").objectForKey("full_name") as? String ?? ""
                         let user_phone: String = user.objectForKey("user").objectForKey("phoneNumber") as? String ?? ""
                         let user_fbid: String = user.objectForKey("user").objectForKey("facebookId") as? String ?? ""
                         
-                        self.attendees?.append(Attendee(name: user_name, num: user_phone, fb: user_fbid))// (Attendee())
+                        self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid)!)
                     }
                     
                     success()

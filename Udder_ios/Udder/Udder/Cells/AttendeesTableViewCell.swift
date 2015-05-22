@@ -29,26 +29,24 @@ class AttendeesTableViewCell: UITableViewCell {
         contactName.text = name
         contactName.font = UIFont(name: Constants.EventDetail.TableConstraints.kAttendeeTextFont, size: Constants.EventDetail.TableConstraints.kAttendeeTextSize)
 
-        var img = getProfPic(fid)
-        if(img != nil) {
-//            img = cropToSquare(image: img!)
-            contactImg.layer.cornerRadius = (contactImg.frame.width)/2.0;
-            contactImg.image = img
-            contactImg.layer.masksToBounds = true
-            contactImg.clipsToBounds = true
-            self.selectionStyle = .None
-        }
+        setProfPic(fid)
     }
     
-    func getProfPic(fid: String) -> UIImage? {
+    func setProfPic(fid: String) {
         if (fid != "") {
             var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=square" //type=normal
             var imgURL = NSURL(string: imgURLString)
-            var imageData = NSData(contentsOfURL: imgURL!)
-            return UIImage(data: imageData!)
+            
+            contactImg.sd_setImageWithURL(imgURL, placeholderImage: Constants.PlaceHolders.AttendeeImage)
+        }
+        else {
+            contactImg.image = Constants.PlaceHolders.AttendeeImage
         }
         
-        return nil
+        contactImg.layer.cornerRadius = contactImg.frame.width/2.0
+        contactImg.layer.masksToBounds = true
+        contactImg.clipsToBounds = true
+        self.selectionStyle = .None
     }
     
     func cropToSquare(image originalImage: UIImage) -> UIImage {
