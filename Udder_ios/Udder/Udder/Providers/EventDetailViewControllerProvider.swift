@@ -35,7 +35,12 @@ class EventDetailViewControllerProvider:BaseEventProvider {
                 }
             }
         case Constants.EventDetail.Row.kLocationCell:
-            height = 185;
+            if event?.locationObject.placeAddress != nil && event?.locationObject.placeAddress != "" {
+                height = 210;
+            }
+            else {
+                height = 185;
+            }
         case Constants.EventDetail.Row.kTimeCell:
             height = 75;
         default:

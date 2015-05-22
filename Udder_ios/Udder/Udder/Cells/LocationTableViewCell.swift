@@ -12,7 +12,7 @@ import Parse
 
 class LocationTableViewCell: UITableViewCell{
     @IBOutlet weak var locationLabel: UILabel!
-    
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     override func awakeFromNib() {
@@ -33,6 +33,14 @@ class LocationTableViewCell: UITableViewCell{
         var placesModel:PlacesModel = event.locationObject;
         
         locationLabel.text = placesModel.placeLocationName;
+        
+        if let address = placesModel.placeAddress {
+            addressLabel.text = placesModel.placeAddress;
+        }
+        else {
+            addressLabel.hidden = true;
+        }
+
 
         if let geoCoordinate = placesModel.geoPoint {
             let location = CLLocationCoordinate2D(
