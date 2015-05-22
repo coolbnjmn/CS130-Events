@@ -65,6 +65,10 @@
 		A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
 		A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78542B81AEA0D2500DD1164 /* Beach.jpg */; };
 		A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
+		A787233C1B0E901900059A58 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787233B1B0E901900059A58 /* LocationPickerViewController.swift */; };
+		A787233E1B0E904D00059A58 /* LocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A787233D1B0E904D00059A58 /* LocationPickerViewController.xib */; };
+		A78723401B0EB61B00059A58 /* LocationPickerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787233F1B0EB61B00059A58 /* LocationPickerProvider.swift */; };
+		A78723421B0EB74E00059A58 /* LocationPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78723411B0EB74E00059A58 /* LocationPickerModel.swift */; };
 		A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */; };
 		A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
 		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
@@ -210,6 +214,10 @@
 		A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ViewControllers/EventDetailViewController.swift; sourceTree = "<group>"; };
 		A78542B81AEA0D2500DD1164 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
 		A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetailViewController.xib; path = Views/EventDetailViewController.xib; sourceTree = "<group>"; };
+		A787233B1B0E901900059A58 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
+		A787233D1B0E904D00059A58 /* LocationPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationPickerViewController.xib; path = Views/LocationPickerViewController.xib; sourceTree = "<group>"; };
+		A787233F1B0EB61B00059A58 /* LocationPickerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerProvider.swift; path = Providers/LocationPickerProvider.swift; sourceTree = "<group>"; };
+		A78723411B0EB74E00059A58 /* LocationPickerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerModel.swift; path = Models/LocationPickerModel.swift; sourceTree = "<group>"; };
 		A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Utilities/UIView+Extension.swift"; sourceTree = "<group>"; };
 		A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtility.swift; path = Utilities/GeneralUtility.swift; sourceTree = "<group>"; };
 		A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-fitness.png"; path = "Images/category-fitness.png"; sourceTree = "<group>"; };
@@ -349,6 +357,7 @@
 				A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */,
 				A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */,
 				A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */,
+				A787233F1B0EB61B00059A58 /* LocationPickerProvider.swift */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -509,6 +518,7 @@
 				A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */,
 				B23AF74A1AF732CB00E32212 /* ContactModel.swift */,
 				55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */,
+				A78723411B0EB74E00059A58 /* LocationPickerModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -544,6 +554,7 @@
 				B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */,
 				A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */,
 				A70AAA941AF4929900E8B3F9 /* TimeInfoTableViewCell.xib */,
+				A787233D1B0E904D00059A58 /* LocationPickerViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -551,6 +562,7 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A787233B1B0E901900059A58 /* LocationPickerViewController.swift */,
 				348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */,
 				3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */,
 				B2446F411AE20967006C37F9 /* EventTableViewController.swift */,
@@ -623,11 +635,11 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = M6Y34M2A35;
+						DevelopmentTeam = QW4YTV2H2T;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = M6Y34M2A35;
+						DevelopmentTeam = QW4YTV2H2T;
 						TestTargetID = B25560991AE19A0900EBEE8B;
 					};
 				};
@@ -658,6 +670,7 @@
 			files = (
 				348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */,
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
+				A787233E1B0E904D00059A58 /* LocationPickerViewController.xib in Resources */,
 				5548ED3B1AFAA0300063F6E4 /* RegEventCreationTableViewCell.xib in Resources */,
 				A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
@@ -800,6 +813,7 @@
 				B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */,
 				B2408BE61AF54CB300568B0C /* InviteContactTableViewController.swift in Sources */,
 				55AF9D101B0531D500AE7216 /* PlacesModel.swift in Sources */,
+				A78723401B0EB61B00059A58 /* LocationPickerProvider.swift in Sources */,
 				B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */,
 				A70AAA911AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift in Sources */,
 				3487C5161AFC410E00C8BA90 /* ValidationViewController.swift in Sources */,
@@ -808,7 +822,9 @@
 				A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */,
 				E175716B1AEAD27A00E92F07 /* EventsNearMeViewController.swift in Sources */,
 				A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */,
+				A787233C1B0E901900059A58 /* LocationPickerViewController.swift in Sources */,
 				A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */,
+				A78723421B0EB74E00059A58 /* LocationPickerModel.swift in Sources */,
 				B2446F431AE20967006C37F9 /* EventTableViewController.swift in Sources */,
 				E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */,
 				B2BF29391AE9D42000D6714C /* Constants.swift in Sources */,

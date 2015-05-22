@@ -109,4 +109,10 @@ struct Constants {
         EventCategories.kAcademicCategory: "category-academic.png",
         EventCategories.kOtherCategory: "category-other.png"
     ]
+    
+    // Google Maps Constants
+    struct GoogleMaps {
+        static let kUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
+        static let kApiKey = "AIzaSyCZE_8eTEeIfoKXPWmoMb43k4PYHz0BrXY";
+    }
 }

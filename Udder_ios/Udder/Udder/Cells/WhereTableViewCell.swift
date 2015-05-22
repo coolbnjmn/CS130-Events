@@ -8,35 +8,25 @@
 
 import UIKit
 
-@objc protocol WhereCellDelegate{
+/*@objc protocol WhereCellDelegate{
     optional func setwheretext(cell:WhereTableViewCell)
     optional func placesTableHidden()
-}
+}*/
 
 
-class WhereTableViewCell: UITableViewCell, UITextFieldDelegate{
+//class WhereTableViewCell: UITableViewCell, UITextFieldDelegate{
+class WhereTableViewCell: UITableViewCell {
     
-    var delegate: WhereCellDelegate?
+//    var delegate: WhereCellDelegate?
     
     @IBOutlet weak var wheretext: UITextField!
    
-  
+
+    /*
     @IBAction func wheretextclicked(sender: UITextField) {
         delegate?.placesTableHidden!()
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        //wheretext.enabled = false
-    }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func textField(textField: UITextField,
         shouldChangeCharactersInRange range: NSRange,
         replacementString string: String) -> Bool{
@@ -52,6 +42,6 @@ class WhereTableViewCell: UITableViewCell, UITextFieldDelegate{
         textField.resignFirstResponder()
         delegate?.setwheretext!(self)
         return false
-    }
+    }*/
     
 }

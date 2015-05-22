@@ -10,25 +10,43 @@ import Foundation
 import UIKit
 
 class PlacesModel: BaseModel /*,  Equatable*/ {
-    var add:String
-    var lat:Double
-    var long:Double
-    var location:CLLocation
+    var placeAddress:String!
+    var placeLatitude:Double?
+    var placeLongitude:Double?
+    var placeLocationName:String?
+    var placeIcon:String?
     
-    init?(add:String, lat:Double, long:Double) {
-        self.add = add
-        self.lat = lat
-        self.long = long
-        self.location = CLLocation(latitude: self.lat,longitude: self.long)
+    init(address:String, latitude:Double, longitude:Double, locationName:String) {
+        self.placeAddress = address;
+        self.placeLatitude = latitude;
+        self.placeLongitude = longitude;
+        self.placeLocationName = locationName;
+    }
+    
+    init?(object:AnyObject!) {
+        super.init();
         
+        if let locationData:NSDictionary = object as? NSDictionary {
+            var name:String? = locationData["name"] as? String;
+            var address:String? = locationData["formatted_address"] as? String;
+            var latitude: Double? = locationData.valueForKeyPath("geometry.location.lat") as? Double;
+            var longitude: Double? = locationData.valueForKeyPath("geometry.location.lng") as? Double;
+            var icon:String? = locationData["icon"] as? String;
+            
+            if let name = name {
+                self.placeLocationName = name;
+                self.placeAddress = address;
+                self.placeLongitude = longitude;
+                self.placeLatitude = latitude;
+                self.placeIcon = icon;
+            }
+            else {
+                println("No name found");
+                return nil;
+            }
+        }
+        else {
+            return nil;
+        }
     }
-    
-    func get_add () -> String{
-        return add
-    }
-    
 }
-
-/*func ==(lhs: ContactModel, rhs: ContactModel) -> Bool {
-    return lhs.phone == rhs.phone
-}*/

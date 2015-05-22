@@ -9,7 +9,13 @@
 import UIKit
 import MapKit
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,WhereCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+
+
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate {
+    
+    struct CreateTableSegment {
+        static let kSegmentLocation = 3;
+    }
     
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
 
@@ -36,77 +42,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 }}
             return tableView.rowHeight
     }
-    
-    func findApple(){
-        if(moveApple>1){
-        self.set_placesTable = self.set_placesTable+1
-        var request:MKLocalSearchRequest = MKLocalSearchRequest()
-        request.naturalLanguageQuery = loc_string
-        //request.region = self.map.region
-        var search:MKLocalSearch = MKLocalSearch(request: request)
-        search.startWithCompletionHandler { (response, error) -> Void in
-            if(response != nil){
-            for item in response.mapItems {
-                var area = item as! MKMapItem
-                var add:String = area.name
-                var lat:Double = area.placemark.coordinate.latitude
-                var long:Double = area.placemark.coordinate.longitude
-                var place:PlacesModel = PlacesModel(add: add, lat: lat, long: long)!
-                self.places_add.insert(place, atIndex:0)
-                }}
-            }}
-        else{
-            //do nothing
-        }
-        moveApple = moveApple+1
-    }
-    
-    //////////////START findPlaces
-    
-    func findPlaces(){
-        var str1:String = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
-        var str2:String = "&sensor=false&key=AIzaSyCZE_8eTEeIfoKXPWmoMb43k4PYHz0BrXY"
-        var str3:String = String()
-        for character in loc_string {
-            if(character == " "){
-                str3 += "+"
-            }
-            else{
-                str3 += String(character)
-            }
-        }
-        var final:String = str1+str3+str2
-        var url:NSURL = NSURL(string: final)!
-        var request:NSURLRequest = NSURLRequest(URL: url)
-        var op:AFHTTPRequestOperation = AFHTTPRequestOperation(request: request)
-        op.responseSerializer = AFJSONResponseSerializer()
-        op.setCompletionBlockWithSuccess({ (AFHTTPRequestOperation, responseObject) -> Void in
-            //setup vars for placesmodel
-            var add:String
-            var lat: Double
-            var long: Double
-            var place:PlacesModel
-            
-            var results:String = "results"
-            var resultObj = responseObject.objectForKey(results)! as! [(AnyObject)]
-            for resultItem:AnyObject in resultObj  {
-                add = resultItem.objectForKey("formatted_address")! as! String
-                lat = resultItem.objectForKey("geometry")!.objectForKey("location")!.objectForKey("lat")! as! Double
-                long = resultItem.objectForKey("geometry")!.objectForKey("location")!.objectForKey("lng") as! Double
-                place = PlacesModel(add: add, lat: lat, long: long)!
-                self.places_add.insert(place, atIndex:0)
-               //  println("Directly after insert \(self.places_add.count)")
-            }
-          //  println("After for loop \(self.places_add.count)")
-            self.set_placesTable = self.set_placesTable+1
-            }, failure: { (AFHTTPRequestOperation, NSError) -> Void in
-                println("failure")
-        })
-         op.start()
-    }
-    
-    
-    ////////////END findPlaces
     
     func setaddtext(cell:RegEventCreationTableViewCell) {
         title_string = cell.addtext.text
@@ -146,8 +81,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
    
     func setwheretext(cell:WhereTableViewCell){
         loc_string = cell.wheretext.text
-        //self.findPlaces()
-        self.findApple()
         placestable.reloadData()
         if(!title_string.isEmpty && !loc_string.isEmpty && !cat_string.isEmpty && (start_date.compare(end_date) == NSComparisonResult.OrderedAscending)){
             self.navigationItem.rightBarButtonItem?.enabled = true
@@ -319,8 +252,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView,
-    didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
       let row = indexPath.row
         if(tableView.tag == 1){
             if(set_placesTable == 0)
@@ -334,9 +266,16 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             cell_start.enable = true
             cell_end.enable = true
             cell_loc.wheretext.text = cell_arr[row].textLabel?.text
-            places_loc = places_add[row].location
+            //places_loc = places_add[row].location
             println(places_loc.coordinate.latitude)
             println(places_loc.coordinate.longitude)
+            }
+        }
+        else {
+            if (row == CreateTableSegment.kSegmentLocation) {
+                var locationPickerViewController = LocationPickerViewController(nibName: "LocationPickerViewController", bundle: nil);
+                self.pushViewController(locationPickerViewController, animated: true);
+                
             }
         }
     }
@@ -344,92 +283,66 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let row = indexPath.row
         if(tableView.tag==0){
-        if(cellnames[row] == "Title"){
-        var cell:RegEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("regcell") as! RegEventCreationTableViewCell
-        cell.cellname?.text=cellnames[row]
-        cell.addtext?.placeholder = "Ex. Venice Beach Run"
-        cell.delegate = self
-        cell_title = cell
-        return cell
-        }
- 
-        else if (cellnames[row] == "Start Time"){
-            var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
-            cell.textLabel?.text="Start Time"
-            cell.timetext?.placeholder = "04/18/15 4:00 PM"
-            cell.delegate = self
-            cell_start = cell
-            return cell
-            
-        }
-        else if (cellnames[row] == "End Time"){
-            var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
-            cell.textLabel?.text="End Time"
-            cell.timetext?.placeholder = "04/18/15 6:00 PM"
-            cell.delegate = self
-            cell_end = cell
-            return cell
-            
-        }
-        else if (cellnames[row] == "Location"){ //SHOULD BE LOCATION
-            var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
-            cell.wheretext?.placeholder = "Ex. Venice Beach"
-            cell.delegate = self
-            cell_loc = cell
-            return cell
-            
-        }
-        else if (cellnames[row] == "Private Event"){
-            var cell:PrivateEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("PrivateCell") as! PrivateEventCreationTableViewCell
-            cell.cellname?.text=cellnames[row]
-            cell.delegate = self
-            return cell
-            
-        }
-        else if (cellnames[row] == "Categories"){ //SHOULD BE CATEGORIES
-            var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
-            cell.cattext?.placeholder = "Ex. Fitness"
-            cell.delegate = self
-            return cell
-            
-        }
-        else if (cellnames[row] == "textview"){
-            var cell:textviewTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("tvCell") as! textviewTableViewCell
-            cell.delegate = self
-            return cell
-        }
-        else {
-            var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
-            return cell
-            }}
-        else{
-            if(places_add.count == 0){
-            var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
-            cell.textLabel?.text = "Type Location"
-            cell_arr.append(cell)
-            return cell
-            }
-            else{
-                var cell:regularCell = self.placestable.dequeueReusableCellWithIdentifier("regularCell") as! regularCell
-                if(places_add.count == 1){
-                     cell.textLabel?.text = self.places_add[0].get_add()
-                }
-                else if (places_add.count == 2)
-                {
-                     cell.textLabel?.text = self.places_add[row%2].get_add()
-                }
-                else if (places_add.count == 3){
-                     cell.textLabel?.text = self.places_add[row%3].get_add()
-                }
-                else{
-                  cell.textLabel?.text = self.places_add[row].get_add()
-                }
-                cell_arr.append(cell)
+            if(cellnames[row] == "Title"){
+                var cell:RegEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("regcell") as! RegEventCreationTableViewCell
+                cell.cellname?.text=cellnames[row]
+                cell.addtext?.placeholder = "Ex. Venice Beach Run"
+                cell.delegate = self
+                cell_title = cell
                 return cell
             }
-            
+     
+            else if (cellnames[row] == "Start Time"){
+                var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
+                cell.textLabel?.text="Start Time"
+                cell.timetext?.placeholder = "04/18/15 4:00 PM"
+                cell.delegate = self
+                cell_start = cell
+                return cell
+                
+            }
+            else if (cellnames[row] == "End Time"){
+                var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
+                cell.textLabel?.text="End Time"
+                cell.timetext?.placeholder = "04/18/15 6:00 PM"
+                cell.delegate = self
+                cell_end = cell
+                return cell
+                
+            }
+            else if (cellnames[row] == "Location"){ //SHOULD BE LOCATION
+                var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
+                cell.wheretext?.placeholder = "Ex. Venice Beach"
+                //cell.delegate = self
+                cell_loc = cell
+                return cell
+                
+            }
+            else if (cellnames[row] == "Private Event"){
+                var cell:PrivateEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("PrivateCell") as! PrivateEventCreationTableViewCell
+                cell.cellname?.text=cellnames[row]
+                cell.delegate = self
+                return cell
+                
+            }
+            else if (cellnames[row] == "Categories"){ //SHOULD BE CATEGORIES
+                var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
+                cell.cattext?.placeholder = "Ex. Fitness"
+                cell.delegate = self
+                return cell
+                
+            }
+            else if (cellnames[row] == "textview"){
+                var cell:textviewTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("tvCell") as! textviewTableViewCell
+                cell.delegate = self
+                return cell
+            }
+            else {
+                var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
+                return cell
+                }
         }
-    
+        return UITableViewCell();
     }
 
 
