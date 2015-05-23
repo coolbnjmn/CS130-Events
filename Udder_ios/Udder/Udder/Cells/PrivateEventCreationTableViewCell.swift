@@ -27,6 +27,11 @@ class PrivateEventCreationTableViewCell: UITableViewCell {
         }
         delegate?.setswitch!(self)
     }
+    
+    func switchSwitch (truth: Bool){
+        self.`switch`!.setOn(truth, animated: true)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

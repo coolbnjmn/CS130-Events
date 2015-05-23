@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 struct TableSegment {
     static let kSegmentInfo = 0;
@@ -59,9 +60,29 @@ class EventDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
+        if(self.event!.eventHost.objectId == PFUser.currentUser().objectId)
+        {
+            self.setupMenuBarButtonItems()
+        }
         self.populateData();
         self.setupTableViews();
         self.setupView();
+    }
+    
+    func setupMenuBarButtonItems() {
+        self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
+    }
+    
+    func rightMenuBarButtonItem() -> UIBarButtonItem {
+        let rightButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.PlusIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
+        rightButton.tintColor = UIColor.whiteColor()
+        return rightButton
+    }
+    
+    func rightPlusButtonPressed(sender: AnyObject) {
+        var EditViewController:editViewController = editViewController(nibName: "WholeViewController", bundle: nil);
+        EditViewController.setupWithEvent(self.event)
+        self.navigationController?.pushViewController(EditViewController, animated: true);
     }
     
     override func viewDidLayoutSubviews() {
