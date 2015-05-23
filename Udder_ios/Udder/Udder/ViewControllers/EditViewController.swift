@@ -7,16 +7,54 @@
 //
 
 import UIKit
+import Parse
 
 class editViewController: WholeViewController {
     var event:EventModel?
+    var location:PlacesModel?
+    
     var dateFormatter = NSDateFormatter()
     func setupWithEvent(eventModel:EventModel?) {
         self.event = eventModel
     }
     
+    override func rightSideMenuButtonPressed(sender: AnyObject) {
+        var query = PFQuery(className: Constants.DatabaseClass.kEventClass)
+        query.getObjectInBackgroundWithId(event?.eventId) { (changedEvent:PFObject!, error:NSError!) -> Void in
+            if error != nil{
+                println("houston we have a problem")
+            }
+            else if let changedEvent = changedEvent{
+                changedEvent[Constants.EventDatabaseFields.kEventTitle] = self.title_string
+                changedEvent[Constants.EventDatabaseFields.kEventDescription] = self.des_string;
+                changedEvent[Constants.EventDatabaseFields.kEventStartTime] = self.start_date;
+                changedEvent[Constants.EventDatabaseFields.kEventEndTime] = self.end_date;
+                changedEvent[Constants.EventDatabaseFields.kEventCategory] = self.cat_string;
+                changedEvent[Constants.EventDatabaseFields.kEventPrivate] = self.priv_bool;
+                changedEvent[Constants.EventDatabaseFields.kEventLocation] = self.selectedLocation!.placeLocationName;
+                changedEvent[Constants.EventDatabaseFields.kEventGeoCoordinate] = self.selectedLocation!.geoPoint;
+                changedEvent[Constants.EventDatabaseFields.kEventAddress] = self.selectedLocation!.placeAddress;
+                changedEvent.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+                    if(success){
+                        println("should have saved")
+                    }
+                    else{
+                        println("wtf")
+                    }
+                })
+            }
+        }
+        var homePage:EventTableViewController =  EventTableViewController(nibName: "EventTableViewController", bundle: nil);
+        var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+        viewControllers.removeObjectIdenticalTo(self);
+        viewControllers.addObject(homePage);
+        self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Edit Event";
+        self.navigationItem.rightBarButtonItem?.enabled = true
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
         self.title_string = event!.eventTitle!
@@ -26,6 +64,7 @@ class editViewController: WholeViewController {
         self.priv_bool = event!.eventPrivate!
         self.des_string = event!.eventDescription!
         self.loc_string = event!.locationObject!.placeLocationName!
+        self.selectedLocation = event!.locationObject!
         // Do any additional setup after loading the view.
     }
     
