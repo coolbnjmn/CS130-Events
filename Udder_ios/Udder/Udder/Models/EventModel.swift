@@ -8,6 +8,8 @@
 
 import Foundation
 import Parse
+import UIKit
+import ParseUI
 
 struct Attendee {
     
@@ -162,11 +164,24 @@ class EventModel: BaseModel {
     }
     
     func getAttendeesIfNeeded(success: Void -> Void) {
-        
+    
         if let attendees = attendees {
             return
         }
         else {
+
+//            FBRequestConnection.startForMyFriendsWithCompletionHandler({(conn, result, error) in
+//                if(error != nil) {
+//                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
+//                    let friendIds:NSMutableArray = NSMutableArray(capacity: friendObjects.count)
+//                    for friend:NSDictionary in friendObjects {
+//                        friendIds.addObject(friend.objectForKey("id") ?? "")
+//                    }
+//                    println(friendIds)
+//                    println(friendIds.count)
+//                }
+//            })
+            
             let parameters = ["eventId": eventId]
             PFCloud.callFunctionInBackground("getAttendees", withParameters: parameters) { results, error in
                 if error != nil {
