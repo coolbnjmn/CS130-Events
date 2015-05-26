@@ -119,4 +119,8 @@ struct Constants {
         static let kUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
         static let kApiKey = "AIzaSyBYOIc_oRgl8ridepQWCR3mG9IkfEODe8A";
     }
+    
+    struct PushTypes {
+        static let kNewInvitationType = "newInvitation";
+    }
 }

@@ -11,6 +11,8 @@
 		3487C5181AFC411800C8BA90 /* ValidationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3487C5171AFC411800C8BA90 /* ValidationViewController.xib */; };
 		348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */; };
 		348E20B21AF97D7B003BDB1F /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */; };
+		551BBF8F1B10738B00309C8E /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BBF8E1B10738B00309C8E /* editViewController.swift */; };
+		551BBF911B10739500309C8E /* editViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551BBF901B10739500309C8E /* editViewController.xib */; };
 		5548ED1E1AFA9FFB0063F6E4 /* WholeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */; };
 		5548ED261AFAA0110063F6E4 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */; };
 		5548ED271AFAA0110063F6E4 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED201AFAA0110063F6E4 /* DateTableViewCell.swift */; };
@@ -170,6 +172,8 @@
 		3487C5171AFC411800C8BA90 /* ValidationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ValidationViewController.xib; path = Views/ValidationViewController.xib; sourceTree = "<group>"; };
 		348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhoneNumberViewController.xib; path = Views/PhoneNumberViewController.xib; sourceTree = "<group>"; };
 		348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberViewController.swift; path = ViewControllers/PhoneNumberViewController.swift; sourceTree = "<group>"; };
+		551BBF8E1B10738B00309C8E /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = editViewController.swift; path = ViewControllers/editViewController.swift; sourceTree = "<group>"; };
+		551BBF901B10739500309C8E /* editViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = editViewController.xib; path = Views/editViewController.xib; sourceTree = "<group>"; };
 		5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WholeViewController.swift; path = ViewControllers/WholeViewController.swift; sourceTree = "<group>"; };
 		5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatTableViewCell.swift; path = Cells/CatTableViewCell.swift; sourceTree = "<group>"; };
 		5548ED201AFAA0110063F6E4 /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = Cells/DateTableViewCell.swift; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				551BBF901B10739500309C8E /* editViewController.xib */,
 				55B3A8261B02F93800614EA8 /* regularCell.xib */,
 				E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */,
 				3487C5171AFC411800C8BA90 /* ValidationViewController.xib */,
@@ -578,6 +583,7 @@
 		B2D5BB8C1AE1DDC80063126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				551BBF8E1B10738B00309C8E /* editViewController.swift */,
 				A787233B1B0E901900059A58 /* LocationPickerViewController.swift */,
 				348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */,
 				3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */,
@@ -651,7 +657,6 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 4VFFSF6V7V;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
@@ -683,6 +688,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551BBF911B10739500309C8E /* editViewController.xib in Resources */,
 				348E20B01AF97D57003BDB1F /* PhoneNumberViewController.xib in Resources */,
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
 				A787233E1B0E904D00059A58 /* LocationPickerViewController.xib in Resources */,
@@ -814,6 +820,7 @@
 				B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */,
 				5548ED2B1AFAA0110063F6E4 /* TimeTableViewCell.swift in Sources */,
 				5548ED2A1AFAA0110063F6E4 /* RegEventCreationTableViewCell.swift in Sources */,
+				551BBF8F1B10738B00309C8E /* editViewController.swift in Sources */,
 				55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */,
 				A71E69CF1B05333900F59E9D /* BaseEventTableViewController.swift in Sources */,
 				5548ED271AFAA0110063F6E4 /* DateTableViewCell.swift in Sources */,

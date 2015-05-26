@@ -22,7 +22,7 @@ class BaseEventTableViewController : BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         

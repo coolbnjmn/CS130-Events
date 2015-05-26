@@ -96,7 +96,6 @@ class EventManagerModel: BaseModel {
         event[Constants.EventDatabaseFields.kEventImageURL] = image;
         event[Constants.EventDatabaseFields.kEventHost] = PFUser.currentUser();
         event[Constants.EventDatabaseFields.kEventPrivate] = isPrivate;
-        
         event[Constants.EventDatabaseFields.kEventLocation] = locationObject.placeLocationName;
         event[Constants.EventDatabaseFields.kEventGeoCoordinate] = locationObject.geoPoint;
         event[Constants.EventDatabaseFields.kEventAddress] = locationObject.placeAddress;

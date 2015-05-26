@@ -36,22 +36,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(PFUser.currentUser() == nil) { //Not logged in
             self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
+            application.unregisterForRemoteNotifications()
         }
         else { //Already logged in
+            if application.respondsToSelector("registerUserNotificationSettings:") {
+                let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+                let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+                application.registerUserNotificationSettings(settings)
+                application.registerForRemoteNotifications()
+            }
+            
             let currentUser = PFUser.currentUser()
             //Update user with db attribute values
             //Error handling is needed
             let block:PFObjectResultBlock = {(PFObject object, NSError error) in
                 let phoneValidated = currentUser.valueForKey("phoneValidated") as? Bool ?? false
-                if (!phoneValidated) {
-                    let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
-                    self.window?.rootViewController = navController
+                if let options = launchOptions as? [String : AnyObject], let notification: AnyObject = options[UIApplicationLaunchOptionsRemoteNotificationKey] {
+                        self.application(application, didReceiveRemoteNotification:options)
                 } else {
-                    let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
-                    let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
-                    container.view.backgroundColor = UIColor.whiteColor()
-                    self.window?.rootViewController = container
+                    if (!phoneValidated) {
+                        let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
+                        self.window?.rootViewController = navController
+                    } else {
+                        let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
+                        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                        container.view.backgroundColor = UIColor.whiteColor()
+                        self.window?.rootViewController = container
+                    }
+  
                 }
+                
             };
             currentUser.fetchIfNeededInBackgroundWithBlock(block);// TODO: Make this async
         }
@@ -71,13 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
                 PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
             }
-        }
-        
-        if application.respondsToSelector("registerUserNotificationSettings:") {
-            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
-            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
         }
         
         self.window!.makeKeyAndVisible()
@@ -109,7 +116,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let installation = PFInstallation.currentInstallation()
-        installation.setObject(PFUser.currentUser(), forKey: "user")
+        if let user = PFUser.currentUser() {
+            installation.setObject(PFUser.currentUser(), forKey:"user")
+        }
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackgroundWithBlock(nil)
     }
@@ -128,12 +137,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO : Handle push notifications here -- and in didFinishlaunchingwithoptions, using a boolean.
         let notificationPayload : NSDictionary? = userInfo["aps"] as? NSDictionary;
         
-//        if var nPayload : NSDictionary = notificationPayload {
-//            println("got notification");
-//            var alert = UIAlertController(title: "Push Received", message: "Push Received", preferredStyle: UIAlertControllerStyle.Alert)
-//            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-//            
-//        }
+        
+        if let user = PFUser.currentUser() {
+            if (userInfo["type"] as! String) == Constants.PushTypes.kNewInvitationType {
+                
+                if application.applicationState == UIApplicationState.Active {
+                    let alertController = UIAlertController(title: "New Invitation", message:
+                        "Go view it now!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    alertController.addAction(UIAlertAction(title: "Show", style: UIAlertActionStyle.Default, handler: { (action)  in
+                        let navController : UINavigationController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: "EventTableViewController", bundle:nil))
+                        let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+                        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                        container.view.backgroundColor = UIColor.whiteColor()
+                        self.window?.rootViewController = container
+                    }))
+                    self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+                    
+                } else {
+                    let navController : UINavigationController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: "EventTableViewController", bundle:nil))
+                    let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+                    let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+                    container.view.backgroundColor = UIColor.whiteColor()
+                    self.window?.rootViewController = container
+                }
+            }
+        }
         
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayloadInBackground(userInfo, block:nil)
@@ -162,6 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func FBlogout() {
         PFUser.logOut()
+        UIApplication.sharedApplication().unregisterForRemoteNotifications()
         UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
         
     }
