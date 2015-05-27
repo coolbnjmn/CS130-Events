@@ -39,7 +39,7 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
                 cell.contactName.text = "No attendees for this event"
             }
             else {
-                cell.configure(attendees[indexPath.row].name, fid: attendees[indexPath.row].fbid)
+                cell.configure(attendees[indexPath.row])
             }
         }
         else {

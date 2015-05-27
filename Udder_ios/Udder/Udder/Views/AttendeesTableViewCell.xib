@@ -22,28 +22,79 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgI-ge-Q8t">
-                        <rect key="frame" x="73" y="18" width="42" height="21"/>
+                        <rect key="frame" x="73" y="18" width="204" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="206" id="Tyr-Q6-jzT"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Tyr-Q6-jzT"/>
+                            </mask>
+                        </variation>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Zw-eT-PZS">
+                        <rect key="frame" x="287" y="5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1l9-Sw-3Lh"/>
+                            <constraint firstAttribute="width" constant="20" id="tg2-C4-F3B"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M2V-cl-gaj">
+                        <rect key="frame" x="287" y="32" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="0rt-J7-Nrb"/>
+                            <constraint firstAttribute="width" constant="21" id="5Xo-4t-X0M"/>
+                            <constraint firstAttribute="height" constant="20" id="jcN-zA-Pal"/>
+                            <constraint firstAttribute="width" constant="20" id="xxv-lt-PmA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0rt-J7-Nrb"/>
+                                <exclude reference="5Xo-4t-X0M"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rgI-ge-Q8t" firstAttribute="leading" secondItem="Inm-Ar-xgT" secondAttribute="trailing" constant="10" id="2rW-HK-9Vt"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" constant="5" id="CI3-6N-PAA"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" constant="5" id="HlJ-me-GJd"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="5" id="KtB-t1-j53"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="leading" secondItem="rgI-ge-Q8t" secondAttribute="trailing" constant="10" id="NqH-T2-cL6"/>
                     <constraint firstItem="Inm-Ar-xgT" firstAttribute="centerY" secondItem="rgI-ge-Q8t" secondAttribute="centerY" id="QAz-tw-T1p"/>
+                    <constraint firstItem="7Zw-eT-PZS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="SgQ-zu-GBK"/>
                     <constraint firstItem="Inm-Ar-xgT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="XDg-7O-uOp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="M2V-cl-gaj" secondAttribute="trailing" constant="5" id="YHx-1q-aXO"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="leading" secondItem="7Zw-eT-PZS" secondAttribute="leading" id="Zcp-1z-8Qc"/>
+                    <constraint firstItem="7Zw-eT-PZS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="ae0-1h-fRx"/>
                     <constraint firstItem="Inm-Ar-xgT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="edk-8p-fWq"/>
                     <constraint firstItem="Inm-Ar-xgT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="fSy-1O-tRh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7Zw-eT-PZS" secondAttribute="trailing" constant="5" id="gJj-Cr-HHy"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" id="mBs-tl-mgK"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" constant="5" id="tkn-cn-SSh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="M2V-cl-gaj" secondAttribute="bottom" constant="-3" id="wZ3-Kl-UYr"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="fSy-1O-tRh"/>
+                        <exclude reference="ae0-1h-fRx"/>
+                        <exclude reference="CI3-6N-PAA"/>
+                        <exclude reference="HlJ-me-GJd"/>
+                        <exclude reference="KtB-t1-j53"/>
+                        <exclude reference="Zcp-1z-8Qc"/>
+                        <exclude reference="mBs-tl-mgK"/>
+                        <exclude reference="tkn-cn-SSh"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contactImg" destination="Inm-Ar-xgT" id="Zrw-Xe-9Tu"/>
+                <outlet property="contactLogo" destination="M2V-cl-gaj" id="r81-YP-uOQ"/>
                 <outlet property="contactName" destination="rgI-ge-Q8t" id="IMr-Z0-cnS"/>
+                <outlet property="fbLogo" destination="7Zw-eT-PZS" id="kAa-QE-8ED"/>
             </connections>
             <point key="canvasLocation" x="322" y="213"/>
         </tableViewCell>

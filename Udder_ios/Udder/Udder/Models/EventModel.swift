@@ -6,24 +6,11 @@
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
-import Foundation
-import Parse
 import UIKit
+import Parse
 import ParseUI
-
-struct Attendee {
-    
-    var name: String
-    var number: String
-    var fbid: String
-    
-    init(name: String, num: String, fb: String) {
-        self.name = name
-        self.number = num
-        self.fbid = fb
-    }
-}
-
+import AddressBookUI
+import Foundation
 
 class EventModel: BaseModel {
     var eventId: String!;
@@ -40,6 +27,8 @@ class EventModel: BaseModel {
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
     var eventObject: PFObject!; // The parse event object
     
+    var phonebookContacts: Dictionary<String, String>?
+    var facebookFriends: NSMutableArray?
     var attendees: [ContactModel]?
     
     init?(eventObject: PFObject, invitation: PFObject) {
@@ -163,24 +152,80 @@ class EventModel: BaseModel {
         println("Is Private: \(self.eventPrivate)");
     }
     
-    func getAttendeesIfNeeded(success: Void -> Void) {
+    func getAttendeesIfNeeded(success: Void -> Void, alert:UIAlertController -> Void) {
     
-        if let attendees = attendees {
-            return
+        if (phonebookContacts == nil) {
+            
+            let contactServer: Void -> Void = {
+                for (phone, name) in self.phonebookContacts! {
+                    println(phone + ": " + name)
+                }
+                println("Total of \(self.phonebookContacts!.count) contacts found")
+                
+                self.getFBFriends(success)
+            }
+            
+            self.getPhonebookContacts(contactServer, presentAlert: alert)
         }
-        else {
-
-//            FBRequestConnection.startForMyFriendsWithCompletionHandler({(conn, result, error) in
-//                if(error != nil) {
-//                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
-//                    let friendIds:NSMutableArray = NSMutableArray(capacity: friendObjects.count)
-//                    for friend:NSDictionary in friendObjects {
-//                        friendIds.addObject(friend.objectForKey("id") ?? "")
-//                    }
-//                    println(friendIds)
-//                    println(friendIds.count)
-//                }
-//            })
+        
+        //Don't ever reach here?
+//        else if (self.attendees == nil) {
+//            self.contactServerForEventAttendees(success)
+//        }
+    }
+    
+    func getPhonebookContacts(success: Void -> Void, presentAlert: UIAlertController -> Void) {
+        let addressBookRef: ABAddressBookRef = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
+        
+        
+        if (ABAddressBookGetAuthorizationStatus() == .NotDetermined || ABAddressBookGetAuthorizationStatus() == .Authorized) {
+            self.phonebookContacts = Dictionary<String,String>()
+            
+            let block : ABAddressBookRequestAccessCompletionHandler = { ABAddressBookRequestAccessCompletionHandler in
+                let addressBook : ABAddressBookRef = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
+                let allPeople : NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
+                let nPeople : CFIndex = ABAddressBookGetPersonCount(addressBook)
+                
+                for record:ABRecordRef in allPeople {
+                    var contactPerson: ABRecordRef = record
+                    if let validatedName = ABRecordCopyCompositeName(contactPerson) {
+                        var contactName: String = validatedName.takeRetainedValue() as String
+                        
+                        /* Get all the phone numbers this user has */
+                        let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
+                        let phones: ABMultiValueRef = unmanagedPhones.takeRetainedValue()
+                        let countOfPhones = ABMultiValueGetCount(phones)
+                        
+                        // TODO: what to do with multiple phone numbers per contact?
+                        for index in 0..<countOfPhones{
+                            let unmanagedPhone = ABMultiValueCopyValueAtIndex(phones, index)
+                            var phone: String = unmanagedPhone.takeRetainedValue() as! String
+                            
+                            if(index == 0) {
+                                phone = self.stripNumber(phone)
+                                if(count(phone) == 10) {
+                                    phone = "1" + phone
+                                }
+                                self.phonebookContacts?.updateValue(contactName, forKey: phone)
+                            }
+                        }
+                    }
+                }
+                
+                success()
+            }
+            
+            ABAddressBookRequestAccessWithCompletion(addressBookRef, block)
+        } else {
+            var alert = UIAlertController(title: "Please let us use your contacts.", message: "So you can invite your friends! Go to settings now!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+            presentAlert(alert)
+            success()
+        }
+    }
+    
+    func contactServerForEventAttendees(success: Void -> Void) {
+        if (attendees == nil) {
             
             let parameters = ["eventId": eventId]
             PFCloud.callFunctionInBackground("getAttendees", withParameters: parameters) { results, error in
@@ -188,23 +233,72 @@ class EventModel: BaseModel {
                     
                 }
                 else {
- 
+                    
                     let list:[PFObject] = results as! [PFObject]
                     self.attendees = [ContactModel]()
                     for user:PFObject in list {
-                        println()
-                        let user_name: String = user.objectForKey("user").objectForKey("full_name") as? String ?? ""
-                        let user_phone: String = user.objectForKey("user").objectForKey("phoneNumber") as? String ?? ""
+                        var user_name: String = user.objectForKey("user").objectForKey("full_name") as? String ?? ""
+                        let user_phone: String = "1" + (user.objectForKey("user").objectForKey("phoneNumber") as? String ?? "")
                         let user_fbid: String = user.objectForKey("user").objectForKey("facebookId") as? String ?? ""
                         
-                        self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid)!)
+                        let isContact: Bool = self.phonebookContacts![user_phone] != nil
+                        let isFriend: Bool = self.facebookFriends!.containsObject(user_fbid)
+                        
+                        //Prefer name in your address book to their FB name
+                        if(isContact) {
+                            user_name = self.phonebookContacts![user_phone]!
+                        }
+                        
+                        self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid, inPhoneBook: isContact, fbFriend: isFriend)!)
                     }
                     
-                    success()
+//                    self.attendees.sort({$0.name < $1.name})
+//                            if($0.fbFriend && $0.inPhoneBook && (!$1.fbFriend || !$1.inPhoneBook))
+//                                return true
+//                            else if ($1.fbFriend && $1.inPhoneBook && (!$0.fbFriend || !$0.inPhoneBook))
+//                                return false
+//                            else if ($0.inPhoneBook && !$1.inPhoneBook)
+//                                return true
+//                            else if ($1.inPhoneBook && !$0.inPhoneBook)
+//                                return false
+//                            else if ($0.fbFriend && !$1.fbFriend)
+//                                return true
+//                            else if ($1.fbFriend && !$0.fbFriend)
+//                                return false
+//                            else
+//                                return $0.name < $1.name
+//                    })
                     
+                    success()
                 }
             }
         }
+    }
+    
+    func getFBFriends(success: Void -> Void) {
+        
+        //This commented section does not compile
+        
+//        FBRequestConnection.startForMyFriendsWithCompletionHandler({
+//            (conn:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+//                if(error != nil) {
+//                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
+//                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
+//                    for friend:NSDictionary in friendObjects {
+//                        self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
+//                    }
+//                    println("Found a total of \(self.facebookFriends!.count) Facebook friends")
+//                }
+//                self.contactServerForEventAttendees(success)
+//            })
+        
+        //If you get the above part working, uncomment the line below this
+        contactServerForEventAttendees(success)
+    }
+    
+    func stripNumber(num: String) -> String {
+        let digits = num.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        return "".join(digits)
     }
     
 }

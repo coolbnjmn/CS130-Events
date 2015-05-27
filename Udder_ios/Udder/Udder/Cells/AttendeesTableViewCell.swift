@@ -13,6 +13,8 @@ class AttendeesTableViewCell: UITableViewCell {
 
     @IBOutlet var contactImg: UIImageView!
     @IBOutlet var contactName: UILabel!
+    @IBOutlet var fbLogo: UIImageView!
+    @IBOutlet var contactLogo: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,11 +27,25 @@ class AttendeesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(name: String, fid: String) {
-        contactName.text = name
+    func configure(contact: ContactModel) {
+        contactName.text = contact.name
         contactName.font = UIFont(name: Constants.EventDetail.TableConstraints.kAttendeeTextFont, size: Constants.EventDetail.TableConstraints.kAttendeeTextSize)
 
-        setProfPic(fid)
+        setProfPic(contact.fbid)
+        
+        if(contact.isInPhonebook!) {
+            contactLogo.image = Constants.Images.ContactLogo
+        }
+        if(contact.isFBFriend!) {
+            fbLogo.image = Constants.Images.FbLogo
+        }
+        
+        fbLogo.layer.masksToBounds = true
+        fbLogo.clipsToBounds = true
+        contactLogo.layer.masksToBounds = true
+        contactLogo.clipsToBounds = true
+        
+        self.selectionStyle = .None
     }
     
     func setProfPic(fid: String) {
@@ -46,7 +62,6 @@ class AttendeesTableViewCell: UITableViewCell {
         contactImg.layer.cornerRadius = contactImg.frame.width/2.0
         contactImg.layer.masksToBounds = true
         contactImg.clipsToBounds = true
-        self.selectionStyle = .None
     }
     
     func cropToSquare(image originalImage: UIImage) -> UIImage {

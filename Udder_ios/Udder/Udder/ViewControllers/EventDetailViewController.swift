@@ -140,7 +140,15 @@ class EventDetailViewController: BaseViewController {
         case TableSegment.kSegmentAttendees:                        
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
-            event?.getAttendeesIfNeeded({self.attendeesTableView.reloadData()})
+            let success: Void -> Void = {
+                self.attendeesTableView.reloadData()
+            }
+            let needAlert: UIAlertController -> Void = {
+                alert in
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.event?.getAttendeesIfNeeded(success, alert: {alert in })
+            }
+            event?.getAttendeesIfNeeded(success, alert: needAlert)
         default:
             return;
         }
