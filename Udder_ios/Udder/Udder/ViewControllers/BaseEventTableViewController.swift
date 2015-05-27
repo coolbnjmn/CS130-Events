@@ -47,6 +47,7 @@ class BaseEventTableViewController : BaseViewController {
             (error: NSError) -> Void in
             println("Error: \(error)");
         }
+        
     }
     
     

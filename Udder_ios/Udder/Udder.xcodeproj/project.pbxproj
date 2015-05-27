@@ -152,6 +152,8 @@
 		E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */; };
 		E1DB02381B0550580027AFF0 /* AttendeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */; };
 		E1DB023B1B0550A50027AFF0 /* AttendeesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */; };
+		E1E6AF7E1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6AF7D1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift */; };
+		E1E6AF801B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E6AF7F1B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +300,8 @@
 		E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpcomingEventsViewController.xib; path = Views/UpcomingEventsViewController.xib; sourceTree = "<group>"; };
 		E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendeesTableViewCell.swift; path = Cells/AttendeesTableViewCell.swift; sourceTree = "<group>"; };
 		E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AttendeesTableViewCell.xib; path = Views/AttendeesTableViewCell.xib; sourceTree = "<group>"; };
+		E1E6AF7D1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCreationSubmitButtonTableViewCell.swift; path = Cells/EventCreationSubmitButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E1E6AF7F1B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventCreationSubmitButtonTableViewCell.xib; path = Views/EventCreationSubmitButtonTableViewCell.xib; sourceTree = "<group>"; };
 		F4E31BB04A3FC700DAAE2644 /* Pods-UdderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdderTests/Pods-UdderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -507,6 +511,7 @@
 		B2BF292E1AE9D2C000D6714C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E1E6AF7D1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift */,
 				55B3A8281B02F94400614EA8 /* regularCell.swift */,
 				55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */,
 				5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */,
@@ -545,6 +550,7 @@
 		B2D5BB8B1AE1DDC20063126E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1E6AF7F1B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib */,
 				551BBF901B10739500309C8E /* editViewController.xib */,
 				55B3A8261B02F93800614EA8 /* regularCell.xib */,
 				E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */,
@@ -709,6 +715,7 @@
 				A70AAA9A1AF49DF500E8B3F9 /* info.png in Resources */,
 				5548ED3D1AFAA0300063F6E4 /* WhereTableViewCell.xib in Resources */,
 				A78723461B0EEFA500059A58 /* LocationPickerTableViewCell.xib in Resources */,
+				E1E6AF801B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib in Resources */,
 				B25560A71AE19A0900EBEE8B /* Images.xcassets in Resources */,
 				5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */,
 				E17571751AEAD31C00E92F07 /* EventsNearMeViewController.xib in Resources */,
@@ -821,6 +828,7 @@
 				5548ED2B1AFAA0110063F6E4 /* TimeTableViewCell.swift in Sources */,
 				5548ED2A1AFAA0110063F6E4 /* RegEventCreationTableViewCell.swift in Sources */,
 				551BBF8F1B10738B00309C8E /* editViewController.swift in Sources */,
+				E1E6AF7E1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift in Sources */,
 				55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */,
 				A71E69CF1B05333900F59E9D /* BaseEventTableViewController.swift in Sources */,
 				5548ED271AFAA0110063F6E4 /* DateTableViewCell.swift in Sources */,

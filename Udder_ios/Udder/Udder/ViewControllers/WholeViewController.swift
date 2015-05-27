@@ -364,6 +364,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 submitButton = cell.submitButton
                 cell.addButtonAction(submitButtonPressed)
                 cell.selectionStyle = .None
+                cell.submitButton.enabled = false
                 return cell
                 
                 

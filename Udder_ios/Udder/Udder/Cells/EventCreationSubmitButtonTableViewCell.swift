@@ -13,7 +13,6 @@ class EventCreationSubmitButtonTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        submitButton.enabled = false
     }
     
     var delegate:WholeViewController?

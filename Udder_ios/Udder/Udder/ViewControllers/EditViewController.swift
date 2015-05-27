@@ -18,7 +18,7 @@ class editViewController: WholeViewController {
         self.event = eventModel
     }
     
-    override func rightSideMenuButtonPressed(sender: AnyObject) {
+    override func submitButtonPressed(sender: AnyObject) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass)
         query.getObjectInBackgroundWithId(event?.eventId) { (changedEvent:PFObject!, error:NSError!) -> Void in
             if error != nil{
@@ -39,16 +39,25 @@ class editViewController: WholeViewController {
                         println("should have saved")
                     }
                     else{
-                        println("wtf")
+                        println("uh oh")
                     }
                 })
+                
+                var new_event:EventModel = EventModel(eventObject: changedEvent)!
+                self.popViewController()
+                self.setupWithEvent(new_event)
+                return
             }
         }
-        var homePage:EventTableViewController =  EventTableViewController(nibName: "EventTableViewController", bundle: nil);
-        var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
-        viewControllers.removeObjectIdenticalTo(self);
-        viewControllers.addObject(homePage);
-        self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+        
+
+        self.popViewController()
+        
+//        var homePage:EventTableViewController =  EventTableViewController(nibName: "EventTableViewController", bundle: nil);
+//        var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+//        viewControllers.removeObjectIdenticalTo(self);
+//        viewControllers.addObject(homePage);
+//        self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
     }
     
     override func viewDidLoad() {
@@ -71,67 +80,85 @@ class editViewController: WholeViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let row = indexPath.row
         if(tableView.tag==0){
-            if(cellnames[row] == "Title"){
+            
+            switch(row) {
+            case 0: //Title
                 var cell:RegEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("regcell") as! RegEventCreationTableViewCell
-                cell.cellname?.text=cellnames[row]
-                cell.addtext.text = self.title_string
+                cell.titleTitleLabel?.text=cellnames[row]
+                cell.titleTextField.text = self.title_string
                 cell.delegate = self
                 cell_title = cell
+                cell.selectionStyle = .None
                 return cell
-            }
                 
-            else if (cellnames[row] == "Start Time"){
+            case 1: //Start Time
                 var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
-                cell.textLabel?.text="Start Time"
-                cell.timetext.text = dateFormatter.stringFromDate(self.start_date)
+                cell.timeTitleLabel?.text="Start Time"
+                cell.timeInputTextField.text = dateFormatter.stringFromDate(self.start_date)
                 cell.delegate = self
                 cell_start = cell
+                cell.selectionStyle = .None
                 return cell
                 
-            }
-            else if (cellnames[row] == "End Time"){
+            case 2: //End Time
                 var cell:TimeTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("TimeCell") as! TimeTableViewCell
-                cell.textLabel?.text="End Time"
-                cell.timetext.text = dateFormatter.stringFromDate(self.end_date) 
+                cell.timeTitleLabel?.text="End Time"
+                cell.timeInputTextField.text = dateFormatter.stringFromDate(self.end_date)
                 cell.delegate = self
                 cell_end = cell
+                cell.selectionStyle = .None
                 return cell
                 
-            }
-            else if (cellnames[row] == "Location"){
+            case 3: //Location
                 var cell:WhereTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("WhereCell") as! WhereTableViewCell
-                cell.locationLabel.text = self.loc_string; 
+                cell.locationTitleLabel.text = "Location"
+                cell.locationInputLabel.text = self.loc_string;
                 cell.selectionStyle = UITableViewCellSelectionStyle.None;
                 cell_loc = cell
                 return cell
+             
+            case 4: //Categories
+                var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
+                cell.categoryTextField.text = self.cat_string
+                cell.delegate = self
+                cell.selectionStyle = .None
+                return cell
                 
-            }
-            else if (cellnames[row] == "Private Event"){
+            case 5: //Private Event
                 var cell:PrivateEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("PrivateCell") as! PrivateEventCreationTableViewCell
                 cell.cellname?.text=cellnames[row] 
                 cell.switchSwitch(self.priv_bool)
                 cell.delegate = self
+                cell.selectionStyle = .None
+                return cell
+             
+            case 6: //Description Label
+                var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
+                cell.selectionStyle = .None
+                cell.backgroundColor = Constants.Colors.BackgroundGrayColor
                 return cell
                 
-            }
-            else if (cellnames[row] == "Categories"){
-                var cell:CatTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("CatCell") as! CatTableViewCell
-                cell.cattext.text = self.cat_string
-                cell.delegate = self
-                return cell
-                
-            }
-            else if (cellnames[row] == "textview"){
+            case 7: //TextView
                 var cell:textviewTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("tvCell") as! textviewTableViewCell
                 cell.delegate = self
                 cell.mytext.text = self.des_string
                 cell.my_int = 0
                 cell.mytext.textColor = UIColor.blackColor()
+                cell.selectionStyle = .None
                 return cell
-            }
-            else {
-                var cell:DescriptionEventCreationTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("DescriptionCell") as! DescriptionEventCreationTableViewCell
+            
+            case 8: //Submit Button
+                var cell:EventCreationSubmitButtonTableViewCell = self.ECtable.dequeueReusableCellWithIdentifier("submitCell") as! EventCreationSubmitButtonTableViewCell
+                cell.backgroundColor = Constants.Colors.BackgroundGrayColor
+                cell.delegate = self
+                submitButton = cell.submitButton
+                cell.addButtonAction(self.submitButtonPressed)
+                cell.selectionStyle = .None
+                cell.submitButton.enabled = true
                 return cell
+
+            default:
+                return UITableViewCell()
             }
         }
         return UITableViewCell();
