@@ -125,6 +125,14 @@ struct Constants {
         static let kApiKey = "AIzaSyBYOIc_oRgl8ridepQWCR3mG9IkfEODe8A";
     }
     
+    struct GoogleLocationKeys {
+        static let kName = "name";
+        static let kAddress = "formatted_address";
+        static let kIcon = "icon";
+        static let kLatitude = "geometry.location.lat";
+        static let kLongitude = "geometry.location.lng";
+    }
+    
     struct PushTypes {
         static let kNewInvitationType = "newInvitation";
     }
