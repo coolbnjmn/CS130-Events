@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -15,16 +15,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbh-Ve-08h">
-                        <rect key="frame" x="8" y="8" width="67" height="27"/>
+                        <rect key="frame" x="8" y="11" width="80" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="67" id="vnI-Gp-McO"/>
+                            <constraint firstAttribute="width" constant="80" id="xNV-KY-m3m"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vnI-Gp-McO"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iN4-xz-dTm">
-                        <rect key="frame" x="90" y="8" width="222" height="27"/>
+                        <rect key="frame" x="103" y="13" width="214" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -33,15 +39,30 @@
                 <constraints>
                     <constraint firstItem="Hbh-Ve-08h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="5i8-dZ-HYm"/>
                     <constraint firstItem="iN4-xz-dTm" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="9DU-Zc-gmx"/>
+                    <constraint firstItem="iN4-xz-dTm" firstAttribute="leading" secondItem="Hbh-Ve-08h" secondAttribute="trailing" constant="15" id="BPw-X0-7UE"/>
                     <constraint firstItem="iN4-xz-dTm" firstAttribute="leading" secondItem="Hbh-Ve-08h" secondAttribute="trailing" constant="15" id="FRz-rH-lUi"/>
+                    <constraint firstAttribute="centerY" secondItem="iN4-xz-dTm" secondAttribute="centerY" id="K3W-im-M01"/>
                     <constraint firstItem="Hbh-Ve-08h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="N8C-3r-dCf"/>
+                    <constraint firstAttribute="centerY" secondItem="Hbh-Ve-08h" secondAttribute="centerY" id="NQo-fV-3et"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Hbh-Ve-08h" secondAttribute="bottom" id="VAh-02-Soj"/>
                     <constraint firstItem="iN4-xz-dTm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="bET-wR-m4n"/>
-                    <constraint firstItem="iN4-xz-dTm" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="vvb-Kc-GaC"/>
+                    <constraint firstAttribute="centerY" secondItem="Hbh-Ve-08h" secondAttribute="centerY" id="cmv-tg-SCB"/>
+                    <constraint firstItem="iN4-xz-dTm" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="jgE-oW-gUX"/>
+                    <constraint firstItem="iN4-xz-dTm" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="vvb-Kc-GaC"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="5i8-dZ-HYm"/>
+                        <exclude reference="VAh-02-Soj"/>
+                        <exclude reference="9DU-Zc-gmx"/>
+                        <exclude reference="FRz-rH-lUi"/>
+                        <exclude reference="bET-wR-m4n"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="locationLabel" destination="iN4-xz-dTm" id="9qg-YG-TSG"/>
+                <outlet property="locationInputLabel" destination="iN4-xz-dTm" id="Fsh-I6-B2w"/>
+                <outlet property="locationTitleLabel" destination="Hbh-Ve-08h" id="kgH-Ay-8od"/>
             </connections>
         </tableViewCell>
     </objects>

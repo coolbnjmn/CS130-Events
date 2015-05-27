@@ -14,24 +14,20 @@ import UIKit
 class RegEventCreationTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     var delegate: RegCellDelegate?
-
-    @IBOutlet weak var cellname: UILabel!
     
-    @IBOutlet weak var addtext: UITextField!
-    
-    @IBAction func addtextclicked(sender: UITextField) {
-    }
+    @IBOutlet var titleTitleLabel: UILabel!
+    @IBOutlet var titleTextField: UITextField!
     
     var answer = true
     
     func disable(){
         answer = false
-        self.textFieldShouldBeginEditing(addtext)
+        self.textFieldShouldBeginEditing(titleTextField)
     }
     
     func enable(){
         answer = true
-        self.textFieldShouldBeginEditing(addtext)
+        self.textFieldShouldBeginEditing(titleTextField)
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
@@ -41,7 +37,9 @@ class RegEventCreationTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.addtext.delegate = self
+        self.titleTextField.delegate = self
+        titleTextField.borderStyle = UITextBorderStyle.None
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -50,7 +48,7 @@ class RegEventCreationTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
-    func textFieldDidEndEditing(textField: UITextField){
+    @IBAction func finishedEditing(sender: AnyObject) {
         delegate?.setaddtext!(self)
     }
     

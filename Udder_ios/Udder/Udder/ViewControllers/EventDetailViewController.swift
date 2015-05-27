@@ -74,7 +74,7 @@ class EventDetailViewController: BaseViewController {
     }
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
-        let rightButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.PlusIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
+        let rightButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.EditIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
         rightButton.tintColor = UIColor.whiteColor()
         return rightButton
     }
