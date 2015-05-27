@@ -19,7 +19,7 @@ struct ResponseSegment {
     static let kSegmentDecline = 1;
 }
 
-class EventDetailViewController: BaseViewController {
+class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
     
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;
@@ -67,7 +67,7 @@ class EventDetailViewController: BaseViewController {
         self.populateData();
         self.setupTableViews();
         self.setupView();
-    }
+    }    
     
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
@@ -82,6 +82,7 @@ class EventDetailViewController: BaseViewController {
     func rightPlusButtonPressed(sender: AnyObject) {
         var EditViewController:editViewController = editViewController(nibName: "WholeViewController", bundle: nil);
         EditViewController.setupWithEvent(self.event)
+        EditViewController.delegate = self;
         self.navigationController?.pushViewController(EditViewController, animated: true);
     }
     
@@ -257,5 +258,15 @@ class EventDetailViewController: BaseViewController {
         }
         
         return timeText;
+    }
+    
+    func updateEvent(eventModel: EventModel) {
+        self.event = eventModel;
+        self.eventDetailProvider?.event = eventModel;
+        self.eventAttendeesProvider?.event = eventModel;
+        
+        self.populateData();
+        self.setupView();
+        self.infoTableView.reloadData();
     }
 }

@@ -9,9 +9,14 @@
 import UIKit
 import Parse
 
+@objc protocol EditEventProtocolDelegate {
+    func updateEvent(eventModel:EventModel);
+}
+
 class editViewController: WholeViewController {
     var event:EventModel?
     var location:PlacesModel?
+    var delegate:EditEventProtocolDelegate?;
     
     var dateFormatter = NSDateFormatter()
     func setupWithEvent(eventModel:EventModel?) {
@@ -19,7 +24,26 @@ class editViewController: WholeViewController {
     }
     
     override func submitButtonPressed(sender: AnyObject) {
-        var query = PFQuery(className: Constants.DatabaseClass.kEventClass)
+        println("Controller Title: \(self.title_string)");
+        var successBlock: EventModel -> Void = {
+            (eventModel: EventModel) -> Void in
+
+            if let delegate = self.delegate {
+                 self.delegate!.updateEvent(eventModel);
+            }
+
+            self.navigationController?.popViewControllerAnimated(true);
+        }
+        
+        var failureBlock: NSError -> Void = {
+            (error: NSError) -> Void in
+            println("Error: \(error)");
+        }
+        
+        self.event?.save(self.title_string, description: self.des_string, startDate: self.start_date, endDate: self.end_date, category: self.cat_string, isPrivate: self.priv_bool, location: self.selectedLocation, successBlock: successBlock, failureBlock: failureBlock);
+        
+        
+        /*var query = PFQuery(className: Constants.DatabaseClass.kEventClass)
         query.getObjectInBackgroundWithId(event?.eventId) { (changedEvent:PFObject!, error:NSError!) -> Void in
             if error != nil{
                 println("houston we have a problem")
@@ -48,10 +72,7 @@ class editViewController: WholeViewController {
                 self.setupWithEvent(new_event)
                 return
             }
-        }
-        
-
-        self.popViewController()
+        }*/
         
 //        var homePage:EventTableViewController =  EventTableViewController(nibName: "EventTableViewController", bundle: nil);
 //        var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);

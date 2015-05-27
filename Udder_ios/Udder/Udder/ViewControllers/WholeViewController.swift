@@ -60,7 +60,6 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         else{
             self.submitButton?.enabled = false
         }
-       
     }
     var title_string:String = String()
 
