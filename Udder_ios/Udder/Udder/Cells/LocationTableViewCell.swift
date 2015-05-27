@@ -14,7 +14,10 @@ class LocationTableViewCell: UITableViewCell{
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var directionsButton: UIButton!
     
+    var event:EventModel?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +33,7 @@ class LocationTableViewCell: UITableViewCell{
     }
     
     func configure(event:EventModel) {
+        self.event = event
         var placesModel:PlacesModel = event.locationObject;
         
         locationLabel.text = placesModel.placeLocationName;
@@ -60,4 +64,29 @@ class LocationTableViewCell: UITableViewCell{
             mapView.addAnnotation(annotation);
         }
     }
+    
+    @IBAction func openMap(sender: AnyObject) {
+        if(self.event != nil) {
+            var placesModel:PlacesModel = self.event!.locationObject
+            
+            if let geoCoordinate = placesModel.geoPoint {
+                let latitute:CLLocationDegrees = geoCoordinate.latitude
+                let longitute:CLLocationDegrees = geoCoordinate.longitude
+               
+                let regionDistance:CLLocationDistance = 10000
+                var coordinates = CLLocationCoordinate2DMake(latitute, longitute)
+                let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+                var options = [
+                    MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+                    MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span),
+                    MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+                ]
+                var placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+                var mapItem = MKMapItem(placemark: placemark)
+                mapItem.name = "\(placesModel.placeLocationName)"
+                mapItem.openInMapsWithLaunchOptions(options)
+            }
+        }
+    }
+
 }

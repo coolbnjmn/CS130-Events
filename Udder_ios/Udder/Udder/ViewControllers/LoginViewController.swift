@@ -17,7 +17,7 @@ class LoginViewController: BaseViewController {
     
     @IBAction func pressedLogin(sender: AnyObject) {
         loginButton.enabled = false
-        let arr = ["user_about_me", "email"];
+        let arr = ["user_about_me", "email", "user_friends"];
         PFFacebookUtils.logInWithPermissions(arr, block: {(user: PFUser!, error: NSError!) in
             if (user == nil) {
                 if (error == nil) {

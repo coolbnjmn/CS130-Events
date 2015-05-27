@@ -241,8 +241,8 @@ class EventModel: BaseModel {
                         let user_phone: String = "1" + (user.objectForKey("user").objectForKey("phoneNumber") as? String ?? "")
                         let user_fbid: String = user.objectForKey("user").objectForKey("facebookId") as? String ?? ""
                         
-                        let isContact: Bool = self.phonebookContacts![user_phone] != nil
-                        let isFriend: Bool = self.facebookFriends!.containsObject(user_fbid)
+                        let isContact: Bool = (self.phonebookContacts?[user_phone] != nil) ?? false
+                        let isFriend: Bool = self.facebookFriends?.containsObject(user_fbid) ?? false
                         
                         //Prefer name in your address book to their FB name
                         if(isContact) {
@@ -276,11 +276,10 @@ class EventModel: BaseModel {
     }
     
     func getFBFriends(success: Void -> Void) {
-        
-        //This commented section does not compile
-        
+  
 //        FBRequestConnection.startForMyFriendsWithCompletionHandler({
 //            (conn:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+//                println("Received response with FB friends")
 //                if(error != nil) {
 //                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
 //                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
@@ -291,9 +290,17 @@ class EventModel: BaseModel {
 //                }
 //                self.contactServerForEventAttendees(success)
 //            })
+//        println("Finished sending FB request, waiting for response")
         
-        //If you get the above part working, uncomment the line below this
-        contactServerForEventAttendees(success)
+        
+//        var friendsRequest:FBRequest = FBRequest.requestForMyFriends()
+//        friendsRequest.startWithCompletionHandler({(conn, result, error) in
+//            println("it worked")
+//        })
+        
+        
+        self.contactServerForEventAttendees(success)
+        
     }
     
     func stripNumber(num: String) -> String {

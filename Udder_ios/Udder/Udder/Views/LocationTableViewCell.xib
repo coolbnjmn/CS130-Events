@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -30,7 +30,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-Rx-AYS">
-                        <rect key="frame" x="8" y="166" width="304" height="20"/>
+                        <rect key="frame" x="8" y="166" width="224" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="4SQ-qh-DFJ"/>
                             <constraint firstAttribute="height" constant="20" id="pSp-Zf-myi"/>
@@ -65,6 +65,26 @@
                             </mask>
                         </variation>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6a-sm-2JI">
+                        <rect key="frame" x="244" y="166" width="68" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Bx2-2J-Ee9"/>
+                            <constraint firstAttribute="height" constant="20" id="cvn-4e-mFB"/>
+                            <constraint firstAttribute="width" constant="68" id="qsy-ZQ-dQ7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                        <state key="normal" title="Directions">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bx2-2J-Ee9"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <action selector="openMap:" destination="7D4-t2-zf2" eventType="touchUpInside" id="CtR-89-K2g"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="top" secondItem="QA9-3a-r9B" secondAttribute="bottom" constant="8" id="43y-Ph-Y35"/>
@@ -72,14 +92,17 @@
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="7VZ-DO-e9X"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="8lr-5e-gLl"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="top" secondItem="QA9-3a-r9B" secondAttribute="bottom" constant="87" id="CX5-iN-7mD"/>
+                    <constraint firstItem="a6a-sm-2JI" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="Chm-F6-7Uv"/>
+                    <constraint firstItem="a6a-sm-2JI" firstAttribute="top" secondItem="JS7-7i-4pW" secondAttribute="bottom" constant="8" id="DWl-01-Cwr"/>
                     <constraint firstItem="j1E-Gn-Ryb" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="FIx-8T-eJ3"/>
                     <constraint firstItem="QA9-3a-r9B" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="HA4-Iw-lis"/>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="Hlm-0j-wyE"/>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="top" secondItem="lCS-m2-g5a" secondAttribute="bottom" id="OPj-Qk-AK6"/>
-                    <constraint firstItem="TYQ-Rx-AYS" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="PSY-ok-UjK"/>
+                    <constraint firstItem="TYQ-Rx-AYS" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" constant="-80" id="PSY-ok-UjK"/>
                     <constraint firstItem="lCS-m2-g5a" firstAttribute="trailing" secondItem="Y9U-7q-gNP" secondAttribute="trailingMargin" id="SJt-bi-aV9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="QA9-3a-r9B" secondAttribute="trailing" constant="8" id="a75-Wu-8HL"/>
                     <constraint firstItem="QA9-3a-r9B" firstAttribute="top" secondItem="lCS-m2-g5a" secondAttribute="bottom" id="cUu-VW-6zg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="a6a-sm-2JI" secondAttribute="bottom" constant="3" id="kir-9g-Gah"/>
                     <constraint firstItem="JS7-7i-4pW" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="mkK-ed-8ry"/>
                     <constraint firstItem="QA9-3a-r9B" firstAttribute="leading" secondItem="Y9U-7q-gNP" secondAttribute="leadingMargin" id="nnI-I1-xwh"/>
                     <constraint firstItem="TYQ-Rx-AYS" firstAttribute="top" secondItem="JS7-7i-4pW" secondAttribute="bottom" constant="8" id="pCM-tT-Squ"/>
@@ -99,11 +122,13 @@
                         <exclude reference="CX5-iN-7mD"/>
                         <exclude reference="uhU-pl-6lg"/>
                         <exclude reference="tjD-1i-Vbq"/>
+                        <exclude reference="kir-9g-Gah"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="j1E-Gn-Ryb" id="QrI-F5-azw"/>
+                <outlet property="directionsButton" destination="a6a-sm-2JI" id="sqx-9I-cUi"/>
                 <outlet property="locationLabel" destination="TYQ-Rx-AYS" id="T29-40-1qQ"/>
                 <outlet property="mapView" destination="JS7-7i-4pW" id="1k6-zu-miz"/>
             </connections>
