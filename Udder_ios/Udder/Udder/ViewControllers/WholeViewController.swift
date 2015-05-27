@@ -38,14 +38,13 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView,heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         self.view.backgroundColor = Constants.Colors.BackgroundGrayColor
-        tableView.scrollEnabled = false
         if(tableView.tag == 0){
             let row = indexPath.row
             if (row==7){
                 return Constants.EventDetail.TableConstraints.kEventCreationDescriptionCellHeight
             }
             else if (row == 8) {
-                return 10000
+                return 200
             }
         }
 
