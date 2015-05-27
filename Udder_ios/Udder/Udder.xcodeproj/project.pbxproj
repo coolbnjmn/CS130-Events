@@ -56,6 +56,7 @@
 		A718E8ED1AFC348700CE63B9 /* category-other.png in Resources */ = {isa = PBXBuildFile; fileRef = A718E8EA1AFC348700CE63B9 /* category-other.png */; };
 		A71E69CF1B05333900F59E9D /* BaseEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E69CE1B05333900F59E9D /* BaseEventTableViewController.swift */; };
 		A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72068AB1AE9DFBD00037D06 /* EventModel.swift */; };
+		A7248B3F1B158A1200D64CA9 /* PlacesModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7248B3E1B158A1200D64CA9 /* PlacesModelTest.swift */; };
 		A725CDD41B054ED700C930F5 /* InvitationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A725CDD31B054ED700C930F5 /* InvitationModel.swift */; };
 		A73027D31AF202D4009D2281 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
 		A73027D51AF2045D009D2281 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
@@ -216,6 +217,7 @@
 		A718E8EA1AFC348700CE63B9 /* category-other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-other.png"; path = "Images/category-other.png"; sourceTree = "<group>"; };
 		A71E69CE1B05333900F59E9D /* BaseEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventTableViewController.swift; path = ViewControllers/BaseEventTableViewController.swift; sourceTree = "<group>"; };
 		A72068AB1AE9DFBD00037D06 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = Models/EventModel.swift; sourceTree = "<group>"; };
+		A7248B3E1B158A1200D64CA9 /* PlacesModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesModelTest.swift; sourceTree = "<group>"; };
 		A725CDD31B054ED700C930F5 /* InvitationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvitationModel.swift; path = Models/InvitationModel.swift; sourceTree = "<group>"; };
 		A73027D21AF202D4009D2281 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = Providers/BaseProvider.swift; sourceTree = "<group>"; };
 		A73027D41AF2045D009D2281 /* BaseEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseEventProvider.swift; path = Providers/BaseEventProvider.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */,
 				B25560B51AE19A0900EBEE8B /* UdderTests.swift */,
 				B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */,
+				A7248B3E1B158A1200D64CA9 /* PlacesModelTest.swift */,
 				B25560B31AE19A0900EBEE8B /* Supporting Files */,
 			);
 			path = UdderTests;
@@ -885,6 +888,7 @@
 				B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */,
 				B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */,
 				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
+				A7248B3F1B158A1200D64CA9 /* PlacesModelTest.swift in Sources */,
 				B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */,
 				B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */,
 				B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */,

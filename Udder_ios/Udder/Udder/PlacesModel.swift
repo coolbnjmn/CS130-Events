@@ -24,11 +24,11 @@ class PlacesModel: BaseModel /*,  Equatable*/ {
         super.init();
         
         if let locationData:NSDictionary = object as? NSDictionary {
-            var name:String? = locationData["name"] as? String;
-            var address:String? = locationData["formatted_address"] as? String;
-            var latitude: Double? = locationData.valueForKeyPath("geometry.location.lat") as? Double;
-            var longitude: Double? = locationData.valueForKeyPath("geometry.location.lng") as? Double;
-            var icon:String? = locationData["icon"] as? String;
+            var name:String? = locationData[Constants.GoogleLocationKeys.kName] as? String;
+            var address:String? = locationData[Constants.GoogleLocationKeys.kAddress] as? String;
+            var latitude: Double? = locationData.valueForKeyPath(Constants.GoogleLocationKeys.kLatitude) as? Double;
+            var longitude: Double? = locationData.valueForKeyPath(Constants.GoogleLocationKeys.kLongitude) as? Double;
+            var icon:String? = locationData[Constants.GoogleLocationKeys.kIcon] as? String;
             
             if let name = name {
                 self.placeLocationName = name;
