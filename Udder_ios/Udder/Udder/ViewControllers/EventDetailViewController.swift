@@ -195,6 +195,16 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
                 self.setSegmentControllerForResponse(invitation.invitationResponse);
             }
             
+            var categoryName:String = validatedEvent.eventCategory;
+            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
+            
+            if let validatedCategoryImage = categoryImage {
+                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
+            }
+            else {
+                self.categoryImageView?.image = UIImage(named: Constants.EventCategoryImageMap[Constants.EventCategories.kOtherCategory]!);
+            }
+            
             self.navigationItem.title = "Event Detail";
         }
     }
@@ -220,19 +230,6 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.tableSwitchSegmentedControl.tintColor = UIColor.themeColor();
         
         self.backgroundGradientView.addGradient();
-        
-        // Set up category view
-        if let validatedEvent = self.event {
-            var categoryName:String = validatedEvent.eventCategory;
-            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
-            
-            if let validatedCategoryImage = categoryImage {
-                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
-            }
-            else {
-                self.categoryImageView?.image = UIImage(named: Constants.EventCategoryImageMap[Constants.EventCategories.kOtherCategory]!);
-            }
-        }
     }
     
     func timeLabelString(startTime:NSDate) -> String {
@@ -266,7 +263,6 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.eventAttendeesProvider?.event = eventModel;
         
         self.populateData();
-        self.setupView();
         self.infoTableView.reloadData();
     }
 }
