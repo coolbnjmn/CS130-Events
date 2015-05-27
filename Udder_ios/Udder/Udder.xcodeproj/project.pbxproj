@@ -75,6 +75,7 @@
 		A78723461B0EEFA500059A58 /* LocationPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78723451B0EEFA500059A58 /* LocationPickerTableViewCell.xib */; };
 		A78AC73C1AF2A12200B10D46 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */; };
 		A7A484501AF2EC61005F9E2F /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
+		A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B404971B157BA100DC1AFD /* EventModelTest.swift */; };
 		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
 		B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
@@ -234,6 +235,7 @@
 		A78723451B0EEFA500059A58 /* LocationPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationPickerTableViewCell.xib; path = Views/LocationPickerTableViewCell.xib; sourceTree = "<group>"; };
 		A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Utilities/UIView+Extension.swift"; sourceTree = "<group>"; };
 		A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtility.swift; path = Utilities/GeneralUtility.swift; sourceTree = "<group>"; };
+		A7B404971B157BA100DC1AFD /* EventModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModelTest.swift; sourceTree = "<group>"; };
 		A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-fitness.png"; path = "Images/category-fitness.png"; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
 		B210DABE1B0533BA00850122 /* EventSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSearchProvider.swift; path = Providers/EventSearchProvider.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		B25560B21AE19A0900EBEE8B /* UdderTests */ = {
 			isa = PBXGroup;
 			children = (
+				A7B404971B157BA100DC1AFD /* EventModelTest.swift */,
 				B247C1711B0E96AF001D0EB5 /* EventManagerModelTest.swift */,
 				B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */,
 				B25560B51AE19A0900EBEE8B /* UdderTests.swift */,
@@ -886,6 +889,7 @@
 				B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */,
 				B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */,
 				B247C1721B0E96AF001D0EB5 /* EventManagerModelTest.swift in Sources */,
+				A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */,
 				B247C1771B0FBA0B001D0EB5 /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
