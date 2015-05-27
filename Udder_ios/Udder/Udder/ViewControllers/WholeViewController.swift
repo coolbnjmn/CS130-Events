@@ -44,7 +44,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 return Constants.EventDetail.TableConstraints.kEventCreationDescriptionCellHeight
             }
             else if (row == 8) {
-                return 10000
+                return 200
             }
         }
 
