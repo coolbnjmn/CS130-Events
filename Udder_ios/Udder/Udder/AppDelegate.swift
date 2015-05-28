@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
         
         if(PFUser.currentUser() == nil) { //Not logged in
-            self.window!.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)
+            self.window!.rootViewController = TutorialViewController(nibName: "TutorialViewController", bundle:nil)
             application.unregisterForRemoteNotifications()
         }
         else { //Already logged in
@@ -192,7 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func FBlogout() {
         PFUser.logOut()
         UIApplication.sharedApplication().unregisterForRemoteNotifications()
-        UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle:nil)}, completion: nil)
+        UIView.transitionWithView(self.window!, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {self.window?.rootViewController = TutorialViewController(nibName: "TutorialViewController", bundle:nil)}, completion: nil)
         
     }
     

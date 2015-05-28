@@ -11,7 +11,7 @@ import MapKit
 
 
 
-class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, DateCellDelegate, TimeCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate, LocationPickerProtocolDelegate {
+class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate, UITextViewDelegate,RegCellDelegate, TimeCellDelegate,CatCellDelegate, PrivateCellDelegate, tvCellDelegate, LocationPickerProtocolDelegate {
     
     struct CreateTableSegment {
         static let kSegmentLocation = 3;
@@ -59,10 +59,9 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         else{
             self.submitButton?.enabled = false
         }
-       
     }
     var title_string:String = String()
-
+    
     func settimetext(cell: TimeTableViewCell) {
         if cell.timeTitleLabel.text == "Start Time"{
             start_date = cell.date!
@@ -84,6 +83,16 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
+    func inittimes(cell:TimeTableViewCell, date: NSDate){
+        if cell.timeTitleLabel.text == "Start Time"{
+            start_date = date
+        }
+        else{
+            end_date = date
+        }
+    }
+
     var start_date: NSDate = NSDate()
     var end_date: NSDate = NSDate()
    
@@ -237,24 +246,16 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
    
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        if(tableView.tag==0)
-        {return 1}
-        else{
-            return 1
-        }
+       return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if(tableView.tag==0)
-        {return 9}
-        else{
-            return 4
-        }
+        return 9
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
@@ -285,11 +286,11 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
 //        ["Title", "Start Time", "End Time", "Location", "Categories","Private Event","Description", "textview"]
         let row = indexPath.row
-        if(tableView.tag==0){
+       // if(tableView.tag==0){
             
             switch(row) {
                 
@@ -370,8 +371,8 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
             default:
                 return UITableViewCell()
             }
-        }
-        return UITableViewCell()
+        //}
+        //return UITableViewCell()
     }
 
 

@@ -19,7 +19,7 @@ struct ResponseSegment {
     static let kSegmentDecline = 1;
 }
 
-class EventDetailViewController: BaseViewController {
+class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
     
     var event:EventModel?;
     var eventDetailProvider:EventDetailViewControllerProvider?;
@@ -78,7 +78,7 @@ class EventDetailViewController: BaseViewController {
         self.populateData();
         self.setupTableViews();
         self.setupView();
-    }
+    }    
     
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
@@ -93,6 +93,7 @@ class EventDetailViewController: BaseViewController {
     func rightPlusButtonPressed(sender: AnyObject) {
         var EditViewController:editViewController = editViewController(nibName: "WholeViewController", bundle: nil);
         EditViewController.setupWithEvent(self.event)
+        EditViewController.delegate = self;
         self.navigationController?.pushViewController(EditViewController, animated: true);
     }
     
@@ -206,6 +207,16 @@ class EventDetailViewController: BaseViewController {
                 self.setSegmentControllerForResponse(invitation.invitationResponse);
             }
             
+            var categoryName:String = validatedEvent.eventCategory;
+            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
+            
+            if let validatedCategoryImage = categoryImage {
+                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
+            }
+            else {
+                self.categoryImageView?.image = UIImage(named: Constants.EventCategoryImageMap[Constants.EventCategories.kOtherCategory]!);
+            }
+            
             self.navigationItem.title = "Event Detail";
         }
     }
@@ -231,19 +242,6 @@ class EventDetailViewController: BaseViewController {
         self.tableSwitchSegmentedControl.tintColor = UIColor.themeColor();
         
         self.backgroundGradientView.addGradient();
-        
-        // Set up category view
-        if let validatedEvent = self.event {
-            var categoryName:String = validatedEvent.eventCategory;
-            var categoryImage:String? = Constants.EventCategoryImageMap[categoryName]
-            
-            if let validatedCategoryImage = categoryImage {
-                self.categoryImageView?.image = UIImage(named: validatedCategoryImage);
-            }
-            else {
-                self.categoryImageView?.image = UIImage(named: Constants.EventCategoryImageMap[Constants.EventCategories.kOtherCategory]!);
-            }
-        }
     }
     
     func timeLabelString(startTime:NSDate) -> String {
@@ -269,5 +267,14 @@ class EventDetailViewController: BaseViewController {
         }
         
         return timeText;
+    }
+    
+    func updateEvent(eventModel: EventModel) {
+        self.event = eventModel;
+        self.eventDetailProvider?.event = eventModel;
+        self.eventAttendeesProvider?.event = eventModel;
+        
+        self.populateData();
+        self.infoTableView.reloadData();
     }
 }

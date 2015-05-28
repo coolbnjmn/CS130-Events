@@ -16,5 +16,6 @@
 #import "UIImageView+WebCache.h"
 #import "TTTAttributedLabel/TTTAttributedLabel.h"
 #import "AFNetworking.h"
+#import "MBProgressHUD.h"
 
 #endif
