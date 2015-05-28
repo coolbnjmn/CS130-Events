@@ -49,7 +49,7 @@ class ViewController: BaseViewController {
     
     func redirectToLogin() {
         let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
-        let navController : UINavigationController = UINavigationController(rootViewController: LoginViewController(nibName: "LoginViewController", bundle:nil))
+        let navController : UINavigationController = UINavigationController(rootViewController: TutorialViewController(nibName: "TutorialViewController", bundle:nil))
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         self.presentViewController(container, animated: true, completion: nil)

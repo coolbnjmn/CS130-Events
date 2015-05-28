@@ -32,7 +32,7 @@ class UIPageViewControllerWithOverlayIndicator: UIPageViewController {
             } else if subview is UIPageControl {
                 if(subview.frame.origin.y > 0) {
                     subview.removeFromSuperview();
-                    subview.frame = CGRectMake(subview.frame.origin.x, subview.frame.origin.y - 80, subview.frame.size.width, subview.frame.size.height)
+                    subview.frame = CGRectMake(subview.frame.origin.x, subview.frame.origin.y - 77 - subview.frame.size.height, subview.frame.size.width, subview.frame.size.height)
                     self.view.addSubview(subview)
                 }
                 

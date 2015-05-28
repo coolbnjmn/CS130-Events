@@ -10,13 +10,20 @@ import UIKit
 
 class TutorialItemViewController: UIViewController {
 
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var pageIndex: Int!
+    var imageName : String!
+    var text : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.imageView.image = UIImage(named: imageName);
+        self.textLabel.text = self.text;
+        self.textLabel.numberOfLines = 0;
+        self.textLabel.sizeToFit()
     }
 
     override func didReceiveMemoryWarning() {

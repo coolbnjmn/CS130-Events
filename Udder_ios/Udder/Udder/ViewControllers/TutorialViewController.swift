@@ -6,13 +6,17 @@
 //  Copyright (c) 2015 UCLA. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class TutorialViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    let pageTitles = ["Title 1", "Title 2", "Title 3", "Title 4"]
-    var images = ["long3.png","long4.png","long1.png","long2.png"]
+    let pageTitles = ["Be Spontaneous.", "Find events based on your interests...", "Connect with Friends...", "and make new ones."]
+    var images = ["splash-bg.png","tutorial-1.png","tutorial-2.png","tutorial-3.png"]
     var count = 0
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     var pageViewController : UIPageViewControllerWithOverlayIndicator!
     var pageControl : UIPageControl!
@@ -39,8 +43,26 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
         super.viewDidAppear(animated);
     }
     
-    
-    
+    override func viewDidLayoutSubviews() {
+        
+        let mainView : UIView = self.view;
+        let subviews: [UIView] = mainView.subviews as! [UIView];
+        
+        for subview : UIView in subviews {
+            if subview is UIButton {
+                println("button");
+                self.view.bringSubviewToFront(subview);
+            } else if subview is UILabel {
+                println("label");
+                self.view.bringSubviewToFront(subview);
+            } else if subview is UIImageView {
+                println("imageview");
+                self.view.bringSubviewToFront(subview);
+            }
+        }
+        
+        super.viewDidLayoutSubviews();
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,6 +77,9 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
         
         var vc: TutorialItemViewController = TutorialItemViewController(nibName: "TutorialItemViewController", bundle: nil)
         vc.pageIndex = index
+        vc.imageName = self.images[index];
+        vc.text = self.pageTitles[index];
+        
         return vc
     }
     
@@ -109,14 +134,99 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
         
     }
 
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        println("pressed");
+        self.loginButton.enabled = false
+        let arr = ["user_about_me", "email", "user_friends"];
+        PFFacebookUtils.logInWithPermissions(arr, block: {(user: PFUser!, error: NSError!) in
+            if (user == nil) {
+                if (error == nil) {
+                    let alertController = UIAlertController(title: "Login Error", message:
+                        "The user cancelled the Facebook login", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                    
+                else {
+                    let alertController = UIAlertController(title: "Login Error", message:
+                        "A login error occurred", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    self.loginButton.enabled = true
+                }
+                
+            } else if (user.isNew) {
+                NSLog("User with facebook signed up and logged in!");
+                self.gatherInfo(false)
+                let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
+                if (phoneValidated) {
+                    self.redirectToHome()
+                } else {
+                    self.redirectToPhoneNumber()
+                }
+            }
+                
+            else {
+                NSLog("User with facebook logged in!");
+                self.gatherInfo(true)
+                let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
+                if (phoneValidated) {
+                    self.redirectToHome()
+                } else {
+                    NSLog("Not validated")
+                    self.redirectToPhoneNumber()
+                }
+            }
+            
+        });
+    }
+    
+    
+    func gatherInfo(phoneValidated: Bool) {
+        FBRequestConnection.startForMeWithCompletionHandler({ (connection :
+            FBRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+            PFUser.currentUser().setObject(result["id"],
+                forKey: "facebookId")
+            PFUser.currentUser().setObject(result["first_name"], forKey:"first_name")
+            PFUser.currentUser().setObject(result["last_name"], forKey:"last_name")
+            PFUser.currentUser().setObject(result["name"], forKey:"full_name")
+            PFUser.currentUser().setObject(result["email"], forKey:"email")
+            PFUser.currentUser().setObject(result["gender"], forKey:"gender")
+            //Should only be done first time
+            if (!phoneValidated) {
+                PFUser.currentUser().setObject(false, forKey: "phoneValidated")
+            }
+            PFUser.currentUser().saveInBackgroundWithBlock({
+                (success : Bool, error : NSError!) -> Void in
+                if error != nil {
+                    NSLog(error!.description);
+                } else if success {
+                    self.performSegueWithIdentifier("login",
+                        sender: self);
+                    //                    SVProgressHUD.dismiss()
+                }
+            })
+        })
+    }
+    
+    func redirectToHome() {
+        let leftMenuViewController : SideMenuViewController = SideMenuViewController(nibName: "SideMenuViewController", bundle:nil)
+        let navController : UINavigationController = UINavigationController(rootViewController: EventTableViewController(nibName: "EventTableViewController", bundle:nil))
+        
+        let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        self.presentViewController(container, animated: true, completion: nil)
+        
+        if UIApplication.sharedApplication().respondsToSelector("registerUserNotificationSettings:") {
+            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        }
+    }
+    
+    func redirectToPhoneNumber() {
+        let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
 
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int // The number of items reflected in the page indicator.
-//    {
-//        return 3;
-//    }
-//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int // The selected item reflected in the page indicator. 
-//    {
-//        return self.currentPage;
-//    }
-   
 }
