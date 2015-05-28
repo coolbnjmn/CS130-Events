@@ -193,6 +193,9 @@
 		B2D5BB8F1AE1DDD40063126E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */; };
 		B2D5BB901AE1DDD40063126E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8E1AE1DDD40063126E /* ViewController.swift */; };
 		B2D5BB931AE1DDE00063126E /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
+		B2D733E41B16CF7100D02CC5 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288E68F1B16A67900FFAEA3 /* TutorialViewController.swift */; };
+		B2D733E51B16CF7400D02CC5 /* TutorialItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288E6951B16A76F00FFAEA3 /* TutorialItemViewController.swift */; };
+		B2D733E61B16CF7600D02CC5 /* UIPageViewControllerWithOverlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */; };
 		B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF09F21AFC15F000A1B433 /* ContactCell.swift */; };
 		B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
@@ -968,6 +971,7 @@
 				557D941E1B16B502001370E0 /* EventAttendeesViewControllerProvider.swift in Sources */,
 				557D93F81B16B43F001370E0 /* EventCreationSubmitButtonTableViewCell.swift in Sources */,
 				557D94021B16B468001370E0 /* EventTableViewCell.swift in Sources */,
+				B2D733E41B16CF7100D02CC5 /* TutorialViewController.swift in Sources */,
 				557D94241B16B517001370E0 /* LocationPickerModel.swift in Sources */,
 				557D94171B16B4E7001370E0 /* editViewController.swift in Sources */,
 				B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */,
@@ -999,6 +1003,7 @@
 				557D941B1B16B4F5001370E0 /* UIView+Extension.swift in Sources */,
 				557D94251B16B52B001370E0 /* AppDelegate.swift in Sources */,
 				557D941D1B16B4FE001370E0 /* EventTableViewControllerProvider.swift in Sources */,
+				B2D733E61B16CF7600D02CC5 /* UIPageViewControllerWithOverlayIndicator.swift in Sources */,
 				B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */,
 				557D94001B16B45B001370E0 /* WhereTableViewCell.swift in Sources */,
 				557D93FA1B16B444001370E0 /* textviewTableViewCell.swift in Sources */,
@@ -1008,6 +1013,7 @@
 				557D93F71B16B435001370E0 /* RegEventCreationTableViewCell.swift in Sources */,
 				557D93FF1B16B457001370E0 /* TimeTableViewCell.swift in Sources */,
 				557D94051B16B474001370E0 /* TimeInfoTableViewCell.swift in Sources */,
+				B2D733E51B16CF7400D02CC5 /* TutorialItemViewController.swift in Sources */,
 				557D94061B16B481001370E0 /* ContactCell.swift in Sources */,
 				557D94031B16B46B001370E0 /* DescriptionTableViewCell.swift in Sources */,
 				557D93F51B16B3C5001370E0 /* WholeViewController.swift in Sources */,
