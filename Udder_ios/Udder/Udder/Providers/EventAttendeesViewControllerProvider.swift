@@ -11,6 +11,12 @@ import Parse
 
 class EventAttendeesViewControllerProvider: BaseEventProvider {
     
+    var detailView: EventDetailViewController?
+    
+    func getAttendees() {
+        detailView?.getAttendees()
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return Constants.EventDetail.TableConstraints.kAttendeeCellHeight
     }
@@ -58,7 +64,9 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
         }
         else if let attendees = event?.attendees {
             if (attendees.isEmpty) {
-                cell.contactName.text = "No attendees for this event"
+                cell.contactImg.image = nil
+                cell.invitePeopleLabel.text = "No attendees for this event"
+                cell.contactName.text = ""
             }
             else {
                 cell.configure(attendees[indexPath.row-factor])

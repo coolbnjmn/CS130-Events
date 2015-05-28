@@ -152,19 +152,24 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         case TableSegment.kSegmentAttendees:                        
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
-            let success: Void -> Void = {
-                self.attendeesTableView.reloadData()
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-            }
-            let needAlert: UIAlertController -> Void = {
-                alert in
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    self.event?.getAttendeesIfNeeded(success, alert: {alert in })
-            }
-            event?.getAttendeesIfNeeded(success, alert: needAlert)
+            getAttendees()
         default:
             return;
         }
+    }
+    
+    func getAttendees() {
+        println("Getting attendees")
+        let success: Void -> Void = {
+            self.attendeesTableView.reloadData()
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        }
+        let needAlert: UIAlertController -> Void = {
+            alert in
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.event?.getAttendeesIfNeeded(success, alert: {alert in })
+        }
+        event?.getAttendeesIfNeeded(success, alert: needAlert)
     }
     
     // MARK: Helper Functions
@@ -191,6 +196,11 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.attendeesTableView.dataSource = self.eventAttendeesProvider;
         self.attendeesTableView.delegate = self.eventAttendeesProvider;
+//        self.eventAttendeesProvider?.detailView = self
+        
+//        let refresh:UIRefreshControl = UIRefreshControl()
+//        refresh.addTarget(self.attendeesTableView, action: "delegate.getAttendees:", forControlEvents: UIControlEvents.ValueChanged)
+//        self.attendeesTableView.addSubview(refresh)
     }
     
     func populateData() {
