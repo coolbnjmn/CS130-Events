@@ -197,6 +197,7 @@
 		B2D733E51B16CF7400D02CC5 /* TutorialItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288E6951B16A76F00FFAEA3 /* TutorialItemViewController.swift */; };
 		B2D733E61B16CF7600D02CC5 /* UIPageViewControllerWithOverlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */; };
 		B2EF09F31AFC15F000A1B433 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF09F21AFC15F000A1B433 /* ContactCell.swift */; };
+		B2F21CAC1B17091400EDB55D /* RegEventCreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED321AFAA0300063F6E4 /* RegEventCreationTableViewCell.xib */; };
 		B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		E10200E31AEA076B007A2F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
 		E12F8F7D1AEED40100EA0BBA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7B1AEED40100EA0BBA /* ViewController.xib */; };
@@ -821,6 +822,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F21CAC1B17091400EDB55D /* RegEventCreationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
