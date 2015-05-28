@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class EventManagerModel: BaseModel {
-    
     class var sharedInstance : EventManagerModel {
         struct EventManager {
             static let instance : EventManagerModel = EventManagerModel()
@@ -18,10 +17,12 @@ class EventManagerModel: BaseModel {
         return EventManager.instance
     }
     
-    func retrieveAllEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveAllEvents(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
         
         query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
         
         query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
@@ -30,10 +31,12 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveUpcomingEvents(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
-        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
         
+        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
         query.includeKey(Constants.InvitationDatabaseFields.kInvitationEvent);
         
         query.findObjectsInBackgroundWithBlock {
@@ -42,8 +45,11 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrievePendingInvites(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrievePendingInvites(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
+        
         query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
         query.whereKeyDoesNotExist(Constants.InvitationDatabaseFields.kInvitationResponse);
         query.orderByAscending(Constants.InvitationDatabaseFields.kInvitationCreatedAt);
@@ -56,8 +62,11 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrieveMyEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveMyEvents(page:Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
+        
         query.whereKey(Constants.EventDatabaseFields.kEventHost, equalTo: PFUser.currentUser());
         query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
         
@@ -67,11 +76,14 @@ class EventManagerModel: BaseModel {
         }
     }
 
-    func retrieveEventsNearMe(miles:Double, success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveEventsNearMe(page: Int, miles:Double, success: NSMutableArray -> Void, failure: NSError -> Void) {
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             if error == nil {
                 var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+                query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+                query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
+                
                 query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
                 query.whereKey(Constants.EventDatabaseFields.kEventGeoCoordinate, nearGeoPoint: geoPoint, withinMiles: miles);
                 query.findObjectsInBackgroundWithBlock({

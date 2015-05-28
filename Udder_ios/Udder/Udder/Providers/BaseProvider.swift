@@ -11,6 +11,9 @@ import UIKit
 @objc protocol ViewControllerProtocolDelegate {
     func pushViewController(viewController:UIViewController, animated:Bool);
     func popViewController();
+    
+    func displayLoadingHUD();
+    func hideLoadingHUD();
 }
 
 class BaseProvider: NSObject, UITableViewDelegate, UITableViewDataSource {

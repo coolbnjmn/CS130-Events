@@ -23,6 +23,10 @@ struct Constants {
         static let kInvitationClass = "Invitation"
     }
     
+    struct DatabasePagination {
+        static let kNumberEventsToReturn = 5;
+    }
+    
     struct EventDatabaseFields {
         static let kEventTitle = "title"
         static let kEventDescription = "description"

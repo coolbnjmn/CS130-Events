@@ -8,17 +8,17 @@
 
 import UIKit
 
-class BaseEventTableViewController : BaseViewController {
+class BaseEventTableViewController : BaseViewController, EventTableDelegate {
     
+    // Table
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
     var eventSearchProvider: EventSearchProvider = EventSearchProvider()
+    @IBOutlet var tableView: UITableView!
     
     // Completion blocks for retrieving data: Override in subclasses for customization
     var successBlock: NSMutableArray -> Void = {(event: NSMutableArray) -> Void in};
     var failureBlock: NSError -> Void = {(error: NSError) -> Void in};
-    
-    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class BaseEventTableViewController : BaseViewController {
         self.successBlock = {
             (eventArray: NSMutableArray) -> Void in
             self.eventTableViewControllerProvider.configure(eventArray);
+            self.eventTableViewControllerProvider.eventTableDelegate = self;
             self.eventSearchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
             self.eventSearchProvider.delegate = self
             self.tableView.reloadData();
@@ -91,6 +92,10 @@ class BaseEventTableViewController : BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        println("To be implemented by subclass...");
     }
 
 }
