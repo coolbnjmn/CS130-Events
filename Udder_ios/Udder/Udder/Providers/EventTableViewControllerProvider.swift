@@ -79,29 +79,36 @@ class EventTableViewControllerProvider: BaseProvider {
         }
 
         if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore {
-            self.currentPage += 1
-            
-            var successBlock:NSMutableArray -> Void = {
-                (event: NSMutableArray) -> Void in
-                
-                if event.count <= 0 {
-                    self.shouldLoadMore = false;
-                }
-                else {
-                    self.appendEvents(event);
-                    tableView.reloadData();
-                }
-            }
-            
-            var failureBlock:NSError -> Void = {
-                (error: NSError) -> Void in
-                println("Error: \(error)");
-            }
-            
-            self.eventTableDelegate?.loadMoreData(self.currentPage, success: successBlock, failure: failureBlock);
+            self.loadMore(tableView);
         }
         
         return cell
+    }
+    
+    func loadMore(tableView: UITableView) {
+        self.delegate?.displayLoadingHUD();
+        self.currentPage += 1
+        
+        var successBlock:NSMutableArray -> Void = {
+            (event: NSMutableArray) -> Void in
+            self.delegate?.hideLoadingHUD();
+            
+            if event.count <= 0 {
+                self.shouldLoadMore = false;
+            }
+            else {
+                self.appendEvents(event);
+                tableView.reloadData();
+            }
+        }
+        
+        var failureBlock:NSError -> Void = {
+            (error: NSError) -> Void in
+            self.delegate?.hideLoadingHUD();
+            println("Error: \(error)");
+        }
+        
+        self.eventTableDelegate?.loadMoreData(self.currentPage, success: successBlock, failure: failureBlock);
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
