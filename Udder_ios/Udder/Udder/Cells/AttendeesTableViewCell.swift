@@ -16,6 +16,7 @@ class AttendeesTableViewCell: UITableViewCell {
     @IBOutlet var fbLogo: UIImageView!
     @IBOutlet var contactLogo: UIImageView!
     @IBOutlet var invitePeopleLabel: UILabel!
+    @IBOutlet var selfLogo: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,11 +36,18 @@ class AttendeesTableViewCell: UITableViewCell {
 
         setProfPic(contact.fbid)
         
-        if(contact.isInPhonebook!) {
-            contactLogo.image = Constants.Images.ContactLogo
+        if(contact.isMe!) {
+            selfLogo.image = Constants.Images.SelfLogo
+            contactLogo.image = nil
+            fbLogo.image = nil
         }
-        if(contact.isFBFriend!) {
-            fbLogo.image = Constants.Images.FbLogo
+        else {
+            if(contact.isInPhonebook!) {
+                contactLogo.image = Constants.Images.ContactLogo
+            }
+            if(contact.isFBFriend!) {
+                fbLogo.image = Constants.Images.FbLogo
+            }
         }
         
         fbLogo.layer.masksToBounds = true

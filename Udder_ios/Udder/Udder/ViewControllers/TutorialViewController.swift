@@ -170,7 +170,6 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
             else {
                 NSLog("User with facebook logged in!");
                 self.gatherInfo(true)
-                self.getFriends() //remove later
                 let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
                 if (phoneValidated) {
                     self.redirectToHome()
@@ -182,26 +181,6 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
             
         });
     }
-    
-    func getFriends() {
-        FBRequestConnection.startForMyFriendsWithCompletionHandler({
-            (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            println("Received response with FB friends")
-            if(error == nil) {
-                let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
-//                self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
-                var i=0
-                for friend:NSDictionary in friendObjects {
-                    i++
-//                    self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
-                }
-                println("Found a total of \(i) Facebook friends")
-            }
-//            self.contactServerForEventAttendees(success)
-        })
-
-    }
-    
     
     func gatherInfo(phoneValidated: Bool) {
         FBRequestConnection.startForMeWithCompletionHandler({ (connection :

@@ -268,6 +268,7 @@ class EventModel: BaseModel {
                         let user_phone: String = "1" + (user.objectForKey("user").objectForKey("phoneNumber") as? String ?? "")
                         let user_fbid: String = user.objectForKey("user").objectForKey("facebookId") as? String ?? ""
                         
+                        let isMe: Bool = (user_fbid == (PFUser.currentUser().objectForKey("facebookId") as? String ?? ""))
                         let isContact: Bool = (self.phonebookContacts?[user_phone] != nil) ?? false
                         let isFriend: Bool = self.facebookFriends?.containsObject(user_fbid) ?? false
                         
@@ -276,31 +277,46 @@ class EventModel: BaseModel {
                             user_name = self.phonebookContacts![user_phone]!
                         }
                         
-                        self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid, inPhoneBook: isContact, fbFriend: isFriend)!)
+                        self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid, inPhoneBook: isContact, fbFriend: isFriend, me: isMe)!)
                     }
                     
                     if(self.attendees != nil) {
                         self.attendees!.sort {a,b in
-                            return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
+                            
+                            let aF:Bool = a.isFBFriend as Bool
+                            let aC:Bool = a.isInPhonebook as Bool
+                            let bF:Bool = b.isFBFriend as Bool
+                            let bC:Bool = b.isInPhonebook as Bool
+                            
+                            if(a.isMe!) { //Prefer self to all
+                                return true
+                            }
+                            else if (b.isMe!) {
+                                return false
+                            }
+                            else if (aF && aC && !(bF && bC)) { //Prefer people who are both fb friend and contact
+                                return true
+                            }
+                            else if (bF && bC && !(aF && aC)) {
+                                return false
+                            }
+                            else if (aC && !bC) {
+                                return true
+                            }
+                            else if (bC && !aC) {
+                                return false
+                            }
+                            else if (aF && !bF) {
+                                return true
+                            }
+                            else if (bF && !aF) {
+                                return false
+                            }
+                            else {
+                                return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
+                            }
                         }
                     }
-                    
-//                    self.attendees.sort({$0.name < $1.name})
-//                            if($0.fbFriend && $0.inPhoneBook && (!$1.fbFriend || !$1.inPhoneBook))
-//                                return true
-//                            else if ($1.fbFriend && $1.inPhoneBook && (!$0.fbFriend || !$0.inPhoneBook))
-//                                return false
-//                            else if ($0.inPhoneBook && !$1.inPhoneBook)
-//                                return true
-//                            else if ($1.inPhoneBook && !$0.inPhoneBook)
-//                                return false
-//                            else if ($0.fbFriend && !$1.fbFriend)
-//                                return true
-//                            else if ($1.fbFriend && !$0.fbFriend)
-//                                return false
-//                            else
-//                                return $0.name < $1.name
-//                    })
                     
                     success()
                 }

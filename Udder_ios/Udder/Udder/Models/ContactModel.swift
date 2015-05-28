@@ -14,13 +14,15 @@ class ContactModel: BaseModel,  Equatable {
     var fbid: String!
     var isInPhonebook: Bool!
     var isFBFriend: Bool!
+    var isMe: Bool!
     
-    init?(name: String, phone: String, fb: String = "", inPhoneBook: Bool = false, fbFriend: Bool = false) {
+    init?(name: String, phone: String, fb: String = "", inPhoneBook: Bool = false, fbFriend: Bool = false, me:Bool = false) {
         self.name = name
         self.phone = phone
         self.fbid = fb
         self.isInPhonebook = inPhoneBook
         self.isFBFriend = fbFriend
+        self.isMe = me
     }
     
 }

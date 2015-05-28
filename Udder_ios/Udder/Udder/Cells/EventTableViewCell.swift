@@ -21,6 +21,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet var privateBannerView: UIImageView!
     
     
     @IBOutlet weak var timeLabelWidthConstraint: NSLayoutConstraint!
@@ -40,7 +41,7 @@ class EventTableViewCell: UITableViewCell {
         self.eventTitleLabel?.text = (params.objectForKey("title") as! String)
         self.timeLabel?.text = (params.objectForKey("time") as! String)
         self.locationLabel?.text = (params.objectForKey("location") as! String)
-
+        
         /*let block : PFIdResultBlock = { [weak self] (result: AnyObject!, error: NSError!) in
             let wSelf = self
             if(error == nil) {
@@ -54,6 +55,14 @@ class EventTableViewCell: UITableViewCell {
         PFCloud.callFunctionInBackground("flickr", withParameters: ["title": params.objectForKey("title") as! String], block: block)*/
         
 //        self.backgroundImageView?.image = UIImage(named:"placeholder.png")
+        
+        if(params.objectForKey("private") as? Bool ?? false) {
+           self.privateBannerView.image = Constants.Images.PrivateBanner
+        }
+        else {
+            self.privateBannerView.image = nil
+        }
+        
         
         var placeHolderName:String = "cover-" + (params.objectForKey("category") as? String ?? "Other") + ".png"
         

@@ -68,7 +68,7 @@ class EventTableViewControllerProvider: BaseProvider {
         
         params.setObject(event.eventImage, forKey: "image");
         params.setObject(event.eventCategory, forKey: "category");
-        
+        params.setObject(event.eventPrivate, forKey: "private");
         cell.eventTableViewCellInit(params)
         
         if cell.hasGradient == false {

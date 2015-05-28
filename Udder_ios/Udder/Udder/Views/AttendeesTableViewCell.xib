@@ -63,9 +63,18 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-sp-Sn3">
+                        <rect key="frame" x="287" y="19" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="VaW-8A-2bH"/>
+                            <constraint firstAttribute="width" constant="20" id="o2B-OI-477"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rgI-ge-Q8t" firstAttribute="leading" secondItem="Inm-Ar-xgT" secondAttribute="trailing" constant="10" id="2rW-HK-9Vt"/>
+                    <constraint firstItem="M2V-cl-gaj" firstAttribute="leading" secondItem="Q1k-sp-Sn3" secondAttribute="trailing" constant="-20" id="4nv-Nv-pXL"/>
+                    <constraint firstAttribute="centerY" secondItem="Q1k-sp-Sn3" secondAttribute="centerY" id="9lS-Yx-Gwb"/>
                     <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" constant="5" id="CI3-6N-PAA"/>
                     <constraint firstItem="M2V-cl-gaj" firstAttribute="top" secondItem="7Zw-eT-PZS" secondAttribute="bottom" constant="5" id="HlJ-me-GJd"/>
                     <constraint firstItem="M2V-cl-gaj" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="5" id="KtB-t1-j53"/>
@@ -104,6 +113,7 @@
                 <outlet property="contactName" destination="rgI-ge-Q8t" id="IMr-Z0-cnS"/>
                 <outlet property="fbLogo" destination="7Zw-eT-PZS" id="kAa-QE-8ED"/>
                 <outlet property="invitePeopleLabel" destination="awU-lJ-hiN" id="YFk-Wr-2y8"/>
+                <outlet property="selfLogo" destination="Q1k-sp-Sn3" id="4oW-iH-Enf"/>
             </connections>
             <point key="canvasLocation" x="322" y="213"/>
         </tableViewCell>

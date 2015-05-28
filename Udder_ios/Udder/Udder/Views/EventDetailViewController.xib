@@ -15,6 +15,7 @@
                 <outlet property="infoTableView" destination="2ky-eq-Lr9" id="6RC-dH-aMp"/>
                 <outlet property="locationLabel" destination="QIV-jQ-ZYJ" id="vgn-S3-b9V"/>
                 <outlet property="locationViewWidthConstraint" destination="juE-95-ypm" id="yFr-6B-kgS"/>
+                <outlet property="lockImageView" destination="HW0-XQ-WcN" id="oyB-Qd-gtd"/>
                 <outlet property="responseSegmentedControl" destination="Nfc-5Q-U4M" id="psn-m8-8pD"/>
                 <outlet property="tableSwitchSegmentedControl" destination="pwi-AK-Jbi" id="M5d-dB-ano"/>
                 <outlet property="timeLabel" destination="caG-O6-IlW" id="9l4-vG-76E"/>
@@ -61,6 +62,13 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="ulN-xz-eyq"/>
                                 <constraint firstAttribute="width" constant="30" id="uzQ-LB-BNo"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="private-banner" translatesAutoresizingMaskIntoConstraints="NO" id="HW0-XQ-WcN" userLabel="Lock Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="1fs-dN-Zzc"/>
+                                <constraint firstAttribute="width" constant="75" id="8jW-eA-qch"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41o-V8-p0h" userLabel="Info Background">
@@ -169,6 +177,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="bwA-OF-pgc" secondAttribute="bottom" id="1Af-eb-1q7"/>
+                        <constraint firstItem="HW0-XQ-WcN" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" id="3Yk-lN-Lej"/>
                         <constraint firstAttribute="trailing" secondItem="bwA-OF-pgc" secondAttribute="trailing" id="4Ee-ZS-e5p"/>
                         <constraint firstItem="bwA-OF-pgc" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" id="7uJ-Ca-yaK"/>
                         <constraint firstItem="bwA-OF-pgc" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" id="KDD-IQ-3bP"/>
@@ -176,6 +185,7 @@
                         <constraint firstAttribute="height" constant="227" id="ST9-Ci-ZTl"/>
                         <constraint firstAttribute="trailing" secondItem="AO2-jB-bsC" secondAttribute="trailing" id="Sxj-X1-gUr"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" constant="8" id="Vrn-mn-tvj"/>
+                        <constraint firstItem="HW0-XQ-WcN" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" id="XzU-fZ-s8t"/>
                         <constraint firstAttribute="trailing" secondItem="a4X-st-Gqc" secondAttribute="trailing" id="ZuV-Dj-1An"/>
                         <constraint firstItem="41o-V8-p0h" firstAttribute="leading" secondItem="8cG-vt-SjQ" secondAttribute="leading" constant="8" id="bTs-jK-8oI"/>
                         <constraint firstItem="AO2-jB-bsC" firstAttribute="top" secondItem="8cG-vt-SjQ" secondAttribute="top" id="h3C-wr-fL8"/>
@@ -248,5 +258,6 @@
         <image name="icon-location.png" width="79" height="79"/>
         <image name="info.png" width="16" height="16"/>
         <image name="people.png" width="16" height="16"/>
+        <image name="private-banner" width="49" height="49"/>
     </resources>
 </document>

@@ -98,6 +98,21 @@
                                     <constraint firstAttribute="height" constant="30" id="cUY-iq-4ZE"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBb-f9-OYJ">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="NUk-A3-dYr"/>
+                                    <constraint firstAttribute="width" constant="30" id="qOS-Y0-mgY"/>
+                                    <constraint firstAttribute="height" constant="30" id="uML-wU-UUR"/>
+                                    <constraint firstAttribute="height" constant="60" id="xvd-jV-ER6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qOS-Y0-mgY"/>
+                                        <exclude reference="uML-wU-UUR"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,6 +125,7 @@
                             <constraint firstAttribute="trailing" secondItem="oBb-oq-XyT" secondAttribute="trailing" id="F9D-I4-LlU"/>
                             <constraint firstAttribute="bottom" secondItem="bla-LZ-A9b" secondAttribute="bottom" constant="5" id="HS7-ev-wmf"/>
                             <constraint firstItem="pr1-vT-cwV" firstAttribute="top" secondItem="pdK-VD-RI2" secondAttribute="top" id="Kkk-qN-e3I"/>
+                            <constraint firstItem="aBb-f9-OYJ" firstAttribute="leading" secondItem="pdK-VD-RI2" secondAttribute="leading" id="MST-c4-2de"/>
                             <constraint firstItem="oBb-oq-XyT" firstAttribute="top" secondItem="pdK-VD-RI2" secondAttribute="top" id="Nqy-eW-sic"/>
                             <constraint firstAttribute="bottom" secondItem="MzW-o8-aQd" secondAttribute="bottom" id="RVs-JG-wBs"/>
                             <constraint firstItem="q76-fd-cSl" firstAttribute="leading" secondItem="pdK-VD-RI2" secondAttribute="leading" constant="5" id="a05-Ob-CZB"/>
@@ -118,6 +134,7 @@
                             <constraint firstItem="MzW-o8-aQd" firstAttribute="leading" secondItem="pdK-VD-RI2" secondAttribute="leading" id="eiQ-Eh-SPn"/>
                             <constraint firstAttribute="trailing" secondItem="pr1-vT-cwV" secondAttribute="trailing" id="mvK-Xr-O3i"/>
                             <constraint firstItem="bla-LZ-A9b" firstAttribute="leading" secondItem="pdK-VD-RI2" secondAttribute="leading" id="rgu-Uy-2oI"/>
+                            <constraint firstItem="aBb-f9-OYJ" firstAttribute="top" secondItem="pdK-VD-RI2" secondAttribute="top" id="vSM-6N-5R1"/>
                             <constraint firstAttribute="trailing" secondItem="oBb-oq-XyT" secondAttribute="trailing" id="yZu-cr-RRS"/>
                         </constraints>
                         <variation key="default">
@@ -144,6 +161,7 @@
                 <outlet property="locationImageView" destination="fBH-0K-5IQ" id="OZR-4C-UTC"/>
                 <outlet property="locationLabel" destination="wOe-dj-MNs" id="VbI-kI-8GG"/>
                 <outlet property="locationLabelWidthConstraint" destination="hl8-jz-uG0" id="X2a-93-J1C"/>
+                <outlet property="privateBannerView" destination="aBb-f9-OYJ" id="smM-p9-tyg"/>
                 <outlet property="timeImageView" destination="Avm-8t-6bo" id="gy9-jH-bcS"/>
                 <outlet property="timeLabel" destination="Arf-pY-IS2" id="I5t-NQ-or7"/>
                 <outlet property="timeLabelWidthConstraint" destination="Gnq-TX-gtl" id="KHn-o7-HVl"/>

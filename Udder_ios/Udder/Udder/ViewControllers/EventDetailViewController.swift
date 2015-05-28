@@ -34,6 +34,7 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var categoryImageView: UIImageView!
     
+    @IBOutlet var lockImageView: UIImageView!
     // Constraints
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var timeViewWidthConstraint: NSLayoutConstraint!
@@ -79,6 +80,7 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.setupTableViews();
         self.setupView();
     }
+    
     
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
@@ -216,6 +218,13 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {
                 self.setSegmentControllerForResponse(invitation.invitationResponse);
+            }
+            
+            if (event?.eventPrivate ?? false as Bool) {
+                self.lockImageView.image = Constants.Images.PrivateBanner
+            }
+            else {
+                self.lockImageView.image = nil
             }
             
             var categoryName:String = validatedEvent.eventCategory;
