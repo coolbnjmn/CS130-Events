@@ -279,6 +279,12 @@ class EventModel: BaseModel {
                         self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid, inPhoneBook: isContact, fbFriend: isFriend)!)
                     }
                     
+                    if(self.attendees != nil) {
+                        self.attendees!.sort {a,b in
+                            return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
+                        }
+                    }
+                    
 //                    self.attendees.sort({$0.name < $1.name})
 //                            if($0.fbFriend && $0.inPhoneBook && (!$1.fbFriend || !$1.inPhoneBook))
 //                                return true

@@ -82,6 +82,11 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                     }
                 }
                 
+
+                self.contactDataArray.sort {a,b in
+                    return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
                 })
