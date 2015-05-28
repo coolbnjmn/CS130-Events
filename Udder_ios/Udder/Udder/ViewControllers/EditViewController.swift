@@ -16,7 +16,7 @@ import Parse
 class editViewController: WholeViewController {
     var event:EventModel?
     var location:PlacesModel?
-    var delegate:EditEventProtocolDelegate?;
+    var delegate:EditEventProtocolDelegate?
     
     var dateFormatter = NSDateFormatter()
     func setupWithEvent(eventModel:EventModel?) {
@@ -84,7 +84,8 @@ class editViewController: WholeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Edit Event";
-        self.navigationItem.rightBarButtonItem?.enabled = true
+       // self.navigationItem.rightBarButtonItem?.enabled = true
+        self.submitButton?.enabled = true
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
         self.title_string = event!.eventTitle!

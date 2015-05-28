@@ -32,6 +32,55 @@
 		5548ED3E1AFAA0300063F6E4 /* WholeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED351AFAA0300063F6E4 /* WholeViewController.xib */; };
 		55571E451AFC1414008AF1C3 /* textviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */; };
 		55571E471AFC1435008AF1C3 /* textviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */; };
+		557D93F51B16B3C5001370E0 /* WholeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED1D1AFA9FFB0063F6E4 /* WholeViewController.swift */; };
+		557D93F61B16B40C001370E0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAAA01AF4BA1B00E8B3F9 /* BaseViewController.swift */; };
+		557D93F71B16B435001370E0 /* RegEventCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED231AFAA0110063F6E4 /* RegEventCreationTableViewCell.swift */; };
+		557D93F81B16B43F001370E0 /* EventCreationSubmitButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6AF7D1B1643610093A0A1 /* EventCreationSubmitButtonTableViewCell.swift */; };
+		557D93F91B16B441001370E0 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
+		557D93FA1B16B444001370E0 /* textviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571E461AFC1435008AF1C3 /* textviewTableViewCell.swift */; };
+		557D93FB1B16B447001370E0 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED1F1AFAA0110063F6E4 /* CatTableViewCell.swift */; };
+		557D93FC1B16B44B001370E0 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED201AFAA0110063F6E4 /* DateTableViewCell.swift */; };
+		557D93FD1B16B44E001370E0 /* DescriptionEventCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED211AFAA0110063F6E4 /* DescriptionEventCreationTableViewCell.swift */; };
+		557D93FE1B16B452001370E0 /* PrivateEventCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED221AFAA0110063F6E4 /* PrivateEventCreationTableViewCell.swift */; };
+		557D93FF1B16B457001370E0 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED241AFAA0110063F6E4 /* TimeTableViewCell.swift */; };
+		557D94001B16B45B001370E0 /* WhereTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548ED251AFAA0110063F6E4 /* WhereTableViewCell.swift */; };
+		557D94011B16B45E001370E0 /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
+		557D94021B16B468001370E0 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF292F1AE9D32900D6714C /* EventTableViewCell.swift */; };
+		557D94031B16B46B001370E0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */; };
+		557D94041B16B46F001370E0 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D81AF210A0009D2281 /* LocationTableViewCell.swift */; };
+		557D94051B16B474001370E0 /* TimeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA961AF4966200E8B3F9 /* TimeInfoTableViewCell.swift */; };
+		557D94061B16B481001370E0 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF09F21AFC15F000A1B433 /* ContactCell.swift */; };
+		557D94071B16B484001370E0 /* AttendeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DB02361B0550580027AFF0 /* AttendeesTableViewCell.swift */; };
+		557D94081B16B487001370E0 /* LocationPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78723431B0EEF7400059A58 /* LocationPickerTableViewCell.swift */; };
+		557D94091B16B4B7001370E0 /* BaseEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E69CE1B05333900F59E9D /* BaseEventTableViewController.swift */; };
+		557D940A1B16B4BB001370E0 /* InviteContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2408BE41AF54CB300568B0C /* InviteContactTableViewController.swift */; };
+		557D940B1B16B4BE001370E0 /* PendingInvitationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175716D1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift */; };
+		557D940C1B16B4C1001370E0 /* EventsNearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571691AEAD27A00E92F07 /* EventsNearMeViewController.swift */; };
+		557D940D1B16B4C4001370E0 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571651AEAD25900E92F07 /* UpcomingEventsViewController.swift */; };
+		557D940E1B16B4C8001370E0 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17571611AEAD24100E92F07 /* MyEventsViewController.swift */; };
+		557D940F1B16B4CB001370E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10200E11AEA076B007A2F8F /* LoginViewController.swift */; };
+		557D94101B16B4CF001370E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8E1AE1DDD40063126E /* ViewController.swift */; };
+		557D94111B16B4D2001370E0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5BB8D1AE1DDD40063126E /* SideMenuViewController.swift */; };
+		557D94121B16B4D5001370E0 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
+		557D94131B16B4DA001370E0 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2446F411AE20967006C37F9 /* EventTableViewController.swift */; };
+		557D94141B16B4DD001370E0 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3487C5151AFC410E00C8BA90 /* ValidationViewController.swift */; };
+		557D94151B16B4E1001370E0 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E20B11AF97D7B003BDB1F /* PhoneNumberViewController.swift */; };
+		557D94161B16B4E4001370E0 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787233B1B0E901900059A58 /* LocationPickerViewController.swift */; };
+		557D94171B16B4E7001370E0 /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BBF8E1B10738B00309C8E /* editViewController.swift */; };
+		557D94181B16B4EC001370E0 /* SeparateTintSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */; };
+		557D94191B16B4EF001370E0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
+		557D941A1B16B4F2001370E0 /* GeneralUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */; };
+		557D941B1B16B4F5001370E0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */; };
+		557D941C1B16B4FC001370E0 /* LocationPickerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787233F1B0EB61B00059A58 /* LocationPickerProvider.swift */; };
+		557D941D1B16B4FE001370E0 /* EventTableViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9E1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift */; };
+		557D941E1B16B502001370E0 /* EventAttendeesViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA9C1AF4A6C100E8B3F9 /* EventAttendeesViewControllerProvider.swift */; };
+		557D941F1B16B504001370E0 /* EventDetailViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D61AF20557009D2281 /* EventDetailViewControllerProvider.swift */; };
+		557D94201B16B507001370E0 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
+		557D94211B16B50A001370E0 /* BaseSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DAC01B0533F200850122 /* BaseSearchProvider.swift */; };
+		557D94221B16B50D001370E0 /* BaseEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D41AF2045D009D2281 /* BaseEventProvider.swift */; };
+		557D94231B16B510001370E0 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73027D21AF202D4009D2281 /* BaseProvider.swift */; };
+		557D94241B16B517001370E0 /* LocationPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78723411B0EB74E00059A58 /* LocationPickerModel.swift */; };
+		557D94251B16B52B001370E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255609F1AE19A0900EBEE8B /* AppDelegate.swift */; };
 		55AF9D101B0531D500AE7216 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF9D0F1B0531D500AE7216 /* PlacesModel.swift */; };
 		55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B3A8261B02F93800614EA8 /* regularCell.xib */; };
 		55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
@@ -890,18 +939,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				B247C1731B0E96C9001D0EB5 /* EventManagerModel.swift in Sources */,
+				557D940E1B16B4C8001370E0 /* MyEventsViewController.swift in Sources */,
+				557D940F1B16B4CB001370E0 /* LoginViewController.swift in Sources */,
 				B23FD6C01B0E7DE7003CCE93 /* EventTableViewCellTest.swift in Sources */,
 				B247C1631B0E831B001D0EB5 /* EventModel.swift in Sources */,
+				557D94091B16B4B7001370E0 /* BaseEventTableViewController.swift in Sources */,
+				557D94211B16B50A001370E0 /* BaseSearchProvider.swift in Sources */,
+				557D941E1B16B502001370E0 /* EventAttendeesViewControllerProvider.swift in Sources */,
+				557D93F81B16B43F001370E0 /* EventCreationSubmitButtonTableViewCell.swift in Sources */,
+				557D94021B16B468001370E0 /* EventTableViewCell.swift in Sources */,
+				557D94241B16B517001370E0 /* LocationPickerModel.swift in Sources */,
+				557D94171B16B4E7001370E0 /* editViewController.swift in Sources */,
 				B25560B61AE19A0900EBEE8B /* UdderTests.swift in Sources */,
+				557D94041B16B46F001370E0 /* LocationTableViewCell.swift in Sources */,
 				B247C1661B0E847D001D0EB5 /* InvitationModel.swift in Sources */,
+				557D94141B16B4DD001370E0 /* ValidationViewController.swift in Sources */,
 				B2F34CD41B0FBF3300C2920D /* PlacesModel.swift in Sources */,
+				557D94201B16B507001370E0 /* EventSearchProvider.swift in Sources */,
+				557D93FB1B16B447001370E0 /* CatTableViewCell.swift in Sources */,
+				557D94231B16B510001370E0 /* BaseProvider.swift in Sources */,
+				557D93F91B16B441001370E0 /* regularCell.swift in Sources */,
+				557D93FD1B16B44E001370E0 /* DescriptionEventCreationTableViewCell.swift in Sources */,
+				557D941F1B16B504001370E0 /* EventDetailViewControllerProvider.swift in Sources */,
+				557D941A1B16B4F2001370E0 /* GeneralUtility.swift in Sources */,
+				557D93FC1B16B44B001370E0 /* DateTableViewCell.swift in Sources */,
 				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
 				A7248B3F1B158A1200D64CA9 /* PlacesModelTest.swift in Sources */,
+				557D94101B16B4CF001370E0 /* ViewController.swift in Sources */,
+				557D94191B16B4EF001370E0 /* UIColor+Extension.swift in Sources */,
+				557D94131B16B4DA001370E0 /* EventTableViewController.swift in Sources */,
+				557D940D1B16B4C4001370E0 /* UpcomingEventsViewController.swift in Sources */,
 				B247C1681B0E88AA001D0EB5 /* Constants.swift in Sources */,
 				B247C1741B0E982D001D0EB5 /* AF+Date+Extension.swift in Sources */,
+				557D940C1B16B4C1001370E0 /* EventsNearMeViewController.swift in Sources */,
+				557D940B1B16B4BE001370E0 /* PendingInvitationsViewController.swift in Sources */,
+				557D93FE1B16B452001370E0 /* PrivateEventCreationTableViewCell.swift in Sources */,
+				557D94221B16B50D001370E0 /* BaseEventProvider.swift in Sources */,
+				557D94071B16B484001370E0 /* AttendeesTableViewCell.swift in Sources */,
+				557D941B1B16B4F5001370E0 /* UIView+Extension.swift in Sources */,
+				557D94251B16B52B001370E0 /* AppDelegate.swift in Sources */,
+				557D941D1B16B4FE001370E0 /* EventTableViewControllerProvider.swift in Sources */,
 				B247C1761B0FB9EE001D0EB5 /* ContactModelTest.swift in Sources */,
+				557D94001B16B45B001370E0 /* WhereTableViewCell.swift in Sources */,
+				557D93FA1B16B444001370E0 /* textviewTableViewCell.swift in Sources */,
+				557D94161B16B4E4001370E0 /* LocationPickerViewController.swift in Sources */,
+				557D94081B16B487001370E0 /* LocationPickerTableViewCell.swift in Sources */,
+				557D94151B16B4E1001370E0 /* PhoneNumberViewController.swift in Sources */,
+				557D93F71B16B435001370E0 /* RegEventCreationTableViewCell.swift in Sources */,
+				557D93FF1B16B457001370E0 /* TimeTableViewCell.swift in Sources */,
+				557D94051B16B474001370E0 /* TimeInfoTableViewCell.swift in Sources */,
+				557D94061B16B481001370E0 /* ContactCell.swift in Sources */,
+				557D94031B16B46B001370E0 /* DescriptionTableViewCell.swift in Sources */,
+				557D93F51B16B3C5001370E0 /* WholeViewController.swift in Sources */,
 				B247C1721B0E96AF001D0EB5 /* EventManagerModelTest.swift in Sources */,
+				557D941C1B16B4FC001370E0 /* LocationPickerProvider.swift in Sources */,
+				557D940A1B16B4BB001370E0 /* InviteContactTableViewController.swift in Sources */,
+				557D94011B16B45E001370E0 /* ButtonCreationEventTableViewCell.swift in Sources */,
+				557D94111B16B4D2001370E0 /* SideMenuViewController.swift in Sources */,
+				557D93F61B16B40C001370E0 /* BaseViewController.swift in Sources */,
+				557D94181B16B4EC001370E0 /* SeparateTintSegmentedControl.swift in Sources */,
 				A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */,
+				557D94121B16B4D5001370E0 /* EventDetailViewController.swift in Sources */,
 				B247C1771B0FBA0B001D0EB5 /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

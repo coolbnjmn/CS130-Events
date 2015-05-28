@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol TimeCellDelegate{
     optional func settimetext(cell:TimeTableViewCell)
+    optional func inittimes(cell:TimeTableViewCell, date: NSDate)
 }
 
 class TimeTableViewCell: UITableViewCell {
@@ -30,6 +31,7 @@ class TimeTableViewCell: UITableViewCell {
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
         sender.text = dateFormatter.stringFromDate(DatePickerView.date)
+        delegate?.inittimes!(self, date: DatePickerView.date)
         DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)}
         else{
             //do nothing
@@ -42,6 +44,7 @@ class TimeTableViewCell: UITableViewCell {
         dateFormatter.dateStyle = .ShortStyle
         timeInputTextField.text = dateFormatter.stringFromDate(sender.date)
         date = sender.date
+        println("everything should be updating")
         delegate?.settimetext!(self)
     }
     
@@ -54,6 +57,7 @@ class TimeTableViewCell: UITableViewCell {
 
     
     func textFieldDidEndEditing(textField: UITextField){
+        println("unexpected updating")
         delegate?.settimetext!(self)
     }
     
