@@ -32,6 +32,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     var selectedResultsIndices : [NSIndexPath]?
     var selectedDataArray : Array<ContactModel> = []
     var event : EventModel?
+    var attendees: [ContactModel]?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,6 +42,10 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         super.viewDidLoad()
         
         self.tableView.registerClass(ContactCell.self, forCellReuseIdentifier: "ContactCell")
+        
+        if (attendees == nil) {
+            attendees = [ContactModel]()
+        }
         
         let addressBookRef: ABAddressBookRef = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
         
@@ -62,16 +67,24 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                         
                         // TODO: what to do with multiple phone numbers per contact?
                         for index in 0..<countOfPhones{
-                            let unmanagedPhone = ABMultiValueCopyValueAtIndex(phones, index)
-                            let phone: String = unmanagedPhone.takeRetainedValue() as! String
-                            
-                            if(index == 0) {
-                                let contactModel : ContactModel? = ContactModel(name: contactName, phone: phone)
+                            let label:NSString = ABMultiValueCopyLabelAtIndex(phones, index).takeRetainedValue() as NSString
+                            if (label == kABPersonPhoneMobileLabel) {
+                                let unmanagedPhone = ABMultiValueCopyValueAtIndex(phones, index)
+                                let phone: String = unmanagedPhone.takeRetainedValue() as! String
                                 
-                                self.contactDataArray.append(contactModel!)
+                                if(!self.alreadyInvited(phone)) {
+                                    let contactModel : ContactModel? = ContactModel(name: contactName, phone: phone)
+                                    self.contactDataArray.append(contactModel!)
+                                }
+                                break
                             }
                         }
                     }
+                }
+                
+
+                self.contactDataArray.sort {a,b in
+                    return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -108,6 +121,33 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     func setupWithEvent(eventModel:EventModel?) {
         self.event = eventModel
+        self.attendees = self.event?.attendees
+    }
+    
+    func alreadyInvited(phone: String) -> Bool {
+        
+        if (attendees == nil) {
+            attendees = [ContactModel]()
+            return false
+        }
+        
+        var num = stripNumber(phone)
+        if(count(num) == 10) {
+            num = "1" + num
+        }
+        
+        for c:ContactModel in attendees! {
+            var c_num = stripNumber(c.phone)
+            if(count(c_num) == 10) {
+                c_num = "1" + c_num
+            }
+            
+            if(num == c_num) {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func inviteContacts(sender: AnyObject) {
@@ -127,6 +167,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         
         }
         
+        //TODO pretty sure there's a memory leak of view controllesr (the detail view before the invite view is still around)
         var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
         eventDetailViewController.setupWithEvent(self.event)
       
@@ -134,6 +175,10 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         viewControllers.removeObjectIdenticalTo(self);
         viewControllers.addObject(eventDetailViewController);
         self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+    }
+    
+    func setAttendeesList(att: [ContactModel]) {
+        self.attendees = att
     }
     
     func stripNumber(num: String) -> String {

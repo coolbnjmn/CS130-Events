@@ -60,21 +60,32 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
-        if(self.event!.eventHost.objectId == PFUser.currentUser().objectId)
+        if(self.event!.isMyEvent as Bool)
         {
             self.setupMenuBarButtonItems()
+            let completion:EventModel->Void = { eventModel in
+                var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
+                invitePage.setupWithEvent(eventModel);
+                
+                var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+                viewControllers.removeObjectIdenticalTo(self);
+                viewControllers.addObject(invitePage);
+                self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+            }
+            self.event?.setGoToInviteCompletion(completion)
         }
+        self.event?.detailView = self.view
         self.populateData();
         self.setupTableViews();
         self.setupView();
-    }    
+    }
     
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()
     }
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
-        let rightButton:UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:");
+        let rightButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "rightPlusButtonPressed:")
         rightButton.tintColor = UIColor.whiteColor()
         return rightButton
     }
@@ -141,18 +152,24 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         case TableSegment.kSegmentAttendees:                        
             self.infoTableView.hidden = true;
             self.attendeesTableView.hidden = false;
-            let success: Void -> Void = {
-                self.attendeesTableView.reloadData()
-            }
-            let needAlert: UIAlertController -> Void = {
-                alert in
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    self.event?.getAttendeesIfNeeded(success, alert: {alert in })
-            }
-            event?.getAttendeesIfNeeded(success, alert: needAlert)
+            getAttendees()
         default:
             return;
         }
+    }
+    
+    func getAttendees() {
+        println("Getting attendees")
+        let success: Void -> Void = {
+            self.attendeesTableView.reloadData()
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        }
+        let needAlert: UIAlertController -> Void = {
+            alert in
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.event?.getAttendeesIfNeeded(success, alert: {alert in })
+        }
+        event?.getAttendeesIfNeeded(success, alert: needAlert)
     }
     
     // MARK: Helper Functions
@@ -179,6 +196,11 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.attendeesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
         self.attendeesTableView.dataSource = self.eventAttendeesProvider;
         self.attendeesTableView.delegate = self.eventAttendeesProvider;
+//        self.eventAttendeesProvider?.detailView = self
+        
+//        let refresh:UIRefreshControl = UIRefreshControl()
+//        refresh.addTarget(self.attendeesTableView, action: "delegate.getAttendees:", forControlEvents: UIControlEvents.ValueChanged)
+//        self.attendeesTableView.addSubview(refresh)
     }
     
     func populateData() {
@@ -188,7 +210,8 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
             self.locationLabel.text = validatedEvent.locationObject.placeLocationName;
             
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
-            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
+            var placeHolderName:String = "cover-" + (event?.eventCategory ?? "Other") + ".png"
+            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: placeHolderName));
             
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {

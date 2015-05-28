@@ -12,8 +12,8 @@ import UIKit
 
 class TutorialViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    let pageTitles = ["Be Spontaneous.", "Find events based on your interests...", "Connect with Friends...", "and make new ones."]
-    var images = ["splash-bg.png","tutorial-1.png","tutorial-2.png","tutorial-3.png"]
+    let pageTitles = ["Find events in real-time based on your interests.", "Be spontaneous.", "Connect with friends...", "...and make new ones."]
+    var images = ["splash-bg.png", "tutorial-1.png", "tutorial-2.png", "tutorial-3.png"]
     var count = 0
     
     @IBOutlet weak var loginButton: UIButton!
@@ -38,6 +38,11 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
         pageViewController!.didMoveToParentViewController(self)
         self.view.backgroundColor = UIColor.whiteColor();
 
+        self.loginButton.alpha = 0
+        
+        UIView.animateWithDuration(2, animations: {
+            self.loginButton.alpha = 1.0
+        })
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -88,26 +93,20 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
     
     // MARK: - Page View Controller Data Source
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int // The number of items reflected in the page indicator.
-    {
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int { // The number of items reflected in the page indicator.
         return self.pageTitles.count;
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int // The selected item reflected in the page indicator.
-    {
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int { // The selected item reflected in the page indicator.
         return 0;
     }
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
-    {
-        
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         var vc = viewController as! TutorialItemViewController
         var index = vc.pageIndex as Int
         
-        
-        if (index == 0 || index == NSNotFound)
-        {
+        if (index == 0 || index == NSNotFound){
             return nil
-            
         }
         
         index--
@@ -115,32 +114,27 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        
         var vc = viewController as! TutorialItemViewController
         var index = vc.pageIndex as Int
         
-        if (index == NSNotFound)
-        {
+        if (index == NSNotFound) {
             return nil
         }
-        
         index++
-        
-        if (index == self.pageTitles.count)
-        {
+
+        if (index == self.pageTitles.count || index == NSNotFound) {
             return nil
         }
-
-        return self.viewControllerAtIndex(index)
         
+        return self.viewControllerAtIndex(index)
     }
-
+    
     @IBAction func loginButtonPressed(sender: AnyObject) {
         println("pressed");
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true);
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
         loadingNotification.labelText = "Loading"
-        
+
         self.loginButton.enabled = false
         let arr = ["user_about_me", "email", "user_friends"];
         PFFacebookUtils.logInWithPermissions(arr, block: {(user: PFUser!, error: NSError!) in
@@ -176,6 +170,7 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
             else {
                 NSLog("User with facebook logged in!");
                 self.gatherInfo(true)
+                self.getFriends() //remove later
                 let phoneValidated = PFUser.currentUser().objectForKey("phoneValidated") as! Bool
                 if (phoneValidated) {
                     self.redirectToHome()
@@ -186,6 +181,25 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
             }
             
         });
+    }
+    
+    func getFriends() {
+        FBRequestConnection.startForMyFriendsWithCompletionHandler({
+            (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+            println("Received response with FB friends")
+            if(error == nil) {
+                let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
+//                self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
+                var i=0
+                for friend:NSDictionary in friendObjects {
+                    i++
+//                    self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
+                }
+                println("Found a total of \(i) Facebook friends")
+            }
+//            self.contactServerForEventAttendees(success)
+        })
+
     }
     
     

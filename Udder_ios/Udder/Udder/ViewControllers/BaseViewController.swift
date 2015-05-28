@@ -40,6 +40,17 @@ class BaseViewController: UIViewController, ViewControllerProtocolDelegate {
         }
     }
     
+    func displayLoadingHUD() {
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true);
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.center = self.view.center;
+        loadingNotification.labelText = "Loading"
+    }
+    
+    func hideLoadingHUD() {
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

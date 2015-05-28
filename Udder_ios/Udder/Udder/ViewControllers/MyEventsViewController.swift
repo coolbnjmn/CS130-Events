@@ -17,7 +17,11 @@ class MyEventsViewController: BaseEventTableViewController {
     }
     
     override func fetchData() {
-        eventManagerModel.retrieveMyEvents(self.successBlock, failure: self.failureBlock);
+        eventManagerModel.retrieveMyEvents(0, success:self.successBlock, failure: self.failureBlock);
+    }
+    
+    override func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        eventManagerModel.retrieveMyEvents(page, success: success, failure: failure);
     }
 }
 

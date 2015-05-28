@@ -26,10 +26,15 @@ class EventModel: BaseModel {
     var eventPrivate: Bool!;
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
     var eventObject: PFObject!; // The parse event object
+    var isMyEvent: Bool!
     
     var phonebookContacts: Dictionary<String, String>?
     var facebookFriends: NSMutableArray?
     var attendees: [ContactModel]?
+    
+    var detailView: AnyObject?
+    
+    var goToInvite:(EventModel->Void)?
     
     init?(eventObject: PFObject, invitation: PFObject) {
         super.init();
@@ -41,6 +46,13 @@ class EventModel: BaseModel {
         if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
             return nil;
         }
+        
+        if(self.eventHost.objectId == PFUser.currentUser().objectId) {
+            self.isMyEvent = true
+        }
+        else {
+            self.isMyEvent = false
+        }
     }
     
     init?(eventObject: PFObject) {
@@ -51,6 +63,17 @@ class EventModel: BaseModel {
         if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
             return nil;
         }
+        
+        if(self.eventHost.objectId == PFUser.currentUser().objectId) {
+            self.isMyEvent = true
+        }
+        else {
+            self.isMyEvent = false
+        }
+    }
+    
+    func setGoToInviteCompletion(completion:EventModel->Void) {
+        self.goToInvite = completion
     }
     
     func setupInvitation(invitation: PFObject) {
@@ -156,10 +179,16 @@ class EventModel: BaseModel {
     
         if (phonebookContacts == nil) {
             
+            if(self.detailView != nil) {
+                let loadingNotification = MBProgressHUD.showHUDAddedTo(self.detailView! as! UIView, animated: true);
+                loadingNotification.mode = MBProgressHUDMode.Indeterminate
+                loadingNotification.labelText = "Loading Attendees"
+            }
+        
             let contactServer: Void -> Void = {
-                for (phone, name) in self.phonebookContacts! {
-                    println(phone + ": " + name)
-                }
+//                for (phone, name) in self.phonebookContacts! {
+//                    println(phone + ": " + name)
+//                }
                 println("Total of \(self.phonebookContacts!.count) contacts found")
                 
                 self.getFBFriends(success)
@@ -167,11 +196,9 @@ class EventModel: BaseModel {
             
             self.getPhonebookContacts(contactServer, presentAlert: alert)
         }
-        
-        //Don't ever reach here?
-//        else if (self.attendees == nil) {
-//            self.contactServerForEventAttendees(success)
-//        }
+        else {
+            self.contactServerForEventAttendees(success)
+        }
     }
     
     func getPhonebookContacts(success: Void -> Void, presentAlert: UIAlertController -> Void) {
@@ -225,8 +252,8 @@ class EventModel: BaseModel {
     }
     
     func contactServerForEventAttendees(success: Void -> Void) {
-        if (attendees == nil) {
-            
+//        if (attendees == nil) {
+        
             let parameters = ["eventId": eventId]
             PFCloud.callFunctionInBackground("getAttendees", withParameters: parameters) { results, error in
                 if error != nil {
@@ -252,6 +279,12 @@ class EventModel: BaseModel {
                         self.attendees?.append(ContactModel(name: user_name, phone: user_phone, fb: user_fbid, inPhoneBook: isContact, fbFriend: isFriend)!)
                     }
                     
+                    if(self.attendees != nil) {
+                        self.attendees!.sort {a,b in
+                            return a.name.localizedCaseInsensitiveCompare(b.name) == .OrderedAscending
+                        }
+                    }
+                    
 //                    self.attendees.sort({$0.name < $1.name})
 //                            if($0.fbFriend && $0.inPhoneBook && (!$1.fbFriend || !$1.inPhoneBook))
 //                                return true
@@ -272,34 +305,30 @@ class EventModel: BaseModel {
                     success()
                 }
             }
-        }
+//        }
     }
     
     func getFBFriends(success: Void -> Void) {
-  
-//        FBRequestConnection.startForMyFriendsWithCompletionHandler({
-//            (conn:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-//                println("Received response with FB friends")
-//                if(error != nil) {
-//                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
-//                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
-//                    for friend:NSDictionary in friendObjects {
-//                        self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
-//                    }
-//                    println("Found a total of \(self.facebookFriends!.count) Facebook friends")
-//                }
-//                self.contactServerForEventAttendees(success)
-//            })
-//        println("Finished sending FB request, waiting for response")
         
+        let completion:Void->Void = {
+            FBRequestConnection.startForMyFriendsWithCompletionHandler({
+                (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+                println("Received response with FB friends")
+                if(error == nil) {
+                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
+                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
+                    for friend:NSDictionary in friendObjects {
+                        self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
+                    }
+                    println("Found a total of \(self.facebookFriends!.count) Facebook friends")
+                }
+                self.contactServerForEventAttendees(success)
+            })
+        }
         
-//        var friendsRequest:FBRequest = FBRequest.requestForMyFriends()
-//        friendsRequest.startWithCompletionHandler({(conn, result, error) in
-//            println("it worked")
-//        })
+        println("Finished sending FB request, waiting for response")
         
-        
-        self.contactServerForEventAttendees(success)
+        dispatch_async(dispatch_get_main_queue(), completion)
         
     }
     
