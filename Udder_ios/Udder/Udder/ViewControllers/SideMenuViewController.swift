@@ -44,7 +44,7 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 7
+        return 8
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,6 +89,9 @@ class SideMenuViewController: UITableViewController {
             cellText = "Pending Invitations";
             break;
         case 6:
+            cellText = "Show Tutorial";
+            break;
+        case 7:
             cellText = "Logout";
             cell.textLabel?.textColor = UIColor.standardRedColor()
             break;
@@ -129,7 +132,10 @@ class SideMenuViewController: UITableViewController {
         case 5: //Pending Invitations
             navController = UINavigationController(rootViewController: PendingInvitationsViewController(nibName: nibNameToSwitchTo, bundle:nil))
             break;
-        case 6: //Logout
+        case 6:
+            navController = UINavigationController(rootViewController: TutorialViewController(nibName: "TutorialViewController", bundle: nil))
+            break;
+        case 7: //Logout
             
             let alertController = UIAlertController(title: "Logout?", message:
                 "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -163,6 +169,7 @@ class SideMenuViewController: UITableViewController {
         case 4:     return regular_height
         case 5:     return regular_height
         case 6:     return regular_height
+        case 7:     return regular_height
         default:    return 0
         }
         
