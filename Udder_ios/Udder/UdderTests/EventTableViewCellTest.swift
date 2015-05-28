@@ -11,6 +11,7 @@ import XCTest
 
 import Parse
 
+
 class EventTableViewCellTest: XCTestCase {
 
     let constantTitle : String = "title";
@@ -59,20 +60,23 @@ class EventTableViewCellTest: XCTestCase {
     }
     
     func testEventCellLayoutBasic() {
-        Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
+        let datasource:WholeViewController = WholeViewController(nibName:"WholeViewController", bundle:nil)
+  
+        datasource.loadView()
+        XCTAssertNotNil(datasource.ECtable, "ECtable is nil");
         
-        var eventModel:EventModel? = EventModel(eventObject: makeTestEvent());
-        let datasource:WholeViewController = WholeViewController()
-        let numberOfRows = datasource.tableView(nil, numberOfRowsInSection:0)
-        XCTAssertEqual(numberOfRows,9,"the create event table should always have 9 rows")
-        let numberOfSections = datasource.numberOfSectionsInTableView(nil)
-        XCTAssertEqual(numberOfSections, 1,"There should only be one section")
-        
-        ////BENEATH HERE HAVE PROBLEMS
-      //  let firstrow = NSIndexPath(forRow:0,inSection:0)
-       // let cell = datasource.tableView(nil, cellForRowAtIndexPath:firstrow)
-       // XCTAssertEqual(cell.titleTitleLabel.text!, "Title", "This cell should be the title cell")
+        datasource.ECtable.registerNib(UINib(nibName: "RegEventCreationTableViewCell", bundle: NSBundle(forClass:RegEventCreationTableViewCell.classForCoder())), forCellReuseIdentifier: "regcell")
+        let numberOfRows = datasource.tableView(datasource.ECtable, numberOfRowsInSection: 0)
+        XCTAssertEqual(numberOfRows, 9, "9 rows in number of rows");
+        let firstRowIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let firstRowCell = datasource.tableView(datasource.ECtable, cellForRowAtIndexPath: firstRowIndexPath) as! RegEventCreationTableViewCell
+        XCTAssertNotNil(firstRowCell, "First Row Cell is nil")
+        XCTAssertNotNil(firstRowCell.titleTitleLabel, "Title title label is nil")
+        XCTAssertLessThan(firstRowCell.titleTitleLabel.frame.size.width, datasource.view.frame.size.width, "Title title label is in bounds")
+        XCTAssert(true, "pass")
     }
+
+    
     
     
 
