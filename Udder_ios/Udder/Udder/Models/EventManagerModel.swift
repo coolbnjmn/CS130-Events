@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class EventManagerModel: BaseModel {
-    let numToReturn = 5;
     class var sharedInstance : EventManagerModel {
         struct EventManager {
             static let instance : EventManagerModel = EventManagerModel()
@@ -22,8 +21,8 @@ class EventManagerModel: BaseModel {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
         
         query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
-        query.limit = numToReturn;
-        query.skip = numToReturn*page;
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
         
         query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
@@ -32,10 +31,12 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrieveUpcomingEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveUpcomingEvents(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
-        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
         
+        query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
         query.includeKey(Constants.InvitationDatabaseFields.kInvitationEvent);
         
         query.findObjectsInBackgroundWithBlock {

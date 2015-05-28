@@ -18,6 +18,10 @@ class UpcomingEventsViewController: BaseEventTableViewController {
     }
     
     override func fetchData() {
-        eventManagerModel.retrieveUpcomingEvents(self.successBlock, failure: self.failureBlock);
+        eventManagerModel.retrieveUpcomingEvents(0, success: self.successBlock, failure: self.failureBlock);
+    }
+    
+    override func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        eventManagerModel.retrieveUpcomingEvents(page, success: success, failure: failure);
     }
 }

@@ -24,6 +24,7 @@ class EventTableViewControllerProvider: BaseProvider {
     func configure(events: NSMutableArray) {
         self.eventArray = events;
         self.shouldLoadMore = true;
+        self.currentPage = 0;
     }
     
     func appendEvents(moreEvents:NSMutableArray) {
