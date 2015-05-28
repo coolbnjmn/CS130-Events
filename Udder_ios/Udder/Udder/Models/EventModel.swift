@@ -32,6 +32,8 @@ class EventModel: BaseModel {
     var facebookFriends: NSMutableArray?
     var attendees: [ContactModel]?
     
+    var detailView: AnyObject?
+    
     var goToInvite:(EventModel->Void)?
     
     init?(eventObject: PFObject, invitation: PFObject) {
@@ -176,11 +178,17 @@ class EventModel: BaseModel {
     func getAttendeesIfNeeded(success: Void -> Void, alert:UIAlertController -> Void) {
     
         if (phonebookContacts == nil) {
+            
+            if(self.detailView != nil) {
+                let loadingNotification = MBProgressHUD.showHUDAddedTo(self.detailView! as! UIView, animated: true);
+                loadingNotification.mode = MBProgressHUDMode.Indeterminate
+                loadingNotification.labelText = "Loading Attendees"
+            }
         
             let contactServer: Void -> Void = {
-                for (phone, name) in self.phonebookContacts! {
-                    println(phone + ": " + name)
-                }
+//                for (phone, name) in self.phonebookContacts! {
+//                    println(phone + ": " + name)
+//                }
                 println("Total of \(self.phonebookContacts!.count) contacts found")
                 
                 self.getFBFriends(success)

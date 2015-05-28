@@ -74,6 +74,7 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
             }
             self.event?.setGoToInviteCompletion(completion)
         }
+        self.event?.detailView = self.view
         self.populateData();
         self.setupTableViews();
         self.setupView();
@@ -153,6 +154,7 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
             self.attendeesTableView.hidden = false;
             let success: Void -> Void = {
                 self.attendeesTableView.reloadData()
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             }
             let needAlert: UIAlertController -> Void = {
                 alert in

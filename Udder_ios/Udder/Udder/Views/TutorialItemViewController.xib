@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialItemViewController" customModule="Udder" customModuleProvider="target">
@@ -19,8 +19,11 @@
                 <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B4j-VO-uhT">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qV4-Nk-fXm">
-                    <rect key="frame" x="279" y="91" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qV4-Nk-fXm">
+                    <rect key="frame" x="181" y="120" width="238" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="238" id="aio-r7-VrE"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -32,7 +35,7 @@
                 <constraint firstAttribute="trailing" secondItem="B4j-VO-uhT" secondAttribute="trailing" id="BuZ-Kq-P7t"/>
                 <constraint firstItem="B4j-VO-uhT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Flb-8E-HV3"/>
                 <constraint firstItem="B4j-VO-uhT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mbA-dd-D8g"/>
-                <constraint firstItem="qV4-Nk-fXm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="91" id="p1d-3d-9nU"/>
+                <constraint firstItem="qV4-Nk-fXm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="p1d-3d-9nU"/>
                 <constraint firstAttribute="bottom" secondItem="B4j-VO-uhT" secondAttribute="bottom" id="vWd-t9-6IE"/>
             </constraints>
         </view>

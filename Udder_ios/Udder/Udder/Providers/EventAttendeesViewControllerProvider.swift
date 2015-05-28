@@ -40,7 +40,7 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
             }
         }
         else {
-            return 1+factor;
+            return factor
         }
     }
     
@@ -63,10 +63,6 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
             else {
                 cell.configure(attendees[indexPath.row-factor])
             }
-        }
-        else {
-            cell.contactName.text = "Loading attendees"
-            //launch loading spin bar
         }
         
         return cell;
