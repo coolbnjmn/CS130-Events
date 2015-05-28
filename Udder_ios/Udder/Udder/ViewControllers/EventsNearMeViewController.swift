@@ -18,6 +18,10 @@ class EventsNearMeViewController: BaseEventTableViewController {
     }
     
     override func fetchData() {
-        self.eventManagerModel.retrieveEventsNearMe(20.0, success: self.successBlock, failure: self.failureBlock);
+        self.eventManagerModel.retrieveEventsNearMe(0, miles: 20.0, success: self.successBlock, failure: self.failureBlock);
+    }
+    
+    override func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        self.eventManagerModel.retrieveEventsNearMe(page, miles: 20.0, success: success, failure: failure);
     }
 }
