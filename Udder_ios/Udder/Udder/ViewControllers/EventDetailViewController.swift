@@ -128,11 +128,27 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         
         var successBlock:() -> Void = {
             self.setSegmentControllerForResponse(response);
+            
+            var descriptionMessage: String = "";
+            var type:TWMessageBarMessageType;
+            
+            if response {
+                descriptionMessage = "Accepted the event";
+                type = TWMessageBarMessageType.Success;
+            }
+            else {
+                descriptionMessage = "Declined the event";
+                type = TWMessageBarMessageType.Error;
+            }
+            
+            TWMessageBarManager.sharedInstance().styleSheet = AlertStyle();
+            TWMessageBarManager.sharedInstance().showMessageWithTitle("Success", description: descriptionMessage, type: type, duration: 2);
         }
         
         var failureBlock: NSError -> Void = {
             (error: NSError) -> Void in
             println("Error: \(error)");
+            TWMessageBarManager.sharedInstance().showMessageWithTitle("Error", description: "Something went wrong", type: TWMessageBarMessageType.Success, duration: 2);
             if wasSelected {
                 self.setSegmentControllerForResponse(!response);
             }
