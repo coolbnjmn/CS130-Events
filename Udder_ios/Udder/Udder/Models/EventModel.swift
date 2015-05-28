@@ -176,7 +176,7 @@ class EventModel: BaseModel {
     func getAttendeesIfNeeded(success: Void -> Void, alert:UIAlertController -> Void) {
     
         if (phonebookContacts == nil) {
-            
+        
             let contactServer: Void -> Void = {
                 for (phone, name) in self.phonebookContacts! {
                     println(phone + ": " + name)
@@ -188,11 +188,9 @@ class EventModel: BaseModel {
             
             self.getPhonebookContacts(contactServer, presentAlert: alert)
         }
-        
-        //Don't ever reach here?
-//        else if (self.attendees == nil) {
-//            self.contactServerForEventAttendees(success)
-//        }
+        else {
+            self.contactServerForEventAttendees(success)
+        }
     }
     
     func getPhonebookContacts(success: Void -> Void, presentAlert: UIAlertController -> Void) {
@@ -246,8 +244,8 @@ class EventModel: BaseModel {
     }
     
     func contactServerForEventAttendees(success: Void -> Void) {
-        if (attendees == nil) {
-            
+//        if (attendees == nil) {
+        
             let parameters = ["eventId": eventId]
             PFCloud.callFunctionInBackground("getAttendees", withParameters: parameters) { results, error in
                 if error != nil {
@@ -293,7 +291,7 @@ class EventModel: BaseModel {
                     success()
                 }
             }
-        }
+//        }
     }
     
     func getFBFriends(success: Void -> Void) {

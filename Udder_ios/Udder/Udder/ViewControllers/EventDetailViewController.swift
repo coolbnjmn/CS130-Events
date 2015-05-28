@@ -64,7 +64,6 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         {
             self.setupMenuBarButtonItems()
             let completion:EventModel->Void = { eventModel in
-                println("Entered completion")
                 var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
                 invitePage.setupWithEvent(eventModel);
                 
