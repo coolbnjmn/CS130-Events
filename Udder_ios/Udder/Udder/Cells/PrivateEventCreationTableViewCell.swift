@@ -17,6 +17,7 @@ class PrivateEventCreationTableViewCell: UITableViewCell {
     var delegate: PrivateCellDelegate?
     @IBOutlet weak var cellname: UILabel!
     @IBOutlet weak var `switch`: UISwitch!
+    @IBOutlet var changeLabel: UILabel!
     var Private = true
     @IBAction func switchflipped(sender: AnyObject) {
         if (Private == true){
@@ -31,6 +32,11 @@ class PrivateEventCreationTableViewCell: UITableViewCell {
     func switchSwitch (truth: Bool){
         self.Private = truth;
         self.`switch`!.setOn(truth, animated: true)
+    }
+    
+    func disableSwitch() {
+        self.`switch`.enabled = false
+        self.changeLabel.hidden = false
     }
     
     override func awakeFromNib() {

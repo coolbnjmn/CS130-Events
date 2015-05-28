@@ -17,7 +17,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ2-rc-ZlP">
                         <rect key="frame" x="8" y="11" width="101" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6B-DB-HuX">
@@ -26,12 +26,20 @@
                             <action selector="switchflipped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Rds-4q-vpA"/>
                         </connections>
                     </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Can't Change)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hle-aV-NK1">
+                        <rect key="frame" x="198" y="11" width="115" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.67327615490000003" green="0.67327615490000003" blue="0.67327615490000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="iZ2-rc-ZlP" secondAttribute="centerY" id="1gb-zV-19R"/>
                     <constraint firstItem="R6B-DB-HuX" firstAttribute="leading" secondItem="iZ2-rc-ZlP" secondAttribute="trailing" constant="20" id="RMp-ms-mXR"/>
                     <constraint firstItem="iZ2-rc-ZlP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TFC-Nu-Cfg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="R6B-DB-HuX" secondAttribute="trailing" constant="30" id="b53-sW-hZx"/>
+                    <constraint firstAttribute="centerY" secondItem="Hle-aV-NK1" secondAttribute="centerY" id="brc-TH-WzJ"/>
+                    <constraint firstItem="Hle-aV-NK1" firstAttribute="leading" secondItem="R6B-DB-HuX" secondAttribute="trailing" constant="20" id="p9D-RZ-Fri"/>
                     <constraint firstAttribute="trailingMargin" secondItem="R6B-DB-HuX" secondAttribute="trailing" id="qTh-wk-tqO"/>
                     <constraint firstAttribute="centerY" secondItem="R6B-DB-HuX" secondAttribute="centerY" id="w7o-T8-exr"/>
                 </constraints>
@@ -44,6 +52,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="cellname" destination="iZ2-rc-ZlP" id="haC-6I-M61"/>
+                <outlet property="changeLabel" destination="Hle-aV-NK1" id="ZKo-Jb-fil"/>
                 <outlet property="switch" destination="R6B-DB-HuX" id="wXH-bT-DU6"/>
             </connections>
             <point key="canvasLocation" x="139" y="296"/>

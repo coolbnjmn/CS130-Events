@@ -28,7 +28,7 @@ class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControl
             controller.hidesNavigationBarDuringPresentation = false
             controller.searchBar.searchBarStyle = .Minimal
             controller.delegate = self
-            controller.searchBar.backgroundColor = Constants.Colors.ThemeColor
+            controller.searchBar.backgroundColor = Constants.Colors.BackgroundGrayColor
             
             var textFieldInsideSearchBar = controller.searchBar.valueForKey("searchField") as? UITextField
             textFieldInsideSearchBar?.textColor = UIColor.whiteColor()

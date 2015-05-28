@@ -343,6 +343,7 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 cell.cellname?.text=cellnames[row]
                 cell.delegate = self
                 cell.selectionStyle = .None
+                cell.changeLabel.hidden = true
                 return cell
                 
             case 6: //Description Label
