@@ -26,6 +26,7 @@ PODS:
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - TTTAttributedLabel (1.10.1)
+  - TWMessageBarManager (1.7.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - MFSideMenu
   - SDWebImage (~> 3.7)
   - TTTAttributedLabel (~> 1.10.1)
+  - TWMessageBarManager
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
@@ -40,5 +42,6 @@ SPEC CHECKSUMS:
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   TTTAttributedLabel: c8f3801a6463b9c9b82b0c84c465fdda9751892a
+  TWMessageBarManager: e7adc066ee425174f5dee79473fce913b1cd1662
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.36.1
