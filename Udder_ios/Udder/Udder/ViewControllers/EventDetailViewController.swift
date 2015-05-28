@@ -78,7 +78,7 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
         self.populateData();
         self.setupTableViews();
         self.setupView();
-    }    
+    }
     
     func setupMenuBarButtonItems() {
         self.navigationItem.rightBarButtonItem = self.rightMenuBarButtonItem()

@@ -88,7 +88,7 @@ struct Constants {
     struct PlaceHolders {
         static let EventImage: UIImage = UIImage(named: "Beach.jpg")!
         static let LocationImage: UIImage = UIImage(named: "Beach.jpg")!
-        static let AttendeeImage: UIImage = UIImage(named: "people.png")!
+        static let AttendeeImage: UIImage = UIImage(named: "user-default.png")!
     }
     
     struct Colors {
@@ -99,8 +99,8 @@ struct Constants {
     struct Images {
         static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
-        static let FbLogo: UIImage! = UIImage(named: "fbLogo.png")
-        static let ContactLogo: UIImage! = UIImage(named: "contactLogo.png")
+        static let FbLogo: UIImage! = UIImage(named: "icon-fb.png")
+        static let ContactLogo: UIImage! = UIImage(named: "icon-contact.png")
     }
 
     // TODO: Add a category for Social

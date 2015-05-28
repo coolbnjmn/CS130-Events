@@ -309,30 +309,26 @@ class EventModel: BaseModel {
     }
     
     func getFBFriends(success: Void -> Void) {
-  
-//        FBRequestConnection.startForMyFriendsWithCompletionHandler({
-//            (conn:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-//                println("Received response with FB friends")
-//                if(error != nil) {
-//                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
-//                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
-//                    for friend:NSDictionary in friendObjects {
-//                        self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
-//                    }
-//                    println("Found a total of \(self.facebookFriends!.count) Facebook friends")
-//                }
-//                self.contactServerForEventAttendees(success)
-//            })
-//        println("Finished sending FB request, waiting for response")
         
+        let completion:Void->Void = {
+            FBRequestConnection.startForMyFriendsWithCompletionHandler({
+                (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+                println("Received response with FB friends")
+                if(error == nil) {
+                    let friendObjects:[NSDictionary] = result.objectForKey("data") as! [NSDictionary]
+                    self.facebookFriends = NSMutableArray(capacity: friendObjects.count)
+                    for friend:NSDictionary in friendObjects {
+                        self.facebookFriends!.addObject(friend.objectForKey("id") ?? "")
+                    }
+                    println("Found a total of \(self.facebookFriends!.count) Facebook friends")
+                }
+                self.contactServerForEventAttendees(success)
+            })
+        }
         
-//        var friendsRequest:FBRequest = FBRequest.requestForMyFriends()
-//        friendsRequest.startWithCompletionHandler({(conn, result, error) in
-//            println("it worked")
-//        })
+        println("Finished sending FB request, waiting for response")
         
-        
-        self.contactServerForEventAttendees(success)
+        dispatch_async(dispatch_get_main_queue(), completion)
         
     }
     
