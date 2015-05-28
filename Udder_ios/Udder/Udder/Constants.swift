@@ -24,7 +24,7 @@ struct Constants {
     }
     
     struct DatabasePagination {
-        static let kNumberEventsToReturn = 5;
+        static let kNumberEventsToReturn = 25;
     }
     
     struct EventDatabaseFields {
