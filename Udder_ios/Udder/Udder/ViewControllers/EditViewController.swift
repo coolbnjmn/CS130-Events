@@ -58,6 +58,8 @@ class editViewController: WholeViewController {
         self.des_string = event!.eventDescription!
         self.loc_string = event!.locationObject!.placeLocationName!
         self.selectedLocation = event!.locationObject!
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -114,6 +116,7 @@ class editViewController: WholeViewController {
                 cell.switchSwitch(self.priv_bool)
                 cell.delegate = self
                 cell.selectionStyle = .None
+                cell.disableSwitch()
                 return cell
              
             case 6: //Description Label
