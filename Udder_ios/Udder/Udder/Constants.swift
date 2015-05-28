@@ -60,6 +60,7 @@ struct Constants {
             static let kAttendeeTextFont = "Avenir-Book"
             static let kAttendeeTextSize: CGFloat = 18.0
             static let kAttendeeCellHeight: CGFloat = 55.0
+            static let kEventCreationDescriptionCellHeight:CGFloat = 100.0
         }
     }
     
@@ -88,11 +89,13 @@ struct Constants {
     
     struct Colors {
         static let ThemeColor:UIColor = UIColor(red: 86/255, green: 206/255, blue: 106/255, alpha: 1.0)
+        static let BackgroundGrayColor:UIColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
     }
     
     struct Images {
         static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
+        static let EditIcon: UIImage! = UIImage(named: "icon-plus.png") //TODO make edit icon
         static let FbLogo: UIImage! = UIImage(named: "fbLogo.png")
         static let ContactLogo: UIImage! = UIImage(named: "contactLogo.png")
     }

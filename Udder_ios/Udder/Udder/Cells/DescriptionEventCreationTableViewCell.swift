@@ -10,6 +10,7 @@ import UIKit
 
 class DescriptionEventCreationTableViewCell: UITableViewCell {
 
+    @IBOutlet var descriptionTitleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

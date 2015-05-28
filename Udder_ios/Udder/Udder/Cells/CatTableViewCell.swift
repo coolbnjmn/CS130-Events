@@ -15,8 +15,11 @@ import UIKit
 class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var delegate: CatCellDelegate?
-    @IBOutlet weak var catlabel: UILabel!
-    @IBOutlet weak var cattext: UITextField!
+
+    @IBOutlet var categoryTitleLabel: UILabel!
+
+    @IBOutlet var categoryTextField: UITextField!
+    
     @IBAction func clickedcattext(sender: UITextField) {
         sender.text?="Fitness"
         delegate?.setcattext!(self)
@@ -24,20 +27,8 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
         PickerView.delegate = self
         PickerView.dataSource = self
         sender.inputView = PickerView
-       // DatePickerView.datePickerMode = UIDatePickerMode.Date
-        //sender.inputView = DatePickerView
-        //println("god damn")
-        //DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
     }
-    
- /*   func handleDatePicker(sender: UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM dd yyyy"
-        cattext.text = dateFormatter.stringFromDate(sender.date)
-    }*/
-    
-    
-    
+
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 6
     }
@@ -51,27 +42,21 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
         forComponent component: Int) -> String!{
             if (row == 0){
                 return "Fitness"
-                
             }
             else if (row == 1){
                 return "Food"
-                
             }
             else if (row == 2){
                 return "Entertainment"
-                
             }
             else if (row == 3){
                 return "Music"
-                
             }
             else if (row == 4){
                 return "Academic"
-                
             }
             else if (row == 5){
                 return "Social"
-                
             }
             else{
                 return "Other"
@@ -82,39 +67,34 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
         didSelectRow row: Int,
         inComponent component: Int){
             if (row == 0){
-                cattext.text? = "Fitness"
-                
+                categoryTextField.text? = "Fitness"
             }
             else if (row == 1){
-                cattext.text? =  "Food"
-                
+                categoryTextField.text? =  "Food"
             }
             else if (row == 2){
-                cattext.text? =  "Entertainment"
-                
+                categoryTextField.text? =  "Entertainment"
             }
             else if (row == 3){
-                cattext.text? =  "Music"
-                
+                categoryTextField.text? =  "Music"
             }
             else if (row == 4){
-                cattext.text? =  "Academic"
-                
+                categoryTextField.text? =  "Academic"
             }
             else if (row == 5){
-                cattext.text? =  "Social"
-                
+                categoryTextField.text? =  "Social"
             }
             else{
-                cattext.text? =  "Other"
+                categoryTextField.text? =  "Other"
             }
             delegate?.setcattext!(self)
-            
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        categoryTextField.borderStyle = UITextBorderStyle.None
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

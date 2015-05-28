@@ -9,5 +9,13 @@
 import UIKit
 
 class WhereTableViewCell: UITableViewCell {
-    @IBOutlet weak var locationLabel: UILabel!
+
+    @IBOutlet var locationTitleLabel: UILabel!
+
+    @IBOutlet var locationInputLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 }

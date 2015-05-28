@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,18 +14,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRp-ye-to3">
-                        <rect key="frame" x="102" y="7" width="218" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSV-Gv-LBH">
+                        <rect key="frame" x="8" y="11" width="80" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="7xN-9B-8kZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KC9-mS-8PK">
+                        <rect key="frame" x="103" y="7" width="214" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <action selector="timetextclicked:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="KS3-Iy-NwV"/>
+                            <action selector="timetextclicked:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="Jlg-cP-A8I"/>
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="KC9-mS-8PK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MTY-T1-mt6"/>
+                    <constraint firstItem="eSV-Gv-LBH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XBC-x3-402"/>
+                    <constraint firstItem="KC9-mS-8PK" firstAttribute="leading" secondItem="eSV-Gv-LBH" secondAttribute="trailing" constant="15" id="baI-1T-rP2"/>
+                    <constraint firstItem="KC9-mS-8PK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="cqk-JW-Noo"/>
+                    <constraint firstAttribute="centerY" secondItem="eSV-Gv-LBH" secondAttribute="centerY" id="dIl-ma-Yz1"/>
+                    <constraint firstAttribute="centerY" secondItem="KC9-mS-8PK" secondAttribute="centerY" id="q10-p2-wx5"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="MTY-T1-mt6"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="timetext" destination="rRp-ye-to3" id="bal-5f-EDv"/>
+                <outlet property="timeInputTextField" destination="KC9-mS-8PK" id="LJj-FN-dGT"/>
+                <outlet property="timeTitleLabel" destination="eSV-Gv-LBH" id="NEU-lk-29h"/>
             </connections>
             <point key="canvasLocation" x="140" y="296"/>
         </tableViewCell>

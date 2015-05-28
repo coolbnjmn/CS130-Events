@@ -308,4 +308,47 @@ class EventModel: BaseModel {
         return "".join(digits)
     }
     
+    func save(title:String, description:String, startDate:NSDate, endDate:NSDate, category:String, isPrivate:Bool, location:PlacesModel?, successBlock: EventModel -> Void, failureBlock: NSError -> Void) {
+        
+        var changedEvent = self.eventObject;
+        changedEvent[Constants.EventDatabaseFields.kEventTitle] = title;
+        changedEvent[Constants.EventDatabaseFields.kEventDescription] = description;
+        changedEvent[Constants.EventDatabaseFields.kEventStartTime] = startDate;
+        changedEvent[Constants.EventDatabaseFields.kEventEndTime] = endDate;
+        changedEvent[Constants.EventDatabaseFields.kEventCategory] = category;
+        changedEvent[Constants.EventDatabaseFields.kEventPrivate] = isPrivate;
+        
+        if let location = location {
+            changedEvent[Constants.EventDatabaseFields.kEventLocation] = location.placeLocationName;
+            
+            if let coordinate = location.geoPoint {
+                changedEvent[Constants.EventDatabaseFields.kEventGeoCoordinate] = coordinate;
+            }
+            else {
+                changedEvent[Constants.EventDatabaseFields.kEventGeoCoordinate] = NSNull();
+            }
+            
+            changedEvent[Constants.EventDatabaseFields.kEventAddress] = location.placeAddress ?? "";
+        }
+        println("Title: \(changedEvent[Constants.EventDatabaseFields.kEventTitle])");
+        
+        changedEvent.saveInBackgroundWithBlock { (success:Bool, error:NSError!) -> Void in
+            self.eventObject = changedEvent;
+            
+            if success {
+                var newEvent:EventModel? = EventModel(eventObject: changedEvent);
+                if let newEvent = newEvent {
+                    successBlock(newEvent);
+                }
+                else {
+                    var error:NSError = NSError(domain: "Unable to generate event model", code: 1, userInfo: nil);
+                    failureBlock(error);
+                }
+            }
+            else {
+                failureBlock(error);
+            }
+        }
+    }
+    
 }

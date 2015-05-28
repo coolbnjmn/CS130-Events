@@ -16,27 +16,33 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vqs-ht-ixT">
-                    <rect key="frame" x="0.0" y="19" width="600" height="589"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vqs-ht-ixT">
+                    <rect key="frame" x="0.0" y="19" width="600" height="581"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="i5M-Pr-FkT" id="WUb-VA-bb0"/>
                         <outlet property="delegate" destination="i5M-Pr-FkT" id="ZqO-B7-0ej"/>
                     </connections>
                 </tableView>
-                <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-mJ-Vd4">
+                <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-mJ-Vd4">
                     <rect key="frame" x="0.0" y="252" width="600" height="243"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="243" id="IdR-4r-9E6"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vqs-ht-ixT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="MJw-8S-sCG"/>
+                <constraint firstItem="vqs-ht-ixT" firstAttribute="trailing" secondItem="TeW-mJ-Vd4" secondAttribute="trailing" id="hlX-54-dSm"/>
+                <constraint firstItem="vqs-ht-ixT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ldh-8c-N4E"/>
+                <constraint firstItem="TeW-mJ-Vd4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="252" id="p8h-we-wQl"/>
+                <constraint firstAttribute="bottom" secondItem="vqs-ht-ixT" secondAttribute="bottom" id="sxr-Hg-m9U"/>
+                <constraint firstItem="vqs-ht-ixT" firstAttribute="leading" secondItem="TeW-mJ-Vd4" secondAttribute="leading" id="tcX-Va-n6d"/>
+                <constraint firstAttribute="trailing" secondItem="vqs-ht-ixT" secondAttribute="trailing" id="vet-FR-5iA"/>
+            </constraints>
             <point key="canvasLocation" x="152" y="273"/>
         </view>
-        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="WvU-t9-U3v">
-            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-            <textInputTraits key="textInputTraits"/>
-        </textField>
     </objects>
 </document>

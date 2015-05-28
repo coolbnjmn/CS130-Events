@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,26 +14,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiU-4g-Z60">
-                        <rect key="frame" x="15" y="14" width="150" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiU-4g-Z60">
+                        <rect key="frame" x="8" y="11" width="80" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="zMT-Wt-hCm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-lL-buq">
-                        <rect key="frame" x="102" y="7" width="218" height="30"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7db-mY-Fci">
+                        <rect key="frame" x="103" y="7" width="204" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <action selector="addtextclicked:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="zLD-Il-o01"/>
+                            <action selector="finishedEditing:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="57v-Fp-XIR"/>
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="7db-mY-Fci" secondAttribute="trailing" constant="5" id="AxU-ZT-jgw"/>
+                    <constraint firstItem="UiU-4g-Z60" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="eu8-dd-ZQC"/>
+                    <constraint firstItem="7db-mY-Fci" firstAttribute="leading" secondItem="UiU-4g-Z60" secondAttribute="trailing" constant="15" id="i5Y-XU-s8k"/>
+                    <constraint firstAttribute="centerY" secondItem="7db-mY-Fci" secondAttribute="centerY" id="jyo-sQ-617"/>
+                    <constraint firstAttribute="centerY" secondItem="UiU-4g-Z60" secondAttribute="centerY" id="r0h-Kp-G7I"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="addtext" destination="mBb-lL-buq" id="s8d-86-oRg"/>
-                <outlet property="cellname" destination="UiU-4g-Z60" id="5FF-kd-kK6"/>
+                <outlet property="titleTextField" destination="7db-mY-Fci" id="Uoa-Bn-SWX"/>
+                <outlet property="titleTitleLabel" destination="UiU-4g-Z60" id="hRP-4a-brs"/>
             </connections>
         </tableViewCell>
     </objects>

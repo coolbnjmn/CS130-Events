@@ -22,7 +22,6 @@ class DateTableViewCell: UITableViewCell{
         var DatePickerView  : UIDatePicker = UIDatePicker()
         DatePickerView.datePickerMode = UIDatePickerMode.Date
         sender.inputView = DatePickerView
-        //println("god damn")
         DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
     }
    
@@ -36,6 +35,7 @@ class DateTableViewCell: UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        actualdate.borderStyle = UITextBorderStyle.None
     }
 
     

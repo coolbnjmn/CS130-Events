@@ -18,9 +18,8 @@ class TimeTableViewCell: UITableViewCell {
     var date: NSDate?
     var enable: Bool = true
     
-    @IBOutlet weak var timelabel: UILabel!
-   
-    @IBOutlet weak var timetext: UITextField!
+    @IBOutlet var timeTitleLabel: UILabel!
+    @IBOutlet var timeInputTextField: UITextField!
     
     @IBAction func timetextclicked(sender: UITextField) {
         var DatePickerView  : UIDatePicker = UIDatePicker()
@@ -31,8 +30,7 @@ class TimeTableViewCell: UITableViewCell {
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
         sender.text = dateFormatter.stringFromDate(DatePickerView.date)
-        //println("god damn")
-            DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)}
+        DatePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)}
         else{
             //do nothing
         }
@@ -42,7 +40,7 @@ class TimeTableViewCell: UITableViewCell {
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = .ShortStyle
         dateFormatter.dateStyle = .ShortStyle
-        timetext.text = dateFormatter.stringFromDate(sender.date)
+        timeInputTextField.text = dateFormatter.stringFromDate(sender.date)
         date = sender.date
         delegate?.settimetext!(self)
     }
@@ -50,6 +48,8 @@ class TimeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        timeInputTextField.borderStyle = UITextBorderStyle.None
+
     }
 
     
