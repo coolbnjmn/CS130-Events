@@ -27,6 +27,7 @@ class TutorialItemViewController: UIViewController {
         self.view.backgroundColor = Constants.Colors.BackgroundGrayColor
         
         self.textLabel.alpha = 0
+        self.textLabel.font = UIFont(name: Constants.StandardFormats.kStandardTextFont, size: 18.0)
         
         UIView.animateWithDuration(2, animations: {
             self.textLabel.alpha = 1.0
