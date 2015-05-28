@@ -26,10 +26,13 @@ class EventModel: BaseModel {
     var eventPrivate: Bool!;
     var eventInvitation: InvitationModel?; // The invitation received by the current user for the event
     var eventObject: PFObject!; // The parse event object
+    var isMyEvent: Bool!
     
     var phonebookContacts: Dictionary<String, String>?
     var facebookFriends: NSMutableArray?
     var attendees: [ContactModel]?
+    
+    var goToInvite:(EventModel->Void)?
     
     init?(eventObject: PFObject, invitation: PFObject) {
         super.init();
@@ -41,6 +44,13 @@ class EventModel: BaseModel {
         if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
             return nil;
         }
+        
+        if(self.eventHost.objectId == PFUser.currentUser().objectId) {
+            self.isMyEvent = true
+        }
+        else {
+            self.isMyEvent = false
+        }
     }
     
     init?(eventObject: PFObject) {
@@ -51,6 +61,17 @@ class EventModel: BaseModel {
         if (self.eventTitle == nil || self.eventStartTime == nil || self.eventEndTime == nil || self.eventHost == nil) {
             return nil;
         }
+        
+        if(self.eventHost.objectId == PFUser.currentUser().objectId) {
+            self.isMyEvent = true
+        }
+        else {
+            self.isMyEvent = false
+        }
+    }
+    
+    func setGoToInviteCompletion(completion:EventModel->Void) {
+        self.goToInvite = completion
     }
     
     func setupInvitation(invitation: PFObject) {

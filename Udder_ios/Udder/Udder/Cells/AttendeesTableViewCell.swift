@@ -15,6 +15,7 @@ class AttendeesTableViewCell: UITableViewCell {
     @IBOutlet var contactName: UILabel!
     @IBOutlet var fbLogo: UIImageView!
     @IBOutlet var contactLogo: UIImageView!
+    @IBOutlet var invitePeopleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class AttendeesTableViewCell: UITableViewCell {
     }
     
     func configure(contact: ContactModel) {
+        invitePeopleLabel.text = ""
         contactName.text = contact.name
         contactName.font = UIFont(name: Constants.EventDetail.TableConstraints.kAttendeeTextFont, size: Constants.EventDetail.TableConstraints.kAttendeeTextSize)
 
@@ -46,6 +48,15 @@ class AttendeesTableViewCell: UITableViewCell {
         contactLogo.clipsToBounds = true
         
         self.selectionStyle = .None
+    }
+    
+    func makeInviteCell() {
+        contactName.text = ""
+        invitePeopleLabel.text = "Invite More Friends"
+        invitePeopleLabel.font = UIFont(name: Constants.EventDetail.TableConstraints.kAttendeeTextFont, size: Constants.EventDetail.TableConstraints.kAttendeeTextSize+3)
+        invitePeopleLabel.textColor = UIColor.whiteColor()
+        self.backgroundColor = Constants.Colors.ThemeColor
+        self.selectionStyle = UITableViewCellSelectionStyle.Default
     }
     
     func setProfPic(fid: String) {

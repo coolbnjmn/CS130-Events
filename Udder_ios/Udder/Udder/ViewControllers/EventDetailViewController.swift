@@ -60,9 +60,20 @@ class EventDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
-        if(self.event!.eventHost.objectId == PFUser.currentUser().objectId)
+        if(self.event!.isMyEvent as Bool)
         {
             self.setupMenuBarButtonItems()
+            let completion:EventModel->Void = { eventModel in
+                println("Entered completion")
+                var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
+                invitePage.setupWithEvent(eventModel);
+                
+                var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+                viewControllers.removeObjectIdenticalTo(self);
+                viewControllers.addObject(invitePage);
+                self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+            }
+            self.event?.setGoToInviteCompletion(completion)
         }
         self.populateData();
         self.setupTableViews();
@@ -74,7 +85,7 @@ class EventDetailViewController: BaseViewController {
     }
     
     func rightMenuBarButtonItem() -> UIBarButtonItem {
-        let rightButton:UIBarButtonItem = UIBarButtonItem(image: Constants.Images.EditIcon, style:UIBarButtonItemStyle.Plain, target: self, action: "rightPlusButtonPressed:")
+        let rightButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "rightPlusButtonPressed:")
         rightButton.tintColor = UIColor.whiteColor()
         return rightButton
     }
@@ -187,7 +198,8 @@ class EventDetailViewController: BaseViewController {
             self.locationLabel.text = validatedEvent.locationObject.placeLocationName;
             
             var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
-            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: Constants.PlaceHolders.EventImage);
+            var placeHolderName:String = "cover-" + (event?.eventCategory ?? "Other") + ".png"
+            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: placeHolderName));
             
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {

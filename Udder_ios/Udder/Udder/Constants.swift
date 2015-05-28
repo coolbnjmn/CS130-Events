@@ -95,7 +95,6 @@ struct Constants {
     struct Images {
         static let NavBarIcon: UIImage! = UIImage(named: "icon-menu.png")
         static let PlusIcon: UIImage! = UIImage(named: "icon-plus.png")
-        static let EditIcon: UIImage! = UIImage(named: "icon-plus.png") //TODO make edit icon
         static let FbLogo: UIImage! = UIImage(named: "fbLogo.png")
         static let ContactLogo: UIImage! = UIImage(named: "contactLogo.png")
     }

@@ -69,7 +69,7 @@ class SideMenuViewController: UITableViewController {
             }
             if (profPic != nil) {
                 profPic = cropToSquare(image: profPic!)
-                cell.imageView?.layer.cornerRadius = (profPic?.size.width)!/2.0;
+                cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.width)!/2.0;
                 cell.imageView?.image = profPic
             }
             break;
@@ -171,7 +171,7 @@ class SideMenuViewController: UITableViewController {
     func getProfPic() {
         var fid: String? = PFUser.currentUser().objectForKey("facebookId") as? String ?? ""
         if (fid != "") {
-            var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=normal" //type=normal
+            var imgURLString = "http://graph.facebook.com/" + fid! + "/picture?type=large" //type=normal
             var imgURL = NSURL(string: imgURLString)
             var imageData = NSData(contentsOfURL: imgURL!)
             profPic = UIImage(data: imageData!)
