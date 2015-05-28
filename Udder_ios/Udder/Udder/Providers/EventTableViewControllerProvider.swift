@@ -10,12 +10,24 @@ import UIKit
 
 let kTableViewMargins:CGFloat = 4;
 
+@objc protocol EventTableDelegate {
+    func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void);
+}
+
 class EventTableViewControllerProvider: BaseProvider {
     var eventArray:NSMutableArray = NSMutableArray();
     var dateFormatter:NSDateFormatter = NSDateFormatter();
+    var eventTableDelegate:EventTableDelegate?;
+    var currentPage:Int = 0;
+    var shouldLoadMore:Bool = true;
     
     func configure(events: NSMutableArray) {
         self.eventArray = events;
+        self.shouldLoadMore = true;
+    }
+    
+    func appendEvents(moreEvents:NSMutableArray) {
+        self.eventArray.addObjectsFromArray(moreEvents as [AnyObject]);
     }
     
     // MARK: - Table view data source
@@ -63,6 +75,29 @@ class EventTableViewControllerProvider: BaseProvider {
             customBounds.size.width = customBounds.size.width - kTableViewMargins*2;
             cell.gradientView.addGradient(customBounds);
             cell.hasGradient = true;
+        }
+
+        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore {
+            self.currentPage += 1
+            
+            var successBlock:NSMutableArray -> Void = {
+                (event: NSMutableArray) -> Void in
+                
+                if event.count <= 0 {
+                    self.shouldLoadMore = false;
+                }
+                else {
+                    self.appendEvents(event);
+                    tableView.reloadData();
+                }
+            }
+            
+            var failureBlock:NSError -> Void = {
+                (error: NSError) -> Void in
+                println("Error: \(error)");
+            }
+            
+            self.eventTableDelegate?.loadMoreData(self.currentPage, success: successBlock, failure: failureBlock);
         }
         
         return cell

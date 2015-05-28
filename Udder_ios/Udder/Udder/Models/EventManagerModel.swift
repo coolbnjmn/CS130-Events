@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class EventManagerModel: BaseModel {
-    
+    let numToReturn = 5;
     class var sharedInstance : EventManagerModel {
         struct EventManager {
             static let instance : EventManagerModel = EventManagerModel()
@@ -18,10 +18,12 @@ class EventManagerModel: BaseModel {
         return EventManager.instance
     }
     
-    func retrieveAllEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrieveAllEvents(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
         
         query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
+        query.limit = numToReturn;
+        query.skip = numToReturn*page;
         
         query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
