@@ -18,6 +18,10 @@ class PendingInvitationsViewController: BaseEventTableViewController {
     }
 
     override func fetchData() {
-        eventManagerModel.retrievePendingInvites(self.successBlock, failure: self.failureBlock);
+        eventManagerModel.retrievePendingInvites(0, success: self.successBlock, failure: self.failureBlock);
+    }
+    
+    override func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
+        eventManagerModel.retrievePendingInvites(page, success: success, failure: failure);
     }
 }

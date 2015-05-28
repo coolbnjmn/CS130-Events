@@ -45,8 +45,11 @@ class EventManagerModel: BaseModel {
         }
     }
     
-    func retrievePendingInvites(success: NSMutableArray -> Void, failure: NSError -> Void) {
+    func retrievePendingInvites(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kInvitationClass);
+        query.limit = Constants.DatabasePagination.kNumberEventsToReturn;
+        query.skip = Constants.DatabasePagination.kNumberEventsToReturn*page;
+        
         query.whereKey(Constants.InvitationDatabaseFields.kInvitationUser, equalTo: PFUser.currentUser());
         query.whereKeyDoesNotExist(Constants.InvitationDatabaseFields.kInvitationResponse);
         query.orderByAscending(Constants.InvitationDatabaseFields.kInvitationCreatedAt);
