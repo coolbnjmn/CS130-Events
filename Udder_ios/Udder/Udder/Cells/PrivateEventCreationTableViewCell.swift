@@ -29,6 +29,7 @@ class PrivateEventCreationTableViewCell: UITableViewCell {
     }
     
     func switchSwitch (truth: Bool){
+        self.Private = truth;
         self.`switch`!.setOn(truth, animated: true)
     }
     

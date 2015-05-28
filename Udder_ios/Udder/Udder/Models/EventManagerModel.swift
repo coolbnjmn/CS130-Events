@@ -20,7 +20,10 @@ class EventManagerModel: BaseModel {
     
     func retrieveAllEvents(success: NSMutableArray -> Void, failure: NSError -> Void) {
         var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
-        query.orderByDescending(Constants.EventDatabaseFields.kEventStartTime);
+        
+        query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
+        
+        query.orderByAscending(Constants.EventDatabaseFields.kEventStartTime);
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error:NSError!) -> Void in
             self.handleEvents(objects, error: error, success: success, failure: failure);
@@ -69,6 +72,7 @@ class EventManagerModel: BaseModel {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             if error == nil {
                 var query = PFQuery(className: Constants.DatabaseClass.kEventClass);
+                query.whereKey(Constants.EventDatabaseFields.kEventPrivate, equalTo: false);
                 query.whereKey(Constants.EventDatabaseFields.kEventGeoCoordinate, nearGeoPoint: geoPoint, withinMiles: miles);
                 query.findObjectsInBackgroundWithBlock({
                     (events: [AnyObject]!, error: NSError!) -> Void in
