@@ -9,6 +9,7 @@
 import Parse
 import UIKit
 
+
 class TutorialViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     let pageTitles = ["Be Spontaneous.", "Find events based on your interests...", "Connect with Friends...", "and make new ones."]
@@ -136,6 +137,10 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
         println("pressed");
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true);
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+        
         self.loginButton.enabled = false
         let arr = ["user_about_me", "email", "user_friends"];
         PFFacebookUtils.logInWithPermissions(arr, block: {(user: PFUser!, error: NSError!) in
@@ -145,6 +150,7 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
                         "The user cancelled the Facebook login", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 }
                     
                 else {
@@ -153,6 +159,7 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
                     self.loginButton.enabled = true
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 }
                 
             } else if (user.isNew) {
@@ -215,7 +222,8 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
         
         let container : MFSideMenuContainerViewController = MFSideMenuContainerViewController.containerWithCenterViewController(navController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
         self.presentViewController(container, animated: true, completion: nil)
-        
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+
         if UIApplication.sharedApplication().respondsToSelector("registerUserNotificationSettings:") {
             let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
             let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
@@ -227,6 +235,8 @@ class TutorialViewController: UIViewController, UIPageViewControllerDataSource, 
     func redirectToPhoneNumber() {
         let navController : UINavigationController = UINavigationController(rootViewController: PhoneNumberViewController(nibName: "PhoneNumberViewController", bundle:nil))
         self.presentViewController(navController, animated: true, completion: nil)
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+
     }
 
 }
