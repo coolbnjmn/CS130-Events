@@ -62,8 +62,16 @@ class EventTableViewCellTest: XCTestCase {
         Parse.setApplicationId("sIZN7Eo4sl6tR5ZdI04qIEKf5wm1QJN92jBxTLKb", clientKey: "IfKhgzcCazKuLPJCrQJwhDavQPTX59G0fo91bvuf")
         
         var eventModel:EventModel? = EventModel(eventObject: makeTestEvent());
-        var cell: UITableViewCell = UITableViewCell()
-        XCTAssertLessThanOrEqual(cell.textLabel!.frame.size.width, cell.frame.size.width, "text label width should be less than cell's frame")
+        let datasource:WholeViewController = WholeViewController()
+        let numberOfRows = datasource.tableView(nil, numberOfRowsInSection:0)
+        XCTAssertEqual(numberOfRows,9,"the create event table should always have 9 rows")
+        let numberOfSections = datasource.numberOfSectionsInTableView(nil)
+        XCTAssertEqual(numberOfSections, 1,"There should only be one section")
+        
+        ////BENEATH HERE HAVE PROBLEMS
+      //  let firstrow = NSIndexPath(forRow:0,inSection:0)
+       // let cell = datasource.tableView(nil, cellForRowAtIndexPath:firstrow)
+       // XCTAssertEqual(cell.titleTitleLabel.text!, "Title", "This cell should be the title cell")
     }
     
     
