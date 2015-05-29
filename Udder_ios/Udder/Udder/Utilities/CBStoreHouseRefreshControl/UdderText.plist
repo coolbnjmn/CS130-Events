@@ -21,6 +21,11 @@
 		<string>{105,0}</string>
 		<string>{105,21}</string>
 		<string>{105,35}</string>
+		<string>{140,35}</string>
+		<string>{140,0}</string>
+		<string>{168,0}</string>
+		<string>{168,21}</string>
+		<string>{154,21}</string>
 	</array>
 	<key>endPoints</key>
 	<array>
@@ -41,6 +46,11 @@
 		<string>{133,0}</string>
 		<string>{133,21}</string>
 		<string>{133,35}</string>
+		<string>{140,0}</string>
+		<string>{168,0}</string>
+		<string>{168,21}</string>
+		<string>{154,21}</string>
+		<string>{168,35}</string>
 	</array>
 </dict>
 </plist>
