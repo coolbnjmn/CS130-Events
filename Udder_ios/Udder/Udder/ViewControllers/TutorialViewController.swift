@@ -10,7 +10,7 @@ import Parse
 import UIKit
 
 
-class TutorialViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class TutorialViewController: BaseViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     let pageTitles = ["Find events in real-time based on your interests.", "Be spontaneous.", "Connect with friends...", "...and make new ones."]
     var images = ["splash-bg.png", "tutorial-1.png", "tutorial-2.png", "tutorial-3.png"]
