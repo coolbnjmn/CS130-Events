@@ -61,9 +61,11 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
     
     override func viewDidLoad() {
         self.edgesForExtendedLayout = UIRectEdge.None;
-        if(self.event!.isMyEvent as Bool)
+        if((self.event!.isMyEvent as Bool) || !(self.event!.eventPrivate as Bool))
         {
-            self.setupMenuBarButtonItems()
+            if(self.event!.isMyEvent as Bool) {
+                self.setupMenuBarButtonItems()
+            }
             let completion:EventModel->Void = { eventModel in
                 var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
                 invitePage.setupWithEvent(eventModel);

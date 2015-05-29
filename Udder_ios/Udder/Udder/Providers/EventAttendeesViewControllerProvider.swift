@@ -23,7 +23,8 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void {
         
-        if(indexPath.row==0 && ((event?.isMyEvent ?? false) as Bool)) {
+        //If can't invite people, cell 0 is not selectable anyways
+        if(indexPath.row==0) {// && (((event?.isMyEvent ?? false) as Bool) || !(event?.eventPrivate ?? false as Bool))) {
             event!.goToInvite?(event!)
         }
         

@@ -40,7 +40,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        definesPresentationContext = true
         self.tableView.registerClass(ContactCell.self, forCellReuseIdentifier: "ContactCell")
         
         if (attendees == nil) {
