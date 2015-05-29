@@ -30,7 +30,7 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
     }
 
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 7
+        return 6
     }
     
     func numberOfComponentsInPickerView(__pickerView: UIPickerView) -> Int{
@@ -55,9 +55,6 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
             else if (row == 4){
                 return "Academic"
             }
-            else if (row == 5){
-                return "Social"
-            }
             else{
                 return "Other"
             }
@@ -80,9 +77,6 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
             }
             else if (row == 4){
                 categoryTextField.text? =  "Academic"
-            }
-            else if (row == 5){
-                categoryTextField.text? =  "Social"
             }
             else{
                 categoryTextField.text? =  "Other"
