@@ -832,7 +832,7 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = QW4YTV2H2T;
+						DevelopmentTeam = 4VFFSF6V7V;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
@@ -1172,6 +1172,7 @@
 				557D94111B16B4D2001370E0 /* SideMenuViewController.swift in Sources */,
 				557D93F61B16B40C001370E0 /* BaseViewController.swift in Sources */,
 				E1FDE9BB1B17FAB7001E16B5 /* ImagePickerTableViewController.swift in Sources */,
+				55E674811B18206C00B951D2 /* EventCreationTableCellTests.swift in Sources */,
 				557D94181B16B4EC001370E0 /* SeparateTintSegmentedControl.swift in Sources */,
 				A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */,
 				557D94121B16B4D5001370E0 /* EventDetailViewController.swift in Sources */,
