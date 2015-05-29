@@ -174,6 +174,10 @@
 		A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B404971B157BA100DC1AFD /* EventModelTest.swift */; };
 		A7BB8A611AFC2ECA003DEC75 /* category-fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */; };
 		A7BFC1341AE9FB5A00C19459 /* EventManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */; };
+		A7C886651B18284400EAD5F6 /* icon-decline.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886631B18284400EAD5F6 /* icon-decline.png */; };
+		A7C886661B18284400EAD5F6 /* icon-decline.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886631B18284400EAD5F6 /* icon-decline.png */; };
+		A7C886671B18284400EAD5F6 /* icon-accept.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886641B18284400EAD5F6 /* icon-accept.png */; };
+		A7C886681B18284400EAD5F6 /* icon-accept.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886641B18284400EAD5F6 /* icon-accept.png */; };
 		B20CA1851B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */; };
 		B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
 		B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DAC01B0533F200850122 /* BaseSearchProvider.swift */; };
@@ -361,6 +365,8 @@
 		A7B404971B157BA100DC1AFD /* EventModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModelTest.swift; sourceTree = "<group>"; };
 		A7BB8A601AFC2ECA003DEC75 /* category-fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category-fitness.png"; path = "Images/category-fitness.png"; sourceTree = "<group>"; };
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
+		A7C886631B18284400EAD5F6 /* icon-decline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-decline.png"; path = "Images/icon-decline.png"; sourceTree = "<group>"; };
+		A7C886641B18284400EAD5F6 /* icon-accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-accept.png"; path = "Images/icon-accept.png"; sourceTree = "<group>"; };
 		B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPageViewControllerWithOverlayIndicator.swift; path = Utilities/UIPageViewControllerWithOverlayIndicator.swift; sourceTree = "<group>"; };
 		B210DABE1B0533BA00850122 /* EventSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSearchProvider.swift; path = Providers/EventSearchProvider.swift; sourceTree = "<group>"; };
 		B210DAC01B0533F200850122 /* BaseSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSearchProvider.swift; path = Providers/BaseSearchProvider.swift; sourceTree = "<group>"; };
@@ -540,6 +546,8 @@
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A7C886631B18284400EAD5F6 /* icon-decline.png */,
+				A7C886641B18284400EAD5F6 /* icon-accept.png */,
 				A718E8E81AFC348700CE63B9 /* category-food.png */,
 				A718E8E91AFC348700CE63B9 /* category-music.png */,
 				A718E8EA1AFC348700CE63B9 /* category-other.png */,
@@ -868,11 +876,13 @@
 				B2BF29341AE9D35B00D6714C /* EventTableViewCell.xib in Resources */,
 				A787233E1B0E904D00059A58 /* LocationPickerViewController.xib in Resources */,
 				5548ED3B1AFAA0300063F6E4 /* RegEventCreationTableViewCell.xib in Resources */,
+				A7C886651B18284400EAD5F6 /* icon-decline.png in Resources */,
 				A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */,
 				B2446F461AE2098C006C37F9 /* EventTableViewController.xib in Resources */,
 				A78542BB1AEA0F3B00DD1164 /* EventDetailViewController.xib in Resources */,
 				B241B5D01AF96EE8001BB17B /* icon-time.png in Resources */,
 				B25560AA1AE19A0900EBEE8B /* LaunchScreen.xib in Resources */,
+				A7C886671B18284400EAD5F6 /* icon-accept.png in Resources */,
 				5548ED391AFAA0300063F6E4 /* EventViewController.xib in Resources */,
 				5548ED371AFAA0300063F6E4 /* DateTableViewCell.xib in Resources */,
 				A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */,
@@ -925,6 +935,7 @@
 				55E674911B1820C400B951D2 /* WholeViewController.xib in Resources */,
 				55E674A11B1820F200B951D2 /* LocationPickerViewController.xib in Resources */,
 				55E6749F1B1820ED00B951D2 /* LocationTableViewCell.xib in Resources */,
+				A7C886681B18284400EAD5F6 /* icon-accept.png in Resources */,
 				55E6749D1B1820E700B951D2 /* EventTableViewController.xib in Resources */,
 				55E6748C1B1820B400B951D2 /* DescriptionEventCreationTableViewCell.xib in Resources */,
 				55E6749E1B1820EA00B951D2 /* SideMenuViewController.xib in Resources */,
@@ -932,6 +943,7 @@
 				55E674961B1820D200B951D2 /* EventsNearMeViewController.xib in Resources */,
 				55E674991B1820DC00B951D2 /* UpcomingEventsViewController.xib in Resources */,
 				55E6748A1B1820AE00B951D2 /* CatTableViewCell.xib in Resources */,
+				A7C886661B18284400EAD5F6 /* icon-decline.png in Resources */,
 				55E674851B1820A100B951D2 /* regularCell.xib in Resources */,
 				55E674901B1820C100B951D2 /* WhereTableViewCell.xib in Resources */,
 				A7625FEA1B1815E000961ABF /* storehouse.plist in Resources */,
@@ -1171,6 +1183,7 @@
 				557D94111B16B4D2001370E0 /* SideMenuViewController.swift in Sources */,
 				557D93F61B16B40C001370E0 /* BaseViewController.swift in Sources */,
 				E1FDE9BB1B17FAB7001E16B5 /* ImagePickerTableViewController.swift in Sources */,
+				55E674811B18206C00B951D2 /* EventCreationTableCellTests.swift in Sources */,
 				557D94181B16B4EC001370E0 /* SeparateTintSegmentedControl.swift in Sources */,
 				A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */,
 				557D94121B16B4D5001370E0 /* EventDetailViewController.swift in Sources */,

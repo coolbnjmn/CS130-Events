@@ -52,9 +52,13 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
             self.eventSearchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
             self.eventSearchProvider.delegate = self
             self.tableView.reloadData();
+            
             if self.reloading {
                 self.storeHouseRefreshControl?.finishingLoading();
                 self.reloading = false;
+            }
+            else {
+                self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true);
             }
         }
         

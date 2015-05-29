@@ -104,8 +104,8 @@ struct Constants {
         static let ContactLogo: UIImage! = UIImage(named: "icon-contact.png")
         static let SelfLogo: UIImage! = UIImage(named: "icon-user.png")
         static let PrivateBanner: UIImage! = UIImage(named: "private-banner.png")
-        static let SuccessAlertIcon: UIImage! = UIImage(named: "Beach.jpg");
-        static let FailureAlertIcon: UIImage! = UIImage(named: "icon-menu.png")
+        static let SuccessAlertIcon: UIImage! = UIImage(named: "icon-accept.png");
+        static let FailureAlertIcon: UIImage! = UIImage(named: "icon-decline.png")
     }
 
     // TODO: Add a category for Social

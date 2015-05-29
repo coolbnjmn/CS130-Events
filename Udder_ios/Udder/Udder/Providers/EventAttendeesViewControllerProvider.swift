@@ -33,7 +33,7 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var factor:Int = 0
-        if(event?.isMyEvent ?? false as Bool) {
+        if((event?.isMyEvent ?? false as Bool) || !(event?.eventPrivate ?? false as Bool)) {
             factor = 1
         }
         
@@ -53,7 +53,7 @@ class EventAttendeesViewControllerProvider: BaseEventProvider {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var factor:Int = 0
-        if(event?.isMyEvent ?? false as Bool) {
+        if((event?.isMyEvent ?? false as Bool) || !(event?.eventPrivate ?? false as Bool)) {
             factor = 1
         }
         
