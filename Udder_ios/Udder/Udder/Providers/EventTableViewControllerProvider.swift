@@ -25,6 +25,9 @@ class EventTableViewControllerProvider: BaseProvider {
     var currentPage:Int = 0;
     var shouldLoadMore:Bool = true;
     
+    // TODO: Search Provider should really be in a separate class
+    var isSearching:Bool = false; // Set to true if you want to search and not load more
+    
     func configure(events: NSMutableArray) {
         self.eventArray = events;
         self.shouldLoadMore = true;
@@ -82,7 +85,7 @@ class EventTableViewControllerProvider: BaseProvider {
             cell.hasGradient = true;
         }
 
-        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore {
+        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore && !self.isSearching {
             self.loadMore(tableView);
         }
         
