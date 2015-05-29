@@ -12,6 +12,10 @@ let kTableViewMargins:CGFloat = 4;
 
 @objc protocol EventTableDelegate {
     func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void);
+    
+    // Reload Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView);
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool);
 }
 
 class EventTableViewControllerProvider: BaseProvider {
@@ -119,5 +123,14 @@ class EventTableViewControllerProvider: BaseProvider {
         var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
         eventDetailViewController.setupWithEvent(event);
         self.delegate?.pushViewController(eventDetailViewController, animated: true);
+    }
+    
+    // MARK: Scrollview Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.eventTableDelegate?.scrollViewDidScroll(scrollView);
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.eventTableDelegate?.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate);
     }
 }

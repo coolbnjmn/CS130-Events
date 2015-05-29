@@ -115,6 +115,16 @@
 		A73027DB1AF210B8009D2281 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */; };
 		A74D9F911AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */; };
 		A74D9F931AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */; };
+		A7625FE11B1815E000961ABF /* BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDB1B1815E000961ABF /* BarItem.m */; };
+		A7625FE21B1815E000961ABF /* BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDB1B1815E000961ABF /* BarItem.m */; };
+		A7625FE31B1815E000961ABF /* CBStoreHouseRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDD1B1815E000961ABF /* CBStoreHouseRefreshControl.m */; };
+		A7625FE41B1815E000961ABF /* CBStoreHouseRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDD1B1815E000961ABF /* CBStoreHouseRefreshControl.m */; };
+		A7625FE51B1815E000961ABF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A7625FDE1B1815E000961ABF /* LICENSE */; };
+		A7625FE61B1815E000961ABF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A7625FDE1B1815E000961ABF /* LICENSE */; };
+		A7625FE71B1815E000961ABF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDF1B1815E000961ABF /* README.md */; };
+		A7625FE81B1815E000961ABF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A7625FDF1B1815E000961ABF /* README.md */; };
+		A7625FE91B1815E000961ABF /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7625FE01B1815E000961ABF /* storehouse.plist */; };
+		A7625FEA1B1815E000961ABF /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7625FE01B1815E000961ABF /* storehouse.plist */; };
 		A778F8AA1B17C50A003090CF /* AlertStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778F8A91B17C50A003090CF /* AlertStyle.swift */; };
 		A78542B41AEA0B0600DD1164 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */; };
 		A78542B91AEA0D2500DD1164 /* Beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A78542B81AEA0D2500DD1164 /* Beach.jpg */; };
@@ -288,6 +298,13 @@
 		A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationTableViewCell.xib; path = Views/LocationTableViewCell.xib; sourceTree = "<group>"; };
 		A74D9F901AF1EF6000B7C6C8 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionTableViewCell.swift; path = Cells/DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = Views/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		A7625FDA1B1815E000961ABF /* BarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarItem.h; sourceTree = "<group>"; };
+		A7625FDB1B1815E000961ABF /* BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarItem.m; sourceTree = "<group>"; };
+		A7625FDC1B1815E000961ABF /* CBStoreHouseRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStoreHouseRefreshControl.h; sourceTree = "<group>"; };
+		A7625FDD1B1815E000961ABF /* CBStoreHouseRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStoreHouseRefreshControl.m; sourceTree = "<group>"; };
+		A7625FDE1B1815E000961ABF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A7625FDF1B1815E000961ABF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A7625FE01B1815E000961ABF /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		A778F8A91B17C50A003090CF /* AlertStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertStyle.swift; path = Utilities/AlertStyle.swift; sourceTree = "<group>"; };
 		A78542B31AEA0B0600DD1164 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ViewControllers/EventDetailViewController.swift; sourceTree = "<group>"; };
 		A78542B81AEA0D2500DD1164 /* Beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach.jpg; path = Images/Beach.jpg; sourceTree = "<group>"; };
@@ -452,6 +469,29 @@
 			name = Providers;
 			sourceTree = "<group>";
 		};
+		A7625FD81B1815E000961ABF /* CBStoreHouseRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				A7625FD91B1815E000961ABF /* Class */,
+				A7625FDE1B1815E000961ABF /* LICENSE */,
+				A7625FDF1B1815E000961ABF /* README.md */,
+				A7625FE01B1815E000961ABF /* storehouse.plist */,
+			);
+			name = CBStoreHouseRefreshControl;
+			path = Utilities/CBStoreHouseRefreshControl;
+			sourceTree = "<group>";
+		};
+		A7625FD91B1815E000961ABF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				A7625FDA1B1815E000961ABF /* BarItem.h */,
+				A7625FDB1B1815E000961ABF /* BarItem.m */,
+				A7625FDC1B1815E000961ABF /* CBStoreHouseRefreshControl.h */,
+				A7625FDD1B1815E000961ABF /* CBStoreHouseRefreshControl.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		A78542B71AEA0D0B00DD1164 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +513,7 @@
 		A78AC73A1AF2A0EA00B10D46 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A7625FD81B1815E000961ABF /* CBStoreHouseRefreshControl */,
 				A70AAA921AF48DEE00E8B3F9 /* AF+Date+Extension.swift */,
 				A78AC73B1AF2A12200B10D46 /* UIView+Extension.swift */,
 				A7A4844F1AF2EC61005F9E2F /* GeneralUtility.swift */,
@@ -741,7 +782,7 @@
 				TargetAttributes = {
 					B25560991AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 4VFFSF6V7V;
+						DevelopmentTeam = QW4YTV2H2T;
 					};
 					B25560AE1AE19A0900EBEE8B = {
 						CreatedOnToolsVersion = 6.3;
@@ -807,6 +848,7 @@
 				A718E8ED1AFC348700CE63B9 /* category-other.png in Resources */,
 				A718E8E61AFC347F00CE63B9 /* category-academic.png in Resources */,
 				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
+				A7625FE91B1815E000961ABF /* storehouse.plist in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
 				A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */,
 				5548ED361AFAA0300063F6E4 /* CatTableViewCell.xib in Resources */,
@@ -815,6 +857,7 @@
 				B288E69A1B16A78D00FFAEA3 /* TutorialItemViewController.xib in Resources */,
 				55B3A8271B02F93800614EA8 /* regularCell.xib in Resources */,
 				5548ED3C1AFAA0300063F6E4 /* TimeTableViewCell.xib in Resources */,
+				A7625FE51B1815E000961ABF /* LICENSE in Resources */,
 				E1DB023B1B0550A50027AFF0 /* AttendeesTableViewCell.xib in Resources */,
 				5548ED381AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib in Resources */,
 				5548ED3A1AFAA0300063F6E4 /* PrivateEventCreationTableViewCell.xib in Resources */,
@@ -827,6 +870,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7625FEA1B1815E000961ABF /* storehouse.plist in Resources */,
+				A7625FE61B1815E000961ABF /* LICENSE in Resources */,
 				B2F21CAC1B17091400EDB55D /* RegEventCreationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,6 +950,7 @@
 				5548ED2C1AFAA0110063F6E4 /* WhereTableViewCell.swift in Sources */,
 				E175716F1AEAD2CB00E92F07 /* PendingInvitationsViewController.swift in Sources */,
 				E1DB02381B0550580027AFF0 /* AttendeesTableViewCell.swift in Sources */,
+				A7625FE31B1815E000961ABF /* CBStoreHouseRefreshControl.m in Sources */,
 				5548ED281AFAA0110063F6E4 /* DescriptionEventCreationTableViewCell.swift in Sources */,
 				B23AF74B1AF732CB00E32212 /* ContactModel.swift in Sources */,
 				5548ED2B1AFAA0110063F6E4 /* TimeTableViewCell.swift in Sources */,
@@ -954,11 +1000,13 @@
 				55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */,
 				A72068AC1AE9DFBD00037D06 /* EventModel.swift in Sources */,
 				B25560A01AE19A0900EBEE8B /* AppDelegate.swift in Sources */,
+				A7625FE71B1815E000961ABF /* README.md in Sources */,
 				A70AAA971AF4966200E8B3F9 /* TimeInfoTableViewCell.swift in Sources */,
 				A70AAA9F1AF4B33C00E8B3F9 /* EventTableViewControllerProvider.swift in Sources */,
 				A725CDD41B054ED700C930F5 /* InvitationModel.swift in Sources */,
 				E17571631AEAD24100E92F07 /* MyEventsViewController.swift in Sources */,
 				A73027D71AF20557009D2281 /* EventDetailViewControllerProvider.swift in Sources */,
+				A7625FE11B1815E000961ABF /* BarItem.m in Sources */,
 				A70AAA931AF48DEE00E8B3F9 /* AF+Date+Extension.swift in Sources */,
 				A70AAAA11AF4BA1B00E8B3F9 /* BaseViewController.swift in Sources */,
 				5548ED291AFAA0110063F6E4 /* PrivateEventCreationTableViewCell.swift in Sources */,
@@ -969,6 +1017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7625FE21B1815E000961ABF /* BarItem.m in Sources */,
 				A71C8C521B17C5C0009BAE44 /* AlertStyle.swift in Sources */,
 				B247C1731B0E96C9001D0EB5 /* EventManagerModel.swift in Sources */,
 				557D940E1B16B4C8001370E0 /* MyEventsViewController.swift in Sources */,
@@ -999,6 +1048,7 @@
 				B247C1651B0E8476001D0EB5 /* BaseModel.swift in Sources */,
 				A7248B3F1B158A1200D64CA9 /* PlacesModelTest.swift in Sources */,
 				557D94101B16B4CF001370E0 /* ViewController.swift in Sources */,
+				A7625FE41B1815E000961ABF /* CBStoreHouseRefreshControl.m in Sources */,
 				557D94191B16B4EF001370E0 /* UIColor+Extension.swift in Sources */,
 				557D94131B16B4DA001370E0 /* EventTableViewController.swift in Sources */,
 				557D940D1B16B4C4001370E0 /* UpcomingEventsViewController.swift in Sources */,
@@ -1019,6 +1069,7 @@
 				557D94161B16B4E4001370E0 /* LocationPickerViewController.swift in Sources */,
 				557D94081B16B487001370E0 /* LocationPickerTableViewCell.swift in Sources */,
 				557D94151B16B4E1001370E0 /* PhoneNumberViewController.swift in Sources */,
+				A7625FE81B1815E000961ABF /* README.md in Sources */,
 				557D93F71B16B435001370E0 /* RegEventCreationTableViewCell.swift in Sources */,
 				557D93FF1B16B457001370E0 /* TimeTableViewCell.swift in Sources */,
 				557D94051B16B474001370E0 /* TimeInfoTableViewCell.swift in Sources */,
