@@ -159,7 +159,7 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
                 var idx = advance(num.startIndex,1)
                 num = num.substringFromIndex(idx)
             }
-            invitees.append(["name": contact.name!, "number": num])
+            invitees.append(["name": contact.name!, "phoneNumber": num])
         }
         
         var params = Dictionary<String, AnyObject>()
