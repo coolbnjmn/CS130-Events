@@ -83,6 +83,7 @@ struct Constants {
         static let kSideBarNavNameFontSize: CGFloat = 20.0
         static let kButtonTextFont = "Avenir-Book"
         static let kButtonTextFontSize: CGFloat = 20.0
+        static let kImageSelectionCellHeight: CGFloat = 200.0
     }
     
     struct PlaceHolders {
@@ -102,7 +103,7 @@ struct Constants {
         static let FbLogo: UIImage! = UIImage(named: "icon-fb.png")
         static let ContactLogo: UIImage! = UIImage(named: "icon-contact.png")
         static let SelfLogo: UIImage! = UIImage(named: "icon-user.png")
-        static let PrivateBanner: UIImage! = UIImage(named: "private-banner.png") //change later
+        static let PrivateBanner: UIImage! = UIImage(named: "private-banner.png")
         static let SuccessAlertIcon: UIImage! = UIImage(named: "Beach.jpg");
         static let FailureAlertIcon: UIImage! = UIImage(named: "icon-menu.png")
     }

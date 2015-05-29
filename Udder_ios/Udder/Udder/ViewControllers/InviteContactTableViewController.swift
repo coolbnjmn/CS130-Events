@@ -167,13 +167,13 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         
         }
         
-        //TODO pretty sure there's a memory leak of view controllesr (the detail view before the invite view is still around)
         var eventDetailViewController:EventDetailViewController =  EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
         eventDetailViewController.setupWithEvent(self.event)
-      
+        
         var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
         viewControllers.removeObjectIdenticalTo(self);
-        viewControllers.addObject(eventDetailViewController);
+        viewControllers.addObject(eventDetailViewController)
+        
         self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
     }
     

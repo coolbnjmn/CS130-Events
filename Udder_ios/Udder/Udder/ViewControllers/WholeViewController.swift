@@ -222,12 +222,14 @@ class WholeViewController: BaseViewController, UITableViewDelegate, UITableViewD
     func submitButtonPressed(sender: AnyObject) {
         var successBlock: EventModel -> Void = {
             (eventModel: EventModel) -> Void in
-            var invitePage:InviteContactTableViewController =  InviteContactTableViewController(nibName: "InviteContactTableViewController", bundle: nil);
-            invitePage.setupWithEvent(eventModel);
+                        
+            var imagePage:ImagePickerTableViewController = ImagePickerTableViewController(nibName: "ImagePickerTableViewController", bundle: nil)
+            imagePage.setupWithEvent(eventModel);
+            imagePage.setAsNewEvent()
             
             var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
             viewControllers.removeObjectIdenticalTo(self);
-            viewControllers.addObject(invitePage);
+            viewControllers.addObject(imagePage);
             self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
         }
         

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="ImagePickerTableViewCell" customModule="Udder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-wG-5pe">
+                        <rect key="frame" x="2" y="2" width="316" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="38" id="jEi-Tn-R8X"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jEi-Tn-R8X"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3HO-wG-5pe" secondAttribute="trailing" id="1wv-3N-y7e"/>
+                    <constraint firstItem="3HO-wG-5pe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="1yH-2C-qdt"/>
+                    <constraint firstAttribute="trailing" secondItem="3HO-wG-5pe" secondAttribute="trailing" constant="2" id="4ah-UF-hCi"/>
+                    <constraint firstAttribute="bottom" secondItem="3HO-wG-5pe" secondAttribute="bottom" constant="2" id="9JG-t8-Gun"/>
+                    <constraint firstItem="3HO-wG-5pe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="KJQ-Tw-uSB"/>
+                    <constraint firstItem="3HO-wG-5pe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jTh-2O-t1o"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="1wv-3N-y7e"/>
+                        <exclude reference="jTh-2O-t1o"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="myImage" destination="3HO-wG-5pe" id="lG4-GF-cwq"/>
+            </connections>
+            <point key="canvasLocation" x="547" y="506"/>
+        </tableViewCell>
+    </objects>
+</document>
