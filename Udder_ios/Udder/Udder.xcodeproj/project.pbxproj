@@ -178,6 +178,7 @@
 		A7C886661B18284400EAD5F6 /* icon-decline.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886631B18284400EAD5F6 /* icon-decline.png */; };
 		A7C886671B18284400EAD5F6 /* icon-accept.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886641B18284400EAD5F6 /* icon-accept.png */; };
 		A7C886681B18284400EAD5F6 /* icon-accept.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C886641B18284400EAD5F6 /* icon-accept.png */; };
+		A7ECB6631B1830EE0091E5B9 /* UdderText.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7ECB6621B1830EE0091E5B9 /* UdderText.plist */; };
 		B20CA1851B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */; };
 		B210DABF1B0533BA00850122 /* EventSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DABE1B0533BA00850122 /* EventSearchProvider.swift */; };
 		B210DAC11B0533F200850122 /* BaseSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210DAC01B0533F200850122 /* BaseSearchProvider.swift */; };
@@ -367,6 +368,7 @@
 		A7BFC1331AE9FB5A00C19459 /* EventManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventManagerModel.swift; path = Models/EventManagerModel.swift; sourceTree = "<group>"; };
 		A7C886631B18284400EAD5F6 /* icon-decline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-decline.png"; path = "Images/icon-decline.png"; sourceTree = "<group>"; };
 		A7C886641B18284400EAD5F6 /* icon-accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-accept.png"; path = "Images/icon-accept.png"; sourceTree = "<group>"; };
+		A7ECB6621B1830EE0091E5B9 /* UdderText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UdderText.plist; sourceTree = "<group>"; };
 		B20CA1841B16C2EA002398B8 /* UIPageViewControllerWithOverlayIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPageViewControllerWithOverlayIndicator.swift; path = Utilities/UIPageViewControllerWithOverlayIndicator.swift; sourceTree = "<group>"; };
 		B210DABE1B0533BA00850122 /* EventSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventSearchProvider.swift; path = Providers/EventSearchProvider.swift; sourceTree = "<group>"; };
 		B210DAC01B0533F200850122 /* BaseSearchProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSearchProvider.swift; path = Providers/BaseSearchProvider.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 		A7625FD81B1815E000961ABF /* CBStoreHouseRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				A7ECB6621B1830EE0091E5B9 /* UdderText.plist */,
 				A7625FD91B1815E000961ABF /* Class */,
 				A7625FDE1B1815E000961ABF /* LICENSE */,
 				A7625FDF1B1815E000961ABF /* README.md */,
@@ -909,6 +912,7 @@
 				A718E8E61AFC347F00CE63B9 /* category-academic.png in Resources */,
 				A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */,
 				A7625FE91B1815E000961ABF /* storehouse.plist in Resources */,
+				A7ECB6631B1830EE0091E5B9 /* UdderText.plist in Resources */,
 				E17571781AEAD31C00E92F07 /* UpcomingEventsViewController.xib in Resources */,
 				A70AAA951AF4929900E8B3F9 /* TimeInfoTableViewCell.xib in Resources */,
 				5548ED361AFAA0300063F6E4 /* CatTableViewCell.xib in Resources */,

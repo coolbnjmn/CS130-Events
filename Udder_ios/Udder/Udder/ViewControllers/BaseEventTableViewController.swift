@@ -39,7 +39,7 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
         self.tableView.dataSource = self.eventTableViewControllerProvider;
         self.tableView.delegate = self.eventTableViewControllerProvider;
         
-        self.storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "refreshTriggered", plist: "storehouse", color: UIColor.darkGrayColor(), lineWidth: 1.5, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: true, internalAnimationFactor: 0.5);
+        self.storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "refreshTriggered", plist: "UdderText", color: UIColor.darkGrayColor(), lineWidth: 1.5, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: true, internalAnimationFactor: 0.5);
         
         self.eventTableViewControllerProvider.delegate = self;
         self.eventSearchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
