@@ -18,5 +18,7 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 #import "TWMessageBarManager.h"
+#import "CBStoreHouseRefreshControl.h"
+#import "BarItem.h"
 
 #endif

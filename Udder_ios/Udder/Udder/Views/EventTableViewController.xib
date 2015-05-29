@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseEventTableViewController" customModule="Udder" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="i5M-Pr-FkT" id="4C9-Np-8wi"/>
-                <outlet property="view" destination="vcZ-9v-8Fk" id="Eha-fz-18a"/>
+                <outlet property="view" destination="vcZ-9v-8Fk" id="mCw-oR-zRx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,10 +17,10 @@
             <subviews>
                 <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="i5M-Pr-FkT" firstAttribute="leading" secondItem="vcZ-9v-8Fk" secondAttribute="leading" id="eD3-hC-0Z3"/>
                 <constraint firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="gEY-0r-Rrf"/>

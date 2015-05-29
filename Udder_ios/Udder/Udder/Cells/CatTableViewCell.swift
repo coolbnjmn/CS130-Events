@@ -94,7 +94,7 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
         super.awakeFromNib()
         // Initialization code
         categoryTextField.borderStyle = UITextBorderStyle.None
-
+        categoryTextField.textAlignment = .Left
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

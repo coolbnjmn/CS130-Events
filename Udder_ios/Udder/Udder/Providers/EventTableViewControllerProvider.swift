@@ -12,6 +12,10 @@ let kTableViewMargins:CGFloat = 4;
 
 @objc protocol EventTableDelegate {
     func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void);
+    
+    // Reload Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView);
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool);
 }
 
 class EventTableViewControllerProvider: BaseProvider {
@@ -20,6 +24,9 @@ class EventTableViewControllerProvider: BaseProvider {
     var eventTableDelegate:EventTableDelegate?;
     var currentPage:Int = 0;
     var shouldLoadMore:Bool = true;
+    
+    // TODO: Search Provider should really be in a separate class
+    var isSearching:Bool = false; // Set to true if you want to search and not load more
     
     func configure(events: NSMutableArray) {
         self.eventArray = events;
@@ -78,7 +85,7 @@ class EventTableViewControllerProvider: BaseProvider {
             cell.hasGradient = true;
         }
 
-        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore {
+        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore && !self.isSearching {
             self.loadMore(tableView);
         }
         
@@ -119,5 +126,14 @@ class EventTableViewControllerProvider: BaseProvider {
         var eventDetailViewController:EventDetailViewController = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil);
         eventDetailViewController.setupWithEvent(event);
         self.delegate?.pushViewController(eventDetailViewController, animated: true);
+    }
+    
+    // MARK: Scrollview Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.eventTableDelegate?.scrollViewDidScroll(scrollView);
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.eventTableDelegate?.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate);
     }
 }

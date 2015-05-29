@@ -86,6 +86,8 @@ class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControl
             }
         }
         self.searchProvider!.delegate = self.delegate
+        self.searchProvider!.isSearching = true;
+        
         self.tableView?.dataSource = self.searchProvider
         self.tableView?.delegate = self.searchProvider
         self.tableView?.reloadData()

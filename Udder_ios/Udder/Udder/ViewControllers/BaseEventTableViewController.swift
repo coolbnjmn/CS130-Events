@@ -13,8 +13,13 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
     // Table
     var eventTableViewControllerProvider:EventTableViewControllerProvider = EventTableViewControllerProvider();
     var eventManagerModel:EventManagerModel = EventManagerModel.sharedInstance;
-    var eventSearchProvider: EventSearchProvider = EventSearchProvider()
+    var eventSearchProvider: EventSearchProvider = EventSearchProvider();
+    var storeHouseRefreshControl:CBStoreHouseRefreshControl?;
+    
     @IBOutlet var tableView: UITableView!
+    
+    // Reloading
+    var reloading:Bool = false;
     
     // Completion blocks for retrieving data: Override in subclasses for customization
     var successBlock: NSMutableArray -> Void = {(event: NSMutableArray) -> Void in};
@@ -25,11 +30,16 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
          
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.backgroundColor = UIColor.whiteColor();
+        self.tableView.alwaysBounceVertical = true;
+        self.tableView.backgroundView = UIView();
         
         self.setupMenuBarButtonItems()
         
         self.tableView.dataSource = self.eventTableViewControllerProvider;
         self.tableView.delegate = self.eventTableViewControllerProvider;
+        
+        self.storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "refreshTriggered", plist: "storehouse", color: UIColor.darkGrayColor(), lineWidth: 1.5, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: true, internalAnimationFactor: 0.5);
         
         self.eventTableViewControllerProvider.delegate = self;
         self.eventSearchProvider.setSearchTableView(self.tableView, provider: self.eventTableViewControllerProvider)
@@ -42,11 +52,20 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
             self.eventSearchProvider.configure(eventArray, provider:self.eventTableViewControllerProvider);
             self.eventSearchProvider.delegate = self
             self.tableView.reloadData();
+            if self.reloading {
+                self.storeHouseRefreshControl?.finishingLoading();
+                self.reloading = false;
+            }
         }
         
         self.failureBlock = {
             (error: NSError) -> Void in
             println("Error: \(error)");
+            
+            if self.reloading {
+                self.storeHouseRefreshControl?.finishingLoading();
+                self.reloading = false;
+            }
         }
         
     }
@@ -96,6 +115,20 @@ class BaseEventTableViewController : BaseViewController, EventTableDelegate {
     
     func loadMoreData(page: Int, success: NSMutableArray -> Void, failure: NSError -> Void) {
         println("To be implemented by subclass...");
+    }
+    
+    // MARK: Scrollview Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.storeHouseRefreshControl?.scrollViewDidScroll();
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.storeHouseRefreshControl?.scrollViewDidEndDragging();
+    }
+    
+    func refreshTriggered() {
+        self.reloading = true;
+        self.fetchData();
     }
 
 }
