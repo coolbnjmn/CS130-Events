@@ -9,6 +9,10 @@
 		<string>{7,35}</string>
 		<string>{21,35}</string>
 		<string>{28,28}</string>
+		<string>{35,0}</string>
+		<string>{35,35}</string>
+		<string>{63,28}</string>
+		<string>{63,7}</string>
 	</array>
 	<key>endPoints</key>
 	<array>
@@ -17,6 +21,10 @@
 		<string>{21,35}</string>
 		<string>{28,28}</string>
 		<string>{28,0}</string>
+		<string>{35,35}</string>
+		<string>{63,28}</string>
+		<string>{63,7}</string>
+		<string>{35,0}</string>
 	</array>
 </dict>
 </plist>
