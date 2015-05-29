@@ -32,7 +32,15 @@ class editViewController: WholeViewController {
                  self.delegate!.updateEvent(eventModel);
             }
 
-            self.navigationController?.popViewControllerAnimated(true);
+            var imagePage:ImagePickerTableViewController = ImagePickerTableViewController(nibName: "ImagePickerTableViewController", bundle: nil)
+            imagePage.setupWithEvent(eventModel);
+            
+            var viewControllers:NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers);
+            viewControllers.removeObjectIdenticalTo(self);
+            viewControllers.addObject(imagePage);
+            self.navigationController?.setViewControllers(viewControllers as [AnyObject], animated: true);
+            
+//            self.navigationController?.popViewControllerAnimated(true);
         }
         
         var failureBlock: NSError -> Void = {

@@ -227,9 +227,17 @@ class EventDetailViewController: BaseViewController, EditEventProtocolDelegate {
             self.timeLabel.text = timeLabelString(validatedEvent.eventStartTime);
             self.locationLabel.text = validatedEvent.locationObject.placeLocationName;
             
-            var imageUrl:NSURL = NSURL(string: validatedEvent.eventImage)!;
             var placeHolderName:String = "cover-" + (event?.eventCategory ?? "Other") + ".png"
-            self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: placeHolderName));
+
+            var img_name = validatedEvent.eventImage
+            
+            if(img_name == "default") {
+                self.backgroundImageView.image = UIImage(named: placeHolderName)
+            }
+            else {
+                var imageUrl:NSURL = NSURL(string: img_name)!;
+                self.backgroundImageView.sd_setImageWithURL(imageUrl, placeholderImage: UIImage(named: placeHolderName));
+            }
             
             // Set the invitation if there is one
             if let invitation = validatedEvent.eventInvitation {

@@ -65,8 +65,13 @@ class EventTableViewCell: UITableViewCell {
         
         
         var placeHolderName:String = "cover-" + (params.objectForKey("category") as? String ?? "Other") + ".png"
-        
-        self.backgroundImageView?.sd_setImageWithURL(NSURL(string: params.objectForKey("image") as! String), placeholderImage: UIImage(named: placeHolderName));
+        var img_name = params.objectForKey("image") as! String
+        if(img_name == "default") {
+            self.backgroundImageView.image = UIImage(named: placeHolderName)
+        }
+        else {
+            self.backgroundImageView?.sd_setImageWithURL(NSURL(string: img_name), placeholderImage: UIImage(named: placeHolderName));
+        }
         self.locationImageView?.image = UIImage(named: "icon-location.png")
         self.timeImageView?.image = UIImage(named: "icon-time.png")
         
