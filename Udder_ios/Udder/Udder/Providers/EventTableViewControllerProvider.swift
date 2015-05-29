@@ -85,7 +85,7 @@ class EventTableViewControllerProvider: BaseProvider {
             cell.hasGradient = true;
         }
 
-        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore && !self.isSearching {
+        if (indexPath.row == (self.eventArray.count - 1)) && self.shouldLoadMore && !self.isSearching && (self.eventArray.count >= Constants.DatabasePagination.kNumberEventsToReturn){
             self.loadMore(tableView);
         }
         
