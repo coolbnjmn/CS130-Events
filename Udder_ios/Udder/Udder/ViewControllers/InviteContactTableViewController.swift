@@ -154,7 +154,12 @@ class InviteContactTableViewController: UITableViewController, ABPeoplePickerNav
         
         var invitees = [Dictionary<String, String>]()
         for contact: ContactModel in selectedDataArray {
-            invitees.append(["name": contact.name!, "number": stripNumber(contact.phone!)])
+            var num = stripNumber(contact.phone)
+            if(count(num)==11) {
+                var idx = advance(num.startIndex,1)
+                num = num.substringFromIndex(idx)
+            }
+            invitees.append(["name": contact.name!, "number": num])
         }
         
         var params = Dictionary<String, AnyObject>()
