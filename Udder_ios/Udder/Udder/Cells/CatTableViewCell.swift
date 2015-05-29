@@ -30,7 +30,7 @@ class CatTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDel
     }
 
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 6
+        return 7
     }
     
     func numberOfComponentsInPickerView(__pickerView: UIPickerView) -> Int{
