@@ -86,6 +86,40 @@
 		55B3A8291B02F94400614EA8 /* regularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B3A8281B02F94400614EA8 /* regularCell.swift */; };
 		55CA498C1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */; };
 		55DF5DD6122682FBBD7A88FD /* libPods-UdderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16201F752B79D118EE62CB1F /* libPods-UdderTests.a */; };
+		55E674811B18206C00B951D2 /* EventCreationTableCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E674801B18206C00B951D2 /* EventCreationTableCellTests.swift */; };
+		55E674821B18209500B951D2 /* TutorialItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B288E6991B16A78D00FFAEA3 /* TutorialItemViewController.xib */; };
+		55E674831B18209A00B951D2 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B288E6931B16A6B300FFAEA3 /* TutorialViewController.xib */; };
+		55E674841B18209E00B951D2 /* EventCreationSubmitButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E6AF7F1B16436F0093A0A1 /* EventCreationSubmitButtonTableViewCell.xib */; };
+		55E674851B1820A100B951D2 /* regularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B3A8261B02F93800614EA8 /* regularCell.xib */; };
+		55E674861B1820A400B951D2 /* editViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551BBF901B10739500309C8E /* editViewController.xib */; };
+		55E674871B1820A700B951D2 /* AttendeesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DB023A1B0550A50027AFF0 /* AttendeesTableViewCell.xib */; };
+		55E674881B1820A900B951D2 /* ValidationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3487C5171AFC411800C8BA90 /* ValidationViewController.xib */; };
+		55E674891B1820AC00B951D2 /* textviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55571E441AFC1414008AF1C3 /* textviewTableViewCell.xib */; };
+		55E6748A1B1820AE00B951D2 /* CatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED2D1AFAA0300063F6E4 /* CatTableViewCell.xib */; };
+		55E6748B1B1820B100B951D2 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED2E1AFAA0300063F6E4 /* DateTableViewCell.xib */; };
+		55E6748C1B1820B400B951D2 /* DescriptionEventCreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED2F1AFAA0300063F6E4 /* DescriptionEventCreationTableViewCell.xib */; };
+		55E6748D1B1820B700B951D2 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED301AFAA0300063F6E4 /* EventViewController.xib */; };
+		55E6748E1B1820BA00B951D2 /* PrivateEventCreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED311AFAA0300063F6E4 /* PrivateEventCreationTableViewCell.xib */; };
+		55E6748F1B1820BE00B951D2 /* TimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED331AFAA0300063F6E4 /* TimeTableViewCell.xib */; };
+		55E674901B1820C100B951D2 /* WhereTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED341AFAA0300063F6E4 /* WhereTableViewCell.xib */; };
+		55E674911B1820C400B951D2 /* WholeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5548ED351AFAA0300063F6E4 /* WholeViewController.xib */; };
+		55E674921B1820C700B951D2 /* PhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E20AF1AF97D57003BDB1F /* PhoneNumberViewController.xib */; };
+		55E674931B1820C900B951D2 /* InviteContactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2408BE81AF54CD800568B0C /* InviteContactTableViewController.xib */; };
+		55E674941B1820CC00B951D2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7E1AEED69800EA0BBA /* LoginViewController.xib */; };
+		55E674951B1820D000B951D2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12F8F7B1AEED40100EA0BBA /* ViewController.xib */; };
+		55E674961B1820D200B951D2 /* EventsNearMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571711AEAD31C00E92F07 /* EventsNearMeViewController.xib */; };
+		55E674971B1820D700B951D2 /* MyEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571721AEAD31C00E92F07 /* MyEventsViewController.xib */; };
+		55E674981B1820D900B951D2 /* PendingInvitationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571731AEAD31C00E92F07 /* PendingInvitationsViewController.xib */; };
+		55E674991B1820DC00B951D2 /* UpcomingEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17571741AEAD31C00E92F07 /* UpcomingEventsViewController.xib */; };
+		55E6749A1B1820DE00B951D2 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74D9F921AF1EF8200B7C6C8 /* DescriptionTableViewCell.xib */; };
+		55E6749B1B1820E200B951D2 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78542BA1AEA0F3B00DD1164 /* EventDetailViewController.xib */; };
+		55E6749C1B1820E400B951D2 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2BF29331AE9D35B00D6714C /* EventTableViewCell.xib */; };
+		55E6749D1B1820E700B951D2 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2446F451AE2098C006C37F9 /* EventTableViewController.xib */; };
+		55E6749E1B1820EA00B951D2 /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5BB911AE1DDE00063126E /* SideMenuViewController.xib */; };
+		55E6749F1B1820ED00B951D2 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A73027DA1AF210B8009D2281 /* LocationTableViewCell.xib */; };
+		55E674A01B1820EF00B951D2 /* TimeInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA941AF4929900E8B3F9 /* TimeInfoTableViewCell.xib */; };
+		55E674A11B1820F200B951D2 /* LocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A787233D1B0E904D00059A58 /* LocationPickerViewController.xib */; };
+		55E674A21B1820F500B951D2 /* LocationPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78723451B0EEFA500059A58 /* LocationPickerTableViewCell.xib */; };
 		9FD7F336EB61C7CC5ACBF799 /* libPods-Udder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33F21B4DA105929A47308 /* libPods-Udder.a */; };
 		A70AAA8D1AF379B900E8B3F9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */; };
 		A70AAA8F1AF4422400E8B3F9 /* icon-location.png in Resources */ = {isa = PBXBuildFile; fileRef = A70AAA8E1AF4422400E8B3F9 /* icon-location.png */; };
@@ -271,6 +305,7 @@
 		55B3A8261B02F93800614EA8 /* regularCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = regularCell.xib; path = Views/regularCell.xib; sourceTree = "<group>"; };
 		55B3A8281B02F94400614EA8 /* regularCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = regularCell.swift; path = Cells/regularCell.swift; sourceTree = "<group>"; };
 		55CA498B1AF9726E0066A7FF /* ButtonCreationEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCreationEventTableViewCell.swift; path = Cells/ButtonCreationEventTableViewCell.swift; sourceTree = "<group>"; };
+		55E674801B18206C00B951D2 /* EventCreationTableCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationTableCellTests.swift; sourceTree = "<group>"; };
 		A70AAA8C1AF379B900E8B3F9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Utilities/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A70AAA8E1AF4422400E8B3F9 /* icon-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-location.png"; path = "Images/icon-location.png"; sourceTree = "<group>"; };
 		A70AAA901AF4520F00E8B3F9 /* SeparateTintSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparateTintSegmentedControl.swift; path = Utilities/SeparateTintSegmentedControl.swift; sourceTree = "<group>"; };
@@ -579,6 +614,7 @@
 				A7B404971B157BA100DC1AFD /* EventModelTest.swift */,
 				B247C1711B0E96AF001D0EB5 /* EventManagerModelTest.swift */,
 				B247C1751B0FB9EE001D0EB5 /* ContactModelTest.swift */,
+				55E674801B18206C00B951D2 /* EventCreationTableCellTests.swift */,
 				B25560B51AE19A0900EBEE8B /* UdderTests.swift */,
 				B23FD6BF1B0E7DE7003CCE93 /* EventTableViewCellTest.swift */,
 				A7248B3E1B158A1200D64CA9 /* PlacesModelTest.swift */,
@@ -870,9 +906,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E6749C1B1820E400B951D2 /* EventTableViewCell.xib in Resources */,
+				55E674911B1820C400B951D2 /* WholeViewController.xib in Resources */,
+				55E674A11B1820F200B951D2 /* LocationPickerViewController.xib in Resources */,
+				55E6749F1B1820ED00B951D2 /* LocationTableViewCell.xib in Resources */,
+				55E6749D1B1820E700B951D2 /* EventTableViewController.xib in Resources */,
+				55E6748C1B1820B400B951D2 /* DescriptionEventCreationTableViewCell.xib in Resources */,
+				55E6749E1B1820EA00B951D2 /* SideMenuViewController.xib in Resources */,
+				55E674941B1820CC00B951D2 /* LoginViewController.xib in Resources */,
+				55E674961B1820D200B951D2 /* EventsNearMeViewController.xib in Resources */,
+				55E674991B1820DC00B951D2 /* UpcomingEventsViewController.xib in Resources */,
+				55E6748A1B1820AE00B951D2 /* CatTableViewCell.xib in Resources */,
+				55E674851B1820A100B951D2 /* regularCell.xib in Resources */,
+				55E674901B1820C100B951D2 /* WhereTableViewCell.xib in Resources */,
 				A7625FEA1B1815E000961ABF /* storehouse.plist in Resources */,
+				55E674891B1820AC00B951D2 /* textviewTableViewCell.xib in Resources */,
+				55E674831B18209A00B951D2 /* TutorialViewController.xib in Resources */,
+				55E674921B1820C700B951D2 /* PhoneNumberViewController.xib in Resources */,
+				55E6749A1B1820DE00B951D2 /* DescriptionTableViewCell.xib in Resources */,
+				55E674A21B1820F500B951D2 /* LocationPickerTableViewCell.xib in Resources */,
+				55E6749B1B1820E200B951D2 /* EventDetailViewController.xib in Resources */,
+				55E674821B18209500B951D2 /* TutorialItemViewController.xib in Resources */,
+				55E6748D1B1820B700B951D2 /* EventViewController.xib in Resources */,
+				55E674871B1820A700B951D2 /* AttendeesTableViewCell.xib in Resources */,
+				55E6748F1B1820BE00B951D2 /* TimeTableViewCell.xib in Resources */,
+				55E674861B1820A400B951D2 /* editViewController.xib in Resources */,
+				55E6748B1B1820B100B951D2 /* DateTableViewCell.xib in Resources */,
+				55E674A01B1820EF00B951D2 /* TimeInfoTableViewCell.xib in Resources */,
+				55E6748E1B1820BA00B951D2 /* PrivateEventCreationTableViewCell.xib in Resources */,
+				55E674841B18209E00B951D2 /* EventCreationSubmitButtonTableViewCell.xib in Resources */,
+				55E674881B1820A900B951D2 /* ValidationViewController.xib in Resources */,
 				A7625FE61B1815E000961ABF /* LICENSE in Resources */,
+				55E674981B1820D900B951D2 /* PendingInvitationsViewController.xib in Resources */,
 				B2F21CAC1B17091400EDB55D /* RegEventCreationTableViewCell.xib in Resources */,
+				55E674931B1820C900B951D2 /* InviteContactTableViewController.xib in Resources */,
+				55E674951B1820D000B951D2 /* ViewController.xib in Resources */,
+				55E674971B1820D700B951D2 /* MyEventsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,6 +1152,7 @@
 				557D94011B16B45E001370E0 /* ButtonCreationEventTableViewCell.swift in Sources */,
 				557D94111B16B4D2001370E0 /* SideMenuViewController.swift in Sources */,
 				557D93F61B16B40C001370E0 /* BaseViewController.swift in Sources */,
+				55E674811B18206C00B951D2 /* EventCreationTableCellTests.swift in Sources */,
 				557D94181B16B4EC001370E0 /* SeparateTintSegmentedControl.swift in Sources */,
 				A7B404981B157BA100DC1AFD /* EventModelTest.swift in Sources */,
 				557D94121B16B4D5001370E0 /* EventDetailViewController.swift in Sources */,
