@@ -31,7 +31,7 @@ class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControl
             controller.searchBar.backgroundColor = Constants.Colors.BackgroundGrayColor
             
             var textFieldInsideSearchBar = controller.searchBar.valueForKey("searchField") as? UITextField
-            textFieldInsideSearchBar?.textColor = UIColor.whiteColor()
+            textFieldInsideSearchBar?.textColor = UIColor.blackColor()
             
             self.tableView?.tableHeaderView = controller.searchBar
             return controller;
@@ -70,7 +70,7 @@ class BaseSearchProvider: BaseProvider, UISearchResultsUpdating, UISearchControl
     
     func didPresentSearchController(searchController: UISearchController) {
         let uiButton = searchController.searchBar.valueForKey("cancelButton") as? UIButton
-        uiButton?.titleLabel?.textColor = UIColor.whiteColor()
+        uiButton?.titleLabel?.textColor = Constants.Colors.ThemeColor
     }
     
     func willPresentSearchController(searchController: UISearchController) {
