@@ -1,12 +1,15 @@
 var creds = require('cloud/credentials.js');
 
-var moment = require('moment');
 var express = require('express');
 var app = express();
 
 // Global access to twilio
 var credentials = creds.getTwilioConfig();
 var twilio = require('twilio')(credentials.AccountSID, credentials.AuthToken);
+
+// Required functions
+var attendees = require('cloud/getAttendees.js');
+
 
 // Global app configuration section
 app.use(express.bodyParser());  // Populate req.body
@@ -141,12 +144,116 @@ function handleSingleInvitationResponse(inviteObj, user, textResp) {
 * @param {double} request.params.lon Longitude in decimal form to center the search around
 * @return {string} either returns an error message or the URL for the Flickr photo
 */
-Parse.Cloud.beforeSave("Event", function(request, response) {
+// Parse.Cloud.beforeSave("Event", function(request, response) {
 
-    if(request.object.get("image_url")) {
-        response.success(request.object);
+//     var newTitle = request.object.get("title");
+
+//     if(request.object.id) {
+//         var query = new Parse.Query("Event");
+//         query.get(request.object.id, { // Gets row you're trying to update
+//             success: function(row) {
+//                 if (row.get('title') == newTitle) {
+//                     // Title didn't change, just save the changes
+//                     response.success(request.object);
+//                 } else {
+//                     // Title has changed, update the photo
+//                     getEventPhoto(request, response);
+//                 }
+//             },
+//             error: function(row, error) {
+//                 response.error(error.message);
+//             }
+//         });
+//     } else {
+//         // New event creation
+//         getEventPhoto(request, response);
+//     }
+
+// });
+
+
+/***
+* Manually get an event's photo, search by the request.params.title string
+*
+* @param request.params.title Text used to search Flickr
+* @return photoURLString URL to the found photo
+*/
+Parse.Cloud.define("manualGetEventPhoto", function(request, response) {
+    var searchText = request.params.title;
+
+    //console.log(searchText);
+    params = {
+        method: 'flickr.photos.search',
+        api_key:  creds.getFlickrConfig(),
+        text: searchText,
+        per_page: 20,
+        format: 'json', 
+        nojsoncallback: 1, 
+        geocontext: 2,
+        content_type: 1,
+        sort: 'relevance',
+        license: '4,5,6,7'// All commercially allowed licenses - ids found from https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
     }
 
+    // if (request.params.hasOwnProperty('lat') && request.params.hasOwnProperty('lon')) {
+    //  params['lat'] = request.params.lat;
+    //  params['lon'] = request.params.lon;
+
+    //  // Define the radius of the geo-search, up to 20 miles
+    //  params['radius'] = 20;
+    //  params['radius_units'] = "mi";
+    // }        
+
+
+    Parse.Cloud.httpRequest({
+      method: "GET",
+      url: "https://api.flickr.com/services/rest/",
+      // params - found on flickr api: https://www.flickr.com/services/api/flickr.photos.search.html
+      params: params,
+      success: function(httpResponse) {
+            // JSON response from Flickr with first 20 photos 
+            data = httpResponse.data;
+
+            // Uncomment below to see the entire httpResponse
+            //console.log(httpResponse.text);
+
+            if(data['photos']['total'] == 0) {
+                response.error("No photo found");
+            }
+            else {
+
+                var photoURLString = [];
+                var numReturnedPhotos = 5;
+                if(numReturnedPhotos >= data['photos']['total']) 
+                    numReturnedPhotos = data['photos']['total'];
+
+                // Use the first numReturnedPhotos as the image URLS to return
+                for(var i = 0; i < numReturnedPhotos; i++) {
+                    photo = data['photos']['photo'][i];
+
+                    // Choose the size of the photo, probably more programatically than this
+                    thumbnail = false;
+                    size = thumbnail ? "m" : "b";
+
+                    // Construct URL for the flickr photo
+                    photoURLString[i] = "http://farm" + photo['farm'] + ".staticflickr.com/" + photo['server'] + "/" + photo['id'] + "_" + photo['secret'] + "_" + size + ".jpg";
+                      
+                }
+
+                // Save the event object and pass it back to the client
+                response.success(photoURLString);
+            }
+
+        },
+      error: function(httpResponse) {
+            response.error('Request failed with response code ' + httpResponse.status);
+        }
+    });
+})
+
+
+// Actually get the event photo from Flickr and update accordingly.
+function getEventPhoto(request, response) {
     var searchText = request.object.get("title");
 
     params = {
@@ -210,7 +317,7 @@ Parse.Cloud.beforeSave("Event", function(request, response) {
             response.error('Request failed with response code ' + httpResponse.status);
         }
     });
-});
+}
 
 
 /**
@@ -222,7 +329,13 @@ Parse.Cloud.beforeSave("Event", function(request, response) {
 */
 Parse.Cloud.define("sendVerificationCode", function(request, response) {
     var verificationCode = Math.floor(Math.random()*999999);
-    var user = Parse.User.current();
+    var user = {};
+    if(request.params.testUser) {
+        // For testing purposes
+        user = new Parse.User();
+    } else {
+        user = Parse.User.current();
+    }
     user.set("phoneNumber", request.params.phoneNumber);
     user.set("phoneVerificationCode", verificationCode);
     user.save();
@@ -250,7 +363,14 @@ Parse.Cloud.define("sendVerificationCode", function(request, response) {
 */
 
 Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
-    var user = Parse.User.current();
+    var user = {};
+    if(request.params.testUser) {
+        // For testing purposes
+        user = new Parse.User();
+        user.set("phoneVerificationCode", 123456);
+    } else {
+        user = Parse.User.current();
+    }
     var verificationCode = user.get("phoneVerificationCode");
     if (verificationCode == request.params.phoneVerificationCode) {
         user.set("phoneValidated", true);
@@ -262,34 +382,17 @@ Parse.Cloud.define("verifyPhoneNumber", function(request, response) {
 });
 
 
+
+
 /**
 * get the Attendees for the a specific event
 *
-* @param {string} request.params.eventId T
+* @param {string} request.params.eventId 
 * @return {list of invitations that have } either returns an error message or the word Success.
 */
 
 Parse.Cloud.define("getAttendees", function(request, response) {
-    var eventId = request.params.eventId;
-    var Event = Parse.Object.extend("Event");
-    var eventQuery = new Parse.Query(Event);
-    eventQuery.equalTo("objectId", eventId);
-
-    var Invitation = Parse.Object.extend("Invitation");
-    var invitationQuery = new Parse.Query(Invitation);
-    invitationQuery.matchesQuery("event", eventQuery);
-    invitationQuery.equalTo("response", true);
-    invitationQuery.include("user");
-    invitationQuery.select("user.full_name", "user.phoneNumber", "user.facebookId");
-
-    invitationQuery.find({
-        success: function (results) {
-            response.success(results);
-        },
-        error: function (error, result) {
-            response.error("ERROR! Attendees not returned");
-        }
-    }); 
+    attendees.getAttendees(request, response);
 });
 
 
@@ -303,11 +406,15 @@ Parse.Cloud.define("sendInvitations", function(request, response) {
     var invitees = request.params.invitees;
     //Create User Objects
     createUsersFromInvitees(invitees, function(err, users) {
+        console.log("Users after creating");
+        console.log(users);
         if (err) {
             return response.error(err);
         }
         //Create invitation objects to save to db
         handleInvitations(users, eventId, function(err, eventObj, usersToNotify) {
+            console.log("users to notify");
+            console.log(usersToNotify)
             if (err) {
                 return response.error(err);
             }
@@ -316,7 +423,7 @@ Parse.Cloud.define("sendInvitations", function(request, response) {
                     return response.error(err);
                 }
                 // Add this back at some point. Stops the running of async calls for some reason
-                //response.success("Success");
+                // response.success("Success");
             });
         });
     });
@@ -366,9 +473,9 @@ function getInvitationObjectForTextUser(user, callback) {
             // TODO: Add support for a user having more than one invitation
             console.log("Invitation Object Returned: " + JSON.stringify(invitations));
             if(invitations.length) {
-                if (invitations.length > 1) {
-                    return callback(null, "multiple", invitations);
-                }
+                // if (invitations.length > 1) {
+                //     return callback(null, "multiple", invitations);
+                // }
                 return callback(null, "single", invitations[0]);
             } else {
                 callback("no result for invitation");
@@ -384,6 +491,7 @@ function getInvitationObjectForTextUser(user, callback) {
 
 function getEventObject(eventId, callback) {
     //Query for event object using ID
+    console.log("EVENT ID is " + eventId);
     var Event = Parse.Object.extend("Event");
     var query = new Parse.Query(Event);
     query.get(eventId, {
@@ -552,6 +660,11 @@ function createUsersFromInvitees(invitees, callback) {
 *
 */
 function checkPhoneNumber(invitee, callback) {
+
+    // if(invitee.phoneNumber.length == 11) {
+    //     invitee.phoneNumber = invitee.phoneNumber.substr(1);
+    // }
+
     //Check if user already exists by looking up phone number
     userExists(invitee.phoneNumber, function (err, user) {
         if (err) {
@@ -608,6 +721,7 @@ function userExists(phoneNumber, callback) {
 
 /**
 * Create new Invitation object and save to db
+* If invitation already exists, return error
 * Return error if save not successful, otherwise return to callback function
 *
 */
@@ -625,7 +739,7 @@ function createInvitation(user, eventObj, callback) {
       success: function(object) {
         if (object) {
             // CHANGE BACK TO false AFTER TESTING IS DONE
-          callback(null, user);
+          callback(false, user);
         } else {
             var newInvite = new Invitation();
             //TODO: Query for event pointer
